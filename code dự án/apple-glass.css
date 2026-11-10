@@ -1,0 +1,1068 @@
+﻿/* ==========================================================================
+   APPLE LIQUID GLASS – GIAO DIỆN BONG BÓNG KÍNH (TRẮNG & XANH MINT)
+   File dùng chung cho toàn bộ website – nạp SAU CÙNG trong <head>.
+   Chỉ thay đổi lớp hiển thị (nền kính, viền, bóng, bo góc), không đụng logic JS.
+   ========================================================================== */
+:root {
+  --ag-blur: blur(26px) saturate(185%);
+  --ag-blur-sm: blur(16px) saturate(170%);
+  --ag-surface: linear-gradient(160deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.52) 100%);
+  --ag-surface-strong: linear-gradient(160deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.74) 100%);
+  --ag-pill: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(240, 253, 247, 0.62) 100%);
+  --ag-border: 1px solid rgba(255, 255, 255, 0.85);
+  --ag-shadow:
+    0 10px 36px rgba(6, 78, 59, 0.08),
+    0 2px 6px rgba(6, 78, 59, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(16, 185, 129, 0.10),
+    inset 0 0 0 0.5px rgba(16, 185, 129, 0.18);
+  --ag-shadow-hover:
+    0 22px 50px rgba(6, 78, 59, 0.14),
+    0 4px 12px rgba(16, 185, 129, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(16, 185, 129, 0.14),
+    inset 0 0 0 0.5px rgba(16, 185, 129, 0.30);
+  --ag-mint-btn: linear-gradient(180deg, #34d399 0%, #10b981 48%, #059669 100%);
+  --ag-mint-shadow:
+    0 8px 22px rgba(5, 150, 105, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -2px 4px rgba(4, 120, 87, 0.25);
+  --ag-radius-card: 28px;
+  --ag-ease: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* --------------------------------------------------------------------------
+   1. NỀN: Ảnh đại ngàn anhnen1.webp chìm phía sau tất cả các trang
+   -------------------------------------------------------------------------- */
+body {
+  background-color: #0c2d22 !important;
+  background-image:
+    linear-gradient(180deg, rgba(246, 253, 249, 0.86) 0%, rgba(238, 251, 245, 0.82) 40%, rgba(230, 248, 239, 0.88) 100%),
+    radial-gradient(42vw 42vw at 8% 12%, rgba(110, 231, 183, 0.25) 0%, transparent 62%),
+    radial-gradient(38vw 38vw at 92% 8%, rgba(167, 243, 208, 0.35) 0%, transparent 60%),
+    radial-gradient(46vw 46vw at 85% 78%, rgba(52, 211, 153, 0.20) 0%, transparent 62%),
+    radial-gradient(40vw 40vw at 12% 88%, rgba(209, 250, 229, 0.50) 0%, transparent 60%),
+    url('anh%20dia%20danh/anhnen1.webp') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Lớp nền cố định (Fixed Background) hỗ trợ mọi trình duyệt & thiết bị di động chìm về phía sau cùng */
+body::before {
+  content: "" !important;
+  display: block !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -9999 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(180deg, rgba(246, 253, 249, 0.86) 0%, rgba(238, 251, 245, 0.82) 40%, rgba(230, 248, 239, 0.88) 100%),
+    radial-gradient(42vw 42vw at 8% 12%, rgba(110, 231, 183, 0.25) 0%, transparent 62%),
+    radial-gradient(38vw 38vw at 92% 8%, rgba(167, 243, 208, 0.35) 0%, transparent 60%),
+    radial-gradient(46vw 46vw at 85% 78%, rgba(52, 211, 153, 0.20) 0%, transparent 62%),
+    radial-gradient(40vw 40vw at 12% 88%, rgba(209, 250, 229, 0.50) 0%, transparent 60%),
+    url('anh%20dia%20danh/anhnen1.webp') no-repeat center center / cover !important;
+  transform: translate3d(0, 0, 0);
+}
+body::after {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. THANH ĐIỀU HƯỚNG – viên kính nổi Dynamic Island / Safari (chống tràn lề)
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky !important;
+  top: 14px !important;
+  z-index: 120 !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: none !important;
+  padding: 0 clamp(10px, 1.8vw, 24px) !important;
+  margin-bottom: -14px !important;
+  box-sizing: border-box !important;
+}
+.header-inner {
+  max-width: 1360px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  height: 64px !important;
+  padding: 0 clamp(14px, 1.6vw, 22px) 0 clamp(10px, 1.2vw, 16px) !important;
+  border-radius: 999px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: clamp(8px, 1.2vw, 16px) !important;
+  box-sizing: border-box !important;
+  background: var(--ag-spec), linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.68) 100%) !important;
+  backdrop-filter: var(--ag-blur) !important;
+  -webkit-backdrop-filter: var(--ag-blur) !important;
+  border: var(--ag-border) !important;
+  box-shadow: var(--ag-rim), var(--ag-depth) !important;
+}
+.site-header.scrolled .header-inner {
+  background: var(--ag-spec), linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.85) 100%) !important;
+  box-shadow: var(--ag-shadow-hover) !important;
+}
+.brand-logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  flex-shrink: 0 !important;
+}
+.brand-emblem {
+  width: 40px !important;
+  height: 40px !important;
+  flex-shrink: 0 !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: 0 3px 12px rgba(6, 78, 59, 0.25) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+.brand-emblem img,
+.brand-emblem-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 50% !important;
+}
+.brand-text {
+  display: flex !important;
+  flex-direction: column !important;
+  line-height: 1.15 !important;
+}
+.brand-title {
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  color: #064e3b !important;
+  white-space: nowrap !important;
+  letter-spacing: 0.02em !important;
+}
+.brand-subtitle {
+  font-size: 10.5px !important;
+  color: #52796f !important;
+  white-space: nowrap !important;
+}
+.main-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: clamp(4px, 0.75vw, 12px) !important;
+  flex: 1 1 auto !important;
+  justify-content: center !important;
+  min-width: 0 !important;
+}
+.nav-link {
+  font-size: 12.8px !important;
+  font-weight: 600 !important;
+  color: #1e3a2f !important;
+  padding: 6px clamp(4px, 0.5vw, 9px) !important;
+  border-radius: 999px !important;
+  white-space: nowrap !important;
+  transition: color 0.2s var(--ag-ease), background 0.2s var(--ag-ease) !important;
+}
+.nav-link:hover {
+  background: rgba(16, 185, 129, 0.10) !important;
+  color: #059669 !important;
+}
+.nav-link.active {
+  color: #059669 !important;
+  font-weight: 700 !important;
+  background: rgba(16, 185, 129, 0.08) !important;
+}
+.nav-link.active::after {
+  display: none !important;
+}
+.header-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-shrink: 0 !important;
+  margin-left: auto !important;
+}
+.header-search {
+  position: relative !important;
+  width: clamp(100px, 8.5vw, 140px) !important;
+  transition: width 0.25s var(--ag-ease) !important;
+  flex-shrink: 0 !important;
+}
+.header-search:focus-within {
+  width: clamp(140px, 12.5vw, 185px) !important;
+}
+.header-search input {
+  width: 100% !important;
+  height: 34px !important;
+  padding: 0 10px 0 30px !important;
+  font-size: 12px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(110, 231, 183, 0.65) !important;
+  color: #064e3b !important;
+  box-sizing: border-box !important;
+}
+.header-search input:focus {
+  background: #ffffff !important;
+  border-color: #059669 !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2) !important;
+}
+.header-search svg {
+  position: absolute !important;
+  left: 10px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 14px !important;
+  height: 14px !important;
+  color: #059669 !important;
+  pointer-events: none !important;
+}
+.icon-btn,
+#cartBtn {
+  flex-shrink: 0 !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+}
+
+.cart-pill-btn,
+.saved-pill-btn,
+.header-pill-btn {
+  flex-shrink: 0 !important;
+  height: 36px !important;
+  padding: 0 14px !important;
+  border-radius: 999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+}
+
+@media (max-width: 1280px) {
+  .brand-subtitle {
+    display: none !important;
+  }
+  .main-nav {
+    gap: 4px !important;
+  }
+  .nav-link {
+    font-size: 12px !important;
+    padding: 5px 5px !important;
+  }
+  .header-search {
+    width: 95px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-nav {
+    display: none !important;
+  }
+  .site-header {
+    top: 10px !important;
+    padding: 0 12px !important;
+  }
+  .header-inner {
+    height: 58px !important;
+    padding: 0 14px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. THẺ KÍNH LỚN (Cards / Panels)
+   -------------------------------------------------------------------------- */
+.hero-bento-card,
+.feature-pill,
+.showcase-info-panel,
+.promo-left-card,
+.promo-right-card,
+.specialty-card:not(.is-expanded),
+.itinerary-box,
+.timeline-step,
+.damchat-home-ctrlbox,
+.damchat-home-sliderbar,
+.damchat-home-card,
+.damchat-left-controls,
+.damchat-slider-wrap,
+.damchat-active-card,
+.toolbar-card,
+.hotel-card,
+.tip-card,
+.convo-card,
+.trip-card,
+.eco-step-card,
+.checkout-bill-card,
+.tailored-box,
+.cost-kpi-box,
+.guide-card,
+.checkin-box,
+.impact-stat,
+.dest-card,
+.stat-item,
+.food-card,
+.calc-card,
+.calc-result-box,
+.stat-box,
+.faq-item,
+.card-box,
+.wooden-sign-card,
+.guidebook-mockup,
+.hero-guarantees,
+.mode-switcher-bar,
+.hero-suggestions,
+.host-ask-bubble,
+.season-bar {
+  background: var(--ag-surface) !important;
+  backdrop-filter: var(--ag-blur) !important;
+  -webkit-backdrop-filter: var(--ag-blur) !important;
+  border: var(--ag-border) !important;
+  box-shadow: var(--ag-shadow) !important;
+  transition:
+    transform 0.45s var(--ag-ease),
+    box-shadow 0.45s var(--ag-ease),
+    background 0.45s var(--ag-ease) !important;
+}
+.hero-bento-card,
+.showcase-info-panel,
+.promo-left-card,
+.promo-right-card,
+.specialty-card:not(.is-expanded),
+.itinerary-box,
+.damchat-home-ctrlbox,
+.damchat-home-card,
+.damchat-left-controls,
+.damchat-active-card,
+.toolbar-card,
+.hotel-card,
+.convo-card,
+.eco-step-card,
+.checkout-bill-card,
+.guide-card,
+.dest-card,
+.food-card,
+.calc-card,
+.card-box {
+  border-radius: var(--ag-radius-card) !important;
+}
+.feature-pill,
+.timeline-step,
+.tip-card,
+.trip-card,
+.tailored-box,
+.cost-kpi-box,
+.checkin-box,
+.impact-stat,
+.stat-item,
+.stat-box,
+.faq-item,
+.calc-result-box,
+.guidebook-mockup,
+.hero-guarantees {
+  border-radius: 22px !important;
+}
+.timeline-step { border-left: 4px solid #10b981 !important; }
+
+.hero-bento-card:hover,
+.feature-pill:hover,
+.promo-left-card:hover,
+.promo-right-card:hover,
+.specialty-card:not(.is-expanded):hover,
+.timeline-step:hover,
+.damchat-home-ctrlbox:hover,
+.damchat-home-card:hover,
+.damchat-left-controls:hover,
+.damchat-active-card:hover,
+.hotel-card:hover,
+.trip-card:hover,
+.eco-step-card:hover,
+.guide-card:hover,
+.dest-card:hover,
+.food-card:hover,
+.stat-box:hover,
+.tip-card:hover {
+  background: var(--ag-surface-strong) !important;
+  box-shadow: var(--ag-shadow-hover) !important;
+}
+
+/* Ảnh bên trong thẻ: bo góc đồng bộ theo phong cách iOS */
+.hero-bento-thumb,
+.specialty-visual,
+.hotel-thumb-wrap,
+.card-thumb,
+.trip-thumb {
+  border-radius: 20px !important;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   4. VIÊN NHỎ: chip, tab, badge, nút phụ (Glass Pill)
+   -------------------------------------------------------------------------- */
+.filter-chip,
+.chip,
+.view-all-link,
+.nav-circle-btn,
+.index-box-btn,
+.autoplay-status,
+.Quick-save-btn,
+.suggestion-tag,
+.filter-tab-pill,
+.amenity-pill,
+.lang-pill,
+.check-pill,
+.reply-pill,
+.money-chip,
+.zone-pill,
+.info-pill,
+.season-btn,
+.itinerary-tab,
+.food-tag,
+.page-hero-badge,
+.ext-badge,
+.damchat-ribbon,
+.damchat-hint-pill,
+.damchat-home-ribbon,
+.slide-tag-badge,
+.modal-pill,
+.icon-btn,
+.btn-outline,
+.btn-flip-detail,
+.btn-add-cart,
+.damchat-home-btn.mkt,
+.damchat-ctrl-btn.btn-market,
+.btn-detail-quick,
+.btn-pair-itinerary,
+.rate-mini-btn,
+.save-pin-btn,
+.btn-hero-video,
+#homeOrbitAutoSpinBtn {
+  background: var(--ag-pill) !important;
+  backdrop-filter: var(--ag-blur-sm) !important;
+  -webkit-backdrop-filter: var(--ag-blur-sm) !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  color: #047857 !important;
+  box-shadow:
+    0 4px 14px rgba(6, 78, 59, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 0 0 0.5px rgba(16, 185, 129, 0.28) !important;
+  transition: transform 0.3s var(--ag-ease), box-shadow 0.3s var(--ag-ease), background 0.3s var(--ag-ease) !important;
+}
+.filter-chip:hover,
+.chip:hover,
+.view-all-link:hover,
+.nav-circle-btn:hover,
+.suggestion-tag:hover,
+.filter-tab-pill:hover,
+.season-btn:hover,
+.itinerary-tab:hover,
+.icon-btn:hover,
+.btn-outline:hover,
+.btn-flip-detail:hover,
+.btn-add-cart:hover,
+.damchat-home-btn.mkt:hover,
+.damchat-ctrl-btn.btn-market:hover,
+.btn-detail-quick:hover,
+.btn-pair-itinerary:hover,
+.btn-hero-video:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(209, 250, 229, 0.80) 100%) !important;
+  color: #065f46 !important;
+  box-shadow:
+    0 10px 24px rgba(6, 78, 59, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 0 0 0.5px rgba(16, 185, 129, 0.45) !important;
+}
+
+/* Trạng thái đang chọn: giọt kính Mint */
+.filter-chip.active,
+.chip.active,
+.index-box-btn.active,
+.filter-tab-pill.active,
+.itinerary-tab.active,
+.season-btn.active,
+.reply-pill.active,
+.check-pill.active,
+.money-chip.active,
+.reply-pill.selected,
+.check-pill.selected {
+  background: var(--ag-mint-btn) !important;
+  border: 1px solid rgba(255, 255, 255, 0.55) !important;
+  color: #ffffff !important;
+  box-shadow: var(--ag-mint-shadow) !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. NÚT CHÍNH – giọt kính Mint bóng (Apple Liquid Button)
+   -------------------------------------------------------------------------- */
+.btn-hero-primary,
+.nav-tour-cta,
+.hero-search-btn,
+.btn-explore,
+.btn-primary,
+.btn-buy,
+.btn-quyet-mua,
+.damchat-ctrl-btn.btn-exp,
+.damchat-home-btn.exp,
+.btn-book-card,
+.btn-submit-booking,
+.btn-book-guide,
+.btn-cta-nav,
+.btn-submit,
+.btn-view-all,
+.mode-switcher-btn,
+.cart-pill-btn,
+.btn-rate-trigger,
+#homeOrbitExpandBtn {
+  background: var(--ag-mint-btn) !important;
+  border: 1px solid rgba(255, 255, 255, 0.55) !important;
+  color: #ffffff !important;
+  border-radius: 999px !important;
+  box-shadow: var(--ag-mint-shadow) !important;
+  text-shadow: 0 1px 1px rgba(4, 120, 87, 0.25);
+  transition: transform 0.3s var(--ag-ease), box-shadow 0.3s var(--ag-ease), filter 0.3s var(--ag-ease) !important;
+}
+.btn-hero-primary:hover,
+.nav-tour-cta:hover,
+.hero-search-btn:hover,
+.btn-explore:hover,
+.btn-primary:hover,
+.btn-buy:hover,
+.btn-quyet-mua:hover,
+.damchat-ctrl-btn.btn-exp:hover,
+.damchat-home-btn.exp:hover,
+.btn-book-card:hover,
+.btn-submit-booking:hover,
+.btn-book-guide:hover,
+.btn-cta-nav:hover,
+.btn-submit:hover,
+.btn-view-all:hover,
+.mode-switcher-btn:hover,
+.cart-pill-btn:hover,
+.btn-rate-trigger:hover,
+#homeOrbitExpandBtn:hover {
+  filter: brightness(1.06) saturate(1.08);
+  box-shadow:
+    0 14px 30px rgba(5, 150, 105, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -2px 4px rgba(4, 120, 87, 0.25) !important;
+}
+
+/* Hiệu ứng nhấn "lún" như iOS */
+button:active,
+.btn-hero-primary:active,
+.nav-tour-cta:active,
+.view-all-link:active,
+.filter-chip:active,
+.chip:active {
+  transform: scale(0.96) !important;
+  transition-duration: 0.12s !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. Ô NHẬP LIỆU – trường kính lõm
+   -------------------------------------------------------------------------- */
+.header-search input,
+.hero-search-form,
+.search-box input,
+.form-control,
+.form-input,
+.styled-select,
+.clean-select,
+.convo-input,
+.checkout-ctrl-input,
+.search-input-wrap,
+.convo-input-box,
+.calc-field input,
+.calc-field select,
+.modal-form-group input,
+.modal-form-group select,
+.modal-form-group textarea {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.70) 0%, rgba(255, 255, 255, 0.55) 100%) !important;
+  backdrop-filter: var(--ag-blur-sm) !important;
+  -webkit-backdrop-filter: var(--ag-blur-sm) !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  box-shadow:
+    inset 0 1px 3px rgba(6, 78, 59, 0.08),
+    inset 0 0 0 0.5px rgba(16, 185, 129, 0.30),
+    0 1px 0 rgba(255, 255, 255, 0.9) !important;
+  color: #064e3b !important;
+  transition: box-shadow 0.25s var(--ag-ease), background 0.25s var(--ag-ease) !important;
+}
+.hero-search-form { border-radius: 999px !important; }
+.header-search input:focus,
+.search-box input:focus,
+.form-control:focus,
+.form-input:focus,
+.styled-select:focus,
+.clean-select:focus,
+.convo-input:focus,
+.checkout-ctrl-input:focus,
+.hero-search-form:focus-within,
+.modal-form-group input:focus,
+.modal-form-group select:focus,
+.modal-form-group textarea:focus {
+  background: rgba(255, 255, 255, 0.92) !important;
+  outline: none !important;
+  box-shadow:
+    0 0 0 4px rgba(16, 185, 129, 0.18),
+    inset 0 0 0 1px rgba(16, 185, 129, 0.55) !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. MODAL / SHEET – tấm kính nổi kiểu iOS Sheet
+   -------------------------------------------------------------------------- */
+.backdrop,
+.modal-backdrop,
+.flip-overlay-backdrop,
+.home-flip-backdrop {
+  background: rgba(236, 253, 245, 0.35) !important;
+  backdrop-filter: blur(22px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(160%) !important;
+}
+.modal-box,
+.modal-card {
+  background: var(--ag-surface-strong) !important;
+  backdrop-filter: var(--ag-blur) !important;
+  -webkit-backdrop-filter: var(--ag-blur) !important;
+  border: var(--ag-border) !important;
+  border-radius: 32px !important;
+  box-shadow:
+    0 40px 90px rgba(6, 78, 59, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 0 0 0.5px rgba(16, 185, 129, 0.25) !important;
+}
+.modal-head {
+  background: linear-gradient(180deg, rgba(52, 211, 153, 0.92) 0%, rgba(5, 150, 105, 0.92) 100%) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45) !important;
+}
+.modal-close {
+  background: rgba(255, 255, 255, 0.28) !important;
+  backdrop-filter: var(--ag-blur-sm) !important;
+  -webkit-backdrop-filter: var(--ag-blur-sm) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+}
+.specialty-card.is-expanded {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  border-radius: 32px !important;
+  box-shadow: 0 40px 90px rgba(6, 78, 59, 0.24), inset 0 0 0 0.5px rgba(16, 185, 129, 0.3) !important;
+}
+
+/* --------------------------------------------------------------------------
+   8. TOAST – thông báo kính tối kiểu iOS
+   -------------------------------------------------------------------------- */
+.toast-box {
+  background: rgba(6, 78, 59, 0.72) !important;
+  backdrop-filter: var(--ag-blur) !important;
+  -webkit-backdrop-filter: var(--ag-blur) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  box-shadow: 0 16px 40px rgba(6, 78, 59, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+}
+
+/* --------------------------------------------------------------------------
+   9. CHÂN TRANG & HERO – kính mờ toàn khối
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(236, 253, 245, 0.75) 100%) !important;
+  backdrop-filter: var(--ag-blur) !important;
+  -webkit-backdrop-filter: var(--ag-blur) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.9) !important;
+  box-shadow: inset 0 1px 0 rgba(16, 185, 129, 0.15);
+}
+.page-hero,
+.hero-section {
+  background:
+    radial-gradient(50vw 30vw at 20% 10%, rgba(110, 231, 183, 0.30) 0%, transparent 65%),
+    radial-gradient(40vw 26vw at 85% 30%, rgba(167, 243, 208, 0.40) 0%, transparent 65%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(240, 253, 247, 0.2) 100%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8) !important;
+}
+.waiting-banner {
+  background: linear-gradient(180deg, rgba(52, 211, 153, 0.88) 0%, rgba(5, 150, 105, 0.92) 100%) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 0 rgba(4, 120, 87, 0.3);
+}
+
+/* Thanh cuộn mảnh kiểu macOS */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.35);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(5, 150, 105, 0.55); background-clip: padding-box; }
+
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after { animation: none; }
+}
+
+
+/* ==========================================================================
+   V2 – TĂNG CƯỜNG CẢM GIÁC THỊ GIÁC (Liquid Glass sâu hơn)
+   - Ánh phản chiếu (specular) góc trên trái + đèn rọi theo chuột (--mx/--my do apple-glass.js đặt)
+   - Viền khúc xạ dày hơn, bóng nổi 3 lớp
+   - Bong bóng kính thật trôi nổi ở nền (do apple-glass.js chèn vào .ag-bubble-layer)
+   - Ẩn các ô trống còn sót lại sau khi bỏ icon
+   ========================================================================== */
+:root {
+  --ag-rim:
+    inset 1.5px 1.5px 0 rgba(255, 255, 255, 1),
+    inset -1px -1px 0 rgba(16, 185, 129, 0.16),
+    inset 0 -10px 22px rgba(16, 185, 129, 0.06),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+  --ag-depth:
+    0 1px 2px rgba(6, 78, 59, 0.06),
+    0 8px 20px rgba(6, 78, 59, 0.07),
+    0 28px 60px rgba(6, 78, 59, 0.10);
+  --ag-depth-hover:
+    0 2px 4px rgba(6, 78, 59, 0.06),
+    0 16px 34px rgba(16, 185, 129, 0.16),
+    0 44px 90px rgba(6, 78, 59, 0.16);
+  --ag-spec: radial-gradient(140% 70% at 0% 0%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.0) 46%);
+  --ag-spot: radial-gradient(460px circle at var(--mx, 50%) var(--my, -30%), rgba(52, 211, 153, 0.20), transparent 62%);
+}
+
+/* Nền đậm sắc hơn để kính "ăn" màu rõ */
+body {
+  background-image:
+    radial-gradient(44vw 44vw at 6% 10%, rgba(52, 211, 153, 0.38) 0%, transparent 62%),
+    radial-gradient(40vw 40vw at 96% 6%, rgba(110, 231, 183, 0.50) 0%, transparent 60%),
+    radial-gradient(50vw 50vw at 88% 80%, rgba(16, 185, 129, 0.24) 0%, transparent 62%),
+    radial-gradient(44vw 44vw at 10% 92%, rgba(167, 243, 208, 0.75) 0%, transparent 60%),
+    radial-gradient(30vw 30vw at 50% 50%, rgba(236, 253, 245, 0.9) 0%, transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #ecfdf5 55%, #e3faee 100%) !important;
+}
+
+/* ---- Lớp bong bóng kính trôi nổi ---- */
+.ag-bubble-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ag-bubble {
+  position: absolute;
+  bottom: -220px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 26%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.35) 14%, transparent 34%),
+    radial-gradient(circle at 70% 78%, rgba(16, 185, 129, 0.22) 0%, transparent 46%),
+    radial-gradient(circle at 50% 50%, rgba(209, 250, 229, 0.10) 0%, rgba(110, 231, 183, 0.28) 70%, rgba(255, 255, 255, 0.65) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.75),
+    inset -6px -10px 24px rgba(16, 185, 129, 0.20),
+    inset 8px 10px 20px rgba(255, 255, 255, 0.55),
+    0 12px 40px rgba(16, 185, 129, 0.14);
+  backdrop-filter: blur(3px) saturate(160%);
+  -webkit-backdrop-filter: blur(3px) saturate(160%);
+  animation: agRise linear infinite;
+  will-change: transform;
+}
+@keyframes agRise {
+  0%   { transform: translate3d(0, 0, 0) scale(0.9); opacity: 0; }
+  8%   { opacity: 1; }
+  50%  { transform: translate3d(var(--drift, 40px), -60vh, 0) scale(1); }
+  92%  { opacity: 1; }
+  100% { transform: translate3d(calc(var(--drift, 40px) * -0.6), -125vh, 0) scale(1.08); opacity: 0; }
+}
+
+/* ---- Thẻ kính: thêm phản chiếu + đèn rọi + viền khúc xạ ---- */
+.hero-bento-card,
+.feature-pill,
+.showcase-info-panel,
+.promo-left-card,
+.promo-right-card,
+.specialty-card:not(.is-expanded),
+.itinerary-box,
+.timeline-step,
+.damchat-home-ctrlbox,
+.damchat-home-card,
+.damchat-left-controls,
+.damchat-active-card,
+.toolbar-card,
+.hotel-card,
+.tip-card,
+.convo-card,
+.trip-card,
+.eco-step-card,
+.checkout-bill-card,
+.tailored-box,
+.cost-kpi-box,
+.guide-card,
+.checkin-box,
+.impact-stat,
+.dest-card,
+.stat-item,
+.food-card,
+.calc-card,
+.calc-result-box,
+.stat-box,
+.faq-item,
+.card-box,
+.wooden-sign-card,
+.guidebook-mockup,
+.hero-guarantees,
+.hero-suggestions,
+.host-ask-bubble,
+.season-bar {
+  background: var(--ag-spot), var(--ag-spec), var(--ag-surface) !important;
+  box-shadow: var(--ag-rim), var(--ag-depth) !important;
+}
+.hero-bento-card:hover,
+.feature-pill:hover,
+.promo-left-card:hover,
+.promo-right-card:hover,
+.specialty-card:not(.is-expanded):hover,
+.timeline-step:hover,
+.damchat-home-ctrlbox:hover,
+.damchat-home-card:hover,
+.damchat-left-controls:hover,
+.damchat-active-card:hover,
+.hotel-card:hover,
+.trip-card:hover,
+.eco-step-card:hover,
+.guide-card:hover,
+.dest-card:hover,
+.food-card:hover,
+.stat-box:hover,
+.tip-card:hover,
+.convo-card:hover,
+.calc-card:hover,
+.card-box:hover,
+.faq-item:hover {
+  background: var(--ag-spot), var(--ag-spec), var(--ag-surface-strong) !important;
+  box-shadow: var(--ag-rim), var(--ag-depth-hover) !important;
+}
+
+/* Thanh menu: viền khúc xạ + bóng sâu */
+.header-inner {
+  background: var(--ag-spec), linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.68) 100%) !important;
+  box-shadow: var(--ag-rim), var(--ag-depth) !important;
+}
+
+/* Nút chính: giọt nước bóng với vệt sáng cong phía trên */
+.btn-hero-primary,
+.nav-tour-cta,
+.hero-search-btn,
+.btn-explore,
+.btn-primary,
+.btn-buy,
+.btn-quyet-mua,
+.damchat-ctrl-btn.btn-exp,
+.damchat-home-btn.exp,
+.btn-book-card,
+.btn-submit-booking,
+.btn-book-guide,
+.btn-cta-nav,
+.btn-submit,
+.btn-view-all,
+.cart-pill-btn,
+.btn-rate-trigger,
+#homeOrbitExpandBtn,
+.filter-chip.active,
+.chip.active,
+.index-box-btn.active,
+.filter-tab-pill.active,
+.itinerary-tab.active,
+.season-btn.active,
+.reply-pill.active,
+.check-pill.active,
+.reply-pill.selected,
+.check-pill.selected {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.08) 48%, rgba(255, 255, 255, 0) 52%),
+    var(--ag-mint-btn) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    inset 0 -3px 6px rgba(4, 120, 87, 0.30),
+    0 2px 4px rgba(5, 150, 105, 0.20),
+    0 10px 26px rgba(5, 150, 105, 0.32) !important;
+}
+
+/* Viên kính nhỏ: thêm vệt phản chiếu */
+.filter-chip:not(.active),
+.chip:not(.active),
+.view-all-link,
+.nav-circle-btn,
+.index-box-btn:not(.active),
+.suggestion-tag,
+.filter-tab-pill:not(.active),
+.season-btn:not(.active),
+.itinerary-tab:not(.active),
+.reply-pill:not(.active):not(.selected),
+.check-pill:not(.active):not(.selected),
+.icon-btn,
+.btn-outline,
+.btn-flip-detail,
+.btn-add-cart,
+.btn-hero-video,
+.btn-detail-quick,
+.btn-pair-itinerary,
+.page-hero-badge,
+.ext-badge,
+.damchat-home-ribbon,
+.damchat-ribbon,
+.damchat-hint-pill,
+#homeOrbitAutoSpinBtn {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.35) 50%, rgba(236, 253, 245, 0.55) 100%) !important;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -2px 5px rgba(16, 185, 129, 0.10),
+    inset 0 0 0 0.5px rgba(16, 185, 129, 0.35),
+    0 6px 18px rgba(6, 78, 59, 0.08) !important;
+}
+
+/* Hiệu ứng xuất hiện khi cuộn (do apple-glass.js gắn .ag-reveal / .ag-in) */
+.ag-reveal {
+  opacity: 0;
+  translate: 0 28px;
+  filter: blur(6px);
+  transition:
+    opacity 0.9s var(--ag-ease),
+    translate 0.9s var(--ag-ease),
+    filter 0.9s var(--ag-ease) !important;
+}
+.ag-reveal.ag-in {
+  opacity: 1;
+  translate: none;
+  filter: none;
+}
+
+/* ---- DỌN DẸP: ẩn triệt để các ô trống / khối placeholder thừa ---- */
+.pill-emo,
+.feat-icon,
+.right-leaf,
+.waiting-heart:empty,
+.star:empty,
+.botanical-floater,
+#autoSpinStatusIcon:empty,
+.diorama-floating-badge > span:empty,
+.damchat-ribbon > span:empty,
+.damchat-home-ribbon > span:empty,
+.mode-switcher-bar,
+.damchat-home-sliderbar,
+.damchat-slider-wrap,
+.compass-icon,
+.cal-icon,
+.reason-dot,
+.host-avatar,
+.host-mini-ava,
+.trip-thumb {
+  display: none !important;
+}
+
+/* Tinh chỉnh lại layout khi ẩn các ô thừa */
+.reason-item {
+  display: block !important;
+  padding: 10px 14px !important;
+  background: rgba(255, 255, 255, 0.65) !important;
+  border-left: 3px solid #10b981 !important;
+  border-radius: 0 14px 14px 0 !important;
+  box-shadow: 0 2px 8px rgba(6, 78, 59, 0.04) !important;
+}
+.host-ask-row {
+  display: block !important;
+}
+.trip-card {
+  padding: 14px 16px !important;
+}
+
+/* Nút đóng bị mất ký tự -> thêm dấu × */
+.home-flip-close:empty::before,
+.flip-close-btn:empty::before {
+  content: '\00D7';
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* Thanh chia trắng mờ còn sót (không thấy được trên nền sáng) */
+.hero-guarantees > div[style*="width:1px"] {
+  background: rgba(16, 185, 129, 0.25) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ag-bubble { animation: none; display: none; }
+  .ag-reveal { opacity: 1; translate: none; filter: none; }
+}
+
+
+/* Tắt toàn bộ bong bóng / đốm mờ trôi ở nền theo yêu cầu */
+.ag-bubble-layer { display: none !important; }
+body::before,
+body::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+}
+
+
+/* Hero Stylized Title "Chạm" */
+.hero-title-cham {
+  display: inline-block !important;
+  font-family: 'Dancing Script', 'Caveat', cursive !important;
+  font-size: clamp(56px, 7.5vw, 96px) !important;
+  font-weight: 700 !important;
+  line-height: 0.95 !important;
+  background: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  margin-bottom: 2px !important;
+  letter-spacing: 0.01em !important;
+  filter: drop-shadow(0 3px 10px rgba(4, 120, 87, 0.22)) !important;
+  transform: rotate(-3deg) !important;
+  transform-origin: left bottom !important;
+}
+
+/* Elevated Hero Section & Giant Stylized Title "Chạm" */
+.hero-section {
+  padding-top: clamp(92px, 10vw, 130px) !important;
+}
+.hero-left h1 {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  margin-top: 6px !important;
+  margin-bottom: 20px !important;
+}
+.hero-title-cham {
+  display: block !important;
+  font-family: 'Dancing Script', 'Caveat', cursive !important;
+  font-size: clamp(78px, 10vw, 136px) !important;
+  font-weight: 700 !important;
+  line-height: 1.05 !important;
+  background: linear-gradient(135deg, #047857 0%, #059669 45%, #10b981 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  margin-top: 2px !important;
+  margin-bottom: 12px !important;
+  padding: 6px 12px 6px 4px !important;
+  letter-spacing: 0.015em !important;
+  filter: drop-shadow(0 4px 16px rgba(4, 120, 87, 0.32)) !important;
+  transform: rotate(-3deg) !important;
+  transform-origin: left center !important;
+  width: fit-content !important;
+}

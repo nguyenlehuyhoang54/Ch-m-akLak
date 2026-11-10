@@ -1,0 +1,3038 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đặc sản Tây Nguyên & Quà biếu – Chạm Đắk Lắk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --forest-950: #081c11;
+      --forest-800: #153d27;
+      --forest-700: #1e5638;
+      --forest-600: #287049;
+      --forest-200: #b7e4c7;
+      --sage-bg: #eef5f0;
+      --cream-bg: #f8f3ec;
+      --text-main: #14221a;
+      --text-body: #4a574f;
+      --text-muted: #728077;
+      --border-soft: rgba(21, 61, 39, 0.1);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-sm: 0 4px 16px rgba(12, 38, 24, 0.05);
+      --shadow-md: 0 12px 28px rgba(12, 38, 24, 0.1);
+      --container-max: 1180px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f8faf8;
+      color: var(--text-main);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    button, input, select, textarea { font-family: inherit; }
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 32px; }
+
+    /* ========================================================================
+       HEADER (Đồng bộ với Trang chủ)
+       ======================================================================== */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .header-inner {
+      max-width: var(--container-max); margin: 0 auto; padding: 0 32px;
+      height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .brand-logo { display: flex; align-items: center; gap: 11px; }
+    .brand-emblem {
+      width: 40px; height: 40px; border-radius: 11px;
+      background: linear-gradient(135deg, var(--forest-800), var(--forest-600));
+      display: flex; align-items: center; justify-content: center; color: #fff;
+    }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+    .brand-title { font-size: 17.5px; font-weight: 800; color: var(--forest-800); }
+    .brand-subtitle { font-size: 10px; font-weight: 500; color: var(--text-muted); margin-top: 2px; }
+
+    .main-nav { display: flex; align-items: center; gap: 24px; }
+    .nav-link {
+      position: relative; font-size: 13.5px; font-weight: 500; color: #2c3831; padding: 6px 0; transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--forest-800); }
+    .nav-link.active { font-weight: 700; }
+    .nav-link.active::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: -2px;
+      height: 2.5px; background: var(--forest-800); border-radius: 2px;
+    }
+
+    .cart-pill-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 7px 14px; border-radius: var(--radius-pill);
+      background: var(--sage-bg); color: var(--forest-800);
+      font-size: 12.5px; font-weight: 700; border: 1px solid rgba(21, 61, 39, 0.14);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .cart-pill-btn:hover { background: var(--forest-800); color: #fff; }
+    .cart-count-badge {
+      background: var(--forest-800); color: #fff; border-radius: 999px;
+      padding: 1px 7px; font-size: 11px; font-weight: 800;
+    }
+    .cart-pill-btn:hover .cart-count-badge { background: #fff; color: var(--forest-800); }
+
+    /* ========================================================================
+       NEW: "ĐẮK LẮK ĐẬM CHẤT" 3D ORBIT SHOWCASE (Đồng bộ tông Kem & Xanh Rừng tự nhiên của Web, không dùng Neon)
+       ======================================================================== */
+    .damchat-stage-wrap {
+      background: radial-gradient(circle at 58% 45%, #faf6e9 0%, #f3edd7 56%, #e7dfc6 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 28px 0 26px;
+      border-bottom: 1px solid rgba(21, 61, 39, 0.1);
+      color: var(--text-main);
+      user-select: none;
+    }
+    .damchat-stage-wrap::before {
+      content: '';
+      position: absolute;
+      width: 640px;
+      height: 640px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(54, 143, 94, 0.09) 0%, transparent 70%);
+      top: -180px;
+      right: 8%;
+      pointer-events: none;
+    }
+    .damchat-accent-bar {
+      display: none;
+    }
+
+    .damchat-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 28px;
+      position: relative;
+      z-index: 2;
+      min-height: 530px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Top-left Heading + Natural Badge */
+    .damchat-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      position: relative;
+      z-index: 5;
+      flex-wrap: wrap;
+    }
+    .damchat-hero-heading {
+      position: relative;
+      display: inline-block;
+      margin-top: 4px;
+    }
+    .damchat-title-orange {
+      display: block;
+      font-size: clamp(34px, 4.4vw, 52px);
+      font-weight: 900;
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+      color: #b45309;
+      text-transform: uppercase;
+    }
+    .damchat-title-white {
+      display: block;
+      font-size: clamp(36px, 4.8vw, 56px);
+      font-weight: 900;
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      color: var(--forest-800);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .damchat-ribbon {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(21, 61, 39, 0.09);
+      border: 1px solid rgba(21, 61, 39, 0.18);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--forest-800);
+    }
+    .damchat-ribbon span { color: #b45309; }
+
+    .damchat-hint-pill {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(21, 61, 39, 0.16);
+      color: var(--forest-800);
+      padding: 7px 15px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(15, 38, 24, 0.06);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    /* Center 3D Tilted Elliptical Orbit Arena – BÀN XOAY THƯỞNG VỊ ĐẠI NGÀN 3D */
+    .damchat-arena {
+      position: relative;
+      height: 390px;
+      margin: -4px 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1400px;
+      cursor: grab;
+    }
+    .damchat-arena:active { cursor: grabbing; }
+
+    /* Multi-layered 3D Wooden & Basalt Lazy-Susan Platter */
+    .orbit-ellipse-ring {
+      position: absolute;
+      width: min(790px, 86vw);
+      height: 270px;
+      border-radius: 50%;
+      background:
+        radial-gradient(ellipse at center,
+          rgba(232, 216, 190, 0.9) 0%,
+          rgba(214, 192, 158, 0.85) 45%,
+          rgba(166, 124, 82, 0.35) 76%,
+          rgba(21, 61, 39, 0.14) 94%,
+          transparent 100%);
+      border: 3px solid rgba(124, 74, 30, 0.35);
+      box-shadow:
+        0 28px 55px rgba(38, 24, 10, 0.22),
+        inset 0 2px 18px rgba(255, 255, 255, 0.65),
+        inset 0 -10px 24px rgba(92, 54, 20, 0.22);
+      transform: rotateX(60deg) rotateZ(-4deg);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .orbit-ellipse-ring::before {
+      content: '';
+      position: absolute;
+      inset: 16px;
+      border-radius: 50%;
+      border: 1.5px dashed rgba(21, 61, 39, 0.28);
+    }
+    .orbit-ellipse-ring::after {
+      content: '';
+      position: absolute;
+      inset: -16px;
+      border-radius: 50%;
+      border: 1.5px dashed rgba(180, 83, 9, 0.32);
+    }
+
+    /* Rotating Compass & Tribal Ring inside the 3D Platter */
+    .turntable-compass-disc {
+      width: 84%;
+      height: 84%;
+      border-radius: 50%;
+      border: 2px dotted rgba(124, 74, 30, 0.38);
+      position: relative;
+      transition: transform 0.08s linear;
+    }
+    .turntable-compass-disc::before {
+      content: ' BUÔN MA THUỘT • CƯ KUIN • KRÔNG NĂNG • EA KAR • BUÔN ĐÔN ';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      color: rgba(92, 54, 20, 0.45);
+      white-space: nowrap;
+    }
+
+    /* Golden Sunlight Spotlight Beam in Center */
+    .turntable-spotlight {
+      position: absolute;
+      width: 220px;
+      height: 260px;
+      background: linear-gradient(180deg, rgba(253, 230, 138, 0) 0%, rgba(251, 191, 36, 0.16) 55%, rgba(180, 83, 9, 0.18) 100%);
+      clip-path: polygon(22% 0%, 78% 0%, 100% 100%, 0% 100%);
+      bottom: 85px;
+      pointer-events: none;
+      z-index: 4;
+      filter: blur(8px);
+    }
+
+    /* Rising Aroma Steam Wisps above Centerpiece */
+    .aroma-steam-wrap {
+      position: absolute;
+      top: -34px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      pointer-events: none;
+      z-index: 8;
+    }
+    .steam-wisp {
+      width: 8px;
+      height: 28px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(180, 83, 9, 0.35) 50%, rgba(21, 61, 39, 0) 100%);
+      filter: blur(2px);
+      animation: steamRise 2.6s ease-in-out infinite;
+    }
+    .steam-wisp:nth-child(2) { height: 34px; animation-delay: 0.8s; }
+    .steam-wisp:nth-child(3) { height: 24px; animation-delay: 1.5s; }
+    @keyframes steamRise {
+      0% { transform: translateY(10px) scaleX(0.8); opacity: 0; }
+      50% { transform: translateY(-4px) scaleX(1.2); opacity: 0.75; }
+      100% { transform: translateY(-18px) scaleX(0.9); opacity: 0; }
+    }
+
+    /* Center Hub: Interactive 3D Tasting Pedestal (Click to Flip Expand!) */
+    .orbit-center-core {
+      position: relative;
+      z-index: 15;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .orbit-center-core:hover {
+      transform: translateY(-6px) scale(1.04);
+    }
+    .core-altitude-pill {
+      margin-bottom: -10px;
+      position: relative;
+      z-index: 4;
+      background: #fffbeb;
+      border: 1px solid rgba(180, 83, 9, 0.35);
+      color: #92400e;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 11px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(38, 24, 10, 0.12);
+    }
+    .core-models-group {
+      position: relative;
+      width: 144px;
+      height: 144px;
+      border-radius: 28px;
+      background: linear-gradient(145deg, #ffffff 0%, #f5efe4 100%);
+      padding: 7px;
+      border: 2px solid var(--forest-800);
+      box-shadow:
+        0 22px 44px rgba(21, 61, 39, 0.26),
+        0 0 0 6px rgba(255, 255, 255, 0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .core-models-group img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+    .orbit-center-core:hover .core-models-group img {
+      transform: scale(1.07);
+    }
+    .hold-spin-badge {
+      margin-top: -12px;
+      position: relative;
+      z-index: 4;
+      background: var(--forest-800);
+      border: 1.5px solid #ffffff;
+      color: #ffffff;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      box-shadow: 0 8px 18px rgba(15, 38, 24, 0.25);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hold-spin-badge strong { color: #fde68a; }
+
+    /* Orbiting 3D Tasting Coasters */
+    .orbit-items-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .orbit-node {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 132px;
+      margin-left: -66px;
+      margin-top: -72px;
+      pointer-events: auto;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: filter 0.25s ease;
+    }
+    .orbit-node-flavor-tag {
+      margin-bottom: 5px;
+      background: rgba(255, 251, 235, 0.95);
+      border: 1px solid rgba(180, 83, 9, 0.28);
+      color: #92400e;
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateY(4px);
+      transition: all 0.25s ease;
+    }
+    .orbit-node.active .orbit-node-flavor-tag,
+    .orbit-node:hover .orbit-node-flavor-tag {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .orbit-node-pedestal {
+      width: 94px;
+      height: 94px;
+      border-radius: 20px;
+      background: #ffffff;
+      border: 1.5px solid rgba(21, 61, 39, 0.16);
+      box-shadow:
+        0 14px 26px rgba(38, 24, 10, 0.16),
+        0 4px 0 #d6c7b2;
+      padding: 4px;
+      position: relative;
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+    .orbit-node.active .orbit-node-pedestal {
+      border-color: #b45309;
+      border-width: 2.5px;
+      box-shadow:
+        0 20px 36px rgba(180, 83, 9, 0.26),
+        0 5px 0 #b45309;
+      transform: translateY(-6px) scale(1.1);
+    }
+    .orbit-node:hover .orbit-node-pedestal {
+      border-color: var(--forest-700);
+      transform: translateY(-4px) scale(1.06);
+    }
+    .orbit-node-pedestal img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+    }
+    .orbit-node-price {
+      position: absolute;
+      top: -7px;
+      right: -7px;
+      background: var(--forest-800);
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 999px;
+      box-shadow: 0 4px 10px rgba(15, 38, 24, 0.22);
+    }
+    .orbit-node.active .orbit-node-price {
+      background: #b45309;
+    }
+    .orbit-node-label {
+      margin-top: 8px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(21, 61, 39, 0.16);
+      color: var(--text-main);
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+      max-width: 144px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      box-shadow: 0 4px 12px rgba(15, 38, 24, 0.1);
+    }
+    .orbit-node.active .orbit-node-label {
+      background: var(--forest-800);
+      border-color: var(--forest-800);
+      color: #ffffff;
+    }
+
+    /* Sensory Flavor Profile Bars inside Left & Right Cards */
+    .sensory-meter-list {
+      display: grid;
+      gap: 6px;
+      margin: 8px 0 10px;
+      padding: 9px 11px;
+      background: #f6f9f7;
+      border-radius: 12px;
+      border: 1px solid rgba(21, 61, 39, 0.1);
+    }
+    .sensory-meter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 11px;
+    }
+    .sensory-meter-label {
+      font-weight: 700;
+      color: var(--text-body);
+      min-width: 82px;
+    }
+    .sensory-meter-track {
+      flex: 1;
+      height: 6px;
+      background: #e2e8e4;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .sensory-meter-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--forest-700), #b45309);
+      border-radius: 999px;
+      transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .sensory-meter-val {
+      font-weight: 800;
+      color: var(--forest-800);
+      font-size: 10.5px;
+      min-width: 28px;
+      text-align: right;
+    }
+    .pairing-chip-btn {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px dashed rgba(180, 83, 9, 0.4);
+      background: #fffbeb;
+      color: #92400e;
+      font-size: 11px;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .pairing-chip-btn:hover {
+      background: #fef3c7;
+      border-style: solid;
+    }
+
+    /* Bottom Row: Left Mode Box + Center/Bottom Slider + Right Active Card */
+    .damchat-bottom-row {
+      display: grid;
+      grid-template-columns: 250px 1fr 340px;
+      align-items: end;
+      gap: 20px;
+      position: relative;
+      z-index: 8;
+    }
+
+    /* Left Control Box (Clean White Card) */
+    .damchat-left-controls {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(21, 61, 39, 0.14);
+      border-radius: 18px;
+      padding: 14px 16px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 28px rgba(15, 38, 24, 0.08);
+    }
+    .damchat-ctrl-caption {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .damchat-ctrl-btn {
+      width: 100%;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .damchat-ctrl-btn.btn-exp {
+      background: var(--forest-800);
+      color: #ffffff;
+      border: 1px solid var(--forest-800);
+      margin-bottom: 8px;
+    }
+    .damchat-ctrl-btn.btn-exp:hover {
+      background: var(--forest-700);
+    }
+    .damchat-ctrl-btn.btn-market {
+      background: var(--sage-bg);
+      color: var(--forest-800);
+      border: 1px solid rgba(21, 61, 39, 0.18);
+    }
+    .damchat-ctrl-btn.btn-market:hover {
+      background: var(--forest-800);
+      color: #ffffff;
+    }
+
+    /* Center-Bottom DRAG TO EXPLORE Bar (Giống thanh kéo ở phần Địa điểm 3D) */
+    .damchat-slider-wrap {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(21, 61, 39, 0.16);
+      border-radius: 999px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 8px 22px rgba(15, 38, 24, 0.07);
+    }
+    .drag-label {
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--forest-800);
+      white-space: nowrap;
+    }
+    .orbit-range-slider {
+      flex: 1;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 7px;
+      border-radius: 999px;
+      background: #dfd9ce;
+      outline: none;
+      cursor: pointer;
+    }
+    .orbit-range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--forest-800);
+      border: 3px solid #ffffff;
+      box-shadow: 0 2px 8px rgba(15, 38, 24, 0.3);
+      cursor: grab;
+    }
+    .orbit-dots {
+      display: flex;
+      gap: 5px;
+    }
+    .orbit-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(21, 61, 39, 0.22);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .orbit-dot.active {
+      background: var(--forest-800);
+      transform: scale(1.25);
+    }
+
+    /* Right Active Specialty Card (Clean White & Forest Card) */
+    .damchat-active-card {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(21, 61, 39, 0.16);
+      border-radius: 20px;
+      padding: 16px 18px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 14px 32px rgba(15, 38, 24, 0.1);
+      position: relative;
+    }
+    .active-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .active-card-title {
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--forest-800);
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+    .active-card-sub {
+      font-size: 12px;
+      color: var(--text-body);
+      margin-top: 3px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .active-card-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 0;
+      border-top: 1px solid rgba(21, 61, 39, 0.1);
+      border-bottom: 1px solid rgba(21, 61, 39, 0.1);
+      margin-bottom: 12px;
+    }
+    .active-card-price {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--forest-800);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .active-card-ocop {
+      text-align: right;
+      font-size: 11px;
+    }
+    .active-card-ocop strong {
+      display: block;
+      color: #b45309;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .active-card-ocop button {
+      background: none;
+      border: none;
+      color: var(--forest-700);
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .active-card-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .btn-quyet-mua {
+      flex: 1;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: none;
+      background: var(--forest-800);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-quyet-mua:hover {
+      background: var(--forest-600);
+    }
+    .btn-flip-detail {
+      padding: 9px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(21, 61, 39, 0.2);
+      background: var(--sage-bg);
+      color: var(--forest-800);
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-flip-detail:hover {
+      background: var(--forest-800);
+      color: #ffffff;
+    }
+
+    /* ========================================================================
+       COMPACT HERO (Dữ liệu cũ giữ nguyên 100%)
+       ======================================================================== */
+    .page-hero {
+      background: linear-gradient(128deg, #0f2e1d 0%, #184a2f 55%, #256b45 100%);
+      color: #ffffff;
+      padding: 40px 0 56px;
+    }
+    .hero-content {
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    }
+    .page-hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 12px; border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.14); color: var(--forest-200);
+      font-size: 11.5px; font-weight: 600; margin-bottom: 10px;
+    }
+    .page-hero h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .page-hero p { font-size: 14px; color: rgba(255, 255, 255, 0.84); max-width: 580px; }
+    .hero-guarantees {
+      display: flex; gap: 16px; background: rgba(255, 255, 255, 0.1);
+      padding: 12px 18px; border-radius: 14px; backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.16); font-size: 12px;
+    }
+    .hero-guarantees strong { display: block; font-size: 15px; font-weight: 800; color: #fde047; }
+
+    /* ========================================================================
+       UNIFIED TOOLBAR (Tìm kiếm + Lọc danh mục gọn trong 1 khung)
+       ======================================================================== */
+    .toolbar-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 16px 20px;
+      margin-top: -28px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-soft);
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .filter-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chip {
+      padding: 7px 14px; border-radius: var(--radius-pill);
+      border: 1px solid #dce6df; background: #fff;
+      font-size: 12.5px; font-weight: 600; color: var(--text-body);
+      cursor: pointer; transition: all 0.18s;
+    }
+    .chip:hover { border-color: var(--forest-600); color: var(--forest-800); }
+    .chip.active { background: var(--forest-800); color: #fff; border-color: var(--forest-800); }
+
+    .search-box { position: relative; min-width: 240px; flex: 1; max-width: 320px; }
+    .search-box input {
+      width: 100%; height: 38px; border-radius: var(--radius-pill);
+      border: 1px solid #d5e0d8; background: #f9fbf9;
+      padding: 0 14px 0 36px; font-size: 12.5px; outline: none; transition: 0.2s;
+    }
+    .search-box input:focus { border-color: var(--forest-600); background: #fff; }
+    .search-box svg {
+      position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+      width: 14px; height: 14px; color: var(--text-muted);
+    }
+
+    /* ========================================================================
+       CLEAN 4-COLUMN PRODUCT GRID + GSAP FLIP SHARED ELEMENT TRANSITION
+       ======================================================================== */
+    .specialties-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-bottom: 48px;
+    }
+    .product-card-slot {
+      min-height: 368px;
+      display: flex;
+    }
+    .specialty-card.product-card {
+      width: 100%;
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      position: relative;
+      transition: box-shadow 0.24s ease;
+    }
+    .specialty-card.product-card:not(.is-expanded):hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .specialty-visual {
+      position: relative;
+      height: 190px;
+      background: #eef4f0;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .specialty-visual img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.45s ease;
+    }
+    .specialty-card:not(.is-expanded):hover .specialty-visual img { transform: scale(1.05); }
+
+    .origin-badge {
+      position: absolute; top: 10px; left: 10px;
+      background: rgba(255, 255, 255, 0.94); color: var(--forest-800);
+      padding: 4px 10px; border-radius: var(--radius-pill);
+      font-size: 10.5px; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .ocop-badge {
+      position: absolute; top: 10px; right: 10px;
+      background: rgba(21, 61, 39, 0.88); backdrop-filter: blur(4px);
+      color: #fde047; padding: 4px 9px; border-radius: 999px;
+      font-size: 10.5px; font-weight: 800;
+    }
+    .expand-hint-badge {
+      position: absolute; bottom: 10px; right: 10px;
+      background: rgba(8, 28, 17, 0.78); backdrop-filter: blur(4px);
+      color: #a7f3d0; padding: 3px 9px; border-radius: 999px;
+      font-size: 10px; font-weight: 700;
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .specialty-card:not(.is-expanded):hover .expand-hint-badge { opacity: 1; }
+
+    .specialty-body {
+      padding: 16px 16px 15px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .specialty-title {
+      font-size: 15px; font-weight: 800; color: var(--text-main);
+      margin-bottom: 5px; line-height: 1.35;
+    }
+    .specialty-sub {
+      font-size: 12px; color: var(--text-body); line-height: 1.45;
+      margin-bottom: 12px;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+
+    /* Extra detail content only shown when card is expanded via GSAP Flip */
+    .flip-expanded-details {
+      display: none;
+      margin: 12px 0 16px;
+      padding: 14px;
+      border-radius: 14px;
+      background: #f3f8f5;
+      border: 1px solid rgba(21, 61, 39, 0.12);
+      font-size: 13px;
+      color: var(--text-body);
+    }
+    .flip-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .flip-spec-item {
+      background: #ffffff;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid #e3ece6;
+      font-size: 12px;
+    }
+    .flip-spec-item strong {
+      display: block;
+      color: var(--forest-800);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    /* Close button (X) top-right for Expanded Flip State */
+    .flip-close-btn {
+      display: none;
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 20;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      background: rgba(8, 28, 17, 0.82);
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .flip-close-btn:hover {
+      background: #dc2626;
+      border-color: #ffffff;
+      transform: scale(1.08);
+    }
+
+    /* REQUIRED AUXILIARY CSS FOR GSAP FLIP EXPANDED STATE */
+    .flip-overlay-backdrop {
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      background: rgba(0, 0, 0, 0.7);
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .flip-overlay-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .specialty-card.product-card.is-expanded {
+      position: fixed !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      width: min(780px, 92vw) !important;
+      max-height: 88vh !important;
+      z-index: 1000 !important;
+      display: grid !important;
+      grid-template-columns: 1.05fr 1.25fr !important;
+      border-radius: 24px !important;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.65) !important;
+      cursor: default !important;
+      overflow: hidden !important;
+    }
+    .specialty-card.product-card.is-expanded .specialty-visual {
+      height: 100% !important;
+      min-height: 360px !important;
+    }
+    .specialty-card.product-card.is-expanded .ocop-badge {
+      right: auto;
+      left: 10px;
+      top: 44px;
+    }
+    .specialty-card.product-card.is-expanded .expand-hint-badge {
+      display: none !important;
+    }
+    .specialty-card.product-card.is-expanded .specialty-body {
+      padding: 26px 26px 22px !important;
+      overflow-y: auto !important;
+    }
+    .specialty-card.product-card.is-expanded .specialty-title {
+      font-size: 22px !important;
+      margin-bottom: 8px !important;
+    }
+    .specialty-card.product-card.is-expanded .specialty-sub {
+      -webkit-line-clamp: unset !important;
+      font-size: 13.5px !important;
+    }
+    .specialty-card.product-card.is-expanded .flip-expanded-details {
+      display: block !important;
+    }
+    .specialty-card.product-card.is-expanded .flip-close-btn {
+      display: inline-flex !important;
+    }
+
+    /* Clean 1-line Rating Row */
+    .rating-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 7px 10px; border-radius: 10px; background: #f5f9f6;
+      margin-bottom: 12px; font-size: 11.5px;
+    }
+    .rating-score { font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 4px; }
+    .rating-score .star { color: #d97706; }
+    .rating-score small { color: var(--text-muted); font-weight: 500; }
+    .rate-link-btn {
+      background: none; border: none; color: var(--forest-700);
+      font-size: 11px; font-weight: 700; cursor: pointer; text-decoration: underline;
+    }
+    .rate-link-btn:hover { color: #d97706; }
+
+    .specialty-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 12px; border-top: 1px solid #eef3ef;
+    }
+    .price { font-size: 16.5px; font-weight: 800; color: var(--forest-800); }
+    .btn-buy {
+      padding: 7px 14px; border-radius: var(--radius-pill); border: none;
+      background: var(--forest-800); color: #fff; font-size: 12px; font-weight: 700;
+      cursor: pointer; transition: 0.18s;
+    }
+    .btn-buy:hover { background: var(--forest-600); transform: translateY(-1px); }
+
+    /* ========================================================================
+       MODALS (Giỏ hàng & Đánh giá)
+       ======================================================================== */
+    .backdrop {
+      position: fixed; inset: 0; background: rgba(10, 28, 18, 0.6); backdrop-filter: blur(4px);
+      z-index: 1200; display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .backdrop.open { display: flex; }
+    .modal-box {
+      background: #fff; border-radius: 22px; max-width: 460px; width: 100%;
+      overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+    }
+    .modal-head {
+      background: linear-gradient(135deg, var(--forest-800), var(--forest-600));
+      color: #fff; padding: 18px 22px; position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 14px; right: 14px; width: 32px; height: 32px;
+      border-radius: 50%; border: none; background: rgba(255,255,255,0.2); color: #fff;
+      font-size: 18px; cursor: pointer;
+    }
+    .modal-content { padding: 20px 22px; }
+    .interactive-stars-row { display: flex; justify-content: center; gap: 8px; margin: 10px 0; }
+    .star-btn {
+      background: none; border: none; font-size: 32px; color: #d1d5db;
+      cursor: pointer; transition: 0.15s; line-height: 1;
+    }
+    .star-btn.active, .star-btn:hover { color: #f59e0b; transform: scale(1.15); }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 10px 20px; border-radius: var(--radius-pill);
+      background: var(--forest-800); color: #fff; font-size: 13px; font-weight: 700;
+      border: none; cursor: pointer;
+    }
+    .btn-outline {
+      padding: 9px 16px; border-radius: var(--radius-pill);
+      background: #fff; color: var(--text-body); font-size: 12.5px; font-weight: 600;
+      border: 1px solid #d5ded8; cursor: pointer;
+    }
+
+    .cart-item-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 0; border-bottom: 1px solid #eef3ef; font-size: 13px;
+    }
+
+    .site-footer {
+      background: var(--forest-950); color: rgba(255, 255, 255, 0.75);
+      padding: 32px 0; font-size: 13px;
+    }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+
+    .toast-box {
+      position: fixed; bottom: 24px; right: 24px; z-index: 1300; background: var(--forest-800);
+      color: #fff; padding: 12px 20px; border-radius: 12px; font-size: 13px; font-weight: 600;
+      transform: translateY(80px); opacity: 0; transition: all 0.28s ease; pointer-events: none;
+    }
+    .toast-box.show { transform: translateY(0); opacity: 1; }
+
+    @media (max-width: 1024px) {
+      .specialties-grid { grid-template-columns: repeat(2, 1fr); }
+      .main-nav { display: none; }
+      .damchat-bottom-row { grid-template-columns: 1fr; }
+      .specialty-card.product-card.is-expanded {
+        grid-template-columns: 1fr !important;
+      }
+      .specialty-card.product-card.is-expanded .specialty-visual {
+        min-height: 220px !important;
+        max-height: 240px !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .container, .header-inner { padding: 0 18px; }
+      .specialties-grid { grid-template-columns: 1fr; }
+      .page-hero h1 { font-size: 26px; }
+    }
+
+    /* ========================================================================
+       WHITE & FRESH MINT GREEN THEME OVERRIDES
+       ======================================================================== */
+    body {
+      background-color: #f4fcf8 !important;
+      background-image:
+        radial-gradient(circle at 52% 12%, rgba(52, 211, 153, 0.18) 0%, rgba(16, 185, 129, 0.08) 38%, transparent 70%),
+        radial-gradient(circle at 15% 65%, rgba(110, 231, 183, 0.16) 0%, transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, #f0fdf7 52%, #e6faef 100%) !important;
+      background-attachment: fixed !important;
+      background-size: cover !important;
+      background-position: center top !important;
+      color: #064e3b !important;
+    }
+    .site-header {
+      top: 14px !important;
+      background: transparent !important;
+      backdrop-filter: none !important;
+      border-bottom: none !important;
+      padding: 0 20px;
+    }
+    .header-inner {
+      max-width: 1220px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.94) !important;
+      backdrop-filter: blur(18px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(18px) saturate(180%) !important;
+      border: 1.5px solid #a7f3d0 !important;
+      box-shadow: 0 12px 32px rgba(16, 185, 129, 0.12) !important;
+      padding: 0 26px !important;
+    }
+    .brand-emblem {
+      background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+      border: 1px solid #6ee7b7;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+    }
+    .brand-title { color: #064e3b !important; text-transform: uppercase; letter-spacing: 0.03em; }
+    .brand-subtitle { color: #059669 !important; font-weight: 600; }
+    .nav-link { color: #1e3a2f !important; font-weight: 600; }
+    .nav-link:hover, .nav-link.active { color: #059669 !important; }
+    .nav-link.active::after { background: linear-gradient(90deg, #059669, #34d399) !important; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35); height: 3px !important; }
+    .cart-pill-btn {
+      background: linear-gradient(135deg, #059669, #10b981) !important;
+      color: #ffffff !important;
+      border: 1px solid #34d399 !important;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.28);
+    }
+    .cart-count-badge { background: rgba(255, 255, 255, 0.25) !important; color: #ffffff !important; }
+
+    /* 3D Orbit Stage in White & Mint Green */
+    .damchat-stage-wrap {
+      background: radial-gradient(circle at 58% 45%, #ffffff 0%, #f0fdf7 56%, #d1fae5 100%) !important;
+      border-bottom: 1.5px solid #a7f3d0 !important;
+      color: #064e3b !important;
+    }
+    .damchat-title-orange,
+    .page-hero h1,
+    .price,
+    .active-card-price {
+      background: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .damchat-title-white { color: #064e3b !important; }
+    .damchat-ribbon,
+    .damchat-hint-pill,
+    .autoplay-orbit-btn {
+      background: #ffffff !important;
+      border: 1.5px solid #6ee7b7 !important;
+      color: #047857 !important;
+      box-shadow: 0 6px 16px rgba(16, 185, 129, 0.10) !important;
+    }
+    .damchat-ribbon span { color: #10b981 !important; }
+    .orbit-ellipse-ring {
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.96) 0%, rgba(209, 250, 229, 0.88) 48%, rgba(110, 231, 183, 0.52) 78%, rgba(16, 185, 129, 0.16) 94%, transparent 100%) !important;
+      border-color: #34d399 !important;
+      box-shadow: 0 24px 50px rgba(5, 150, 105, 0.18), inset 0 2px 18px rgba(255, 255, 255, 0.9), inset 0 -10px 24px rgba(16, 185, 129, 0.22) !important;
+    }
+    .orbit-ellipse-ring::before { border-color: rgba(5, 150, 105, 0.35) !important; }
+    .orbit-ellipse-ring::after { border-color: rgba(16, 185, 129, 0.45) !important; }
+    .turntable-compass-disc { border-color: rgba(5, 150, 105, 0.40) !important; }
+    .turntable-compass-disc::before { color: rgba(6, 78, 59, 0.55) !important; }
+    .turntable-spotlight {
+      background: linear-gradient(180deg, rgba(209, 250, 229, 0) 0%, rgba(110, 231, 183, 0.22) 55%, rgba(16, 185, 129, 0.22) 100%) !important;
+    }
+    .steam-wisp {
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(16, 185, 129, 0.42) 50%, rgba(255,255,255,0) 100%) !important;
+    }
+    .core-altitude-pill,
+    .orbit-node-flavor-tag {
+      background: #ecfdf5 !important;
+      border: 1.5px solid #34d399 !important;
+      color: #065f46 !important;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15) !important;
+    }
+    .core-models-group {
+      background: #ffffff !important;
+      border: 2px solid #10b981 !important;
+      box-shadow: 0 20px 40px rgba(5, 150, 105, 0.22), 0 0 0 5px rgba(209, 250, 229, 0.7) !important;
+    }
+    .hold-spin-badge {
+      background: linear-gradient(135deg, #047857, #10b981) !important;
+      border: 1.5px solid #ffffff !important;
+      color: #ffffff !important;
+      box-shadow: 0 8px 18px rgba(5, 150, 105, 0.28) !important;
+    }
+    .hold-spin-badge strong { color: #d1fae5 !important; }
+    .orbit-node-pedestal {
+      background: #ffffff !important;
+      border-color: #a7f3d0 !important;
+      box-shadow: 0 12px 24px rgba(16, 185, 129, 0.14), 0 4px 0 #a7f3d0 !important;
+    }
+    .orbit-node.active .orbit-node-pedestal {
+      border-color: #059669 !important;
+      box-shadow: 0 18px 32px rgba(16, 185, 129, 0.25), 0 5px 0 #059669 !important;
+    }
+    .orbit-node-price,
+    .orbit-node.active .orbit-node-price {
+      background: linear-gradient(135deg, #059669, #10b981) !important;
+      color: #ffffff !important;
+      border: 1.5px solid #ffffff !important;
+    }
+    .orbit-node-label {
+      background: #ffffff !important;
+      border-color: #a7f3d0 !important;
+      color: #064e3b !important;
+    }
+    .orbit-node.active .orbit-node-label {
+      background: linear-gradient(135deg, #059669, #10b981) !important;
+      border-color: #059669 !important;
+      color: #ffffff !important;
+    }
+    .sensory-meter-track { background: #d1fae5 !important; }
+    .sensory-meter-fill { background: linear-gradient(90deg, #059669, #34d399) !important; }
+    .pairing-chip-btn {
+      background: #ecfdf5 !important;
+      border: 1px dashed #34d399 !important;
+      color: #047857 !important;
+    }
+    .pairing-chip-btn:hover {
+      background: #d1fae5 !important;
+      border-style: solid !important;
+      border-color: #059669 !important;
+    }
+    .damchat-ctrl-caption { color: #047857 !important; }
+    .orbit-range-slider { background: #d1fae5 !important; }
+    .orbit-range-slider::-webkit-slider-thumb {
+      background: #059669 !important;
+      border: 3px solid #ffffff !important;
+      box-shadow: 0 2px 8px rgba(5, 150, 105, 0.35) !important;
+    }
+    .orbit-dot { background: #a7f3d0 !important; }
+    .orbit-dot.active { background: #059669 !important; }
+    .damchat-left-controls,
+    .damchat-slider-wrap,
+    .damchat-active-card,
+    .toolbar-card,
+    .specialty-card.product-card {
+      background: #ffffff !important;
+      border: 1.5px solid #bbf7d0 !important;
+      border-radius: 26px !important;
+      box-shadow: 0 12px 32px rgba(16, 185, 129, 0.10) !important;
+      color: #064e3b !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+    }
+    .specialty-card.product-card:not(.is-expanded):hover,
+    .damchat-left-controls:hover,
+    .damchat-active-card:hover {
+      transform: translateY(-10px) !important;
+      border-color: #10b981 !important;
+      box-shadow: 0 22px 44px rgba(16, 185, 129, 0.18) !important;
+    }
+    /* Bento Grid Spans cho Đặc sản */
+    .specialties-grid .product-card-slot:nth-child(1),
+    .specialties-grid .product-card-slot:nth-child(6) {
+      grid-column: span 2;
+    }
+    @media (max-width: 1024px) {
+      .specialties-grid .product-card-slot:nth-child(1),
+      .specialties-grid .product-card-slot:nth-child(6) {
+        grid-column: span 1;
+      }
+    }
+    .specialty-card.product-card.is-expanded {
+      background: #ffffff !important;
+      border: 2px solid #10b981 !important;
+    }
+    .sensory-meter-list,
+    .rating-row,
+    .flip-expanded-details,
+    .flip-spec-item {
+      background: #f0fdf7 !important;
+      border-color: #a7f3d0 !important;
+      color: #064e3b !important;
+    }
+    .sensory-meter-label, .sensory-meter-val, .active-card-title, .specialty-title, .rating-score, .flip-spec-item strong, .drag-label {
+      color: #064e3b !important;
+    }
+    .active-card-sub, .specialty-sub, .rating-score small { color: #1e3a2f !important; }
+    .rate-link-btn, .active-card-ocop button, .active-card-ocop strong { color: #059669 !important; }
+    .specialty-footer, .active-card-price-row { border-color: #d1fae5 !important; }
+    .btn-buy, .btn-quyet-mua, .damchat-ctrl-btn.btn-exp, .btn-primary {
+      background: linear-gradient(135deg, #059669, #10b981) !important;
+      border: 1px solid #34d399 !important;
+      color: #ffffff !important;
+    }
+    .btn-flip-detail, .damchat-ctrl-btn.btn-market, .chip, .btn-outline {
+      background: #f0fdf7 !important;
+      border: 1px solid #a7f3d0 !important;
+      color: #065f46 !important;
+    }
+    .chip.active, .chip:hover {
+      background: linear-gradient(135deg, #059669, #10b981) !important;
+      border-color: #10b981 !important;
+      color: #ffffff !important;
+    }
+    .search-box input {
+      background: #f0fdf7 !important;
+      border: 1.5px solid #a7f3d0 !important;
+      color: #064e3b !important;
+    }
+    .search-box input::placeholder { color: #52796f !important; }
+    .page-hero {
+      background: radial-gradient(circle at 52% 28%, rgba(52, 211, 153, 0.16) 0%, rgba(16, 185, 129, 0.08) 42%, transparent 70%), linear-gradient(135deg, #ffffff 0%, #ecfdf5 55%, #d1fae5 100%) !important;
+      border-bottom: 1.5px solid #a7f3d0;
+      color: #064e3b !important;
+    }
+    .page-hero p { color: #1e3a2f !important; }
+    .page-hero-badge { background: #ffffff !important; border: 1px solid #6ee7b7 !important; color: #047857 !important; }
+    .hero-guarantees { background: #ffffff !important; border: 1px solid #a7f3d0 !important; color: #064e3b !important; }
+    .hero-guarantees strong { color: #059669 !important; }
+    .modal-box {
+      background: #ffffff !important;
+      border: 1.5px solid #6ee7b7 !important;
+      color: #064e3b !important;
+    }
+    .cart-item-row { border-color: #d1fae5 !important; }
+    .site-footer {
+      background: #ecfdf5 !important;
+      border-top: 1.5px solid #a7f3d0;
+      color: #065f46 !important;
+    }
+    .site-footer a { color: #047857 !important; font-weight: 700; }
+
+    /* ========================================================================
+       GỢI Ý QUÁN ĂN ĐỊA PHƯƠNG BUÔN MA THUỘT (APPLE LIQUID GLASS STYLE)
+       ======================================================================== */
+    .eateries-section {
+      margin: 54px 0 42px;
+      position: relative;
+    }
+    .eateries-header-banner {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(236, 253, 245, 0.88) 100%);
+      border: 1.5px solid #a7f3d0;
+      border-radius: 28px;
+      padding: 36px 36px 28px;
+      margin-bottom: 30px;
+      box-shadow: 0 16px 40px rgba(6, 78, 59, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      position: relative;
+    }
+    .eateries-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ecfdf5;
+      border: 1px solid #6ee7b7;
+      color: #047857;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .eateries-header-banner h2 {
+      font-size: clamp(24px, 3.2vw, 32px);
+      font-weight: 900;
+      color: #064e3b;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .eateries-header-banner p {
+      color: #1e3a2f;
+      font-size: 14.5px;
+      max-width: 860px;
+      line-height: 1.6;
+    }
+    .eateries-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 900px) {
+      .eateries-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .eateries-header-banner {
+        padding: 24px 20px;
+      }
+    }
+    .eatery-card {
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.94) 0%, rgba(246, 253, 249, 0.85) 100%);
+      border: 1.5px solid rgba(167, 243, 208, 0.85);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(6, 78, 59, 0.07);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .eatery-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 45px rgba(6, 78, 59, 0.14);
+      border-color: #34d399;
+    }
+    .eatery-visual {
+      position: relative;
+      height: 210px;
+      overflow: hidden;
+      background: #eef7f2;
+    }
+    .eatery-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .eatery-card:hover .eatery-visual img {
+      transform: scale(1.06);
+    }
+    .eatery-rank {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 900;
+      padding: 5px 12px;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.03em;
+    }
+    .eatery-dish-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(6, 78, 59, 0.88);
+      color: #a7f3d0;
+      backdrop-filter: blur(8px);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .eatery-body {
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .eatery-title {
+      font-size: 19px;
+      font-weight: 900;
+      color: #064e3b;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .eatery-address {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #059669;
+      margin-bottom: 12px;
+    }
+    .eatery-desc {
+      font-size: 13.5px;
+      color: #1e3a2f;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      background: rgba(236, 253, 245, 0.55);
+      padding: 12px 14px;
+      border-radius: 14px;
+      border-left: 3.5px solid #10b981;
+    }
+    .eatery-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .eatery-tag-item {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+    }
+    .eatery-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(16, 185, 129, 0.15);
+    }
+    .btn-maps {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: #ffffff !important;
+      font-size: 12.5px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.28);
+      transition: all 0.25s ease;
+    }
+    .btn-maps:hover {
+      background: linear-gradient(135deg, #047857, #059669);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.38);
+    }
+    .btn-save-eatery {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1.5px solid #a7f3d0;
+      color: #065f46;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-save-eatery:hover {
+      background: #ecfdf5;
+      border-color: #10b981;
+    }
+    .chip-eatery-jump {
+      background: #fef3c7 !important;
+      border-color: #fcd34d !important;
+      color: #92400e !important;
+    }
+    .chip-eatery-jump:hover {
+      background: #fde68a !important;
+      color: #78350f !important;
+    }
+  </style>
+  <link rel="stylesheet" href="apple-glass.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="chamdaklak.html" class="brand-logo">
+        <div class="brand-emblem"><img src="logo-badge.png" alt="Chạm Đắk Lắk Logo" class="brand-emblem-img" /></div>
+        <div class="brand-text">
+          <span class="brand-title">Chạm Đắk Lắk</span>
+          <span class="brand-subtitle">Khám phá – Trải nghiệm – Kết nối</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="chamdaklak.html" class="nav-link">Trang chủ</a>
+        <a href="dia-diem.html" class="nav-link">Địa điểm</a>
+        <a href="dat-phong.html" class="nav-link">Đặt phòng</a>
+        <a href="Dat_lich_trinh.html" class="nav-link">Đặt lịch trình</a>
+        <a href="dac-san.html" class="nav-link active">Đặc sản</a>
+        <a href="huong-dan-vien.html" class="nav-link">Hướng dẫn viên</a>
+        <a href="ve-chung-toi.html" class="nav-link">Về chúng tôi</a>
+      </nav>
+
+      <button type="button" class="cart-pill-btn" id="openCartBtn">
+        <span> Giỏ hàng</span>
+        <span class="cart-count-badge" id="cartCount">2</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       NEW SECTION ABOVE EXISTING SPECIALTIES: BÀN XOAY THƯỞNG VỊ ĐẠI NGÀN 3D
+       ======================================================================== -->
+  <section class="damchat-stage-wrap" id="daklakDamChatOrbit">
+    <div class="damchat-inner">
+      <!-- Top Row: Heading & Interactive Controls -->
+      <div class="damchat-top-row">
+        <div class="damchat-hero-heading">
+          <span class="damchat-title-orange">ĐẮK LẮK</span>
+          <span class="damchat-title-white">ĐẬM CHẤT</span>
+          <div class="damchat-ribbon">
+            <span></span> BÀN XOAY THƯỞNG VỊ 3D <span></span> LA BÀN HƯƠNG VỊ ĐẠI NGÀN <span></span>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+          <button type="button" class="damchat-hint-pill" id="btnToggleAutoSpin" style="cursor:pointer;">
+            <span id="autoSpinStatusIcon"></span>
+            <span id="autoSpinStatusText">Đang tự xoay 360° (Bấm để dừng)</span>
+          </button>
+          <div class="damchat-hint-pill">
+            <span> Kéo bàn xoay, lăn chuột hoặc click vào sản phẩm để mở chi tiết (GSAP Flip)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center 3D Wooden & Basalt Turntable Arena -->
+      <div class="damchat-arena" id="orbitArena" title="Giữ chuột kéo ngang hoặc lăn con lăn chuột để xoay mâm gỗ 360°">
+        <!-- 3D Wooden & Basalt Platter with Rotating Compass Ring -->
+        <div class="orbit-ellipse-ring">
+          <div class="turntable-compass-disc" id="turntableCompassDisc"></div>
+        </div>
+
+        <!-- Golden Sunlight Spotlight -->
+        <div class="turntable-spotlight"></div>
+
+        <!-- Floating Botanical Elements -->
+        <span class="botanical-floater" style="top:14%; left:22%; animation-delay:0s;"></span>
+        <span class="botanical-floater" style="top:20%; right:20%; animation-delay:1.1s;"></span>
+        <span class="botanical-floater" style="bottom:20%; left:18%; animation-delay:0.6s;"></span>
+        <span class="botanical-floater" style="bottom:16%; right:23%; animation-delay:1.7s;"></span>
+
+        <!-- Center Core: Interactive 3D Tasting Pedestal -->
+        <div class="orbit-center-core" id="orbitCenterPedestal" title="Click để phóng to chi tiết sản phẩm này (GSAP Flip)">
+          <div class="aroma-steam-wrap">
+            <span class="steam-wisp"></span>
+            <span class="steam-wisp"></span>
+            <span class="steam-wisp"></span>
+          </div>
+          <span class="core-altitude-pill" id="orbitCoreAltitude"> Độ cao 550m • Đất đỏ Bazan</span>
+          <div class="core-models-group">
+            <img id="orbitCenterCoreImg" src="https://bizweb.dktcdn.net/thumb/1024x1024/100/460/865/products/1-7d93d44f-6c5c-443a-a914-b10a291754f8-1680336568745.jpg?v=1688026639013" alt="Đặc sản Đắk Lắk" referrerpolicy="no-referrer" />
+          </div>
+          <div class="hold-spin-badge">
+            <span> CLICK TÂM ĐIỂM</span> <strong>MỞ FLIP 3D</strong>
+          </div>
+        </div>
+
+        <!-- Orbiting 3D Tasting Coasters -->
+        <div class="orbit-items-layer" id="orbitItemsLayer"></div>
+      </div>
+
+      <!-- Bottom Row: Left Sensory/Control Box + Center Drag Slider + Right Active Card -->
+      <div class="damchat-bottom-row">
+        <!-- Bottom-Left: Bản Đồ Hương Vị (Sensory Radar) + Quick Mode Buttons -->
+        <div class="damchat-left-controls">
+          <div class="damchat-ctrl-caption"> Thước đo hương vị bản địa</div>
+          <div class="sensory-meter-list">
+            <div class="sensory-meter-row">
+              <span class="sensory-meter-label" id="sensoryLabel1">Độ đậm vị</span>
+              <div class="sensory-meter-track"><div class="sensory-meter-fill" id="sensoryFill1" style="width:96%;"></div></div>
+              <span class="sensory-meter-val" id="sensoryVal1">96%</span>
+            </div>
+            <div class="sensory-meter-row">
+              <span class="sensory-meter-label" id="sensoryLabel2">Hương thơm</span>
+              <div class="sensory-meter-track"><div class="sensory-meter-fill" id="sensoryFill2" style="width:98%;"></div></div>
+              <span class="sensory-meter-val" id="sensoryVal2">98%</span>
+            </div>
+            <div class="sensory-meter-row">
+              <span class="sensory-meter-label" id="sensoryLabel3">Hậu vị ngọt</span>
+              <div class="sensory-meter-track"><div class="sensory-meter-fill" id="sensoryFill3" style="width:94%;"></div></div>
+              <span class="sensory-meter-val" id="sensoryVal3">94%</span>
+            </div>
+          </div>
+          <button type="button" class="damchat-ctrl-btn btn-exp" id="btnOrbitExperience">
+            <span>01/ XOAY MÂM TIẾP THEO</span>
+            <span>360° ↻</span>
+          </button>
+          <button type="button" class="damchat-ctrl-btn btn-market" id="btnScrollToMarket">
+            <span>02/ XUỐNG CHỢ ĐẶC SẢN</span>
+            <span>↓</span>
+          </button>
+        </div>
+
+        <!-- Center-Bottom Drag Slider -->
+        <div class="damchat-slider-wrap">
+          <span class="drag-label">XOAY MÂM GỖ</span>
+          <input type="range" min="0" max="360" value="0" class="orbit-range-slider" id="orbitRangeSlider" />
+          <div class="orbit-dots" id="orbitDots"></div>
+        </div>
+
+        <!-- Bottom-Right Active Specialty Tasting Card + Smart Pairing -->
+        <div class="damchat-active-card" id="orbitActiveCard">
+          <div class="active-card-top">
+            <div>
+              <h3 class="active-card-title" id="orbitActiveTitle">ROBUSTA RANG MỘC</h3>
+              <p class="active-card-sub" id="orbitActiveSub">Hạt chín 100%, hương sô-cô-la & thảo mộc tự nhiên (Túi 500g)</p>
+            </div>
+          </div>
+
+          <button type="button" class="pairing-chip-btn" id="orbitPairingBtn" title="Bấm để xoay mâm gỗ tới món ăn kèm này">
+            <span id="orbitPairingText"> Ngon hơn khi pha cùng: Mật Ong Hoa Cafe</span>
+            <span>Xoay tới →</span>
+          </button>
+
+          <div class="active-card-price-row">
+            <div class="active-card-price" id="orbitActivePrice">165K</div>
+            <div class="active-card-ocop">
+              <strong id="orbitActiveOcop">OCOP 5 </strong>
+              <button type="button" id="orbitRateBtn">CHẤM ĐIỂM</button>
+            </div>
+          </div>
+          <div class="active-card-actions">
+            <button type="button" class="btn-quyet-mua" id="orbitBuyBtn">QUYẾT MUA NGAY</button>
+            <button type="button" class="btn-flip-detail" id="orbitExpandBtn"> Phóng to (Flip)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPACT HERO (Dữ liệu cũ giữ nguyên) -->
+  <section class="page-hero" id="choDacSanSection">
+    <div class="container hero-content">
+      <div>
+        <span class="page-hero-badge"> NÔNG SẢN BẢN ĐỊA TUYỂN CHỌN</span>
+        <h1>Đặc sản Đất Đỏ Bazan Đắk Lắk</h1>
+        <p>100% nông sản thu hoạch tự nhiên từ nông trại xanh tại Buôn Ma Thuột, Cư Kuin, Krông Năng và Ea Kar. Đóng gói chuẩn quà biếu.</p>
+      </div>
+      <div class="hero-guarantees">
+        <div><strong>Chuẩn OCOP</strong>Chứng nhận 4 – 5</div>
+        <div style="width:1px; background:rgba(255,255,255,0.2);"></div>
+        <div><strong>100% Tự nhiên</strong>Từ nông trại bản địa</div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- UNIFIED FILTER & SEARCH BAR -->
+    <div class="toolbar-card">
+      <div class="filter-chips">
+        <button class="chip active" data-cat="all">Tất cả đặc sản (8)</button>
+        <button class="chip" data-cat="ca-phe"> Cà phê Đặc sản</button>
+        <button class="chip" data-cat="mat-ong"> Mật ong & Trà</button>
+        <button class="chip" data-cat="hat"> Hạt & Gia vị</button>
+        <button class="chip" data-cat="qua-bieu"> Hộp Quà Biếu</button>
+        <a href="#quanAnDiaPhuong" class="chip chip-eatery-jump" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px;">🍜 10 Quán ăn địa phương</a>
+      </div>
+
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="searchInput" placeholder="Tìm cà phê, mật ong, mắc ca..." />
+      </div>
+    </div>
+
+    <!-- CLEAN 4-COLUMN PRODUCT GRID (Hỗ trợ Click Expand Item bằng GSAP Flip) -->
+    <div class="specialties-grid" id="productGrid"></div>
+  </main>
+
+  <!-- ========================================================================
+       MỤC MỚI: GỢI Ý 10 QUÁN ĂN ĐỊA PHƯƠNG NỔI TIẾNG & CHẤT LƯỢNG TẠI BUÔN MA THUỘT
+       ======================================================================== -->
+  <section class="eateries-section" id="quanAnDiaPhuong">
+    <div class="container">
+      <div class="eateries-header-banner">
+        <span class="eateries-badge">🍽️ Ẩm Thực Phố Núi • Bản Đồ Quán "Ruột"</span>
+        <h2>Gợi Ý 10 Quán Ăn Địa Phương Cực Kỳ Chất Lượng & Nổi Tiếng</h2>
+        <p>Dưới đây là danh sách 10 quán ăn địa phương cực kỳ chất lượng và nổi tiếng ở Buôn Ma Thuột mà Khải và hội bạn có thể lưu lại để từ từ trải nghiệm. Mỗi địa điểm đều có link Google Maps trực tiếp giúp bạn xem ảnh thực tế, đánh giá và chỉ đường đến tận nơi!</p>
+      </div>
+
+      <div class="eateries-grid">
+        <!-- 1. Bún Chìa Cô Cúc -->
+        <div class="eatery-card">
+          <div class="eatery-visual">
+            <img src="https://cdn.eva.vn/upload/4-2023/images/2023-12-08/4-quan-bun-chia-ngon-xuat-sac-buon-ma-thuot-an-mot-bat-no-nguyen-ngay-t2_bunchiabuonmathuot_bachuaviahe-1702044630-780-width780height661.jpg" alt="Bún Chìa Cô Cúc Buôn Ma Thuột" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='anh dia danh/bun_chia_co_cuc.jpg';" />
+            <span class="eatery-rank">#01</span>
+            <span class="eatery-dish-badge">Bún Chìa Khổng Lồ</span>
+          </div>
+          <div class="eatery-body">
+            <h3 class="eatery-title">
+              <span>Bún Chìa Cô Cúc</span>
+              <span style="font-size:13px; font-weight:700; color:#059669;">★ 4.8 / 5</span>
+            </h3>
+            <div class="eatery-address">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>230 Nguyễn Tất Thành, TP. Buôn Ma Thuột</span>
+            </div>
+            <div class="eatery-desc">
+              Nổi tiếng với tô bún có khúc giò chìa heo cực kỳ hoành tráng, thịt được hầm mềm tan róc xương, nước dùng thanh ngọt thơm mùi mắm ruốc rất cuốn.
+            </div>
+            <div class="eatery-tags">
+              <span class="eatery-tag-item">Quán lâu đời Since 1992</span>
+              <span class="eatery-tag-item">Khúc giò chìa siêu to</span>
+              <span class="eatery-tag-item">Nước lèo mắm ruốc thanh ngọt</span>
+            </div>
+            <div class="eatery-footer">
+              <a href="https://www.google.com/maps/search/?api=1&query=B%C3%BAn+Ch%C3%ACa+C%C3%B4+C%C3%BAc+230+Nguy%E1%BB%85n+T%E1%BA%A5t+Th%C3%A0nh+Bu%C3%B4n+Ma+Thu%E1%BB%99t" target="_blank" rel="noopener noreferrer" class="btn-maps" title="Mở địa chỉ trên Google Maps">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>Xem trên Google Maps</span>
+              </a>
+              <button type="button" class="btn-save-eatery" onclick="saveEatery('Bún Chìa Cô Cúc')">
+                <span>🔖 Lưu lại</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Bánh Ướt Thịt Nướng 45 -->
+        <div class="eatery-card">
+          <div class="eatery-visual">
+            <img src="https://www.thefoodmaps.com/wp-content/uploads/2024/12/bu8.jpg" alt="Bánh Ướt Thịt Nướng 45 Trần Nhật Duật" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='anh dia danh/banh_uot_thit_nuong_45.jpg';" />
+            <span class="eatery-rank">#02</span>
+            <span class="eatery-dish-badge">Bánh Ướt Đĩa Chồng</span>
+          </div>
+          <div class="eatery-body">
+            <h3 class="eatery-title">
+              <span>Bánh Ướt Thịt Nướng 45</span>
+              <span style="font-size:13px; font-weight:700; color:#059669;">★ 4.9 / 5</span>
+            </h3>
+            <div class="eatery-address">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>43 – 45 Trần Nhật Duật, TP. Buôn Ma Thuột</span>
+            </div>
+            <div class="eatery-desc">
+              Quán phục vụ kiểu bánh ướt cuốn, bạn sẽ tự cuốn bánh với thịt nướng, nem lụi, chả, dưa chua, xoài xanh. Vừa ăn vừa thi xem ai xếp chồng đĩa cao hơn, cực kỳ hợp lý để rủ hội Luân, Tiến, Hoàng, Hưng và Đạt qua thi thố.
+            </div>
+            <div class="eatery-tags">
+              <span class="eatery-tag-item">Thử thách xếp chồng đĩa</span>
+              <span class="eatery-tag-item">Thịt nướng sả mật ong</span>
+              <span class="eatery-tag-item">Tụ tập hội bạn siêu vui</span>
+            </div>
+            <div class="eatery-footer">
+              <a href="https://www.google.com/maps/search/?api=1&query=B%C3%A1nh+%C6%AF%E1%BB%9Bt+Th%E1%BB%8Bt+N%C6%B0%E1%BB%9Bng+45+Tr%E1%BA%A7n+Nh%E1%BA%ADt+Du%E1%BA%ADt+Bu%C3%B4n+Ma+Thu%E1%BB%99t" target="_blank" rel="noopener noreferrer" class="btn-maps" title="Mở địa chỉ trên Google Maps">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>Xem trên Google Maps</span>
+              </a>
+              <button type="button" class="btn-save-eatery" onclick="saveEatery('Bánh Ướt Thịt Nướng 45')">
+                <span>🔖 Lưu lại</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Nem Nướng Thanh Trầm -->
+        <div class="eatery-card">
+          <div class="eatery-visual">
+            <img src="https://diachiamthuc.vn/wp-content/uploads/2022/08/Nha-hang-Nem-nuong-Thanh-Tram.jpg" alt="Nem Nướng Thanh Trầm Buôn Ma Thuột" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='anh dia danh/nem_nuong_thanh_tram.jpg';" />
+            <span class="eatery-rank">#03</span>
+            <span class="eatery-dish-badge">Nem Lụi Nướng Than</span>
+          </div>
+          <div class="eatery-body">
+            <h3 class="eatery-title">
+              <span>Nem Nướng Thanh Trầm</span>
+              <span style="font-size:13px; font-weight:700; color:#059669;">★ 4.8 / 5</span>
+            </h3>
+            <div class="eatery-address">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>22 Lý Thường Kiệt, TP. Buôn Ma Thuột</span>
+            </div>
+            <div class="eatery-desc">
+              Một trong những tiệm nem nướng lâu đời nhất thành phố. Nem ở đây nướng xém cạnh, thơm lừng, chấm với phần tương đậu đậu phộng béo ngậy.
+            </div>
+            <div class="eatery-tags">
+              <span class="eatery-tag-item">Quán nem lâu đời nhất BMT</span>
+              <span class="eatery-tag-item">Nướng xém cạnh thơm phức</span>
+              <span class="eatery-tag-item">Tương đậu phộng béo bùi</span>
+            </div>
+            <div class="eatery-footer">
+              <a href="https://www.google.com/maps/search/?api=1&query=Nem+N%C6%B0%E1%BB%9Bng+Thanh+Tr%E1%BA%A7m+22+L%C3%BD+Th%C6%B0%E1%BB%9Dng+Ki%E1%BB%87t+Bu%C3%B4n+Ma+Thu%E1%BB%99t" target="_blank" rel="noopener noreferrer" class="btn-maps" title="Mở địa chỉ trên Google Maps">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>Xem trên Google Maps</span>
+              </a>
+              <button type="button" class="btn-save-eatery" onclick="saveEatery('Nem Nướng Thanh Trầm')">
+                <span>🔖 Lưu lại</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Phở Khô 2 Tô 99 -->
+        <div class="eatery-card">
+          <div class="eatery-visual">
+            <img src="https://hotel84.com/hotel84-images/news/photo/pho-kho-o-buon-ma-thuot.jpg" alt="Phở Khô 2 Tô 99 Nguyễn Công Trứ" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='anh dia danh/pho_kho_2_to_99.jpg';" />
+            <span class="eatery-rank">#04</span>
+            <span class="eatery-dish-badge">Phở Hai Tô Đặc Sản</span>
+          </div>
+          <div class="eatery-body">
+            <h3 class="eatery-title">
+              <span>Phở Khô 2 Tô 99</span>
+              <span style="font-size:13px; font-weight:700; color:#059669;">★ 4.7 / 5</span>
+            </h3>
+            <div class="eatery-address">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>99 Nguyễn Công Trứ, TP. Buôn Ma Thuột</span>
+            </div>
+            <div class="eatery-desc">
+              Một phần gồm tô phở khô trộn xốt đậm đà và một tô nước lèo nóng hổi thịt bò. Buổi sáng lôi chiếc Java Veloce ra đạp vài vòng quanh phố rồi tạt vào đây nạp năng lượng thì không còn gì bằng.
+            </div>
+            <div class="eatery-tags">
+              <span class="eatery-tag-item">Ăn sáng đạp xe Java Veloce</span>
+              <span class="eatery-tag-item">Phở khô trộn xốt tương đen</span>
+              <span class="eatery-tag-item">Nước lèo bò ngọt lịm</span>
+            </div>
+            <div class="eatery-footer">
+              <a href="https://www.google.com/maps/search/?api=1&query=Ph%E1%BB%9F+Kh%C3%B4+2+T%C3%B4+99+Nguy%E1%BB%85n+C%C3%B4ng+Tr%E1%BB%A9+Bu%C3%B4n+Ma+Thu%E1%BB%99t" target="_blank" rel="noopener noreferrer" class="btn-maps" title="Mở địa chỉ trên Google Maps">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>Xem trên Google Maps</span>
+              </a>
+              <button type="button" class="btn-save-eatery" onclick="saveEatery('Phở Khô 2 Tô 99')">
+                <span>🔖 Lưu lại</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Tiệm gà nướng cơm lam Ban Mê -->
+        <div class="eatery-card">
+          <div class="eatery-visual">
+            <img src="https://tourdulichmangden.vn/upload/news/ga-nuong-com-lam-avt-1-9696.jpg" alt="Tiệm gà nướng cơm lam Ban Mê" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='anh dia danh/05_da_voi_me.jpg';" />
+            <span class="eatery-rank">#05</span>
+            <span class="eatery-dish-badge">Gà Nướng Cơm Lam</span>
+          </div>
+          <div class="eatery-body">
+            <h3 class="eatery-title">
+              <span>Tiệm gà nướng cơm lam Ban Mê</span>
+              <span style="font-size:13px; font-weight:700; color:#059669;">★ 4.9 / 5</span>
+            </h3>
+            <div class="eatery-address">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>2/1 Bùi Thị Xuân, TP. Buôn Ma Thuột</span>
+            </div>
+            <div class="eatery-desc">
+              Món đặc sản Tây Nguyên chuẩn vị với gà thả đồi nướng mật ong da bóng bẩy, xé tay ăn kèm cơm lam nướng xém mỡ hành.
+            </div>
+            <div class="eatery-tags">
+              <span class="eatery-tag-item">Chuẩn vị Đại ngàn</span>
+              <span class="eatery-tag-item">Gà thả đồi da giòn mật ong</span>
+              <span class="eatery-tag-item">Cơm lam nướng xém mỡ hành</span>
+            </div>
+            <div class="eatery-footer">
+              <a href="https://www.google.com/maps/search/?api=1&query=Ti%E1%BB%87m+G%C3%A0+N%C6%B0%E1%BB%9Bng+C%C6%A1m+Lam+Ban+M%C3%AA+B%C3%B9i+Th%E1%BB%8B+Xu%C3%A2n+Bu%C3%B4n+Ma+Thu%E1%BB%99t" target="_blank" rel="noopener noreferrer" class="btn-maps" title="Mở địa chỉ trên Google Maps">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>Xem trên Google Maps</span>
+              </a>
+              <button type="button" class="btn-save-eatery" onclick="saveEatery('Tiệm gà nướng cơm lam Ban Mê')">
+                <span>🔖 Lưu lại</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Bánh Canh Bột Lọc Chả Cá -->
+        <div class="eatery-card">
+          <div class="eatery-visual">
+            <img src="https://cdn.yeutre.vn/medias/uploads/210/210302-banh-canh-bot-loc-cha-ca.jpg" alt="Bánh Canh Bột Lọc Chả Cá Lê Hồng Phong" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='anh dia danh/06_yok_don.jpg';" />
+            <span class="eatery-rank">#06</span>
+            <span class="eatery-dish-badge">Bánh Canh Bột Lọc Dai</span>
+          </div>
+          <div class="eatery-body">
+            <h3 class="eatery-title">
+              <span>Bánh Canh Bột Lọc Chả Cá</span>
+              <span style="font-size:13px; font-weight:700; color:#059669;">★ 4.7 / 5</span>
+            </h3>
+            <div class="eatery-address">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>7 Lê Hồng Phong, TP. Buôn Ma Thuột</span>
+            </div>
+            <div class="eatery-desc">
+              Sợi bánh canh bột lọc dai dai sần sật, nước lèo ngọt thanh từ xương cá, thêm chút ớt cay xè, rất ấm bụng cho những buổi chiều se lạnh.
+            </div>
+            <div class="eatery-tags">
+              <span class="eatery-tag-item">Sợi bột lọc dai sần sật</span>
+              <span class="eatery-tag-item">Nước lèo cá ngọt thanh</span>
+              <span class="eatery-tag-item">Ấm bụng chiều se lạnh</span>
+            </div>
+            <div class="eatery-footer">
+              <a href="https://www.google.com/maps/search/?api=1&query=B%C3%A1nh+Canh+B%E1%BB%99t+L%E1%BB%8Dc+Ch%E1%BA%A3+C%C3%A1+7+L%C3%AA+H%E1%BB%93ng+Phong+Bu%C3%B4n+Ma+Thu%E1%BB%99t" target="_blank" rel="noopener noreferrer" class="btn-maps" title="Mở địa chỉ trên Google Maps">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>Xem trên Google Maps</span>
+              </a>
+              <button type="button" class="btn-save-eatery" onclick="saveEatery('Bánh Canh Bột Lọc Chả Cá')">
+                <span>🔖 Lưu lại</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Bánh Khọt Y Jut -->
+        <div class="eatery-card">
+          <div class="eatery-visual">
+            <img src="https://bmgroup.asia/wp-content/uploads/2023/10/Banh-khot-Y-Jut.jpg" alt="Bánh Khọt Y Jut Buôn Ma Thuột" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='anh dia danh/07_buon_ako_dhong.jpg';" />
+            <span class="eatery-rank">#07</span>
+            <span class="eatery-dish-badge">Bánh Khọt Giòn Rụm</span>
+          </div>
+          <div class="eatery-body">
+            <h3 class="eatery-title">
+              <span>Bánh Khọt Y Jut</span>
+              <span style="font-size:13px; font-weight:700; color:#059669;">★ 4.8 / 5</span>
+            </h3>
+            <div class="eatery-address">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>272 Y Jut, TP. Buôn Ma Thuột</span>
+            </div>
+            <div class="eatery-desc">
+              Món ăn vặt xế chiều tuổi thơ của người dân BMT. Bánh khọt đổ giòn rụm, vàng ươm, cuộn cùng rau sống, đu đủ ngâm chấm nước mắm chua ngọt.
+            </div>
+            <div class="eatery-tags">
+              <span class="eatery-tag-item">Món ăn vặt tuổi thơ BMT</span>
+              <span class="eatery-tag-item">Bánh đổ giòn rụm vàng ươm</span>
+              <span class="eatery-tag-item">Rau sống & mắm chua ngọt</span>
+            </div>
+            <div class="eatery-footer">
+              <a href="https://www.google.com/maps/search/?api=1&query=B%C3%A1nh+Kh%E1%BB%8Dt+272+Y+Jut+Bu%C3%B4n+Ma+Thu%E1%BB%99t" target="_blank" rel="noopener noreferrer" class="btn-maps" title="Mở địa chỉ trên Google Maps">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>Xem trên Google Maps</span>
+              </a>
+              <button type="button" class="btn-save-eatery" onclick="saveEatery('Bánh Khọt Y Jut')">
+                <span>🔖 Lưu lại</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Bún Đỏ Thu -->
+        <div class="eatery-card">
+          <div class="eatery-visual">
+            <img src="https://static.riviu.co/640/image/2022/05/30/90e11318ecab3e5a6877cf5ab142cfab.jpeg" alt="Bún Đỏ Thu Đinh Tiên Hoàng" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='anh dia danh/08_lees_house.jpg';" />
+            <span class="eatery-rank">#08</span>
+            <span class="eatery-dish-badge">Linh Hồn Phố Núi</span>
+          </div>
+          <div class="eatery-body">
+            <h3 class="eatery-title">
+              <span>Bún Đỏ Thu</span>
+              <span style="font-size:13px; font-weight:700; color:#059669;">★ 4.9 / 5</span>
+            </h3>
+            <div class="eatery-address">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>26A Đinh Tiên Hoàng, TP. Buôn Ma Thuột</span>
+            </div>
+            <div class="eatery-desc">
+              Linh hồn ẩm thực đường phố BMT với nước dùng màu gạch cua béo ngậy, sợi bún to, chả viên và trứng cút.
+            </div>
+            <div class="eatery-tags">
+              <span class="eatery-tag-item">Món đặc sản số 1 Ban Mê</span>
+              <span class="eatery-tag-item">Nước dùng màu gạch cua béo ngậy</span>
+              <span class="eatery-tag-item">Chả viên & trứng cút</span>
+            </div>
+            <div class="eatery-footer">
+              <a href="https://www.google.com/maps/search/?api=1&query=B%C3%BAn+%C4%90%E1%BB%8F+Thu+26A+%C4%90inh+Ti%C3%AAn+Ho%C3%A0ng+Bu%C3%B4n+Ma+Thu%E1%BB%99t" target="_blank" rel="noopener noreferrer" class="btn-maps" title="Mở địa chỉ trên Google Maps">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>Xem trên Google Maps</span>
+              </a>
+              <button type="button" class="btn-save-eatery" onclick="saveEatery('Bún Đỏ Thu')">
+                <span>🔖 Lưu lại</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Cà Te Quán -->
+        <div class="eatery-card">
+          <div class="eatery-visual">
+            <img src="https://hotel84.com/hotel84-images/news/photo/bo-nhun-me-ngon-catequan.jpg" alt="Bò Nhúng Me Cà Te Quán Nguyễn Khuyến" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='anh dia danh/09_soul_roastery.jpg';" />
+            <span class="eatery-rank">#09</span>
+            <span class="eatery-dish-badge">Bò Nhúng Me Chảo Gang</span>
+          </div>
+          <div class="eatery-body">
+            <h3 class="eatery-title">
+              <span>Cà Te Quán</span>
+              <span style="font-size:13px; font-weight:700; color:#059669;">★ 4.9 / 5</span>
+            </h3>
+            <div class="eatery-address">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>57 Nguyễn Khuyến, TP. Buôn Ma Thuột</span>
+            </div>
+            <div class="eatery-desc">
+              Địa điểm chân ái cho món bò nhúng me chua chua ngọt ngọt, lấy bánh mì giòn quẹt nước xốt me đang sôi xèo xèo trên bếp gang.
+            </div>
+            <div class="eatery-tags">
+              <span class="eatery-tag-item">Bò nhúng me số 1 Ban Mê</span>
+              <span class="eatery-tag-item">Bếp gang sôi xèo xèo</span>
+              <span class="eatery-tag-item">Bánh mì giòn quẹt xốt me</span>
+            </div>
+            <div class="eatery-footer">
+              <a href="https://www.google.com/maps/search/?api=1&query=C%C3%A0+Te+Qu%C3%A1n+57+Nguy%E1%BB%85n+Khuy%E1%BA%BFn+Bu%C3%B4n+Ma+Thu%E1%BB%99t" target="_blank" rel="noopener noreferrer" class="btn-maps" title="Mở địa chỉ trên Google Maps">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>Xem trên Google Maps</span>
+              </a>
+              <button type="button" class="btn-save-eatery" onclick="saveEatery('Cà Te Quán')">
+                <span>🔖 Lưu lại</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. Quán Cơm Niêu Vợ Nấu -->
+        <div class="eatery-card">
+          <div class="eatery-visual">
+            <img src="https://down-vn.img.susercontent.com/vn-11134259-7r98o-lwexzlh0qrizdc@resize_w800" alt="Quán Cơm Niêu Vợ Nấu Bùi Thị Xuân" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='anh dia danh/11_arul_coffee.jpg';" />
+            <span class="eatery-rank">#10</span>
+            <span class="eatery-dish-badge">Cơm Niêu Gia Đình</span>
+          </div>
+          <div class="eatery-body">
+            <h3 class="eatery-title">
+              <span>Quán Cơm Niêu Vợ Nấu</span>
+              <span style="font-size:13px; font-weight:700; color:#059669;">★ 4.8 / 5</span>
+            </h3>
+            <div class="eatery-address">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>20 Bùi Thị Xuân, TP. Buôn Ma Thuột</span>
+            </div>
+            <div class="eatery-desc">
+              Góc ẩm thực gia đình với cơm niêu đất đập dập giòn rụm, ăn kèm cá bống kho tiêu, canh cua rau đay mộc mạc, thích hợp cho những buổi hẹn hò ăn tối ấm cúng nhẹ nhàng.
+            </div>
+            <div class="eatery-tags">
+              <span class="eatery-tag-item">Cơm niêu đất đập giòn rụm</span>
+              <span class="eatery-tag-item">Cá bống kho tiêu kẹo keo</span>
+              <span class="eatery-tag-item">Hẹn hò tối ấm cúng gia đình</span>
+            </div>
+            <div class="eatery-footer">
+              <a href="https://www.google.com/maps/search/?api=1&query=Qu%C3%A1n+C%C6%A1m+Ni%C3%AAu+V%E1%BB%A3+N%E1%BA%A5u+20+B%C3%B9i+Th%E1%BB%8B+Xu%C3%A2n+Bu%C3%B4n+Ma+Thu%E1%BB%99t" target="_blank" rel="noopener noreferrer" class="btn-maps" title="Mở địa chỉ trên Google Maps">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>Xem trên Google Maps</span>
+              </a>
+              <button type="button" class="btn-save-eatery" onclick="saveEatery('Quán Cơm Niêu Vợ Nấu')">
+                <span>🔖 Lưu lại</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GSAP FLIP DARK BLURRED BACKDROP (position: fixed; z-index: 999; backdrop-filter: blur(15px); background: rgba(0,0,0,0.7)) -->
+  <div class="flip-overlay-backdrop" id="flipOverlayBackdrop"></div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <span>© 2026 Chạm Đắk Lắk – Đặc sản địa phương Tây Nguyên</span>
+      <div style="display:flex; gap:20px;">
+        <a href="dia-diem.html">Khám phá Địa điểm</a>
+        <a href="Dat_lich_trinh.html">Đặt lịch trình</a>
+        <a href="chamdaklak.html" style="color:#fff; font-weight:700;">← Quay về Trang chủ</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART MODAL -->
+  <div class="backdrop" id="cartModal">
+    <div class="modal-box">
+      <div class="modal-head">
+        <button class="modal-close" id="closeCartModal" type="button">×</button>
+        <div style="font-size:11px; opacity:0.85; font-weight:600;">GIỎ HÀNG ĐẶC SẢN</div>
+        <h3 style="font-size:18px; font-weight:800; margin-top:2px;">Sản phẩm bạn đã chọn</h3>
+      </div>
+      <div class="modal-content">
+        <div id="cartItemsList" style="max-height:260px; overflow-y:auto; margin-bottom:14px;"></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; font-size:15px; font-weight:800; padding-top:10px; border-top:2px solid #eef3ef; margin-bottom:16px;">
+          <span>Tổng cộng:</span>
+          <span id="cartTotalPrice" style="color:var(--forest-800);">0đ</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; gap:10px;">
+          <button type="button" class="btn-outline" id="clearCartBtn">Xóa giỏ hàng</button>
+          <button type="button" class="btn-primary" id="checkoutBtn" style="flex:1;">Đặt mua ngay →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPACT RATING MODAL -->
+  <div class="backdrop" id="ratingModal">
+    <div class="modal-box">
+      <div class="modal-head">
+        <button class="modal-close" id="closeRatingModal" type="button">×</button>
+        <div style="font-size:11px; opacity:0.85; font-weight:600;">ĐÁNH GIÁ CHẤT LƯỢNG OCOP</div>
+        <h3 id="rateItemTitle" style="font-size:18px; font-weight:800; margin-top:4px;">Tên sản phẩm</h3>
+      </div>
+      <div class="modal-content">
+        <div style="text-align:center; margin-bottom:14px;">
+          <div style="font-size:12.5px; font-weight:600; color:var(--text-body);">Chấm điểm chất lượng sản phẩm (1 – 5 sao):</div>
+          <div class="interactive-stars-row" id="interactiveStars">
+            <button type="button" class="star-btn active" data-val="1">&#9733;</button>
+            <button type="button" class="star-btn active" data-val="2">&#9733;</button>
+            <button type="button" class="star-btn active" data-val="3">&#9733;</button>
+            <button type="button" class="star-btn active" data-val="4">&#9733;</button>
+            <button type="button" class="star-btn active" data-val="5">&#9733;</button>
+          </div>
+          <div id="starHintText" style="font-size:12.5px; font-weight:700; color:var(--forest-700);">OCOP 5 Sao: Thượng hạng (5.0)</div>
+        </div>
+        <div style="display:grid; gap:10px; margin-bottom:16px;">
+          <input type="text" id="raterName" placeholder="Tên của bạn (không bắt buộc)" style="width:100%; height:38px; border-radius:10px; border:1px solid #d5e0d8; padding:0 12px; font-size:12.5px; outline:none;" />
+          <textarea id="raterComment" rows="2" placeholder="Cảm nhận về hương vị, đóng gói..." style="width:100%; border-radius:10px; border:1px solid #d5e0d8; padding:8px 12px; font-size:12.5px; outline:none; resize:none;"></textarea>
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:10px;">
+          <button type="button" class="btn-outline" id="cancelRatingBtn">Hủy</button>
+          <button type="button" class="btn-primary" id="submitRatingBtn">Lưu đánh giá</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-box" id="toastBox"></div>
+
+  <script>
+    if (window.gsap && window.Flip) {
+      gsap.registerPlugin(Flip);
+    }
+
+    const PRODUCTS = [
+      {
+        id: "robusta-rang-moc",
+        shortName: "ROBUSTA RANG MỘC",
+        title: "Cà phê Fine Robusta Rang Mộc",
+        cat: "ca-phe",
+        origin: " Buôn Ma Thuột",
+        altitude: " Độ cao 550m • Đất đỏ Bazan",
+        flavorTag: " Hương Sô-cô-la & Thảo mộc",
+        sensory: [96, 98, 94],
+        pairText: " Ngon hơn khi pha cùng: Mật Ong Hoa Cafe",
+        pairIdx: 1,
+        level: 5,
+        rating: 4.9,
+        reviews: "1.4k",
+        price: 165000,
+        priceShort: "165K",
+        sub: "Hạt chín 100%, hương sô-cô-la & thảo mộc tự nhiên (Túi 500g)",
+        story: "Thu hoạch 100% trái chín đỏ từ vùng đất đỏ bazan Buôn Ma Thuột ở độ cao 550m, sơ chế Honey & rang mộc chuẩn profile Fine Robusta giúp giữ trọn hậu vị ngọt sâu và hương sô-cô-la tự nhiên.",
+        weight: "Túi 500g (Hạt / Bột pha phin)",
+        shelfLife: "12 tháng từ ngày rang",
+        img: "https://bizweb.dktcdn.net/thumb/1024x1024/100/460/865/products/1-7d93d44f-6c5c-443a-a914-b10a291754f8-1680336568745.jpg?v=1688026639013"
+      },
+      {
+        id: "mat-ong-hoa-ca-phe",
+        shortName: "MẬT ONG HOA CAFE",
+        title: "Mật Ong Hoa Cà Phê Nguyên Chất",
+        cat: "mat-ong",
+        origin: " Cư Kuin",
+        altitude: " Mùa hoa Tháng 3 • Cư Kuin",
+        flavorTag: " Ngọt Thanh & Thơm Hoa Trắng",
+        sensory: [94, 99, 98],
+        pairText: " Tuyệt hảo khi pha cùng: Trà Mãng Cầu Xiêm",
+        pairIdx: 6,
+        level: 5,
+        rating: 4.9,
+        reviews: "1.8k",
+        price: 145000,
+        priceShort: "145K",
+        sub: "Thu hoạch mùa hoa tháng 3, vàng óng thơm dịu tự nhiên (Chai 500ml)",
+        story: "Mật ong nguyên chất 100% được đàn ong hút mật trực tiếp từ những cánh rừng hoa cà phê trắng xóa nở rộ vào tháng 3 tại Cư Kuin. Sánh đặc, thơm dịu và không đóng đường.",
+        weight: "Chai thủy tinh 500ml",
+        shelfLife: "24 tháng nơi khô thoáng",
+        img: "https://salt.tikicdn.com/ts/product/ce/0c/4f/b0044bd7b2c71be31a0bd57bf784526f.jpg"
+      },
+      {
+        id: "hat-mac-ca-say-nut",
+        shortName: "MẮC CA SẤY NỨT",
+        title: "Hạt Mắc Ca Đắk Lắk Sấy Nứt",
+        cat: "hat",
+        origin: " Krông Năng",
+        altitude: " Độ cao 680m • Krông Năng",
+        flavorTag: " Béo Bùi & Giàu Omega 3-6-9",
+        sensory: [95, 92, 97],
+        pairText: " Nhâm nhi tuyệt vời cùng: Cà Phê Fine Robusta",
+        pairIdx: 0,
+        level: 5,
+        rating: 4.9,
+        reviews: "1.6k",
+        price: 180000,
+        priceShort: "180K",
+        sub: "Giòn béo, giàu dinh dưỡng, kèm dụng cụ tách vỏ tiện lợi (Hộp 500g)",
+        story: "Tuyển chọn hạt mắc ca cỡ đại loại A từ thủ phủ mắc ca Krông Năng. Sấy lạnh ở nhiệt độ chuẩn giúp nhân trắng ngần, giòn bùi béo ngậy và giữ nguyên Omega-3, 6, 9.",
+        weight: "Hộp 500g kèm khui inox",
+        shelfLife: "12 tháng (Hút chân không)",
+        img: "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m45xzxqohh534b"
+      },
+      {
+        id: "bot-ca-cao-thu-cong",
+        shortName: "CA CAO THỦ CÔNG",
+        title: "Bột Ca Cao & Sô-cô-la Thủ Công",
+        cat: "hat",
+        origin: " Ea Kar",
+        altitude: " Lên men thùng gỗ • Ea Kar",
+        flavorTag: " Đắng Thanh & Hương Trái Cây",
+        sensory: [97, 95, 93],
+        pairText: " Kết hợp ăn kèm: Hạt Mắc Ca Sấy Nứt",
+        pairIdx: 2,
+        level: 4,
+        rating: 4.8,
+        reviews: "890",
+        price: 135000,
+        priceShort: "135K",
+        sub: "Lên men tự nhiên theo quy trình chuẩn nông trại xanh (Hộp 350g)",
+        story: "Chế biến theo quy trình Bean-to-Bar từ những trái ca cao chín vàng tại Ea Kar, lên men trong thùng gỗ tạo hương trái cây nhiệt đới hòa quyện vị đắng thanh quyến rũ.",
+        weight: "Hộp 350g nguyên chất",
+        shelfLife: "18 tháng từ NSX",
+        img: "https://tim-corp.com.vn/wp-content/uploads/2025/09/so-co-la-nguyen-chat-bean-to-bar-1024x683.jpg"
+      },
+      {
+        id: "ca-phe-phin-giay",
+        shortName: "CAFE PHIN GIẤY",
+        title: "Cà Phê Phin Giấy (Drip Bag)",
+        cat: "ca-phe",
+        origin: " Buôn Ma Thuột",
+        altitude: " Tiện lợi Du lịch • Pha 2 phút",
+        flavorTag: " Thơm Nồng Chuẩn Vị Phố Núi",
+        sensory: [93, 96, 92],
+        pairText: " Xem trọn bộ: Hộp Quà Tinh Hoa 3 Món",
+        pairIdx: 7,
+        level: 4,
+        rating: 4.8,
+        reviews: "720",
+        price: 125000,
+        priceShort: "125K",
+        sub: "Pha nhanh trong 2 phút khi đi du lịch hoặc tại văn phòng (Hộp 12 gói)",
+        story: "Tiện lợi cho người bận rộn và các chuyến du lịch khám phá: chỉ cần gác túi lọc giấy lên ly và rót nước sôi là có ngay ly cà phê nguyên chất thơm lừng chuẩn vị phố núi.",
+        weight: "Hộp 12 gói × 15g",
+        shelfLife: "12 tháng từ NSX",
+        img: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: "muoi-kien-vang",
+        shortName: "MUỐI KIẾN VÀNG",
+        title: "Muối Kiến Vàng & Tiêu Rừng",
+        cat: "hat",
+        origin: " Buôn Đôn",
+        altitude: " Gia vị Rừng già • Buôn Đôn",
+        flavorTag: " Chua Thanh & Cay Nồng Lá É",
+        sensory: [98, 94, 95],
+        pairText: " Thanh nhiệt sau bữa ăn: Trà Mãng Cầu",
+        pairIdx: 6,
+        level: 5,
+        rating: 4.9,
+        reviews: "1.3k",
+        price: 85000,
+        priceShort: "85K",
+        sub: "Gia vị đặc sản chấm gà nướng, bò một nắng chuẩn vị Tây Nguyên (Hũ 150g)",
+        story: "Sự kết hợp độc đáo giữa vị chua thanh tự nhiên của kiến vàng rừng Buôn Đôn, vị cay nồng của ớt hiểm xanh, tiêu rừng và lá é trắng tạo nên thức chấm gây thương nhớ.",
+        weight: "Hũ 150g nắp kín",
+        shelfLife: "9 tháng từ NSX",
+        img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: "tra-mang-cau-xiem",
+        shortName: "TRÀ MÃNG CẦU",
+        title: "Trà Mãng Cầu Xiêm Sấy Lạnh",
+        cat: "mat-ong",
+        origin: " Krông Pắc",
+        altitude: " Sấy lạnh tự nhiên • Krông Pắc",
+        flavorTag: " Thanh Mát & An Thần Ngủ Ngon",
+        sensory: [90, 97, 96],
+        pairText: " Pha thêm 1 muỗng: Mật Ong Hoa Cà Phê",
+        pairIdx: 1,
+        level: 4,
+        rating: 4.7,
+        reviews: "640",
+        price: 110000,
+        priceShort: "110K",
+        sub: "Thơm mát tự nhiên, hỗ trợ giấc ngủ ngon và thanh nhiệt (Túi 250g)",
+        story: "Thịt trái mãng cầu xiêm chín cây tại Krông Pắc được thái sợi và sấy lạnh giữ nguyên màu trắng ngà, khi pha tỏa hương thơm dịu nhẹ, giàu chất chống oxy hóa.",
+        weight: "Túi zip 250g",
+        shelfLife: "12 tháng từ NSX",
+        img: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: "hop-qua-tinh-hoa",
+        shortName: "HỘP QUÀ TINH HOA",
+        title: "Hộp Quà Tinh Hoa Đại Ngàn (3 Món)",
+        cat: "qua-bieu",
+        origin: " Quà tặng VIP",
+        altitude: " Tuyển chọn 3 Đặc sản OCOP 5",
+        flavorTag: " Cà phê + Mật ong + Mắc ca + Túi thổ cẩm",
+        sensory: [99, 99, 98],
+        pairText: " Khám phá thành phần chính: Robusta Rang Mộc",
+        pairIdx: 0,
+        level: 5,
+        rating: 5.0,
+        reviews: "1.1k",
+        price: 439000,
+        priceShort: "439K",
+        sub: "Gồm Cà phê Fine Robusta + Mật ong hoa cà phê + Hạt Mắc ca kèm túi thổ cẩm",
+        story: "Bộ quà biếu sang trọng hội tụ 3 đặc sản OCOP 5 sao tiêu biểu nhất của Đắk Lắk, đặt trong hộp cứng ép kim kèm túi thổ cẩm dệt tay và thiệp chúc mừng.",
+        weight: "Bộ 3 món (Tổng 1.5kg)",
+        shelfLife: "12 tháng từ NSX",
+        img: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=800&q=80"
+      }
+    ];
+
+    let currentCat = 'all';
+    let ratingTargetTitle = '';
+    let selectedStars = 5;
+
+    try {
+      const savedRatings = JSON.parse(localStorage.getItem('cdl_product_ratings')) || {};
+      PRODUCTS.forEach(p => {
+        if (savedRatings[p.title]) {
+          p.rating = parseFloat(savedRatings[p.title].score) || p.rating;
+          p.level = savedRatings[p.title].level || p.level;
+        }
+      });
+    } catch (e) {}
+
+    function formatVND(n) {
+      return n.toLocaleString('vi-VN') + 'đ';
+    }
+
+    function showToast(msg) {
+      let t = document.getElementById('toastBox');
+      if (!t) {
+        t = document.createElement('div');
+        t.id = 'toastBox';
+        t.className = 'toast-box';
+        document.body.appendChild(t);
+      }
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    function saveEatery(name) {
+      try {
+        const saved = JSON.parse(localStorage.getItem('cdl_saved_eateries')) || [];
+        if (!saved.includes(name)) {
+          saved.push(name);
+          localStorage.setItem('cdl_saved_eateries', JSON.stringify(saved));
+          showToast(`🔖 Đã lưu "${name}" vào cẩm nang ẩm thực!`);
+        } else {
+          showToast(` Quán "${name}" đã có trong cẩm nang của bạn.`);
+        }
+      } catch (e) {
+        showToast(`🔖 Đã lưu "${name}"!`);
+      }
+    }
+
+    /* ========================================================================
+       1. INTERACTIVE 3D WOODEN TURNTABLE ("BÀN XOAY THƯỞNG VỊ ĐẠI NGÀN 3D")
+       ======================================================================== */
+    let orbitRotationDeg = 0;
+    let activeOrbitIdx = 0;
+    let isAutoSpinning = true;
+    let isHoveringArena = false;
+    const orbitLayer = document.getElementById('orbitItemsLayer');
+    const orbitSlider = document.getElementById('orbitRangeSlider');
+    const orbitDotsWrap = document.getElementById('orbitDots');
+    const compassDisc = document.getElementById('turntableCompassDisc');
+
+    function initOrbitShowcase() {
+      orbitLayer.innerHTML = PRODUCTS.map((p, idx) => `
+        <div class="orbit-node ${idx === 0 ? 'active' : ''}" data-idx="${idx}" data-id="${p.id}">
+          <span class="orbit-node-flavor-tag">${p.flavorTag}</span>
+          <div class="orbit-node-pedestal">
+            <img src="${p.img}" alt="${p.title}" referrerpolicy="no-referrer" />
+            <span class="orbit-node-price">${p.priceShort}</span>
+          </div>
+          <span class="orbit-node-label">${p.shortName}</span>
+        </div>
+      `).join('');
+
+      orbitDotsWrap.innerHTML = PRODUCTS.map((_, idx) => `
+        <span class="orbit-dot ${idx === 0 ? 'active' : ''}" data-idx="${idx}"></span>
+      `).join('');
+
+      orbitLayer.querySelectorAll('.orbit-node').forEach(node => {
+        node.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const idx = Number(node.getAttribute('data-idx'));
+          if (idx === activeOrbitIdx) {
+            triggerFlipByProductId(PRODUCTS[idx].id);
+          } else {
+            rotateOrbitToIndex(idx);
+          }
+        });
+      });
+
+      orbitDotsWrap.querySelectorAll('.orbit-dot').forEach(dot => {
+        dot.addEventListener('click', () => {
+          rotateOrbitToIndex(Number(dot.getAttribute('data-idx')));
+        });
+      });
+
+      // Click Center Pedestal to immediately Flip Expand active specialty!
+      document.getElementById('orbitCenterPedestal')?.addEventListener('click', () => {
+        const activeProd = PRODUCTS[activeOrbitIdx];
+        if (activeProd) triggerFlipByProductId(activeProd.id);
+      });
+
+      positionOrbitNodes();
+      updateActiveOrbitPanel(0);
+      startAutoSpinLoop();
+    }
+
+    function positionOrbitNodes() {
+      const nodes = orbitLayer.querySelectorAll('.orbit-node');
+      const count = nodes.length;
+      const rx = Math.min(window.innerWidth * 0.36, 360);
+      const ry = 108;
+
+      if (compassDisc) {
+        compassDisc.style.transform = `rotate(${orbitRotationDeg.toFixed(1)}deg)`;
+      }
+
+      let frontIdx = 0;
+      let maxSin = -999;
+
+      nodes.forEach((node, i) => {
+        const baseAngleDeg = (i * (360 / count)) + orbitRotationDeg + 90;
+        const rad = (baseAngleDeg * Math.PI) / 180;
+        const x = Math.cos(rad) * rx;
+        const y = Math.sin(rad) * ry;
+        const depth = (Math.sin(rad) + 1) / 2;
+        const scale = 0.68 + depth * 0.42;
+        const zIdx = Math.round(10 + depth * 20);
+
+        node.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${scale.toFixed(3)})`;
+        node.style.zIndex = zIdx;
+        node.style.opacity = (0.48 + depth * 0.52).toFixed(2);
+
+        if (Math.sin(rad) > maxSin) {
+          maxSin = Math.sin(rad);
+          frontIdx = i;
+        }
+      });
+
+      if (frontIdx !== activeOrbitIdx) {
+        activeOrbitIdx = frontIdx;
+        updateActiveOrbitPanel(activeOrbitIdx);
+      }
+
+      nodes.forEach((node, i) => node.classList.toggle('active', i === activeOrbitIdx));
+      orbitDotsWrap.querySelectorAll('.orbit-dot').forEach((d, i) => d.classList.toggle('active', i === activeOrbitIdx));
+    }
+
+    function rotateOrbitToIndex(idx) {
+      const count = PRODUCTS.length;
+      const targetDeg = -idx * (360 / count);
+      gsap.to({ deg: orbitRotationDeg }, {
+        deg: targetDeg,
+        duration: 0.7,
+        ease: 'power3.out',
+        onUpdate: function () {
+          orbitRotationDeg = this.targets()[0].deg;
+          const norm = ((orbitRotationDeg % 360) + 360) % 360;
+          orbitSlider.value = Math.round(norm);
+          positionOrbitNodes();
+        }
+      });
+    }
+
+    function updateActiveOrbitPanel(idx) {
+      const p = PRODUCTS[idx];
+      if (!p) return;
+      const coreImg = document.getElementById('orbitCenterCoreImg');
+      if (coreImg) {
+        gsap.fromTo(coreImg, { scale: 0.88, opacity: 0.6 }, { scale: 1, opacity: 1, duration: 0.35, ease: 'back.out(1.6)' });
+        coreImg.src = p.img;
+      }
+      const altEl = document.getElementById('orbitCoreAltitude');
+      if (altEl) altEl.textContent = p.altitude;
+
+      document.getElementById('orbitActiveTitle').textContent = p.shortName;
+      document.getElementById('orbitActiveSub').textContent = p.sub;
+      document.getElementById('orbitActivePrice').textContent = p.priceShort;
+      document.getElementById('orbitActiveOcop').textContent = `OCOP ${p.level} `;
+
+      // Update Live Sensory Flavor Profile Bars
+      const [s1, s2, s3] = p.sensory || [95, 95, 95];
+      document.getElementById('sensoryFill1').style.width = s1 + '%';
+      document.getElementById('sensoryVal1').textContent = s1 + '%';
+      document.getElementById('sensoryFill2').style.width = s2 + '%';
+      document.getElementById('sensoryVal2').textContent = s2 + '%';
+      document.getElementById('sensoryFill3').style.width = s3 + '%';
+      document.getElementById('sensoryVal3').textContent = s3 + '%';
+
+      // Update Smart Pairing Chip
+      const pairBtn = document.getElementById('orbitPairingBtn');
+      const pairText = document.getElementById('orbitPairingText');
+      if (pairBtn && pairText) {
+        pairText.textContent = p.pairText;
+        pairBtn.onclick = () => rotateOrbitToIndex(p.pairIdx);
+      }
+
+      document.getElementById('orbitBuyBtn').onclick = () => addCart(p.title, p.price);
+      document.getElementById('orbitRateBtn').onclick = () => openRatingModal(p.title);
+      document.getElementById('orbitExpandBtn').onclick = () => triggerFlipByProductId(p.id);
+    }
+
+    // Gentle Auto-Spin 360 Loop (pauses on hover/drag or when modal is open)
+    function startAutoSpinLoop() {
+      function step() {
+        if (isAutoSpinning && !isDraggingOrbit && !isHoveringArena && !activeFlipCard) {
+          orbitRotationDeg -= 0.14;
+          const norm = ((orbitRotationDeg % 360) + 360) % 360;
+          orbitSlider.value = Math.round(norm);
+          positionOrbitNodes();
+        }
+        requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    document.getElementById('btnToggleAutoSpin')?.addEventListener('click', () => {
+      isAutoSpinning = !isAutoSpinning;
+      document.getElementById('autoSpinStatusIcon').textContent = isAutoSpinning ? '' : '▶';
+      document.getElementById('autoSpinStatusText').textContent = isAutoSpinning
+        ? 'Đang tự xoay 360° (Bấm để dừng)'
+        : 'Tự động xoay 360° (Đang tắt)';
+    });
+
+    // Drag & Mouse Wheel to spin 360 on Orbit Arena
+    let isDraggingOrbit = false;
+    let dragStartX = 0;
+    let dragStartDeg = 0;
+    const orbitArena = document.getElementById('orbitArena');
+
+    orbitArena.addEventListener('mouseenter', () => { isHoveringArena = true; });
+    orbitArena.addEventListener('mouseleave', () => { isHoveringArena = false; });
+
+    orbitArena.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.shiftKey) {
+        e.preventDefault();
+        orbitRotationDeg -= (e.deltaX || e.deltaY) * 0.25;
+        const norm = ((orbitRotationDeg % 360) + 360) % 360;
+        orbitSlider.value = Math.round(norm);
+        positionOrbitNodes();
+      }
+    }, { passive: false });
+
+    orbitArena.addEventListener('pointerdown', (e) => {
+      if (e.target.closest('.orbit-node') || e.target.closest('#orbitCenterPedestal')) return;
+      isDraggingOrbit = true;
+      dragStartX = e.clientX;
+      dragStartDeg = orbitRotationDeg;
+      orbitArena.setPointerCapture(e.pointerId);
+    });
+    orbitArena.addEventListener('pointermove', (e) => {
+      if (!isDraggingOrbit) return;
+      const dx = e.clientX - dragStartX;
+      orbitRotationDeg = dragStartDeg + dx * 0.45;
+      const norm = ((orbitRotationDeg % 360) + 360) % 360;
+      orbitSlider.value = Math.round(norm);
+      positionOrbitNodes();
+    });
+    orbitArena.addEventListener('pointerup', () => { isDraggingOrbit = false; });
+
+    orbitSlider.addEventListener('input', (e) => {
+      orbitRotationDeg = -Number(e.target.value);
+      positionOrbitNodes();
+    });
+
+    window.addEventListener('resize', positionOrbitNodes);
+
+    document.getElementById('btnOrbitExperience').addEventListener('click', () => {
+      const nextIdx = (activeOrbitIdx + 1) % PRODUCTS.length;
+      rotateOrbitToIndex(nextIdx);
+    });
+    document.getElementById('btnScrollToMarket').addEventListener('click', () => {
+      document.getElementById('choDacSanSection').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    /* ========================================================================
+       2. PRODUCT GRID + GSAP FLIP SHARED ELEMENT TRANSITION
+       ======================================================================== */
+    let activeFlipCard = null;
+    const flipBackdrop = document.getElementById('flipOverlayBackdrop');
+
+    function renderProducts() {
+      if (activeFlipCard) {
+        closeExpandedFlipCard(true);
+      }
+
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+      const grid = document.getElementById('productGrid');
+
+      const filtered = PRODUCTS.filter(p => {
+        const matchCat = currentCat === 'all' || p.cat === currentCat;
+        const matchText = !q || p.title.toLowerCase().includes(q) || p.sub.toLowerCase().includes(q) || p.origin.toLowerCase().includes(q);
+        return matchCat && matchText;
+      });
+
+      grid.innerHTML = filtered.map(p => `
+        <div class="product-card-slot" data-slot-id="${p.id}">
+          <div class="specialty-card product-card" data-product-id="${p.id}">
+            <button type="button" class="flip-close-btn" aria-label="Đóng chi tiết"></button>
+            <div class="specialty-visual">
+              <img src="${p.img}" alt="${p.title}" loading="lazy" referrerpolicy="no-referrer" />
+              <span class="origin-badge">${p.origin}</span>
+              <span class="ocop-badge">OCOP ${p.level}</span>
+              <span class="expand-hint-badge"> Click phóng to</span>
+            </div>
+            <div class="specialty-body">
+              <div>
+                <h4 class="specialty-title">${p.title}</h4>
+                <p class="specialty-sub">${p.sub}</p>
+
+                <!-- Nội dung chi tiết hiện ra khi GSAP Flip phóng to -->
+                <div class="flip-expanded-details">
+                  <p style="line-height:1.6; margin-bottom:8px;">${p.story}</p>
+                  <div class="flip-specs-grid">
+                    <div class="flip-spec-item">
+                      <strong>Quy cách đóng gói</strong>
+                      <span>${p.weight}</span>
+                    </div>
+                    <div class="flip-spec-item">
+                      <strong>Hạn sử dụng & Bảo quản</strong>
+                      <span>${p.shelfLife}</span>
+                    </div>
+                    <div class="flip-spec-item">
+                      <strong>Nguồn gốc xuất xứ</strong>
+                      <span>${p.origin.replace(' ', '')}, Đắk Lắk</span>
+                    </div>
+                    <div class="flip-spec-item">
+                      <strong>Chứng nhận chất lượng</strong>
+                      <span>Chuẩn OCOP ${p.level} Sao</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="rating-row">
+                  <span class="rating-score">
+                    <span class="star"></span> ${p.rating.toFixed(1)} <small>(${p.reviews} đánh giá)</small>
+                  </span>
+                  <button type="button" class="rate-link-btn" data-action="rate" data-title="${p.title}">Chấm điểm</button>
+                </div>
+                <div class="specialty-footer">
+                  <span class="price">${formatVND(p.price)}</span>
+                  <button type="button" class="btn-buy" data-action="buy" data-title="${p.title}" data-price="${p.price}">+ Chọn mua</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      bindProductCardFlipEvents();
+    }
+
+    function bindProductCardFlipEvents() {
+      document.querySelectorAll('.specialty-card.product-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+          const actionBtn = e.target.closest('[data-action]');
+          if (actionBtn) {
+            e.stopPropagation();
+            const act = actionBtn.getAttribute('data-action');
+            const title = actionBtn.getAttribute('data-title');
+            if (act === 'rate') openRatingModal(title);
+            if (act === 'buy') addCart(title, Number(actionBtn.getAttribute('data-price')));
+            return;
+          }
+
+          if (e.target.closest('.flip-close-btn')) {
+            e.stopPropagation();
+            closeExpandedFlipCard();
+            return;
+          }
+
+          if (!card.classList.contains('is-expanded')) {
+            openExpandedFlipCard(card);
+          }
+        });
+      });
+    }
+
+    function openExpandedFlipCard(card) {
+      if (activeFlipCard && activeFlipCard !== card) {
+        closeExpandedFlipCard(true);
+      }
+      activeFlipCard = card;
+      flipBackdrop.classList.add('active');
+
+      if (window.Flip) {
+        // Core GSAP Flip command requested by user:
+        const state = Flip.getState(card);
+        card.classList.add('is-expanded');
+        Flip.from(state, {
+          duration: 0.8,
+          ease: 'power3.inOut',
+          scale: true,
+          absolute: true,
+          zIndex: 1000
+        });
+      } else {
+        card.classList.add('is-expanded');
+      }
+    }
+
+    function closeExpandedFlipCard(immediate = false) {
+      if (!activeFlipCard) return;
+      const card = activeFlipCard;
+      activeFlipCard = null;
+      flipBackdrop.classList.remove('active');
+
+      if (window.Flip && !immediate) {
+        const state = Flip.getState(card);
+        card.classList.remove('is-expanded');
+        Flip.from(state, {
+          duration: 0.8,
+          ease: 'power3.inOut',
+          scale: true,
+          absolute: true,
+          zIndex: 1000,
+          onComplete: () => {
+            gsap.set(card, { clearProps: 'all' });
+          }
+        });
+      } else {
+        card.classList.remove('is-expanded');
+        if (window.gsap) gsap.set(card, { clearProps: 'all' });
+      }
+    }
+
+    function triggerFlipByProductId(productId) {
+      // Ensure product is visible in the grid first
+      let card = document.querySelector(`.specialty-card.product-card[data-product-id="${productId}"]`);
+      if (!card) {
+        currentCat = 'all';
+        document.getElementById('searchInput').value = '';
+        document.querySelectorAll('.chip').forEach(x => x.classList.toggle('active', x.getAttribute('data-cat') === 'all'));
+        renderProducts();
+        card = document.querySelector(`.specialty-card.product-card[data-product-id="${productId}"]`);
+      }
+      if (card) {
+        openExpandedFlipCard(card);
+      }
+    }
+
+    flipBackdrop.addEventListener('click', () => closeExpandedFlipCard());
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && activeFlipCard) closeExpandedFlipCard();
+    });
+
+    // Filter & Search
+    document.querySelectorAll('.chip').forEach(c => {
+      c.addEventListener('click', () => {
+        document.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+        c.classList.add('active');
+        currentCat = c.getAttribute('data-cat');
+        renderProducts();
+      });
+    });
+    document.getElementById('searchInput').addEventListener('input', renderProducts);
+
+    // Cart Management
+    function getCart() {
+      try { return JSON.parse(localStorage.getItem('cdl_cart')) || []; } catch { return []; }
+    }
+
+    function updateCartBadge() {
+      const cart = getCart();
+      const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+      document.getElementById('cartCount').textContent = totalQty;
+    }
+
+    function addCart(name, price) {
+      const cart = getCart();
+      const found = cart.find(i => i.name === name);
+      if (found) found.qty++;
+      else cart.push({ name, price, qty: 1 });
+      localStorage.setItem('cdl_cart', JSON.stringify(cart));
+      updateCartBadge();
+      showToast(` Đã thêm "${name}" vào giỏ hàng!`);
+    }
+
+    const cartModal = document.getElementById('cartModal');
+    function renderCartModal() {
+      const cart = getCart();
+      const listEl = document.getElementById('cartItemsList');
+      if (!cart.length) {
+        listEl.innerHTML = `<p style="font-size:13px; color:var(--text-muted); text-align:center; padding:18px 0;">Giỏ hàng của bạn đang trống.</p>`;
+        document.getElementById('cartTotalPrice').textContent = '0đ';
+        return;
+      }
+      let total = 0;
+      listEl.innerHTML = cart.map(item => {
+        const sub = item.price * item.qty;
+        total += sub;
+        return `
+          <div class="cart-item-row">
+            <div>
+              <div style="font-weight:700;">${item.name}</div>
+              <div style="font-size:11.5px; color:var(--text-muted);">${formatVND(item.price)} × ${item.qty}</div>
+            </div>
+            <div style="font-weight:800; color:var(--forest-800);">${formatVND(sub)}</div>
+          </div>
+        `;
+      }).join('');
+      document.getElementById('cartTotalPrice').textContent = formatVND(total);
+    }
+
+    document.getElementById('openCartBtn').addEventListener('click', () => {
+      renderCartModal();
+      cartModal.classList.add('open');
+    });
+    document.getElementById('closeCartModal').addEventListener('click', () => cartModal.classList.remove('open'));
+    cartModal.addEventListener('click', (e) => { if (e.target === cartModal) cartModal.classList.remove('open'); });
+
+    document.getElementById('clearCartBtn').addEventListener('click', () => {
+      localStorage.removeItem('cdl_cart');
+      updateCartBadge();
+      renderCartModal();
+      showToast('Đã làm mới giỏ hàng.');
+    });
+
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+      const cart = getCart();
+      if (!cart.length) {
+        showToast('Vui lòng chọn ít nhất 1 sản phẩm!');
+        return;
+      }
+      localStorage.removeItem('cdl_cart');
+      updateCartBadge();
+      cartModal.classList.remove('open');
+      showToast(' Đặt hàng thành công! Chạm Đắk Lắk sẽ liên hệ xác nhận ngay.');
+    });
+
+    // Rating Modal
+    const ratingModal = document.getElementById('ratingModal');
+    const HINTS = {
+      1: 'OCOP 1 Sao: Cần cải thiện (1.0)',
+      2: 'OCOP 2 Sao: Tạm ổn (2.0)',
+      3: 'OCOP 3 Sao: Đạt chuẩn (3.0)',
+      4: 'OCOP 4 Sao: Chất lượng cao (4.0)',
+      5: 'OCOP 5 Sao: Thượng hạng (5.0)'
+    };
+
+    function openRatingModal(title) {
+      ratingTargetTitle = title;
+      document.getElementById('rateItemTitle').textContent = title;
+      selectedStars = 5;
+      updateStarsUI(5);
+      ratingModal.classList.add('open');
+    }
+
+    function updateStarsUI(val) {
+      document.querySelectorAll('#interactiveStars .star-btn').forEach(btn => {
+        btn.classList.toggle('active', Number(btn.getAttribute('data-val')) <= val);
+      });
+      document.getElementById('starHintText').textContent = HINTS[val] || HINTS[5];
+    }
+
+    document.querySelectorAll('#interactiveStars .star-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedStars = Number(btn.getAttribute('data-val'));
+        updateStarsUI(selectedStars);
+      });
+    });
+
+    document.getElementById('closeRatingModal').addEventListener('click', () => ratingModal.classList.remove('open'));
+    document.getElementById('cancelRatingBtn').addEventListener('click', () => ratingModal.classList.remove('open'));
+    ratingModal.addEventListener('click', (e) => { if (e.target === ratingModal) ratingModal.classList.remove('open'); });
+
+    document.getElementById('submitRatingBtn').addEventListener('click', () => {
+      const prod = PRODUCTS.find(x => x.title === ratingTargetTitle);
+      if (prod) {
+        prod.rating = selectedStars;
+        prod.level = selectedStars;
+        try {
+          const stored = JSON.parse(localStorage.getItem('cdl_product_ratings')) || {};
+          stored[ratingTargetTitle] = { score: selectedStars, level: selectedStars };
+          localStorage.setItem('cdl_product_ratings', JSON.stringify(stored));
+        } catch (e) {}
+        renderProducts();
+        updateActiveOrbitPanel(activeOrbitIdx);
+      }
+      ratingModal.classList.remove('open');
+      showToast(` Cảm ơn bạn đã chấm ${selectedStars} cho "${ratingTargetTitle}"!`);
+    });
+
+    updateCartBadge();
+    initOrbitShowcase();
+    renderProducts();
+  </script>
+  <script src="pixel-elephant.js"></script>
+  <script src="apple-glass.js"></script>
+</body>
+</html>

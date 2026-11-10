@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tin tức, Bản đồ Ăn Sập BMT & Dự toán Chi phí – Chạm Đắk Lắk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* FOODTOUR */
+    .foodtour-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 18px; }
+    .food-card {
+      background: #fff; border-radius: 18px; padding: 20px;
+      border: 1px solid rgba(21,61,39,0.09); box-shadow: var(--shadow-soft);
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: transform 0.22s;
+    }
+    .food-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
+    .food-tag {
+      display: inline-block; padding: 3px 10px; border-radius: var(--radius-pill);
+      background: var(--sage-bg); color: var(--forest-800); font-size: 11px; font-weight: 700;
+    }
+    .food-name { font-size: 16.5px; font-weight: 800; margin: 10px 0 4px; }
+    .food-addr { font-size: 12px; font-weight: 700; color: var(--forest-700); margin-bottom: 8px; }
+    .food-review { font-size: 12.5px; color: var(--text-body); margin-bottom: 14px; line-height: 1.55; }
+    .food-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 10px; border-top: 1px dashed rgba(21,61,39,0.12); font-size: 12px; font-weight: 700;
+    }
+    /* BUDGET CALCULATOR */
+    .calc-card {
+      background: #fff; border-radius: 22px; padding: 28px;
+      border: 1.5px solid rgba(21,61,39,0.12); box-shadow: var(--shadow-soft);
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 28px; align-items: center;
+    }
+    .calc-controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
+    .calc-field label { display: block; font-size: 12px; font-weight: 700; color: var(--text-body); margin-bottom: 6px; }
+    .calc-field select, .calc-field input {
+      width: 100%; height: 40px; border-radius: 10px; border: 1px solid rgba(21,61,39,0.2);
+      padding: 0 12px; font-size: 13px; font-weight: 600; outline: none;
+    }
+    .calc-result-box { background: linear-gradient(145deg, var(--forest-800), var(--forest-600)); color: #fff; border-radius: 18px; padding: 24px; }
+    /* SEASONAL */
+    .season-bar {
+      background: var(--cream-bg); border-radius: 18px; padding: 20px 24px; margin-bottom: 32px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .season-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+    .season-btn {
+      padding: 7px 14px; border-radius: var(--radius-pill); border: 1px solid rgba(21,61,39,0.2);
+      background: #fff; font-size: 12px; font-weight: 700; cursor: pointer;
+    }
+    .season-btn.active { background: var(--forest-800); color: #fff; border-color: var(--forest-800); }
+    /* ITINERARY */
+    .itinerary-box {
+      background: #fff; border-radius: 20px; padding: 28px; margin-bottom: 52px;
+      box-shadow: var(--shadow-soft); border: 1px solid rgba(21,61,39,0.08);
+    }
+    .itinerary-tabs { display: flex; gap: 10px; margin: 16px 0 22px; flex-wrap: wrap; }
+    .itinerary-tab {
+      padding: 10px 20px; border-radius: var(--radius-pill); border: 1px solid rgba(21,61,39,0.15);
+      background: #f7f9f7; font-size: 13px; font-weight: 700; cursor: pointer;
+    }
+    .itinerary-tab.active { background: var(--forest-800); color: #fff; border-color: var(--forest-800); }
+    .timeline-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .timeline-step { background: var(--bar-bg); border-radius: 14px; padding: 18px; border-left: 4px solid var(--forest-800); }
+    @media (max-width: 960px) {
+      .calc-card, .foodtour-grid, .timeline-steps, .calc-controls { grid-template-columns: 1fr; }
+    }
+    /* White & Fresh Mint Green Overrides */
+    .food-card, .calc-card, .season-bar, .itinerary-box, .timeline-step, .calc-result-box {
+      background: #ffffff !important;
+      border: 1.5px solid #bbf7d0 !important;
+      box-shadow: 0 12px 32px rgba(16, 185, 129, 0.10) !important;
+      border-radius: 26px !important;
+      color: #064e3b !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+    }
+    .calc-result-box {
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important;
+      border: 1.5px solid #6ee7b7 !important;
+    }
+    .food-card:hover, .timeline-step:hover {
+      transform: translateY(-10px) !important;
+      border-color: #10b981 !important;
+      box-shadow: 0 22px 44px rgba(16, 185, 129, 0.18) !important;
+    }
+    @media (min-width: 961px) {
+      .foodtour-grid .food-card:first-child {
+        grid-column: span 2;
+      }
+    }
+    .food-name, h1, h2, h3 {
+      background: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .food-addr { color: #059669 !important; }
+    .food-review, .calc-field label { color: #1e3a2f !important; }
+    .food-tag, .season-btn, .itinerary-tab {
+      background: #f0fdf7 !important;
+      color: #047857 !important;
+      border: 1px solid #a7f3d0 !important;
+    }
+    .season-btn.active, .itinerary-tab.active {
+      background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+      border-color: #10b981 !important;
+      color: #ffffff !important;
+    }
+    .calc-field select, .calc-field input {
+      background: #f0fdf7 !important;
+      border: 1.5px solid #a7f3d0 !important;
+      color: #064e3b !important;
+    }
+  </style>
+  <link rel="stylesheet" href="apple-glass.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+</head>
+<body>
+
+  <header class="site-header" id="topHeader">
+    <div class="header-inner">
+      <a href="chamdaklak.html" class="brand-logo">
+        <div class="brand-emblem"><img src="logo-badge.png" alt="Chạm Đắk Lắk Logo" class="brand-emblem-img" /></div>
+        <div class="brand-text">
+          <span class="brand-title">Chạm Đắk Lắk</span>
+          <span class="brand-subtitle">Khám phá – Trải nghiệm – Kết nối</span>
+        </div>
+      </a>
+      <nav class="main-nav">
+        <a href="chamdaklak.html" class="nav-link">Trang chủ</a>
+        <a href="dia-diem.html" class="nav-link">Địa điểm</a>
+        <a href="dat-phong.html" class="nav-link">Đặt phòng</a>
+        <a href="Dat_lich_trinh.html" class="nav-link">Đặt lịch trình</a>
+        <a href="dac-san.html" class="nav-link">Đặc sản</a>
+        <a href="huong-dan-vien.html" class="nav-link">Hướng dẫn viên</a>
+        <a href="tin-tuc.html" class="nav-link active">Tin tức</a>
+        <a href="ve-chung-toi.html" class="nav-link">Về chúng tôi</a>
+      </nav>
+      <a href="dia-diem.html" style="font-size:13px;font-weight:700;color:var(--forest-800);"> Bản đồ 16 Tọa độ →</a>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="page-hero-badge"> TỔNG HỢP REVIEW TIKTOK & FACEBOOK BUÔN MA THUỘT</span>
+      <h1>Bản đồ "Ăn Sập BMT", Lịch trình & Dự toán chi phí</h1>
+      <p>Cập nhật các tọa độ ẩm thực chuẩn thổ địa đang viral trên TikTok/Facebook kèm địa chỉ chính xác, khung giờ mở cửa và công cụ tính chi phí chuyến đi.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- BẢN ĐỒ FOODTOUR -->
+    <section style="margin:36px 0 20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;">
+        <div>
+          <span class="food-tag"> #AnSapBuonMaThuot • #FoodtourBMT</span>
+          <h2 style="font-size:24px;font-weight:800;margin-top:6px;">Top 6 Quán Ngon "Must-Try" Trên TikTok & Facebook BMT</h2>
+          <p style="font-size:13.5px;color:var(--text-body);">Đã xác thực địa chỉ mới nhất để bạn không đi nhầm cơ sở cũ</p>
+        </div>
+      </div>
+      <div class="foodtour-grid">
+        <div class="food-card">
+          <div>
+            <span class="food-tag"> Món Đỉnh Nhất TikTok BMT</span>
+            <h3 class="food-name">Bò Nhúng Me – Cà Te Quán</h3>
+            <div class="food-addr"> 57 Nguyễn Khuyến, P. Tân Lợi (Địa chỉ mới)</div>
+            <p class="food-review">Chảo gang bò tươi quệt bơ nóng hổi xèo xèo cùng sốt me chua ngọt béo ngậy. Ăn kèm bánh mì chấm đẫm sốt hoặc cuốn bánh tráng rau rừng.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+              <a href="https://www.facebook.com/search/top?q=Bò+nhúng+me+Cà+Te+57+Nguyễn+Khuyến" target="_blank" rel="noopener" class="food-tag"> Fanpage</a>
+              <a href="https://www.tiktok.com/search?q=Bò+nhúng+me+Cà+Te+BMT" target="_blank" rel="noopener" class="food-tag"> Review TikTok</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Cà+Te+Quán+57+Nguyễn+Khuyến+Buôn+Ma+Thuột" target="_blank" rel="noopener" class="food-tag"> Google Maps</a>
+            </div>
+          </div>
+          <div class="food-meta"><span> 55.000đ – 220.000đ</span><span style="color:var(--forest-800);"> 4.9/5</span></div>
+        </div>
+
+        <div class="food-card">
+          <div>
+            <span class="food-tag"> Thử Thách Chồng Đĩa</span>
+            <h3 class="food-name">Bánh Ướt Thịt Nướng 45</h3>
+            <div class="food-addr"> 45 Trần Nhật Duật, P. Tân Lợi, TP. BMT</div>
+            <p class="food-review">Nhân viên liên tục bê từng đĩa bánh ướt dẻo mịn nóng hổi lên bàn; khách tự cuốn thịt nướng than hoa, xoài xanh, dưa góp chấm mắm nêm.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+              <a href="https://www.facebook.com/search/top?q=Bánh+ướt+thịt+nướng+45+Trần+Nhật+Duật" target="_blank" rel="noopener" class="food-tag"> Fanpage</a>
+              <a href="https://www.tiktok.com/search?q=Bánh+ướt+45+Trần+Nhật+Duật+BMT" target="_blank" rel="noopener" class="food-tag"> Review TikTok</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Bánh+ướt+thịt+nướng+45+Trần+Nhật+Duật+Buôn+Ma+Thuột" target="_blank" rel="noopener" class="food-tag"> Google Maps</a>
+            </div>
+          </div>
+          <div class="food-meta"><span> 35.000đ – 70.000đ/người</span><span style="color:var(--forest-800);"> 4.9/5</span></div>
+        </div>
+
+        <div class="food-card">
+          <div>
+            <span class="food-tag"> Đặc Sản Đêm Phố Núi</span>
+            <h3 class="food-name">Bún Đỏ Bà Thu & Phan Đình Giót</h3>
+            <div class="food-addr"> 19 Lê Hồng Phong / Đường Phan Đình Giót</div>
+            <p class="food-review">Sợi bún to nấu trong nồi nước dùng gạch cua đỏ au, chả viên, trứng cút lòng đào, tóp mỡ giòn rụm và cải ngọt trần nóng hổi giữa tiết trời se lạnh.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+              <a href="https://www.facebook.com/search/top?q=Bún+đỏ+Bà+Thu+Buôn+Ma+Thuột" target="_blank" rel="noopener" class="food-tag"> Fanpage</a>
+              <a href="https://www.tiktok.com/search?q=Bún+đỏ+Buôn+Ma+Thuột" target="_blank" rel="noopener" class="food-tag"> Review TikTok</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Bún+đỏ+19+Lê+Hồng+Phong+Buôn+Ma+Thuột" target="_blank" rel="noopener" class="food-tag"> Google Maps</a>
+            </div>
+          </div>
+          <div class="food-meta"><span> 25.000đ – 35.000đ/tô</span><span style="color:var(--forest-800);"> 4.8/5</span></div>
+        </div>
+
+        <div class="food-card">
+          <div>
+            <span class="food-tag"> Tô Bún Khổng Lồ</span>
+            <h3 class="food-name">Bún Chìa Cô Chua</h3>
+            <div class="food-addr"> 92 Lê Thánh Tông, TP. Buôn Ma Thuột</div>
+            <p class="food-review">Đặc sản trứ danh với tảng thịt sườn chìa to bự chảng ninh mềm ngọt lịm, chấm mắm ruốc ớt xanh cay nồng.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+              <a href="https://www.facebook.com/search/top?q=Bún+chìa+Cô+Chua+Buôn+Ma+Thuột" target="_blank" rel="noopener" class="food-tag"> Fanpage</a>
+              <a href="https://www.tiktok.com/search?q=Bún+chìa+Cô+Chua+BMT" target="_blank" rel="noopener" class="food-tag"> Review TikTok</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Bún+chìa+Cô+Chua+92+Lê+Thánh+Tông+Buôn+Ma+Thuột" target="_blank" rel="noopener" class="food-tag"> Google Maps</a>
+            </div>
+          </div>
+          <div class="food-meta"><span> 60.000đ – 75.000đ/tô</span><span style="color:var(--forest-800);"> 4.9/5</span></div>
+        </div>
+
+        <div class="food-card">
+          <div>
+            <span class="food-tag"> Bữa Sáng Gia Truyền</span>
+            <h3 class="food-name">Phở Khô Hai Tô Gia Lai – BMT</h3>
+            <div class="food-addr"> 99 Nguyễn Công Trứ, TP. Buôn Ma Thuột</div>
+            <p class="food-review">Sợi phở mảnh dai trộn sốt tương đen hành phi thơm lừng, phục vụ kèm một tô súp bò viên – thịt tái ngọt thanh riêng biệt.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+              <a href="https://www.facebook.com/search/top?q=Phở+khô+99+Nguyễn+Công+Trứ+BMT" target="_blank" rel="noopener" class="food-tag"> Fanpage</a>
+              <a href="https://www.tiktok.com/search?q=Phở+khô+2+tô+Buôn+Ma+Thuột" target="_blank" rel="noopener" class="food-tag"> Review TikTok</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Phở+khô+99+Nguyễn+Công+Trứ+Buôn+Ma+Thuột" target="_blank" rel="noopener" class="food-tag"> Google Maps</a>
+            </div>
+          </div>
+          <div class="food-meta"><span> 45.000đ – 55.000đ</span><span style="color:var(--forest-800);"> 4.8/5</span></div>
+        </div>
+
+        <div class="food-card">
+          <div>
+            <span class="food-tag"> Đặc Sản Sông Sêrêpốk</span>
+            <h3 class="food-name">Lẩu Cá Lăng & Gà Nướng Bản Đôn</h3>
+            <div class="food-addr"> Khu du lịch Buôn Đôn / KoTam / Phương Dung</div>
+            <p class="food-review">Cá lăng sông Sêrêpốk thịt săn chắc nấu lẩu măng chua rừng và gà thả vườn nướng kẹp tre ăn cùng cơm lam ống nứa dẻo thơm.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+              <a href="https://www.facebook.com/search/top?q=Lẩu+cá+lăng+Buôn+Ma+Thuột" target="_blank" rel="noopener" class="food-tag"> Fanpage</a>
+              <a href="https://www.tiktok.com/search?q=Lẩu+cá+lăng+Gà+nướng+Buôn+Đôn" target="_blank" rel="noopener" class="food-tag"> Review TikTok</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Lẩu+cá+lăng+Buôn+Ma+Thuột" target="_blank" rel="noopener" class="food-tag"> Google Maps</a>
+            </div>
+          </div>
+          <div class="food-meta"><span> 180.000đ – 350.000đ</span><span style="color:var(--forest-800);"> 4.9/5</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DỰ TOÁN CHI PHÍ -->
+    <section style="margin:34px 0;">
+      <div class="calc-card">
+        <div>
+          <span style="font-size:11.5px;font-weight:800;color:var(--forest-600);text-transform:uppercase;"> CÔNG CỤ HỖ TRỢ DU KHÁCH</span>
+          <h2 style="font-size:22px;font-weight:800;margin:4px 0 6px;">Dự toán chi phí đi Đắk Lắk tự túc</h2>
+          <p style="font-size:13px;color:var(--text-body);">Chọn thời lượng, số người và phong cách trải nghiệm để ước tính ngân sách:</p>
+          <div class="calc-controls">
+            <div class="calc-field">
+              <label>Thời gian chuyến đi</label>
+              <select id="calcDays">
+                <option value="2">2 Ngày 1 Đêm</option>
+                <option value="3" selected>3 Ngày 2 Đêm (Chuẩn)</option>
+                <option value="4">4 Ngày 3 Đêm</option>
+              </select>
+            </div>
+            <div class="calc-field">
+              <label>Số lượng thành viên</label>
+              <input type="number" id="calcPeople" value="2" min="1" max="20" />
+            </div>
+            <div class="calc-field">
+              <label>Phong cách du lịch</label>
+              <select id="calcStyle">
+                <option value="750000"> Phượt tiết kiệm (Homestay + Xe máy)</option>
+                <option value="1150000" selected> Tiêu chuẩn thoải mái (Lee's House / KS 3)</option>
+                <option value="1850000"> Nghỉ dưỡng cao cấp (Lắk Tented Camp)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="calc-result-box">
+          <div style="font-size:12px;color:var(--forest-200);font-weight:600;">TỔNG CHI PHÍ DỰ KIẾN TOÀN ĐOÀN</div>
+          <div id="calcTotal" style="font-size:32px;font-weight:800;margin:6px 0;">6.900.000đ</div>
+          <div id="calcPerPerson" style="font-size:12.5px;opacity:0.9;margin-bottom:12px;">~ 3.450.000đ / người (3 ngày • 2 khách)</div>
+          <a href="#lich-trinh" style="display:inline-block;background:#fff;color:var(--forest-800);padding:8px 16px;border-radius:999px;font-size:12px;font-weight:700;">Xem lịch trình chi tiết bên dưới ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LỊCH THỜI VỤ -->
+    <div class="season-bar">
+      <div>
+        <h3 style="font-size:16px;font-weight:800;"> Đi Đắk Lắk tháng mấy đẹp nhất?</h3>
+        <p id="seasonText" style="font-size:13px;color:var(--text-body);margin-top:4px;"><strong>Tháng 2 – Tháng 3:</strong> Mùa hoa cà phê nở trắng xóa khắp triền đồi, lễ hội Cà phê Buôn Ma Thuột và lễ hội đua voi.</p>
+      </div>
+      <div class="season-btns">
+        <button class="season-btn active" onclick="setSeason(this, 'Tháng 2 – Tháng 3: Mùa hoa cà phê nở trắng xóa khắp triền đồi, lễ hội Cà phê Buôn Ma Thuột và mùa quay mật ong.')">Tháng 2 – 3 (Hoa cà phê)</button>
+        <button class="season-btn" onclick="setSeason(this, 'Tháng 4 – Tháng 5: Mùa hoa pơ lang đỏ rực và hàng triệu cánh bướm vàng bay rợp rừng khộp VQG Yok Đôn.')">Tháng 4 – 5 (Mùa bướm rừng)</button>
+        <button class="season-btn" onclick="setSeason(this, 'Tháng 8 – Tháng 10: Mùa thác Dray Nur – Dray Sáp cuộn trào hùng vĩ nhất năm, mùa săn mây Glamping và mùa bơ sáp.')">Tháng 8 – 10 (Săn mây & mùa thác)</button>
+        <button class="season-btn" onclick="setSeason(this, 'Tháng 11 – Tháng 1: Mùa hoa dã quỳ vàng rực, tiết trời se lạnh 18°C và mùa thu hoạch cà phê chín đỏ.')">Tháng 11 – 1 (Hoa dã quỳ)</button>
+      </div>
+    </div>
+
+    <!-- LỊCH TRÌNH 3N2Đ -->
+    <div class="itinerary-box" id="lich-trinh">
+      <h2 style="font-size:22px;font-weight:800;"> Lịch trình chuẩn 3 Ngày 2 Đêm (Kết hợp Cafe Hopping & Glamping)</h2>
+      <div class="itinerary-tabs">
+        <button class="itinerary-tab active" data-day="1">Ngày 1: Bảo tàng Cà phê – Ako Dhông – Foodtour BMT</button>
+        <button class="itinerary-tab" data-day="2">Ngày 2: Thác Dray Nur – Buôn Đôn – Glamping Cốm Camp</button>
+        <button class="itinerary-tab" data-day="3">Ngày 3: Bình minh Hồ Lắk – Đá Voi Mẹ – Lee's House</button>
+      </div>
+      <div class="timeline-steps" id="itineraryContent">
+        <div class="timeline-step">
+          <div style="font-size:11.5px;font-weight:800;color:var(--forest-600);">07:30 – 11:30 • Buổi sáng</div>
+          <h4 style="font-size:15px;font-weight:700;margin:4px 0;">Ăn Bún Chìa Cô Chua & Check-in Bảo tàng Cà phê</h4>
+          <p style="font-size:12.5px;color:var(--text-body);">Ăn sáng tại 92 Lê Thánh Tông, sau đó chụp ảnh kiến trúc mái vòm tại Bảo tàng Thế giới Cà phê và uống Pour-over tại SOUL Roastery (87 Nguyễn Khuyến).</p>
+        </div>
+        <div class="timeline-step">
+          <div style="font-size:11.5px;font-weight:800;color:var(--forest-600);">14:30 – 17:30 • Buổi chiều</div>
+          <h4 style="font-size:15px;font-weight:700;margin:4px 0;">Buôn Ako Dhông – Arul Coffee – Hoàng hôn The Circle</h4>
+          <p style="font-size:12.5px;color:var(--text-body);">Dạo buôn nhà dài Ê Đê, ghé Arul Coffee (17 Trần Nhật Duật) và đón hoàng hôn trên tầng thượng The Circle Roasters (291 Hà Huy Tập).</p>
+        </div>
+        <div class="timeline-step">
+          <div style="font-size:11.5px;font-weight:800;color:var(--forest-600);">18:30 – 21:30 • Buổi tối</div>
+          <h4 style="font-size:15px;font-weight:700;margin:4px 0;">Bò Nhúng Me Cà Te & Bún Đỏ Bà Thu</h4>
+          <p style="font-size:12.5px;color:var(--text-body);">Thưởng thức chảo bò nhúng me tại 57 Nguyễn Khuyến và ăn khuya bún đỏ nóng hổi tại 19 Lê Hồng Phong.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="display:flex;justify-content:space-between;">
+      <span>© 2026 Chạm Đắk Lắk – Chuyên trang Tin tức, Foodtour & Lịch trình</span>
+      <a href="chamdaklak.html">← Quay về Trang chủ</a>
+    </div>
+  </footer>
+
+  <div class="toast-box" id="toastBox"></div>
+  <script src="shared.js"></script>
+  <script>
+    const DAYS_DATA = {
+      '1': [
+        { time: '07:30 – 11:30 • Buổi sáng', title: 'Ăn Bún Chìa Cô Chua & Check-in Bảo tàng Cà phê', desc: 'Ăn sáng tại 92 Lê Thánh Tông, sau đó chụp ảnh kiến trúc mái vòm tại Bảo tàng Thế giới Cà phê và uống Pour-over tại SOUL Roastery (87 Nguyễn Khuyến).' },
+        { time: '14:30 – 17:30 • Buổi chiều', title: 'Buôn Ako Dhông – Arul Coffee – Hoàng hôn The Circle', desc: 'Dạo buôn nhà dài Ê Đê, ghé Arul Coffee (17 Trần Nhật Duật) và đón hoàng hôn trên tầng thượng The Circle Roasters (291 Hà Huy Tập).' },
+        { time: '18:30 – 21:30 • Buổi tối', title: 'Bò Nhúng Me Cà Te & Bún Đỏ Bà Thu', desc: 'Thưởng thức chảo bò nhúng me tại 57 Nguyễn Khuyến và ăn khuya bún đỏ nóng hổi tại 19 Lê Hồng Phong.' }
+      ],
+      '2': [
+        { time: '07:30 – 11:30 • Buổi sáng', title: 'Chinh phục Cụm Thác Dray Nur – Gia Long', desc: 'Chiêm ngưỡng ngọn thác hùng vĩ, săn cầu vồng lúc 9h sáng và chèo thuyền phao trên dòng sông Sêrêpốk.' },
+        { time: '13:00 – 16:30 • Buổi chiều', title: 'Cầu treo Buôn Đôn & Tour Voi VQG Yok Đôn', desc: 'Ăn trưa gà nướng cơm lam Bản Đôn, đi cầu treo rễ si cổ thụ và tìm hiểu mô hình bảo tồn voi rừng khộp.' },
+        { time: '17:30 – 21:30 • Buổi tối', title: 'BBQ bên suối tại Cốm Camp & Glamping', desc: 'Về xã Hòa Khánh tận hưởng tiệc nướng BBQ dưới ánh đèn vàng bên dòng suối mát.' }
+      ],
+      '3': [
+        { time: '05:30 – 10:00 • Buổi sáng', title: 'Đón bình minh Hồ Lắk & Chinh phục Đá Voi Mẹ', desc: 'Ngắm mặt hồ mờ sương lúc bình minh, ghé thăm buôn Jun và leo đỉnh Đá Voi Mẹ Yang Tao.' },
+        { time: '11:30 – 15:00 • Buổi trưa', title: 'Bánh ướt chồng đĩa 45 & Check-in Lee\'s House', desc: 'Ăn trưa tại 45 Trần Nhật Duật, sau đó ghé Lee\'s House (Cư Ê Bur) chụp ảnh hồ bơi vô cực Tiểu Bali.' },
+        { time: '15:30 – 17:30 • Buổi chiều', title: 'Mua Đặc sản Cà phê, Mắc ca & Mật ong làm quà', desc: 'Chọn mua Cà phê Fine Robusta, Mật ong hoa cà phê Cư Kuin và Hạt mắc ca Krông Năng trước khi ra sân bay.' }
+      ]
+    };
+
+    function updateBudget() {
+      const days = Number(document.getElementById('calcDays').value);
+      const people = Math.max(1, Number(document.getElementById('calcPeople').value));
+      const rate = Number(document.getElementById('calcStyle').value);
+      const perPerson = days * rate;
+      const total = perPerson * people;
+      document.getElementById('calcTotal').textContent = total.toLocaleString('vi-VN') + 'đ';
+      document.getElementById('calcPerPerson').textContent = `~ ${perPerson.toLocaleString('vi-VN')}đ / người (${days} ngày • ${people} khách)`;
+    }
+    ['calcDays','calcPeople','calcStyle'].forEach(id => {
+      document.getElementById(id).addEventListener('input', updateBudget);
+      document.getElementById(id).addEventListener('change', updateBudget);
+    });
+
+    window.setSeason = function(btn, text) {
+      document.querySelectorAll('.season-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('seasonText').innerHTML = '<strong>Gợi ý mùa đẹp:</strong> ' + text;
+    };
+
+    document.querySelectorAll('.itinerary-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.itinerary-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const steps = DAYS_DATA[tab.dataset.day] || [];
+        document.getElementById('itineraryContent').innerHTML = steps.map(s => `
+          <div class="timeline-step">
+            <div style="font-size:11.5px;font-weight:800;color:var(--forest-600);">${s.time}</div>
+            <h4 style="font-size:15px;font-weight:700;margin:4px 0;">${s.title}</h4>
+            <p style="font-size:12.5px;color:var(--text-body);">${s.desc}</p>
+          </div>
+        `).join('');
+      });
+    });
+  </script>
+  <script src="pixel-elephant.js"></script>
+  <script src="apple-glass.js"></script>
+</body>
+</html>

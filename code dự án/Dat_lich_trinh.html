@@ -1,0 +1,2655 @@
+﻿<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Trò Chuyện Lên Lịch Trình – Chạm Đắk Lắk</title><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Caveat:wght@500;600;700&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet"/><link rel="stylesheet" href="shared.css" /><link rel="stylesheet" href="chatbox.css" /><style>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-dark: #064e3b;
+      --green-main: #059669;
+      --green-mid: #10b981;
+      --green-light: #d1fae5;
+      --green-pale: #f0fdf7;
+      --green-card: #ffffff;
+      --cream: #ffffff;
+      --text-dark: #064e3b;
+      --text-gray: #52796f;
+      --border: #a7f3d0;
+      --shadow: rgba(16, 185, 129, 0.10);
+      --bazan-gradient: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%);
+      --warm-accent: #10b981;
+      --warm-orange: #059669;
+    }
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background-color: #f4fcf8 !important;
+      background-image:
+        radial-gradient(circle at 52% 12%, rgba(52, 211, 153, 0.18) 0%, rgba(16, 185, 129, 0.08) 38%, transparent 70%),
+        radial-gradient(circle at 15% 65%, rgba(110, 231, 183, 0.16) 0%, transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, #f0fdf7 52%, #e6faef 100%) !important;
+      background-attachment: fixed !important;
+      background-size: cover !important;
+      background-position: center top !important;
+      color: #064e3b !important;
+      min-height: 100vh;
+    }
+    nav {
+      position: sticky;
+      top: 14px !important;
+      z-index: 100;
+      background: transparent !important;
+      padding: 0 20px !important;
+    }
+    .nav-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 66px;
+      gap: 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.94) !important;
+      backdrop-filter: blur(18px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(18px) saturate(180%) !important;
+      border: 1.5px solid #a7f3d0 !important;
+      box-shadow: 0 12px 32px rgba(16, 185, 129, 0.12) !important;
+      padding: 0 26px !important;
+    }
+    .logo { display: flex; align-items: center; gap: 11px; text-decoration: none; flex-shrink: 0; }
+    .logo-icon {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+      border: 1px solid #6ee7b7;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+      border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff;
+    }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.15; }
+    .logo-name { font-weight: 800; font-size: 18px; color: #064e3b !important; text-transform: uppercase; letter-spacing: 0.03em; }
+    .logo-sub { font-size: 9.5px; font-weight: 600; color: #059669 !important; margin-top: 2px; }
+    .nav-links { display: flex; list-style: none; gap: 17px; align-items: center; }
+    .nav-links a {
+      position: relative; text-decoration: none; font-size: 13px; font-weight: 600;
+      color: #1e3a2f !important; padding: 6px 0; transition: color .2s; white-space: nowrap;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #059669 !important; }
+    .nav-links a.active::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 3px;
+      background: linear-gradient(90deg, #059669, #34d399) !important; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35); border-radius: 2px;
+    }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .nav-search {
+      display: flex; align-items: center; gap: 6px;
+      background: #f0fdf7 !important;
+      border: 1.5px solid #a7f3d0 !important;
+      border-radius: 20px; padding: 5px 12px; font-size: 12.5px; color: #064e3b !important;
+    }
+    .nav-search input { border: none; background: transparent !important; outline: none; font-size: 12.5px; width: 110px; color: #064e3b !important; font-family: inherit; }
+    .nav-search input::placeholder { color: #52796f !important; }
+    .nav-icon-btn {
+      position: relative; width: 36px; height: 36px; border-radius: 50%;
+      background: #ecfdf5 !important; border: 1.5px solid #a7f3d0 !important;
+      display: flex; align-items: center; justify-content: center; font-size: 15px; text-decoration: none; color: #047857 !important;
+    }
+    .cart-badge {
+      position: absolute; top: -2px; right: -2px; min-width: 16px; height: 16px; border-radius: 999px;
+      background: #059669; color: #fff; font-size: 9.5px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative; width: 100%;
+      background: radial-gradient(circle at 50% 30%, rgba(52, 211, 153, 0.12) 0%, transparent 65%), linear-gradient(180deg, #ffffff 0%, #f0fdf7 100%) !important;
+      border-bottom: 1.5px solid #a7f3d0;
+      padding: 48px 24px 40px; color: #064e3b;
+      text-align: center;
+    }
+    .hero-inner { max-width: 1220px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; z-index: 2; text-align: center; }
+    .hero-left { max-width: 100%; text-align: center; }
+    .hero-tag { font-size: 13px; font-weight: 700; color: #059669; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .hero-title {
+      font-size: clamp(30px, 4.2vw, 46px); font-weight: 800; line-height: 1.2; margin-bottom: 12px;
+      background: var(--bazan-gradient);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub { font-size: 16px; color: #335c4d; line-height: 1.6; max-width: 760px; margin: 0 auto; }
+    .hero-features, .hero-right { display: none !important; }
+    .wooden-sign-card { display: none !important; }
+
+    /* ===== MAIN LAYOUT ===== */
+    .main-body {
+      max-width: 1220px !important;
+      margin: 32px auto 80px !important;
+      padding: 0 24px !important;
+      display: block !important;
+    }
+    .left-panel, .right-panel {
+      display: none !important;
+    }
+    .form-panel {
+      padding: 44px 52px !important;
+      position: relative;
+      z-index: 40;
+      background: #ffffff !important;
+      border: 1.5px solid #bbf7d0 !important;
+      border-radius: 32px !important;
+      box-shadow: 0 16px 48px rgba(16, 185, 129, 0.07) !important;
+    }
+
+    .left-panel-header { display: block; margin-bottom: 18px; }
+    .compass-icon, .cal-icon { display: none !important; }
+    .left-panel-header h3, .form-header h2, .right-title {
+      background: var(--bazan-gradient);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+    .reason-list { display: flex; flex-direction: column; gap: 14px; }
+    .reason-item {
+      display: block;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.65);
+      border-left: 3px solid #10b981;
+      border-radius: 0 14px 14px 0;
+      box-shadow: 0 2px 8px rgba(6, 78, 59, 0.04);
+    }
+    .reason-dot { display: none !important; }
+    .reason-content h4 { font-size: 13px; font-weight: 700; color: #064e3b; margin-bottom: 2px; }
+    .reason-content p { font-size: 11.5px; color: #1e3a2f; line-height: 1.45; }
+    .left-slogan { margin-top: 20px; border-top: 1px dashed #a7f3d0; padding-top: 14px; text-align: center; }
+    .left-slogan .s1 { font-size: 14px; font-style: italic; font-weight: 700; color: #064e3b; }
+    .left-slogan .s2 { font-size: 12px; font-style: italic; color: #059669; margin-top: 2px; }
+    .guide-connect-box { margin-top: 16px; padding: 14px; text-align: center; background: #f0fdf7 !important; }
+    .guide-connect-box p { font-size: 12px; color: #064e3b; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
+    .guide-connect-box a {
+      display: inline-block; padding: 7px 14px; background: linear-gradient(135deg, #059669, #10b981);
+      color: #fff; border-radius: 999px; font-size: 11.5px; font-weight: 700; text-decoration: none;
+    }
+
+    /* ===== HOST GREETING & CHAT CLUTTER (HIDDEN) ===== */
+    .host-welcome-card { display: none !important; }
+    .host-avatar, .host-mini-ava { display: none !important; }
+
+    /* Mode Switcher (Xem trọn cuộc trò chuyện vs Tâm sự từng câu) */
+    .chat-mode-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      background: #f0fdf7;
+      border: 1.5px solid #a7f3d0;
+    }
+    .chat-progress-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+      color: #047857;
+      font-weight: 700;
+    }
+    .chat-progress-bar-wrap {
+      width: 110px;
+      height: 7px;
+      border-radius: 999px;
+      background: #d1fae5;
+      overflow: hidden;
+    }
+    .chat-progress-bar-fill {
+      height: 100%;
+      width: 15%;
+      background: linear-gradient(90deg, #059669, #34d399);
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
+    .mode-pills {
+      display: flex;
+      gap: 6px;
+    }
+    .mode-pill-btn {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #a7f3d0;
+      background: #ffffff;
+      color: #065f46;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .mode-pill-btn.active {
+      background: linear-gradient(135deg, #059669, #10b981);
+      border-color: #10b981;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.28);
+    }
+
+    .saved-places-pill {
+      display: none;
+      background: #ecfdf5;
+      border: 1.5px dashed #10b981;
+      border-radius: 16px;
+      padding: 12px 16px;
+      margin-bottom: 18px;
+      font-size: 12.5px;
+      color: #047857;
+      line-height: 1.5;
+    }
+
+    /* Conversational Topic Card */
+    .convo-stream {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .convo-card {
+      background: #ffffff !important;
+      border: 1.5px solid #d1fae5 !important;
+      border-radius: 24px !important;
+      padding: 28px 36px !important;
+      transition: all 0.28s ease;
+      position: relative;
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.03);
+    }
+    .convo-card:hover {
+      background: #ffffff !important;
+      border-color: #10b981 !important;
+      box-shadow: 0 12px 32px rgba(16, 185, 129, 0.08) !important;
+    }
+    .convo-card.answered {
+      border-color: #34d399 !important;
+      background: #fafffc !important;
+    }
+    .convo-card.step-hidden {
+      display: none !important;
+    }
+
+    /* Host Question Header inside each card */
+    .host-ask-row {
+      display: block;
+      margin-bottom: 16px;
+    }
+    .host-mini-ava { display: none !important; }
+    .host-ask-bubble {
+      flex: 1;
+    }
+    .host-ask-tag { display: none !important; }
+    .host-ask-title {
+      font-size: 18px !important;
+      font-weight: 700;
+      color: #064e3b;
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+    .host-ask-sub { display: none !important; }
+
+    /* Conversational Response Pills */
+    .reply-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-left: 0 !important;
+    }
+    .reply-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      background: #f0fdf4;
+      border: 1.5px solid #a7f3d0;
+      color: #064e3b;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+      text-align: left;
+      line-height: 1.35;
+    }
+    .reply-pill:hover {
+      transform: translateY(-2px);
+      background: #dcfce7;
+      border-color: #10b981;
+    }
+    .reply-pill.selected {
+      background: linear-gradient(135deg, #059669, #10b981);
+      border-color: #047857;
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.28);
+      transform: translateY(-2px);
+    }
+    .reply-pill .pill-emo { display: none !important; }
+
+    /* Warm Local Whisper & Tip Box (HIDDEN FOR MINIMALISM) */
+    .host-whisper { display: none !important; }
+    .local-tip-box { display: none !important; }
+    .local-tip-title {
+      font-weight: 800;
+      color: #047857;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+    }
+    .season-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 12px;
+      margin-top: 8px;
+    }
+    .season-item {
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: #f0fdf7;
+      border: 1px solid #a7f3d0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .season-item:hover, .season-item.active-season {
+      border-color: #059669;
+      background: #d1fae5;
+    }
+    .season-item strong {
+      display: block;
+      color: #047857;
+      font-size: 12px;
+      margin-bottom: 2px;
+    }
+    .season-item span {
+      font-size: 11px;
+      color: #1e3a2f;
+    }
+
+    /* Inline inputs inside conversation cards */
+    .inline-convo-inputs {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 12px 0 0 46px;
+    }
+    .convo-input-box {
+      flex: 1;
+      min-width: 190px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .convo-input-box label {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #047857;
+    }
+    .convo-input, .convo-textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1.5px solid #a7f3d0;
+      background: #ffffff;
+      color: #064e3b;
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .convo-input:focus, .convo-textarea:focus {
+      border-color: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.14);
+    }
+    .convo-input option {
+      background: #ffffff;
+      color: #064e3b;
+    }
+    .convo-textarea {
+      min-height: 86px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    /* Step-by-step navigation controls */
+    .step-nav-bar {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px dashed #a7f3d0;
+    }
+    .step-nav-bar.active {
+      display: flex;
+    }
+    .btn-step-nav {
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1.5px solid #a7f3d0;
+      background: #f0fdf7;
+      color: #064e3b;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-step-nav.primary {
+      background: linear-gradient(135deg, #059669, #10b981);
+      border-color: #10b981;
+      color: #ffffff;
+    }
+    .btn-step-nav:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Live Personalized Summary ("Tấm Thiệp Hành Trình Của Riêng Bạn") */
+    .personal-summary-card {
+      margin-top: 22px;
+      padding: 20px 22px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdf7 100%);
+      border: 1.5px solid #6ee7b7;
+      box-shadow: 0 12px 28px rgba(16, 185, 129, 0.12);
+    }
+    .summary-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+      border-bottom: 1px dashed #a7f3d0;
+      padding-bottom: 10px;
+    }
+    .summary-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #047857;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .summary-body {
+      font-size: 13px;
+      color: #1e3a2f;
+      line-height: 1.65;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .summary-advice-item {
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: #ecfdf5;
+      border-left: 3.5px solid #059669;
+      font-size: 12.5px;
+      color: #064e3b;
+    }
+
+    /* Smart Tailored Recommendations Grid & Day-by-Day Itinerary (HIDDEN UNTIL SUBMIT - EXPANDS TO ~2/3+ SCREEN) */
+    .tailored-reco-section {
+      display: none;
+      width: min(76vw, 1180px);
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 60;
+      margin-top: 28px;
+      margin-bottom: 28px;
+      padding: 28px 30px;
+      border-radius: 28px;
+      background: #ffffff;
+      border: 2px solid #10b981;
+      box-shadow: 0 24px 64px rgba(16, 185, 129, 0.20);
+      animation: revealMapSection 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .tailored-reco-section.revealed {
+      display: block;
+    }
+    @keyframes revealMapSection {
+      0% { opacity: 0; transform: translate(-50%, 24px) scale(0.97); }
+      100% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+    }
+    @media (max-width: 980px) {
+      .tailored-reco-section {
+        width: 100%;
+        left: 0;
+        transform: none;
+      }
+      @keyframes revealMapSection {
+        0% { opacity: 0; transform: translateY(24px) scale(0.97); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
+    }
+
+    /* MINI MAP & WALKING ELEPHANT (LARGE 2/3 SCREEN STAGE - MINT HIGHLAND THEME) */
+    .mini-map-showcase {
+      margin-top: 12px;
+      margin-bottom: 26px;
+      border-radius: 24px;
+      background: radial-gradient(circle at 50% 45%, #065f46 0%, #064e3b 72%, #022c22 100%);
+      border: 2px solid #34d399;
+      box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.45), 0 16px 38px rgba(16, 185, 129, 0.22);
+      overflow: hidden;
+      position: relative;
+    }
+    .mini-map-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 16px 22px;
+      background: rgba(255, 255, 255, 0.10);
+      border-bottom: 1px solid rgba(167, 243, 208, 0.28);
+    }
+    .mini-map-title {
+      font-size: 16.5px;
+      font-weight: 800;
+      color: #a7f3d0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .mini-map-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn-map-ctrl {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1.5px solid #6ee7b7;
+      background: rgba(16, 185, 129, 0.25);
+      color: #ecfdf5;
+      font-size: 12.5px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-map-ctrl:hover {
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: #fff;
+      border-color: #fff;
+      transform: translateY(-1px);
+    }
+    .mini-map-stage {
+      position: relative;
+      width: 100%;
+      height: clamp(520px, 66vh, 660px);
+      user-select: none;
+      overflow: hidden;
+      background-image:
+        radial-gradient(rgba(167, 243, 208, 0.12) 1.2px, transparent 1.2px),
+        radial-gradient(rgba(167, 243, 208, 0.06) 1.2px, transparent 1.2px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px;
+    }
+    .mini-map-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .map-node-pin {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      z-index: 5;
+      transition: transform 0.25s ease;
+    }
+    .map-node-pin:hover {
+      transform: translate(-50%, -54%) scale(1.08);
+      z-index: 15;
+    }
+    .map-node-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #022c22;
+      border: 2.5px solid #6ee7b7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .map-node-step-num {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #059669;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #fff;
+    }
+    .map-node-pin.visited .map-node-circle {
+      background: linear-gradient(135deg, #059669, #10b981);
+      border-color: #a7f3d0;
+      box-shadow: 0 0 22px rgba(52, 211, 153, 0.72);
+    }
+    .map-node-pin.visited .map-node-step-num {
+      background: #047857;
+    }
+    .map-node-pin.current .map-node-circle {
+      transform: scale(1.18);
+      border-color: #ffffff;
+      box-shadow: 0 0 0 7px rgba(52, 211, 153, 0.28), 0 0 28px rgba(52, 211, 153, 0.95);
+    }
+    .map-node-label {
+      margin-top: 7px;
+      padding: 5px 11px;
+      border-radius: 10px;
+      background: rgba(2, 44, 34, 0.94);
+      border: 1px solid #6ee7b7;
+      color: #fff;
+      font-size: 11.8px;
+      font-weight: 800;
+      max-width: 195px;
+      white-space: normal;
+      line-height: 1.3;
+      text-align: center;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.45);
+    }
+    .map-node-pin.pin-right .map-node-label {
+      transform: translateX(-22%);
+    }
+    .map-node-pin.pin-left .map-node-label {
+      transform: translateX(22%);
+    }
+    .map-node-dist {
+      display: block;
+      font-size: 10.5px;
+      color: #6ee7b7;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    /* Walking Elephant Actor on Mini Map */
+    .map-elephant-actor {
+      position: absolute;
+      width: 78px;
+      height: 64px;
+      transform: translate(-50%, -82%);
+      z-index: 25;
+      pointer-events: none;
+      filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.6));
+      transition: left 0.06s linear, top 0.06s linear;
+    }
+    .map-elephant-actor.facing-left .map-elephant-svg {
+      transform: scaleX(-1);
+    }
+    .map-elephant-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+    .map-elephant-actor.is-walking .el-body-group {
+      animation: mapElBob 0.26s infinite alternate ease-in-out;
+    }
+    .map-elephant-actor.is-walking .el-leg-1 {
+      animation: mapElLeg1 0.26s infinite alternate ease-in-out;
+    }
+    .map-elephant-actor.is-walking .el-leg-2 {
+      animation: mapElLeg2 0.26s infinite alternate ease-in-out;
+    }
+    @keyframes mapElBob {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-3.5px); }
+    }
+    @keyframes mapElLeg1 {
+      0% { transform: translateX(-1.5px); }
+      100% { transform: translateX(2.5px); }
+    }
+    @keyframes mapElLeg2 {
+      0% { transform: translateX(2.5px); }
+      100% { transform: translateX(-1.5px); }
+    }
+    .map-elephant-bubble {
+      position: absolute;
+      bottom: 68px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffffff;
+      color: #064e3b;
+      border: 2px solid #10b981;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+      transition: transform 0.2s ease;
+    }
+    .map-elephant-actor.edge-right .map-elephant-bubble {
+      transform: translateX(-88%);
+    }
+    .map-elephant-actor.edge-left .map-elephant-bubble {
+      transform: translateX(-12%);
+    }
+    .map-elephant-bubble::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -6px;
+      border-width: 6px;
+      border-style: solid;
+      border-color: #10b981 transparent transparent transparent;
+    }
+    .map-elephant-actor.edge-right .map-elephant-bubble::after {
+      left: 88%;
+    }
+    .map-elephant-actor.edge-left .map-elephant-bubble::after {
+      left: 12%;
+    }
+    .map-stop-spotlight {
+      padding: 16px 22px;
+      background: rgba(2, 44, 34, 0.82);
+      border-top: 1px solid rgba(167, 243, 208, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .map-stop-spotlight-info {
+      font-size: 13.5px;
+      color: #ecfdf5;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .map-stop-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .map-stop-pill-btn {
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid rgba(167, 243, 208, 0.4);
+      background: rgba(255, 255, 255, 0.1);
+      color: #a7f3d0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .map-stop-pill-btn.active {
+      background: #10b981;
+      color: #fff;
+      border-color: #fff;
+    }
+    .tailored-reco-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed #a7f3d0;
+    }
+    .tailored-reco-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+    .tailored-reco-heading {
+      font-size: 17px;
+      font-weight: 800;
+      color: #064e3b;
+      margin-top: 4px;
+    }
+
+    /* Quick Money Chips inside Question 5 */
+    .quick-money-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .money-chip {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1.5px solid #6ee7b7;
+      background: #ecfdf5;
+      color: #047857;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+    .money-chip:hover, .money-chip.active {
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: #fff;
+      border-color: #059669;
+      transform: translateY(-1px);
+    }
+
+    /* Trip Cost Estimator & Breakdown Panel (White & Mint Green Theme) */
+    .cost-breakdown-panel {
+      margin-top: 6px;
+      margin-bottom: 22px;
+      padding: 20px 22px;
+      border-radius: 22px;
+      background: #f0fdf7;
+      border: 1.5px solid #6ee7b7;
+      box-shadow: 0 12px 28px rgba(16, 185, 129, 0.12);
+    }
+    .cost-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #a7f3d0;
+    }
+    .cost-panel-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #047857;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cost-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .cost-kpi-box {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1.5px solid #a7f3d0;
+    }
+    .cost-kpi-label {
+      font-size: 11.5px;
+      color: #52796f;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .cost-kpi-val {
+      font-size: 20px;
+      font-weight: 800;
+      color: #059669;
+    }
+    .cost-kpi-sub {
+      font-size: 11px;
+      color: #1e3a2f;
+      margin-top: 3px;
+    }
+    .cost-items-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .cost-line-item {
+      padding: 11px 14px;
+      border-radius: 14px;
+      background: #ffffff;
+      border: 1px solid #a7f3d0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .cost-line-left {
+      font-size: 12.2px;
+      color: #1e3a2f;
+      line-height: 1.45;
+    }
+    .cost-line-left strong {
+      color: #047857;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .cost-line-amount {
+      font-size: 13px;
+      font-weight: 800;
+      color: #059669;
+      white-space: nowrap;
+      text-align: right;
+    }
+    @media (max-width: 760px) {
+      .cost-kpi-grid, .cost-items-list { grid-template-columns: 1fr; }
+    }
+
+    /* 3-Web Scientific Ecosystem Bar & Checkout Styles */
+    .eco-3web-hub {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      border: 1.5px solid #6ee7b7;
+      box-shadow: 0 10px 24px rgba(16, 185, 129, 0.10);
+    }
+    .eco-3web-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .eco-3web-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid #6ee7b7;
+      color: #047857;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+    }
+    .eco-3web-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .eco-step-card {
+      padding: 14px 15px;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1.5px solid #a7f3d0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+    }
+    .eco-step-card.active-step {
+      border-color: #059669;
+      background: #f0fdf7;
+    }
+    .eco-step-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #064e3b;
+    }
+    .eco-step-status {
+      font-size: 10.5px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #6ee7b7;
+      font-weight: 700;
+    }
+    .eco-step-select {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: #f0fdf7;
+      border: 1.5px solid #a7f3d0;
+      color: #064e3b;
+      font-size: 12px;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      outline: none;
+    }
+    .eco-step-link {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #059669;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: auto;
+    }
+    .eco-step-link:hover { text-decoration: underline; }
+
+    .checkout-bill-card {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1.5px solid #a7f3d0;
+      margin-bottom: 12px;
+    }
+    .checkout-bill-card.charged {
+      border-left: 4px solid #059669;
+    }
+    .checkout-bill-card.excluded {
+      border-left: 4px solid #6ee7b7;
+      background: #f8fdfa;
+    }
+    .checkout-controls-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .checkout-ctrl-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #047857;
+      font-weight: 600;
+    }
+    .checkout-ctrl-input {
+      width: 64px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: #f0fdf7;
+      border: 1.5px solid #6ee7b7;
+      color: #064e3b;
+      font-weight: 800;
+      font-size: 12.5px;
+      text-align: center;
+    }
+    .checkout-total-banner {
+      margin-top: 14px;
+      padding: 16px 20px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+      border: 2px solid #10b981;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .btn-pay-now {
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid #34d399;
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: #fff;
+      font-size: 13.5px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(16, 185, 129, 0.30);
+      transition: transform 0.2s ease;
+    }
+    .btn-pay-now:hover { transform: translateY(-2px); }
+    @media (max-width: 820px) {
+      .eco-3web-grid { grid-template-columns: 1fr; }
+    }
+    .tailored-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .tailored-box {
+      padding: 15px 16px;
+      border-radius: 18px;
+      background: #f0fdf7;
+      border: 1.5px solid #a7f3d0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform 0.22s ease, border-color 0.22s ease;
+    }
+    .tailored-box:hover {
+      transform: translateY(-3px);
+      border-color: #10b981;
+    }
+    .tailored-box-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #047857;
+    }
+    .tailored-box-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12.5px;
+      color: #1e3a2f;
+      line-height: 1.55;
+    }
+    .tailored-box-link {
+      margin-top: auto;
+      padding-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #059669;
+      text-decoration: none;
+    }
+    .tailored-box-link:hover {
+      text-decoration: underline;
+    }
+    .tailored-days-wrap {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px dashed #a7f3d0;
+    }
+    .tailored-days-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #064e3b;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tailored-day-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .tailored-day-card {
+      padding: 13px 16px;
+      border-radius: 16px;
+      background: #f0fdf7;
+      border-left: 4px solid #059669;
+      border-top: 1px solid #a7f3d0;
+      border-right: 1px solid #a7f3d0;
+      border-bottom: 1px solid #a7f3d0;
+    }
+    .tailored-day-head {
+      font-size: 13px;
+      font-weight: 800;
+      color: #047857;
+      margin-bottom: 5px;
+    }
+    .tailored-day-steps {
+      font-size: 12.2px;
+      color: #1e3a2f;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    @media (max-width: 640px) {
+      .tailored-cards-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Contact & Submit Box */
+    .contact-finish-box {
+      margin-top: 20px;
+      padding: 20px 22px;
+      border-radius: 22px;
+      background: #f0fdf7;
+      border: 1.5px solid #a7f3d0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .btn-submit {
+      margin-top: 16px;
+      background: linear-gradient(135deg, #059669, #10b981) !important;
+      color: #fff;
+      border: 1px solid #34d399;
+      border-radius: 999px;
+      padding: 15px 28px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      width: 100%;
+      box-shadow: 0 10px 26px rgba(16, 185, 129, 0.28);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(16, 185, 129, 0.38);
+    }
+    .form-note {
+      text-align: center;
+      font-size: 12px;
+      color: #52796f;
+      margin-top: 10px;
+    }
+
+    /* Right Panel */
+    .right-title { font-size: 15px; text-align: center; margin-bottom: 14px; line-height: 1.35; }
+    .trip-cards { display: flex; flex-direction: column; gap: 12px; }
+    .trip-card { display: flex; justify-content: space-between; gap: 12px; padding: 14px 16px; cursor: pointer; align-items: center; transition: transform 0.25s ease, border-color 0.25s ease; }
+    .trip-card:hover { transform: translateY(-5px); border-color: #10b981 !important; }
+    .trip-thumb { display: none !important; }
+    .trip-info { flex: 1; }
+    .trip-name { font-size: 12.5px; font-weight: 700; color: #064e3b; line-height: 1.3; margin-bottom: 4px; }
+    .trip-dur { font-size: 11px; color: #52796f; }
+    .trip-arrow { width: 26px; height: 26px; border-radius: 50%; background: #ecfdf5; border: 1px solid #6ee7b7; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #047857; }
+    .btn-view-all { display: block; width: 100%; margin-top: 12px; padding: 10px; background: #f0fdf7; border: 1.5px solid #a7f3d0; border-radius: 20px; font-size: 12.5px; font-weight: 700; color: #047857; text-align: center; text-decoration: none; transition: background 0.2s; }
+    .btn-view-all:hover { background: #d1fae5; }
+    .right-leaf { text-align: right; font-size: 32px; opacity: .25; margin-top: 6px; }
+
+    .toast-box { position: fixed; bottom: 24px; right: 24px; z-index: 300; background: #ffffff; border: 1.5px solid #10b981; color: #064e3b; padding: 13px 22px; border-radius: 999px; font-size: 13px; font-weight: 700; transform: translateY(80px); opacity: 0; transition: all 0.28s ease; pointer-events: none; box-shadow: 0 14px 32px rgba(16, 185, 129, 0.22); }
+    .toast-box.show { transform: translateY(0); opacity: 1; }
+
+    @media (max-width: 1060px) {
+      .main-body { padding: 0 16px !important; }
+      .form-panel { padding: 32px 28px !important; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 640px) {
+      .main-body { padding: 0 12px !important; }
+      .form-panel { padding: 22px 16px !important; border-radius: 20px !important; }
+      .convo-card { padding: 20px 16px !important; border-radius: 18px !important; }
+      .reply-pill { padding: 10px 16px !important; font-size: 13px !important; }
+      .reply-pills, .inline-convo-inputs { margin-left: 0; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>  <link rel="stylesheet" href="apple-glass.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+</head><body><nav><div class="nav-inner"><a class="logo" href="chamdaklak.html"><div class="logo-icon"><img src="logo-badge.png" alt="Chạm Đắk Lắk Logo" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;" /></div><div class="logo-text"><span class="logo-name">CHẠM ĐẮK LẮK</span><span class="logo-sub">Chạm Đắk Lắk</span></div></a><ul class="nav-links"><li><a href="chamdaklak.html">Trang chủ</a></li><li><a href="dia-diem.html">Địa điểm</a></li><li><a href="dat-phong.html">Đặt phòng</a></li><li><a href="Dat_lich_trinh.html" class="active">Đặt lịch trình</a></li><li><a href="dac-san.html">Đặc sản</a></li><li><a href="tin-tuc.html">Tin tức</a></li><li><a href="huong-dan-vien.html">HDV Sinh viên</a></li><li><a href="ve-chung-toi.html">Về chúng tôi</a></li></ul><div class="nav-right"><div class="nav-search"><span></span><input type="text" id="quickSearchInput" placeholder="Tìm điểm đến..." /></div><a href="dac-san.html" class="nav-icon-btn" title="Giỏ hàng"><span class="cart-badge" id="cartCount">2</span></a><a href="huong-dan-vien.html" class="nav-icon-btn" title="HDV Sinh viên"></a></div></div></nav><section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <p class="hero-tag">Thiết Kế Lịch Trình Tự Do</p>
+      <h1 class="hero-title">Đặt Lịch Trình Khám Phá Đắk Lắk</h1>
+      <p class="hero-sub">Chọn nhanh sở thích và thời gian của bạn để nhận lộ trình tối ưu, bản đồ tương tác và dự toán chi phí chi tiết.</p>
+    </div>
+  </div>
+</section>
+<div class="main-body">
+  <main class="form-panel" id="bookingFormPanel"><!-- Mode Switcher & Progress --><div class="chat-mode-toolbar"><div class="chat-progress-info"><span id="convoProgressLabel">Tiến độ: 0/11</span><div class="chat-progress-bar-wrap"><div class="chat-progress-bar-fill" id="convoProgressBar" style="width: 8%;"></div></div></div><div class="mode-pills"><button type="button" class="mode-pill-btn active" id="modeFullBtn">Xem tất cả</button><button type="button" class="mode-pill-btn" id="modeStepBtn">Từng câu (1/11)</button></div></div><div class="saved-places-pill" id="savedPlacesAlert"></div><form id="tripConsultForm"><div class="convo-stream" id="convoStream"><!-- 1. BẠN LÀ NAM HAY NỮ --><div class="convo-card" data-step="0" data-key="gender"><div class="host-ask-row"><div class="host-ask-title">1. Bạn là nam hay nữ?</div></div><div class="reply-pills" data-type="single" data-field="gender"><button type="button" class="reply-pill" data-val="Nam"><span>Mình là Nam</span></button><button type="button" class="reply-pill" data-val="Nữ"><span>Mình là Nữ</span></button><button type="button" class="reply-pill" data-val="Cả nhóm nam nữ / Khác"><span>Đi chung cả nhóm / Khác</span></button></div><div class="host-whisper" id="whisper-gender"></div></div><!-- 2. BẠN ĐANG Ở ĐÂU? --><div class="convo-card" data-step="1" data-key="origin"><div class="host-ask-row"><div class="host-ask-title">2. Điểm xuất phát của bạn?</div></div><div class="reply-pills" data-type="single" data-field="origin"><button type="button" class="reply-pill" data-val="Người dân Đắk Lắk (đi chơi trong tỉnh)"><span class="pill-emo"></span><span>Người dân Đắk Lắk (đi chơi trong tỉnh)</span></button><button type="button" class="reply-pill" data-val="Từ TP.HCM"><span class="pill-emo"></span><span>Mình từ TP.HCM lên</span></button><button type="button" class="reply-pill" data-val="Từ Hà Nội"><span class="pill-emo"></span><span>Mình từ Hà Nội vào</span></button><button type="button" class="reply-pill" data-val="Từ tỉnh khác"><span class="pill-emo"></span><span>Mình đến từ tỉnh khác</span></button></div><div class="inline-convo-inputs" id="otherProvinceWrap" style="display:none;"><div class="convo-input-box"><label>Bạn xuất phát từ tỉnh/thành nào thế? (tùy chọn)</label><input type="text" class="convo-input" id="fOtherProvince" placeholder="Ví dụ: Đà Nẵng, Nha Trang, Cần Thơ, Hải Phòng..." /></div></div><div class="host-whisper" id="whisper-origin"></div></div><!-- 3. BẠN ĐI KHI NÀO VÀ TRONG BAO LÂU? --><div class="convo-card" data-step="2" data-key="duration"><div class="host-ask-row"><div class="host-ask-title">3. Bạn dự định đi khi nào và trong bao lâu?</div></div><div class="inline-convo-inputs" style="margin-bottom: 12px;"><div class="convo-input-box"><label>Tháng hoặc ngày dự định đi:</label><input type="text" class="convo-input" id="fTime" placeholder="VD: Tháng 3 mùa hoa cà phê, hoặc 15/12..." /></div></div><div class="reply-pills" data-type="single" data-field="duration"><button type="button" class="reply-pill" data-val="1 ngày"><span>Đi gọn 1 ngày</span></button><button type="button" class="reply-pill" data-val="2-3 ngày"><span>Khoảng 2 – 3 ngày</span></button><button type="button" class="reply-pill" data-val="4-5 ngày"><span>Thong thả 4 – 5 ngày</span></button><button type="button" class="reply-pill" data-val="Hơn 5 ngày"><span>Hơn 5 ngày</span></button></div><div class="host-whisper" id="whisper-duration"></div></div><!-- 4. ĐI MẤY NGƯỜI, VỚI AI? --><div class="convo-card" data-step="3" data-key="companion"><div class="host-ask-row"><div class="host-ask-title">4. Bạn đi cùng ai và khoảng mấy người?</div></div><div class="reply-pills" data-type="single" data-field="companion"><button type="button" class="reply-pill" data-val="Một mình"><span>Mình đi một mình (Solo)</span></button><button type="button" class="reply-pill" data-val="Cặp đôi"><span>Đi cùng người thương (Cặp đôi)</span></button><button type="button" class="reply-pill" data-val="Gia đình có trẻ nhỏ"><span>Gia đình có trẻ nhỏ</span></button><button type="button" class="reply-pill" data-val="Gia đình có người lớn tuổi"><span>Gia đình có người lớn tuổi</span></button><button type="button" class="reply-pill" data-val="Nhóm bạn"><span>Hội bạn thân (Nhóm bạn)</span></button><button type="button" class="reply-pill" data-val="Đoàn công ty"><span>Đoàn công ty / Team building</span></button></div><div class="inline-convo-inputs"><div class="convo-input-box" style="max-width: 280px;"><label>Tổng cộng khoảng mấy người đi cùng bạn? (tùy chọn)</label><input type="text" class="convo-input" id="fPeopleCount" placeholder="VD: 2 người, gia đình 4 người..." /></div></div><div class="host-whisper" id="whisper-companion"></div></div><!-- 5. NGÂN SÁCH & DỰ TÍNH CHI PHÍ CỤ THỂ --><div class="convo-card" data-step="4" data-key="budget"><div class="host-ask-row"><div class="host-ask-title">5. Ngân sách dự kiến cho chuyến đi?</div></div><div class="reply-pills" data-type="single" data-field="budget"><button type="button" class="reply-pill" data-val="Tiết kiệm"><span class="pill-emo"></span><span>Tiết kiệm (~1.200.000đ – 1.800.000đ/người)</span></button><button type="button" class="reply-pill" data-val="Vừa phải"><span class="pill-emo"></span><span>Vừa phải (~2.200.000đ – 3.500.000đ/người)</span></button><button type="button" class="reply-pill" data-val="Thoải mái"><span class="pill-emo"></span><span>Thoải mái (~4.000.000đ – 6.000.000đ/người)</span></button><button type="button" class="reply-pill" data-val="Không giới hạn"><span class="pill-emo"></span><span>Không giới hạn (Nghỉ dưỡng cao cấp &gt; 6.500.000đ/người)</span></button></div><div class="inline-convo-inputs" style="margin-top: 12px;"><div class="convo-input-box"><label>Hoặc chọn nhanh / nhập mức chi phí cụ thể bạn dự tính cho 1 người (VNĐ):</label><input type="text" class="convo-input" id="fCustomBudget" placeholder="VD: 2.500.000đ/người (hoặc bấm chọn con số bên dưới)" /><div class="quick-money-chips" id="quickMoneyChips"><button type="button" class="money-chip" data-money="1500000" data-tier="Tiết kiệm">~1.500.000đ / người</button><button type="button" class="money-chip" data-money="2500000" data-tier="Vừa phải">~2.500.000đ / người</button><button type="button" class="money-chip" data-money="3500000" data-tier="Vừa phải">~3.500.000đ / người</button><button type="button" class="money-chip" data-money="5000000" data-tier="Thoải mái">~5.000.000đ / người</button><button type="button" class="money-chip" data-money="8000000" data-tier="Không giới hạn">~8.000.000đ / người</button></div></div></div><div class="host-whisper" id="whisper-budget"></div></div><!-- 6. BẠN MUỐN KHÁM PHÁ KHU VỰC NÀO? (CHỌN NHIỀU) --><div class="convo-card" data-step="5" data-key="areas"><div class="host-ask-row"><div class="host-ask-title">6. Khu vực bạn muốn khám phá?</div></div><div class="reply-pills" data-type="multi" data-field="areas"><button type="button" class="reply-pill" data-val="TP. Buôn Ma Thuột"><span>TP. Buôn Ma Thuột</span></button><button type="button" class="reply-pill" data-val="Buôn Đôn - Yok Đôn"><span>Buôn Đôn – Yok Đôn</span></button><button type="button" class="reply-pill" data-val="Hồ Lắk - Lăk"><span>Hồ Lắk – Lăk</span></button><button type="button" class="reply-pill" data-val="Ea Súp, Krông Năng, Ea Kar..."><span>Ea Súp, Krông Năng, Ea Kar...</span></button><button type="button" class="reply-pill" data-val="Chưa biết, gợi ý giúp"><span>Gợi ý giúp mình</span></button></div><div class="host-whisper" id="whisper-areas"></div></div><!-- 7. BẠN THÍCH TRẢI NGHIỆM GÌ? (CHỌN NHIỀU) --><div class="convo-card" data-step="6" data-key="experiences"><div class="host-ask-row"><div class="host-ask-title">7. Trải nghiệm bạn quan tâm nhất?</div></div><div class="reply-pills" data-type="multi" data-field="experiences"><button type="button" class="reply-pill" data-val="Cà phê (nhà máy, vườn, quán)"><span>Cà phê &amp; Vườn rang xay</span></button><button type="button" class="reply-pill" data-val="Thác nước (Dray Nur, Dray Sáp, Gia Long...)"><span>Thác nước hùng vĩ</span></button><button type="button" class="reply-pill" data-val="Rừng quốc gia, trekking"><span>Vườn quốc gia &amp; Trekking</span></button><button type="button" class="reply-pill" data-val="Văn hóa Ê Đê, M’Nông (nhà dài, cồng chiêng, buôn làng)"><span>Văn hóa Ê Đê, M'Nông</span></button><button type="button" class="reply-pill" data-val="Voi, cưỡi voi thân thiện"><span>Ngắm voi thân thiện</span></button><button type="button" class="reply-pill" data-val="Chèo thuyền độc mộc, hồ"><span>Chèo thuyền độc mộc Hồ Lắk</span></button><button type="button" class="reply-pill" data-val="Ẩm thực địa phương"><span>Ẩm thực địa phương</span></button><button type="button" class="reply-pill" data-val="Check-in chụp ảnh"><span>Check-in chụp ảnh đẹp</span></button><button type="button" class="reply-pill" data-val="Nghỉ dưỡng"><span>Nghỉ dưỡng bình yên</span></button></div><div class="host-whisper" id="whisper-experiences"></div></div><!-- 8. NHỊP ĐỘ CHUYẾN ĐI? --><div class="convo-card" data-step="7" data-key="pace"><div class="host-ask-row"><div class="host-ask-title">8. Nhịp độ chuyến đi mong muốn?</div></div><div class="reply-pills" data-type="single" data-field="pace"><button type="button" class="reply-pill" data-val="Thong thả, ít điểm"><span>Thong thả, ít điểm (nghỉ dưỡng)</span></button><button type="button" class="reply-pill" data-val="Cân bằng"><span>Cân bằng (vừa tham quan vừa nghỉ)</span></button><button type="button" class="reply-pill" data-val="Lịch dày"><span>Năng động (khám phá tối đa)</span></button></div><div class="host-whisper" id="whisper-pace"></div></div><!-- 9. DI CHUYỂN BẰNG GÌ? --><div class="convo-card" data-step="8" data-key="transport"><div class="host-ask-row"><div class="host-ask-title">9. Phương tiện di chuyển tại Đắk Lắk?</div></div><div class="reply-pills" data-type="single" data-field="transport"><button type="button" class="reply-pill" data-val="Xe máy tự lái"><span>Thuê xe máy tự lái</span></button><button type="button" class="reply-pill" data-val="Ô tô tự lái"><span>Thuê ô tô tự lái</span></button><button type="button" class="reply-pill" data-val="Thuê xe có tài xế"><span>Thuê xe riêng có tài xế</span></button><button type="button" class="reply-pill" data-val="Taxi, xe công nghệ"><span>Taxi, xe công nghệ</span></button><button type="button" class="reply-pill" data-val="Tour ghép đoàn"><span>Tour ghép đoàn</span></button></div><div class="host-whisper" id="whisper-transport"></div></div><!-- 10. LƯU TRÚ KIỂU NÀO? --><div class="convo-card" data-step="9" data-key="stay"><div class="host-ask-row"><div class="host-ask-title">10. Kiểu nơi lưu trú bạn ưu tiên?</div></div><div class="reply-pills" data-type="multi" data-field="stay"><button type="button" class="reply-pill" data-val="Khách sạn trung tâm Buôn Ma Thuột"><span>Khách sạn trung tâm</span></button><button type="button" class="reply-pill" data-val="Resort"><span>Resort nghỉ dưỡng</span></button><button type="button" class="reply-pill" data-val="Homestay, nhà sàn"><span>Homestay / Nhà sàn bản địa</span></button><button type="button" class="reply-pill" data-val="Lều trại, glamping"><span>Glamping ven hồ / suối</span></button><button type="button" class="reply-pill" data-val="Hostel"><span>Hostel tiết kiệm</span></button></div><div class="host-whisper" id="whisper-stay"></div></div><!-- 11. YÊU CẦU ĐẶC BIỆT HOẶC GHI CHÚ THÊM --><div class="convo-card" data-step="10" data-key="special"><div class="host-ask-row"><div class="host-ask-title">11. Ghi chú &amp; Yêu cầu đặc biệt</div></div><div class="reply-pills" data-type="multi" data-field="special"><button type="button" class="reply-pill" data-val="Ăn chay"><span>Ăn chay</span></button><button type="button" class="reply-pill" data-val="Dị ứng"><span>Dị ứng thực phẩm</span></button><button type="button" class="reply-pill" data-val="Ngại đi bộ nhiều"><span>Ngại đi bộ nhiều</span></button><button type="button" class="reply-pill" data-val="Say xe"><span>Dễ bị say xe</span></button><button type="button" class="reply-pill" data-val="Có người đi xe lăn"><span>Có người dùng xe lăn</span></button><button type="button" class="reply-pill" data-val="Mang theo thú cưng"><span>Mang theo thú cưng</span></button><button type="button" class="reply-pill" data-val="Muốn tránh chỗ đông"><span>Tránh chỗ đông đúc</span></button><button type="button" class="reply-pill" data-val="Dịp đặc biệt (kỷ niệm, trăng mật)"><span>Dịp đặc biệt / Kỷ niệm</span></button></div><div class="inline-convo-inputs"><div class="convo-input-box"><label>Nhắn nhủ thêm với tụi mình bất cứ điều gì bạn mong muốn:</label><textarea class="convo-textarea" id="fNote" placeholder="Ví dụ: Mình dị ứng hải sản, muốn tìm quán cà phê ngắm hoàng hôn thật yên tĩnh, hoặc muốn chuẩn bị hoa bất ngờ kỷ niệm..."></textarea></div></div><div class="host-whisper" id="whisper-special"></div></div></div><!-- Step-by-Step Navigation Bar (Only visible in Step Mode) --><div class="step-nav-bar" id="stepNavBar"><button type="button" class="btn-step-nav" id="prevStepBtn">← Câu hỏi thăm trước</button><span id="stepCounterText" style="font-size: 12.5px; font-weight: 700; color: #fde68a;">1 / 11</span><button type="button" class="btn-step-nav primary" id="nextStepBtn">Tiếp tục trò chuyện →</button></div><!-- SCIENTIFIC 3-WEB ECOSYSTEM HUB (ĐẶT LỊCH TRÌNH ⇄ ĐẶT PHÒNG ⇄ HDV SINH VIÊN) --><div class="eco-3web-hub" id="scientific3WebHub"><div class="eco-3web-top"><div><span class="eco-3web-badge">HỆ SINH THÁI LIÊN KẾT 3 TRANG KHOA HỌC</span><div style="font-size: 15px; font-weight: 800; color: #ffffff; margin-top: 5px;">Kết nối Đặt Lịch Trình ⇄ Đặt Phòng Lưu Trú ⇄ Thuê HDV Sinh Viên
+            </div></div><span style="font-size: 11.5px; color: #047857; font-weight: 700;">Khi đặt lịch trình, hóa đơn CHỈ tính tiền Phòng &amp; HDV Sinh viên (Các khoản khác 0đ)
+          </span></div><div class="eco-3web-grid"><!-- Step 1: Đặt lịch trình --><div class="eco-step-card active-step"><div class="eco-step-head"><span>1 Lên Lịch Trình Cá Nhân</span><span class="eco-step-status" style="background:#059669; color:#ffffff;">Đang ở đây</span></div><p style="font-size: 11.8px; color: #1e3a2f; line-height: 1.45;">Trả lời 11 câu hỏi thăm thân tình để Voi Bản Đôn vẽ lộ trình &amp; tự động khớp số đêm nghỉ, số buổi cần HDV.
+            </p><span class="eco-step-link" style="color:#059669;">Miễn phí tư vấn &amp; tạo bản đồ lịch trình (0đ)</span></div><!-- Step 2: Đặt phòng (dat-phong.html) --><div class="eco-step-card"><div class="eco-step-head"><span>2 Phòng Lưu Trú (Tính tiền #1)</span><span class="eco-step-status" id="hubRoomStatusBadge">Đã đồng bộ</span></div><label style="font-size: 11px; color: #047857; font-weight: 700;">Chọn nhanh hoặc đổi từ trang Đặt Phòng:</label><select id="hubRoomSelect" class="eco-step-select"></select><a href="dat-phong.html" class="eco-step-link">Mở trang Đặt Phòng xem ảnh &amp; chọn phòng ↗</a></div><!-- Step 3: HDV Sinh viên (huong-dan-vien.html) --><div class="eco-step-card"><div class="eco-step-head"><span>3 HDV Sinh Viên (Tính tiền #2)</span><span class="eco-step-status" id="hubGuideStatusBadge">Tùy chọn</span></div><label style="font-size: 11px; color: #047857; font-weight: 700;">Chọn bạn Sinh viên bản địa đồng hành:</label><select id="hubGuideSelect" class="eco-step-select"></select><a href="huong-dan-vien.html" class="eco-step-link">Mở trang HDV Sinh Viên xem hồ sơ &amp; ngoại ngữ ↗</a></div></div></div><!-- LIVE PERSONALIZED RESPONSE & ITINERARY PREVIEW --><div class="personal-summary-card" id="personalSummaryCard"><div class="summary-header"><div class="summary-title"><span></span><span id="summaryHeaderTitle">Ghi chú tâm tình &amp; Tóm tắt điều bạn vừa kể</span></div><span style="font-size: 11px; color: #059669; font-weight: 600;">Tự động cập nhật theo lời kể của bạn</span></div><div class="summary-body" id="liveSummaryBody"><p style="color: #1e3a2f;">Hãy bấm chọn vài điều ở trên nhé! Tụi mình sẽ lập tức tổng hợp lời khuyên di chuyển đến Đắk Lắk, lưu ý mùa đẹp và cách chia cung đường hợp lý nhất cho bạn ngay tại đây.</p></div><div style="margin-top: 14px; padding-top: 12px; border-top: 1px dashed #a7f3d0; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;"><span style="font-size: 12px; color: #047857; font-weight: 600;">Trả lời xong rồi? Bấm nộp để mở <strong>Bản đồ Mini có Voi dẫn đường</strong>&amp; gợi ý riêng nhé!</span><button type="button" id="btnRevealMapQuick" class="btn-submit" style="width: auto; margin-top: 0; padding: 11px 22px; font-size: 13.5px;">Nộp câu trả lời &amp; Mở Bản Đồ Voi Dẫn Đường
+          </button></div></div><!-- HIDDEN UNTIL SUBMIT: MINI MAP WITH WALKING ELEPHANT + TAILORED RECOMMENDATIONS --><div class="tailored-reco-section" id="tailoredRecoSection"><div class="tailored-reco-top"><div><span class="tailored-reco-badge" id="tailoredMatchBadge">ĐÃ NỘP CÂU TRẢ LỜI • BẢN ĐỒ &amp; GỢI Ý RIÊNG CỦA BẠN</span><div class="tailored-reco-heading" id="tailoredRecoHeading">Bản đồ Voi Bản Đôn dẫn đường &amp; Gợi ý "đo ni đóng giày" cho bạn</div></div><span style="font-size: 11.5px; color: #52796f; font-weight: 600;" id="tailoredSubStatus">Chú voi đang bước đi theo lộ trình được ghép từ đáp án của bạn</span></div><!-- INTERACTIVE MINI MAP WITH WALKING ELEPHANT --><div class="mini-map-showcase" id="daklakMiniMapShowcase"><div class="mini-map-header"><div class="mini-map-title"><span></span><span id="miniMapRouteTitle">Hành trình Chú Voi dẫn lối qua các tọa độ của bạn</span></div><div class="mini-map-controls"><button type="button" class="btn-map-ctrl" id="btnReplayElephant">Cho Voi đi lại từ đầu</button><button type="button" class="btn-map-ctrl" id="btnNextStopElephant">Tới trạm kế tiếp</button></div></div><div class="mini-map-stage" id="miniMapStage"><!-- Illustrated Topographic & Landmark SVG Layer --><svg class="mini-map-svg" id="miniMapSvg" viewBox="0 0 800 390" preserveAspectRatio="none"><defs><linearGradient id="routeGlowGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#a7f3d0" /><stop offset="50%" stop-color="#34d399" /><stop offset="100%" stop-color="#10b981" /></linearGradient><filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4" result="blur" /><feComposite in="SourceGraphic" in2="blur" operator="over" /></filter></defs><!-- Subtle Highland Contour Lines & Regions --><ellipse cx="400" cy="195" rx="340" ry="155" fill="none" stroke="rgba(255,215,186,0.08)" stroke-width="1.5" stroke-dasharray="8 6" /><ellipse cx="400" cy="195" rx="220" ry="100" fill="none" stroke="rgba(255,215,186,0.07)" stroke-width="1" stroke-dasharray="5 5" /><!-- Sêrêpốk River winding from SE to NW --><path d="M 760 300 C 610 285, 520 260, 410 250 C 290 240, 210 185, 110 115 C 70 85, 40 70, 10 55"
+                    fill="none" stroke="rgba(56, 189, 248, 0.22)" stroke-width="10" stroke-linecap="round" /><path d="M 760 300 C 610 285, 520 260, 410 250 C 290 240, 210 185, 110 115 C 70 85, 40 70, 10 55"
+                    fill="none" stroke="rgba(125, 211, 252, 0.35)" stroke-width="2" stroke-dasharray="6 6" /><text x="235" y="218" fill="rgba(125,211,252,0.55)" font-size="10" font-weight="700" transform="rotate(-18 235 218)">Dòng sông Sêrêpốk</text><!-- Region Watermarks --><text x="65" y="42" fill="rgba(255,255,255,0.22)" font-size="11" font-weight="800">HƯỚNG TÂY BẮC (BUÔN ĐÔN • YOK ĐÔN ~40KM)</text><text x="485" y="42" fill="rgba(255,255,255,0.22)" font-size="11" font-weight="800">ĐÔNG BẮC (BUÔN AKO DHÔNG • KRÔNG NĂNG)</text><text x="65" y="368" fill="rgba(255,255,255,0.22)" font-size="11" font-weight="800">TÂY NAM (CỤM THÁC DRAY NUR ~25KM)</text><text x="495" y="368" fill="rgba(255,255,255,0.22)" font-size="11" font-weight="800">ĐÔNG NAM (ĐÁ VOI MẸ • HỒ LẮK ~55KM)</text><!-- Compass Rose --><g transform="translate(745, 58)"><circle cx="0" cy="0" r="22" fill="rgba(0,0,0,0.45)" stroke="rgba(253,224,71,0.4)" stroke-width="1.2" /><polygon points="0,-16 4,0 0,-4 -4,0" fill="#ef4444" /><polygon points="0,16 4,0 0,4 -4,0" fill="#fde68a" /><text x="-3.5" y="-18" fill="#fde68a" font-size="8" font-weight="800">B</text></g><!-- Dynamic Route Trail (Background Dashed + Active Glowing Trail) --><path id="mapRouteBgPath" d="" fill="none" stroke="rgba(255, 255, 255, 0.28)" stroke-width="4" stroke-dasharray="8 8" stroke-linecap="round" /><path id="mapRouteActivePath" d="" fill="none" stroke="url(#routeGlowGrad)" stroke-width="5" stroke-linecap="round" filter="url(#glowFilter)" /></svg><!-- Dynamic Checkpoint Pins Container --><div id="miniMapNodesLayer"></div><!-- The Walking Pixel Elephant --><div class="map-elephant-actor is-walking" id="mapWalkingElephant" style="left: 50%; top: 50%;"><div class="map-elephant-bubble" id="mapElephantSpeech">Bắt đầu khởi hành!</div><svg class="map-elephant-svg" viewBox="0 0 28 23" fill="none" xmlns="http://www.w3.org/2000/svg"><g class="el-body-group"><rect x="1" y="9" width="1" height="4" fill="#334155" /><rect x="0" y="12" width="2" height="2" fill="#1e293b" /><rect x="2" y="5" width="15" height="11" fill="#64748b" /><rect x="3" y="4" width="13" height="1" fill="#94a3b8" /><rect x="2" y="6" width="1" height="9" fill="#475569" /><!-- Thảm thổ cẩm Tây Nguyên đỏ vàng --><rect x="5" y="4" width="8" height="5" fill="#dc2626" /><rect x="6" y="5" width="6" height="3" fill="#f59e0b" /><rect x="7" y="6" width="4" height="1" fill="#ffffff" /><rect x="5" y="9" width="8" height="1" fill="#fde047" /><!-- Đầu & Tai & Ngà & Vòi --><rect x="15" y="3" width="8" height="9" fill="#64748b" /><rect x="16" y="2" width="6" height="1" fill="#94a3b8" /><rect x="19" y="5" width="2" height="2" fill="#0f172a" /><rect x="19" y="5" width="1" height="1" fill="#ffffff" /><rect x="13" y="4" width="3" height="7" fill="#475569" /><rect x="14" y="5" width="2" height="5" fill="#f43f5e" opacity="0.75" /><rect x="21" y="10" width="3" height="2" fill="#fef08a" /><rect x="23" y="9" width="2" height="2" fill="#ffffff" /><rect x="22" y="6" width="3" height="5" fill="#64748b" /><rect x="24" y="8" width="2" height="4" fill="#64748b" /><rect x="25" y="5" width="2" height="4" fill="#64748b" /><rect x="26" y="4" width="2" height="2" fill="#475569" /></g><g class="el-leg-1"><rect x="4" y="16" width="3" height="5" fill="#475569" /><rect x="12" y="16" width="3" height="5" fill="#475569" /></g><g class="el-leg-2"><rect x="8" y="16" width="3" height="6" fill="#64748b" /><rect x="16" y="16" width="3" height="6" fill="#64748b" /></g></svg></div></div><!-- Active Stop Info Bar under Map --><div class="map-stop-spotlight"><div class="map-stop-spotlight-info" id="mapStopSpotlightInfo"><strong>Đang khởi hành:</strong>Bấm vào bất kỳ trạm nào trên bản đồ để chú Voi đi tới và kể chi tiết trải nghiệm tại đó nhé!
+            </div><div class="map-stop-pills" id="mapStopQuickPills"></div></div></div><!-- DETAILED TRIP COST CALCULATOR & BREAKDOWN --><div class="cost-breakdown-panel" id="tripCostSummaryPanel"><!-- Populated dynamically by calculateAndRenderTripCost() --></div><div class="tailored-cards-grid" id="tailoredCardsGrid"><!-- Populated dynamically by renderTailoredRecommendations() --></div><div class="tailored-days-wrap" id="tailoredDaysWrap"><div class="tailored-days-title"><span></span><span id="tailoredDaysTitle">Phác thảo lịch trình gợi ý theo từng ngày (Khớp với đáp án của bạn)</span></div><div class="tailored-day-list" id="tailoredDaysList"><!-- Populated dynamically by renderTailoredRecommendations() --></div></div></div><!-- CONTACT & SEND --><div class="contact-finish-box"><div style="font-size: 14px; font-weight: 800; color: #047857; margin-bottom: 4px;">Nộp câu trả lời &amp; Nhận bản đồ hành trình + lịch trình chi tiết:
+        </div><p style="font-size: 12px; color: #1e3a2f;">Điền thêm tên và số Zalo (hoặc bấm nộp ngay) để mở <strong>Bản đồ Mini có Voi dẫn đường</strong>và nhận lịch trình cá nhân hóa miễn phí nhé!
+        </p><div class="contact-grid"><div class="convo-input-box" style="min-width: 0;"><label>Tên thân mật của bạn</label><input type="text" class="convo-input" id="fName" placeholder="Nhập tên của bạn (tùy chọn)" /></div><div class="convo-input-box" style="min-width: 0;"><label>Số điện thoại / Zalo</label><input type="tel" class="convo-input" id="fPhone" placeholder="Số Zalo nhận lịch trình (tùy chọn)" /></div><div class="convo-input-box" style="min-width: 0;"><label>Email (nếu có)</label><input type="email" class="convo-input" id="fEmail" placeholder="Nhận file PDF lịch trình" /></div></div><button type="submit" class="btn-submit">Nộp câu trả lời • Mở Bản Đồ Voi Đi Theo Lịch Trình &amp; Gợi Ý Riêng</button><p class="form-note">Tụi mình sẽ nhắn lại cho bạn trong vòng 30 phút – 2h! Cần tính thử chi phí trước? <a href="tin-tuc.html" style="color:#059669; font-weight:700;">Mở Công cụ Dự toán Chi phí →</a></p></div></form></main></div><div class="toast-box" id="toastBox"></div><script>function showToast(msg) {
+    const t = document.getElementById('toastBox');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() =>t.classList.remove('show'), 3200);
+  }
+
+  // Sync Cart Badge
+  try {
+    const cart = JSON.parse(localStorage.getItem('cdl_cart'));
+    if (cart && Array.isArray(cart)) {
+      document.getElementById('cartCount').textContent = cart.reduce((s, i) =>s + (i.qty || 1), 0);
+    }
+  } catch {}
+
+  // Load saved places from dia-diem.html if any
+  try {
+    const saved = JSON.parse(localStorage.getItem('cdl_saved_places')) || [];
+    if (saved.length >0) {
+      const alertEl = document.getElementById('savedPlacesAlert');
+      alertEl.style.display = 'block';
+      alertEl.innerHTML = ` <strong>Tụi mình thấy bạn đã lưu ${saved.length} địa điểm yêu thích:</strong>${saved.join(', ')}. Tụi mình sẽ ưu tiên đưa các điểm này vào lịch trình của bạn nha!`;
+      document.getElementById('fNote').value = `Các tọa độ mình đã lưu muốn ghé: ${saved.join(' → ')}. `;
+    }
+  } catch {}
+
+  // State of the warm conversation
+  const convoState = {
+    gender: '',
+    origin: '',
+    duration: '',
+    season: '',
+    companion: '',
+    budget: '',
+    areas: [],
+    experiences: [],
+    pace: '',
+    transport: '',
+    stay: [],
+    special: []
+  };
+
+  // Warm empathetic host replies ("Như lời hỏi thăm")
+  function getPronoun() {
+    if (convoState.gender === 'Nam') return 'bạn';
+    if (convoState.gender === 'Nữ') return 'bạn';
+    return 'bạn';
+  }
+
+  const WHISPER_REPLIES = {
+    gender: (val) =>{
+      if (val === 'Nam') return ` Rất vui được làm quen với bạn! Tụi mình sẽ chuẩn bị những cung đường khám phá thật chất, quán cà phê rang xay đậm vị và trải nghiệm đại ngàn đáng nhớ nhất cho chuyến đi của bạn nghen.`;
+      if (val === 'Nữ') return ` Chào bạn thương mến! Tụi mình sẽ lưu ý gợi ý thêm các góc check-in lên hình siêu xinh, những quán cà phê view đồi thơ mộng và lịch trình di chuyển thật an toàn, thoải mái cho bạn nha.`;
+      return ` Tuyệt quá! Đi chung cả nhóm thì tụi mình sẽ kết hợp hài hòa cả góc sống ảo lung linh lẫn những hoạt động trải nghiệm sôi nổi để ai trong đoàn cũng hào hứng nhé.`;
+    },
+    origin: (val) =>{
+      const otherWrap = document.getElementById('otherProvinceWrap');
+      if (otherWrap) otherWrap.style.display = (val === 'Từ tỉnh khác') ? 'flex' : 'none';
+
+      if (val.includes('Đắk Lắk')) {
+        return ` <strong>Ôi người nhà mình đây rồi!</strong>Vậy tụi mình không cần bận tâm chuyện vé máy bay hay xe khách đường dài nữa, chỉ tập trung tìm mấy tọa độ đổi gió cuối tuần, glamping ven suối hoặc góc cà phê mới toanh ngay trong tỉnh thôi nghen!`;
+      }
+      if (val.includes('TP.HCM')) {
+        return ` <strong>Từ Sài Gòn lên phố núi tiện lắm!</strong>Tụi mình sẽ kèm trong lịch trình gợi ý 2 cách di chuyển êm nhất: <strong>Bay thẳng đến sân bay Buôn Ma Thuột</strong>(~55 phút) hoặc đi <strong>xe giường nằm phòng đôi / Limousine</strong>(khoảng 7–8 tiếng, tối lên xe ngủ một giấc là sáng sớm tới BMT uống cà phê vừa đẹp).`;
+      }
+      if (val.includes('Hà Nội')) {
+        return ` <strong>Đón bạn từ Thủ đô vào với nắng gió Tây Nguyên!</strong>Từ Hà Nội, khỏe nhất là bạn <strong>bay thẳng đến sân bay Buôn Ma Thuột (BMV)</strong>chỉ mất khoảng 1 tiếng 45 phút. Tụi mình sẽ ghi chú sẵn khung giờ bay đẹp và xe đón từ sân bay về trung tâm (chỉ ~10 km) cho bạn nha.`;
+      }
+      return ` <strong>Tụi mình sẽ tra giúp bạn lộ trình êm nhất!</strong>Bạn cứ gõ nhẹ tên tỉnh/thành ở ô trên nhé, tụi mình sẽ kiểm tra xem từ chỗ bạn có chuyến bay thẳng đến Buôn Ma Thuột hay tuyến xe giường nằm chất lượng cao nào thuận tiện nhất.`;
+    },
+    duration: (val) =>{
+      const seasonNote = convoState.season ? ` Đặc biệt bạn đang nhắm <strong>${convoState.season}</strong>— thời điểm cực kỳ đáng mong chờ!` : '';
+      if (val === '1 ngày') {
+        return ` Với <strong>1 ngày</strong>quý giá, tụi mình sẽ chọn lọc những điểm tinh túy và gần nhau nhất (như cụm Bảo tàng Cà phê – Buôn Ako Dhông – Thác Dray Nur hoặc Hồ Lắk) để bạn không bị mất thời gian ngồi xe.${seasonNote}`;
+      }
+      if (val === '2-3 ngày') {
+        return ` <strong>2 – 3 ngày</strong>là khoảng thời gian lý tưởng nhất ở Đắk Lắk! Bạn vừa kịp thưởng thức trọn vẹn hồn cà phê phố núi, vừa đủ thong thả đi cụm thác Dray Nur – Buôn Đôn và đón bình minh Hồ Lắk.${seasonNote}`;
+      }
+      if (val === '4-5 ngày') {
+        return ` Có <strong>4 – 5 ngày</strong>thì tuyệt vời quá! Tụi mình có thể dẫn bạn đi sâu hơn vào rừng quốc gia Yok Đôn, ngủ glamping ven hồ và khám phá cả những vùng nguyên sơ ít khách du lịch biết tới.${seasonNote}`;
+      }
+      return ` <strong>Hơn 5 ngày sống chậm giữa đại ngàn!</strong>Bạn sẽ được tận hưởng nhịp sống bản địa thực thụ, mỗi ngày một trải nghiệm sâu sắc mà không chút vội vàng.${seasonNote}`;
+    },
+    companion: (val) =>{
+      if (val === 'Một mình') return ` Đi một mình (Solo) ở Buôn Ma Thuột bình yên và dễ chịu lắm! Người dân phố núi rất hiếu khách, tụi mình sẽ gợi ý những quán cà phê ấm cúng và cung đường an toàn nhất cho bạn.`;
+      if (val === 'Cặp đôi') return ` Đi cùng người thương thì không thể thiếu những buổi chiều ngắm hoàng hôn trên đồi Lee's House, chèo thuyền Hồ Lắk và bữa tối lãng mạn giữa se lạnh phố núi rồi!`;
+      if (val === 'Gia đình có trẻ nhỏ') return ` <strong>Có các bé đi cùng</strong>, tụi mình sẽ ưu tiên những điểm không gian rộng rãi, an toàn, trải nghiệm ngắm voi thân thiện và các hàng quán sạch sẽ, dễ ăn cho bé nhé!`;
+      if (val === 'Gia đình có người lớn tuổi') return ` <strong>Đi cùng ông bà, bố mẹ</strong>, tụi mình sẽ đặc biệt lưu ý chọn điểm tham quan ít bậc thang dốc, lịch trình thư thả có giấc nghỉ trưa và món ăn ấm bụng, tốt cho sức khỏe.`;
+      if (val === 'Nhóm bạn') return ` Hội bạn thân đi cùng nhau thì chắc chắn phải có glamping đốt lửa trại, nướng BBQ, săn ảnh thác hùng vĩ và càn quét foodtour bún đỏ – gà nướng cơm lam rồi!`;
+      return ` Đi theo <strong>Đoàn công ty</strong>, tụi mình sẽ thiết kế không gian giao lưu cồng chiêng, đốt lửa trại, nhà hàng sức chứa lớn và xe đưa đón đồng bộ chu đáo nhất.`;
+    },
+    budget: (val) =>{
+      const costInfo = calculateTripCostBreakdown();
+      const customInp = document.getElementById('fCustomBudget')?.value.trim();
+      const customNote = customInp ? ` (Mức bạn nhắm: <strong>${customInp}</strong>)` : '';
+      let baseMsg = '';
+      if (val === 'Tiết kiệm') baseMsg = ` Ở Đắk Lắk đồ ăn ngon và điểm tham quan giá rất mềm! Tụi mình sẽ chỉ bạn những quán chuẩn vị địa phương với chi phí hạt dẻ nhất.`;
+      else if (val === 'Vừa phải') baseMsg = ` Mức <strong>vừa phải</strong>rất dễ phối lịch trình: kết hợp hài hòa giữa homestay/khách sạn xinh xắn, đặc sản trứ danh và các điểm nổi bật.`;
+      else if (val === 'Thoải mái') baseMsg = ` Với ngân sách <strong>thoải mái</strong>, tụi mình sẽ gợi ý những khu glamping/resort sinh thái đẹp nhất (như Lak Tented Camp) và xe riêng đưa đón.`;
+      else baseMsg = ` Tụi mình sẽ thiết kế gói <strong>trải nghiệm cao cấp &amp; riêng tư nhất</strong>: lưu trú 5 sao / biệt lập và ẩm thực thượng hạng.`;
+
+      return `${baseMsg}${customNote}<br/><strong>Tính nhẩm nhanh cho chuyến đi của bạn (${costInfo.daysLabel} • ${costInfo.peopleCount} người):</strong>Khoảng <strong>${formatVND(costInfo.totalPerPerson)}/người</strong>(Tổng đoàn: <strong>${formatVND(costInfo.totalGroup)}</strong>). Khi nộp câu trả lời sẽ có bảng kê chi tiết 6 khoản nhé!`;
+    },
+    areas: (vals) =>{
+      if (!vals.length) return '';
+      if (vals.includes('Chưa biết, gợi ý giúp')) {
+        return ` <strong>Bạn cứ yên tâm giao cho tụi mình nhé!</strong>Dựa vào số ngày đi và sở thích của bạn, tụi mình sẽ tự động ghép các khu vực thuận đường và đẹp nhất cho bạn.`;
+      }
+      return ` Tụi mình đã ghi nhận khu vực bạn muốn ghé: <strong>${vals.join(' • ')}</strong>. Tụi mình sẽ sắp xếp thứ tự đi sao cho thuận cung đường di chuyển nhất!`;
+    },
+    experiences: (vals) =>{
+      if (!vals.length) return '';
+      let extra = '';
+      if (vals.includes('Voi, cưỡi voi thân thiện')) {
+        extra = ' <em>(Đặc biệt: Đắk Lắk hiện hướng tới mô hình du lịch thân thiện với voi tại Yok Đôn &amp; Buôn Đôn – cùng đi bộ ngắm voi tự nhiên, cho voi ăn và chụp ảnh cực kỳ nhân văn và đáng nhớ!)</em>';
+      }
+      return ` Nghe thôi đã thấy háo hức rồi! Tụi mình sẽ lồng ghép khéo léo <strong>${vals.length} nhóm trải nghiệm</strong>bạn thích vào từng buổi sáng – chiều – tối thật mượt mà.${extra}`;
+    },
+    pace: (val) =>{
+      if (val === 'Thong thả, ít điểm') {
+        return ` <strong>Rất hợp lý!</strong>Vì từ Buôn Ma Thuột đi Yok Đôn (~40km) hay đi Hồ Lắk (~55km) đều tốn thời gian di chuyển, đi thong thả mỗi ngày 2–3 điểm sẽ giúp bạn tận hưởng trọn vẹn không khí đại ngàn mà không hề mệt.`;
+      }
+      if (val === 'Cân bằng') {
+        return ` <strong>Nhịp độ Cân bằng</strong>là lựa chọn tuyệt nhất: tụi mình sẽ gom các điểm cùng hướng (ví dụ hướng Buôn Đôn/Yok Đôn riêng 1 ngày, hướng Hồ Lắk riêng 1 ngày) để bạn vừa đi được nhiều nơi vừa có giờ nghỉ ngơi uống cà phê.`;
+      }
+      return ` Bạn thích <strong>Lịch dày khám phá tối đa</strong>! Tụi mình sẽ tối ưu giờ xuất phát từ sáng sớm và nối tuyến thông minh để bạn đi được nhiều tọa độ nhất mà không bị vòng vèo ngược đường.`;
+    },
+    transport: (val) =>{
+      if (val === 'Xe máy tự lái') return ` Đường ở Đắk Lắk rộng và cảnh hai bên đường đẹp mê hồn! Tụi mình sẽ mách chỗ thuê xe máy mới, khỏe và dặn trước những đoạn quốc lộ cần lưu ý nha.`;
+      if (val === 'Ô tô tự lái') return ` Đi ô tô tự lái rất chủ động và mát mẻ! Các điểm du lịch ở Đắk Lắk đều có bãi đỗ ô tô rộng rãi, đường nhựa dễ đi.`;
+      if (val === 'Thuê xe có tài xế') return ` Phương án khỏe nhất! Tài xế bản địa rành đường sẽ đưa đón đoàn mình tận nơi, bạn chỉ việc nghỉ ngơi và ngắm cảnh trên suốt quãng đường 40–55km tới các điểm.`;
+      if (val === 'Taxi, xe công nghệ') return ` Đi trong trung tâm TP. Buôn Ma Thuột bằng taxi/xe công nghệ rất tiện. Với các điểm xa như Hồ Lắk hay Buôn Đôn, tụi mình sẽ mách cách đặt xe 2 chiều để tiết kiệm chi phí nhất.`;
+      return ` Đi <strong>Tour ghép đoàn</strong>vừa vui vừa có hướng dẫn viên lo trọn gói xe cộ, vé tham quan và ăn trưa bản địa luôn!`;
+    },
+    stay: (vals) =>{
+      if (!vals.length) return '';
+      return ` Chỗ nghỉ ngơi quyết định nửa niềm vui chuyến đi! Tụi mình sẽ chọn lọc các tọa độ <strong>${vals.join(', ')}</strong>có view đẹp, sạch sẽ và mức giá chuẩn nhất cho bạn.`;
+    },
+    special: (vals) =>{
+      if (!vals.length) return '';
+      const notes = [];
+      if (vals.includes('Say xe')) notes.push('ưu tiên đường thẳng êm, hạn chế đèo dốc quanh co');
+      if (vals.includes('Ăn chay')) notes.push('gợi ý các quán chay ngon thanh tịnh & món bản địa thuần thực vật');
+      if (vals.includes('Dị ứng')) notes.push('dặn kỹ nhà bếp về thành phần dị ứng');
+      if (vals.includes('Ngại đi bộ nhiều') || vals.includes('Có người đi xe lăn')) notes.push('chọn lối tham quan bằng phẳng, có xe điện hỗ trợ tận nơi');
+      if (vals.includes('Mang theo thú cưng')) notes.push('lọc riêng các homestay/cà phê sân vườn Pet-friendly');
+      if (vals.includes('Muốn tránh chỗ đông')) notes.push('chọn khung giờ vắng và những góc thiên nhiên yên tĩnh');
+      if (vals.includes('Dịp đặc biệt (kỷ niệm, trăng mật)')) notes.push('chuẩn bị góc bàn lãng mạn & gợi ý bất ngờ kỷ niệm');
+      return ` <strong>Thương gửi bạn:</strong>Tụi mình đã đánh dấu kỹ để ${notes.join(', ')}. Bạn cứ yên tâm tận hưởng chuyến đi nhé!`;
+    }
+  };
+
+  function updateWhisper(field) {
+    const el = document.getElementById(`whisper-${field}`);
+    if (!el) return;
+    const val = convoState[field];
+    const hasVal = Array.isArray(val) ? val.length >0 : Boolean(val);
+    const card = el.closest('.convo-card');
+    if (card) card.classList.toggle('answered', hasVal);
+
+    if (!hasVal) {
+      el.classList.remove('show');
+      el.innerHTML = '';
+      return;
+    }
+    const fn = WHISPER_REPLIES[field];
+    if (fn) {
+      el.innerHTML = fn(val);
+      el.classList.add('show');
+    }
+  }
+
+  function updateProgressAndSummary() {
+    const keys = Object.keys(convoState).filter(k =>k !== 'season');
+    let answeredCount = 0;
+    keys.forEach(k =>{
+      const v = convoState[k];
+      if (Array.isArray(v) ? v.length >0 : Boolean(v)) answeredCount++;
+    });
+
+    const pct = Math.max(8, Math.round((answeredCount / 11) * 100));
+    document.getElementById('convoProgressLabel').textContent = ` Đã tâm sự: ${answeredCount}/11 điều`;
+    document.getElementById('convoProgressBar').style.width = `${pct}%`;
+
+    // Render live personalized care summary
+    const summaryEl = document.getElementById('liveSummaryBody');
+    const items = [];
+
+    if (convoState.origin) {
+      if (convoState.origin.includes('Đắk Lắk')) {
+        items.push(` <strong>Xuất phát:</strong>Bạn là người dân Đắk Lắk đi chơi trong tỉnh → Bỏ qua vé máy bay/xe khách liên tỉnh, tập trung khám phá các tọa độ chill và trải nghiệm mới lạ.`);
+      } else if (convoState.origin.includes('TP.HCM')) {
+        items.push(` <strong>Cách đến Đắk Lắk (từ TP.HCM):</strong>Gợi ý bay thẳng tới Sân bay Buôn Ma Thuột (~55 phút) hoặc đi xe giường nằm Limousine chất lượng cao (ngủ 1 đêm trên xe là sáng tới phố núi).`);
+      } else if (convoState.origin.includes('Hà Nội')) {
+        items.push(` <strong>Cách đến Đắk Lắk (từ Hà Nội):</strong>Gợi ý bay thẳng tới Sân bay Buôn Ma Thuột (BMV – khoảng 1h45p) + xe đón về trung tâm thành phố.`);
+      } else {
+        const prov = document.getElementById('fOtherProvince')?.value.trim();
+        items.push(` <strong>Cách đến Đắk Lắk (${prov ? 'từ ' + prov : 'từ tỉnh khác'}):</strong>Tụi mình sẽ kèm hướng dẫn tuyến bay đến Buôn Ma Thuột hoặc nhà xe giường nằm thuận tiện nhất từ nơi bạn ở.`);
+      }
+    }
+
+    const timeInput = document.getElementById('fTime')?.value.trim();
+    if (convoState.duration || convoState.season || timeInput) {
+      items.push(` <strong>Thời gian &amp; Mùa:</strong>Đi <strong>${convoState.duration || 'theo lịch của bạn'}</strong>${timeInput ? `(${timeInput})` : ''} ${convoState.season ? `• Đón <strong>${convoState.season}</strong>` : ''}.`);
+    }
+
+    if (convoState.companion || convoState.budget) {
+      const cInfo = calculateTripCostBreakdown();
+      items.push(` <strong>Đồng hành &amp; Dự toán chi phí:</strong>${convoState.companion || 'Chưa chọn'} (${cInfo.peopleCount} người) • Mức <strong>${convoState.budget || 'Vừa phải'}</strong>→ Ước tính <strong>~${formatVND(cInfo.totalPerPerson)}/người</strong>(Tổng cả đoàn: <strong>~${formatVND(cInfo.totalGroup)}</strong>).`);
+    }
+
+    if (convoState.areas.length >0 || convoState.pace) {
+      let routeNote = '';
+      if (convoState.areas.includes('Buôn Đôn - Yok Đôn') && convoState.areas.includes('Hồ Lắk - Lăk')) {
+        routeNote = ` <em>(Lưu ý: Yok Đôn cách BMT ~40km và Hồ Lắk cách BMT ~55km ở 2 hướng khác nhau, tụi mình sẽ tách thành 2 ngày riêng để bạn đi thật khỏe!)</em>`;
+      }
+      items.push(` <strong>Khu vực &amp; Nhịp độ:</strong>${convoState.areas.join(', ') || 'Để Chạm Đắk Lắk gợi ý'} • Nhịp độ: <strong>${convoState.pace || 'Cân bằng'}</strong>.${routeNote}`);
+    }
+
+    if (convoState.experiences.length >0) {
+      items.push(` <strong>Trải nghiệm yêu thích:</strong>${convoState.experiences.join(' • ')}.`);
+    }
+
+    if (convoState.transport || convoState.stay.length >0) {
+      items.push(` <strong>Di chuyển &amp; Lưu trú:</strong>Phương tiện <strong>${convoState.transport || 'Tùy chọn'}</strong>• Nghỉ tại <strong>${convoState.stay.join(', ') || 'Tùy chọn'}</strong>.`);
+    }
+
+    if (convoState.special.length >0) {
+      items.push(` <strong>Chăm sóc đặc biệt:</strong>${convoState.special.join(', ')}.`);
+    }
+
+    if (items.length === 0) {
+      summaryEl.innerHTML = `<p style="color: #1e3a2f;">Hãy bấm chọn vài điều ở trên nhé! Tụi mình sẽ lập tức tổng hợp lời khuyên di chuyển đến Đắk Lắk, lưu ý mùa đẹp, dự tính chi phí và cách chia cung đường hợp lý nhất cho bạn ngay tại đây.</p>`;
+    } else {
+      summaryEl.innerHTML = items.map(i =>`<div class="summary-advice-item">${i}</div>`).join('');
+    }
+
+    renderTripCostPanel();
+    renderTailoredRecommendations(answeredCount);
+  }
+
+  function formatVND(num) {
+    return Math.round(num).toLocaleString('vi-VN') + 'đ';
+  }
+
+  // =========================================================================
+  // SCIENTIFIC 3-WEB ECOSYSTEM DATA & STATE (ĐẶT PHÒNG ⇄ HDV SINH VIÊN ⇄ LỊCH TRÌNH)
+  // =========================================================================
+  const LINKED_ROOMS_CATALOG = [
+    { id: 'lees-house', name: "Lee's House Homestay & Bali Glamping BMT", price: 680000, area: 'Đồi Cư Êbur, BMT', matchStay: 'Homestay, nhà sàn' },
+    { id: 'lak-tented-camp', name: 'Lắk Tented Camp Resort & Glamping Hồ Lắk', price: 1650000, area: 'Thị trấn Liên Sơn, Hồ Lắk', matchStay: 'Resort' },
+    { id: 'muong-thanh-bmt', name: 'Khách Sạn Mường Thanh Luxury Buôn Ma Thuột (5 Sao)', price: 1250000, area: 'Trung tâm TP. BMT', matchStay: 'Khách sạn trung tâm Buôn Ma Thuột' },
+    { id: 'saigon-banme', name: 'Khách Sạn Sài Gòn – Ban Mê (4 Sao Ngay Ngã Sáu)', price: 920000, area: 'Ngã Sáu TP. BMT', matchStay: 'Khách sạn trung tâm Buôn Ma Thuột' },
+    { id: 'com-glamping', name: 'Cốm Camp & Glamping Ven Suối Buôn Ma Thuột', price: 590000, area: 'Ngoại ô TP. BMT', matchStay: 'Lều trại, glamping' },
+    { id: 'arul-house', name: 'Arul House – Homestay Nhà Dài Ê Đê Cổ Truyền', price: 480000, area: 'Buôn Ako Dhông, BMT', matchStay: 'Homestay, nhà sàn' },
+    { id: 'doi-sao-homestay', name: 'Đội Sao Homestay & Chill Out BMT', price: 420000, area: 'Trung tâm TP. BMT', matchStay: 'Homestay, nhà sàn' },
+    { id: 'nice-hotel-bmt', name: 'Nice Hotel Buôn Ma Thuột (Khách Sạn Tiết Kiệm)', price: 270000, area: 'Trung tâm TP. BMT', matchStay: 'Hostel' },
+    { id: 'none', name: 'Không đặt phòng qua web / Tự túc chỗ ở (0đ)', price: 0, area: 'Tự túc', matchStay: '' }
+  ];
+
+  const DEFAULT_GUIDES_CATALOG = [
+    { id: 'guide-hmien', name: "H'Miên Êban – ĐH Tây Nguyên (IELTS 7.0 • Việt/Anh/Ê Đê)", price: 400000, unit: 'buổi (4h)', area: 'TP. BMT & Buôn Đôn' },
+    { id: 'guide-phuc', name: 'Nguyễn Hoàng Phúc – ĐH Buôn Ma Thuột (TOEIC 865 • Kèm máy ảnh Sony)', price: 350000, unit: 'buổi (4h)', area: 'Thác Dray Nur & Cà phê' },
+    { id: 'guide-ykong', name: "Y Kông M'nông – CĐ VHNT Đắk Lắk (Anh B2/Pháp B1 • Thổ địa Hồ Lắk)", price: 450000, unit: 'ngày (8h)', area: 'Hồ Lắk & Đá Voi Mẹ' },
+    { id: 'guide-baongoc', name: 'Trần Lê Bảo Ngọc – ĐH Luật HN Phân hiệu Đắk Lắk (TOPIK 4 Hàn • IELTS 6.5)', price: 380000, unit: 'buổi (4h)', area: 'Foodtour & Bảo tàng Cà phê' },
+    { id: 'guide-quoctuan', name: 'Lê Quốc Tuấn – CĐ Bách Khoa Tây Nguyên (Trekking Yok Đôn & Cụm Thác)', price: 300000, unit: 'buổi (4h)', area: 'VQG Yok Đôn & Dray Sáp' },
+    { id: 'guide-thaovy', name: 'Phạm Mai Thảo Vy – ĐH Tây Nguyên (IELTS 7.5 • HSK 5 Tiếng Trung)', price: 450000, unit: 'buổi (4h)', area: 'Toàn tỉnh Đắk Lắk' },
+    { id: 'none', name: 'Không thuê HDV Sinh viên / Tự đi khám phá (0đ)', price: 0, unit: 'buổi', area: 'Tự túc' }
+  ];
+
+  function getGuidesCatalog() {
+    const list = [...DEFAULT_GUIDES_CATALOG];
+    try {
+      const customGuides = JSON.parse(localStorage.getItem('cdl_student_guides')) || [];
+      customGuides.forEach((g, idx) =>{
+        if (g && g.name && !list.some(item =>item.name.includes(g.name))) {
+          const parsedRate = parseInt(String(g.rateNum || g.rate || '350000').replace(/\D/g, ''), 10) || 350000;
+          list.splice(list.length - 1, 0, {
+            id: g.id || ('custom-guide-' + idx),
+            name: `${g.name} – ${g.school || 'SV Đắk Lắk'} (${g.RateText || formatVND(parsedRate)})`,
+            price: parsedRate,
+            unit: 'buổi (4h)',
+            area: g.area || 'Đắk Lắk'
+          });
+        }
+      });
+    } catch {}
+    return list;
+  }
+
+  const bookingCheckoutState = {
+    roomId: 'lees-house',
+    roomUserLocked: false,
+    nightsCount: 2,
+    nightsUserLocked: false,
+    roomsCount: 1,
+    roomsUserLocked: false,
+    guideId: 'guide-hmien',
+    guideUserLocked: false,
+    guideSessions: 2,
+    sessionsUserLocked: false
+  };
+
+  function loadLinkedStateFromStorage() {
+    try {
+      const savedRoom = JSON.parse(localStorage.getItem('cdl_selected_room'));
+      if (savedRoom && savedRoom.id) {
+        bookingCheckoutState.roomId = savedRoom.id;
+        bookingCheckoutState.roomUserLocked = true;
+        if (savedRoom.nights) {
+          bookingCheckoutState.nightsCount = parseInt(savedRoom.nights, 10) || 2;
+          bookingCheckoutState.nightsUserLocked = true;
+        }
+        if (savedRoom.roomsQty) {
+          bookingCheckoutState.roomsCount = parseInt(savedRoom.roomsQty, 10) || 1;
+          bookingCheckoutState.roomsUserLocked = true;
+        }
+      }
+    } catch {}
+
+    try {
+      const savedGuide = JSON.parse(localStorage.getItem('cdl_selected_guide'));
+      if (savedGuide && savedGuide.id) {
+        bookingCheckoutState.guideId = savedGuide.id;
+        bookingCheckoutState.guideUserLocked = true;
+        if (savedGuide.sessions) {
+          bookingCheckoutState.guideSessions = parseInt(savedGuide.sessions, 10) || 2;
+          bookingCheckoutState.sessionsUserLocked = true;
+        }
+      }
+    } catch {}
+  }
+
+  function saveLinkedRoomToStorage() {
+    const roomObj = LINKED_ROOMS_CATALOG.find(r =>r.id === bookingCheckoutState.roomId) || LINKED_ROOMS_CATALOG[0];
+    try {
+      localStorage.setItem('cdl_selected_room', JSON.stringify({
+        id: roomObj.id,
+        name: roomObj.name,
+        price: roomObj.price,
+        area: roomObj.area,
+        nights: bookingCheckoutState.nightsCount,
+        roomsQty: bookingCheckoutState.roomsCount,
+        updatedAt: new Date().toISOString()
+      }));
+    } catch {}
+  }
+
+  function saveLinkedGuideToStorage() {
+    const guides = getGuidesCatalog();
+    const guideObj = guides.find(g =>g.id === bookingCheckoutState.guideId) || guides[0];
+    try {
+      localStorage.setItem('cdl_selected_guide', JSON.stringify({
+        id: guideObj.id,
+        name: guideObj.name,
+        price: guideObj.price,
+        unit: guideObj.unit,
+        sessions: bookingCheckoutState.guideSessions,
+        updatedAt: new Date().toISOString()
+      }));
+    } catch {}
+  }
+
+  function populate3WebHubDropdowns() {
+    const hubRoomSel = document.getElementById('hubRoomSelect');
+    const hubGuideSel = document.getElementById('hubGuideSelect');
+    const roomBadge = document.getElementById('hubRoomStatusBadge');
+    const guideBadge = document.getElementById('hubGuideStatusBadge');
+    const guides = getGuidesCatalog();
+
+    if (hubRoomSel) {
+      hubRoomSel.innerHTML = LINKED_ROOMS_CATALOG.map(r =>`<option value="${r.id}" ${r.id === bookingCheckoutState.roomId ? 'selected' : ''}>${r.name} (${r.price >0 ? formatVND(r.price) + '/đêm' : '0đ'})</option>`
+      ).join('');
+    }
+    if (hubGuideSel) {
+      hubGuideSel.innerHTML = guides.map(g =>`<option value="${g.id}" ${g.id === bookingCheckoutState.guideId ? 'selected' : ''}>${g.name} (${g.price >0 ? formatVND(g.price) + '/' + g.unit : '0đ'})</option>`
+      ).join('');
+    }
+    if (roomBadge) {
+      roomBadge.textContent = bookingCheckoutState.roomId === 'none' ? 'Không đặt (0đ)' : 'Đã chọn phòng';
+      roomBadge.style.background = bookingCheckoutState.roomId === 'none' ? '#f0fdf7' : '#d1fae5';
+    }
+    if (guideBadge) {
+      guideBadge.textContent = bookingCheckoutState.guideId === 'none' ? 'Không thuê (0đ)' : 'Đã chọn HDV';
+      guideBadge.style.background = bookingCheckoutState.guideId === 'none' ? '#f0fdf7' : '#d1fae5';
+    }
+  }
+
+  loadLinkedStateFromStorage();
+
+  document.getElementById('hubRoomSelect')?.addEventListener('change', (e) =>{
+    bookingCheckoutState.roomId = e.target.value;
+    bookingCheckoutState.roomUserLocked = true;
+    saveLinkedRoomToStorage();
+    populate3WebHubDropdowns();
+    renderTripCostPanel();
+    showToast(' Đã cập nhật phòng lưu trú vào Bảng thanh toán!');
+  });
+
+  document.getElementById('hubGuideSelect')?.addEventListener('change', (e) =>{
+    bookingCheckoutState.guideId = e.target.value;
+    bookingCheckoutState.guideUserLocked = true;
+    saveLinkedGuideToStorage();
+    populate3WebHubDropdowns();
+    renderTripCostPanel();
+    showToast(' Đã cập nhật Hướng dẫn viên Sinh viên vào Bảng thanh toán!');
+  });
+
+  // Calculate Room + Student Guide Checkout Bill (ONLY charges Room + Student Guide; everything else is 0đ)
+  function calculateTripCostBreakdown() {
+    const dur = convoState.duration || '2-3 ngày';
+    let daysCount = 3;
+    let defaultNights = 2;
+    let daysLabel = '3 ngày 2 đêm';
+    if (dur === '1 ngày') {
+      daysCount = 1; defaultNights = 0; daysLabel = '1 ngày (đi về trong ngày)';
+    } else if (dur === '2-3 ngày') {
+      daysCount = 3; defaultNights = 2; daysLabel = '3 ngày 2 đêm';
+    } else if (dur === '4-5 ngày') {
+      daysCount = 4; defaultNights = 3; daysLabel = '4 ngày 3 đêm';
+    } else if (dur === 'Hơn 5 ngày') {
+      daysCount = 6; defaultNights = 5; daysLabel = '6 ngày 5 đêm';
+    }
+
+    // Parse number of people
+    let peopleCount = 2;
+    const rawPeople = document.getElementById('fPeopleCount')?.value.trim() || '';
+    const matchP = rawPeople.match(/\d+/);
+    if (matchP && parseInt(matchP[0], 10) >0) {
+      peopleCount = parseInt(matchP[0], 10);
+    } else if (convoState.companion === 'Một mình') {
+      peopleCount = 1;
+    } else if (convoState.companion === 'Cặp đôi') {
+      peopleCount = 2;
+    } else if (convoState.companion === 'Gia đình có trẻ nhỏ' || convoState.companion === 'Gia đình có người lớn tuổi' || convoState.companion === 'Nhóm bạn') {
+      peopleCount = 4;
+    } else if (convoState.companion === 'Đoàn công ty') {
+      peopleCount = 12;
+    }
+
+    const budget = convoState.budget || 'Vừa phải';
+    const stays = convoState.stay;
+
+    // Auto-match room from Question 10 if user hasn't manually locked one
+    if (!bookingCheckoutState.roomUserLocked) {
+      if (defaultNights === 0) {
+        bookingCheckoutState.roomId = 'none';
+      } else if (stays.includes('Resort') || budget === 'Không giới hạn') {
+        bookingCheckoutState.roomId = 'lak-tented-camp';
+      } else if (stays.includes('Lều trại, glamping')) {
+        bookingCheckoutState.roomId = 'com-glamping';
+      } else if (stays.includes('Khách sạn trung tâm Buôn Ma Thuột')) {
+        bookingCheckoutState.roomId = budget === 'Thoải mái' ? 'muong-thanh-bmt' : 'saigon-banme';
+      } else if (stays.includes('Hostel') || budget === 'Tiết kiệm') {
+        bookingCheckoutState.roomId = 'nice-hotel-bmt';
+      } else {
+        bookingCheckoutState.roomId = 'lees-house';
+      }
+    }
+
+    if (!bookingCheckoutState.nightsUserLocked) {
+      bookingCheckoutState.nightsCount = defaultNights;
+    }
+    if (!bookingCheckoutState.roomsUserLocked) {
+      bookingCheckoutState.roomsCount = Math.max(1, Math.ceil(peopleCount / 2));
+    }
+    if (!bookingCheckoutState.sessionsUserLocked) {
+      bookingCheckoutState.guideSessions = Math.max(1, daysCount);
+    }
+
+    populate3WebHubDropdowns();
+
+    const selectedRoom = LINKED_ROOMS_CATALOG.find(r =>r.id === bookingCheckoutState.roomId) || LINKED_ROOMS_CATALOG[0];
+    const guides = getGuidesCatalog();
+    const selectedGuide = guides.find(g =>g.id === bookingCheckoutState.guideId) || guides[0];
+
+    const nights = selectedRoom.id === 'none' ? 0 : Math.max(0, bookingCheckoutState.nightsCount);
+    const roomsQty = selectedRoom.id === 'none' ? 0 : Math.max(1, bookingCheckoutState.roomsCount);
+    const roomTotal = selectedRoom.price * nights * roomsQty;
+
+    const sessions = selectedGuide.id === 'none' ? 0 : Math.max(0, bookingCheckoutState.guideSessions);
+    const guideTotal = selectedGuide.price * sessions;
+
+    // STRICT REQUIREMENT: ONLY charge for Room + Student Guide! All other items are 0đ.
+    const grandTotalPayable = roomTotal + guideTotal;
+    const payablePerPerson = Math.round(grandTotalPayable / Math.max(1, peopleCount));
+
+    return {
+      daysCount,
+      daysLabel,
+      peopleCount,
+      budget,
+      selectedRoom,
+      nights,
+      roomsQty,
+      roomTotal,
+      selectedGuide,
+      guides,
+      sessions,
+      guideTotal,
+      grandTotalPayable,
+      payablePerPerson
+    };
+  }
+
+  function renderTripCostPanel() {
+    const panel = document.getElementById('tripCostSummaryPanel');
+    if (!panel) return;
+    const c = calculateTripCostBreakdown();
+
+    panel.innerHTML = `
+      <div class="cost-panel-header"><div class="cost-panel-title"><span></span><span>Bảng Thanh Toán Đặt Lịch Trình (Liên Kết Đặt Phòng &amp; HDV Sinh Viên)</span></div><span style="font-size: 11.5px; color: #047857; font-weight: 800; background: #d1fae5; padding: 4px 10px; border-radius: 999px; border: 1px solid #6ee7b7;">Chỉ tính tiền Phòng + HDV Sinh viên • Còn lại KHÔNG TÍNH (0đ)
+        </span></div><div class="cost-kpi-grid"><div class="cost-kpi-box"><div class="cost-kpi-label">1. Tiền Đặt Phòng Lưu Trú</div><div class="cost-kpi-val">${formatVND(c.roomTotal)}</div><div class="cost-kpi-sub">${c.selectedRoom.id === 'none' ? 'Không đặt phòng (0đ)' : `${c.nights} đêm × ${c.roomsQty} phòng (${formatVND(c.selectedRoom.price)}/đêm)`}</div></div><div class="cost-kpi-box"><div class="cost-kpi-label">2. Tiền Thuê HDV Sinh Viên</div><div class="cost-kpi-val" style="color: #059669;">${formatVND(c.guideTotal)}</div><div class="cost-kpi-sub">${c.selectedGuide.id === 'none' ? 'Không thuê HDV (0đ)' : `${c.sessions} ${c.selectedGuide.unit} × ${formatVND(c.selectedGuide.price)}`}</div></div><div class="cost-kpi-box" style="border-color: #10b981; background: #ecfdf5;"><div class="cost-kpi-label">TỔNG THANH TOÁN (CHỈ 2 PHẦN TRÊN)</div><div class="cost-kpi-val" style="color: #047857; font-size: 22px;">${formatVND(c.grandTotalPayable)}</div><div class="cost-kpi-sub">Chia ${c.peopleCount} người: ~${formatVND(c.payablePerPerson)}/người</div></div></div><!-- KHOẢN 1: ĐẶT PHÒNG LƯU TRÚ (CÓ TÍNH TIỀN) --><div class="checkout-bill-card charged"><div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap;"><div><div style="font-size:13.5px; font-weight:800; color:#047857;">KHOẢN 1 (CÓ TÍNH TIỀN): Đặt Phòng Lưu Trú – Liên kết trực tiếp <a href="dat-phong.html" style="color:#059669; text-decoration:underline;">trang Đặt Phòng (dat-phong.html) ↗</a></div><div style="font-size:11.8px; color:#1e3a2f; margin-top:3px;">Khu vực: <strong>${c.selectedRoom.area}</strong>• Đơn giá niêm yết: <strong>${formatVND(c.selectedRoom.price)}/đêm</strong></div></div><div style="font-size:16px; font-weight:800; color:#059669;">${formatVND(c.roomTotal)}
+          </div></div><div class="checkout-controls-row"><div class="checkout-ctrl-group" style="flex:1; min-width:240px;"><span>Đổi phòng:</span><select id="billRoomSelect" class="eco-step-select" style="flex:1;">${LINKED_ROOMS_CATALOG.map(r =>`<option value="${r.id}" ${r.id === c.selectedRoom.id ? 'selected' : ''}>${r.name} (${r.price >0 ? formatVND(r.price) + '/đêm' : '0đ'})</option>`).join('')}
+            </select></div><div class="checkout-ctrl-group"><span>Số đêm:</span><input type="number" id="billNightsInput" class="checkout-ctrl-input" min="0" max="30" value="${c.nights}" /></div><div class="checkout-ctrl-group"><span>Số phòng:</span><input type="number" id="billRoomsInput" class="checkout-ctrl-input" min="1" max="20" value="${c.roomsQty || 1}" /></div><a href="dat-phong.html" class="eco-step-link" style="margin-top:0;">Xem ảnh phòng ↗</a></div></div><!-- KHOẢN 2: HƯỚNG DẪN VIÊN SINH VIÊN (CÓ TÍNH TIỀN) --><div class="checkout-bill-card charged"><div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap;"><div><div style="font-size:13.5px; font-weight:800; color:#047857;">KHOẢN 2 (CÓ TÍNH TIỀN): Thuê Hướng Dẫn Viên Sinh Viên – Liên kết <a href="huong-dan-vien.html" style="color:#059669; text-decoration:underline;">trang HDV Sinh Viên (huong-dan-vien.html) ↗</a></div><div style="font-size:11.8px; color:#1e3a2f; margin-top:3px;">Chuyên tuyến: <strong>${c.selectedGuide.area}</strong>• Thù lao sinh viên: <strong>${formatVND(c.selectedGuide.price)}/${c.selectedGuide.unit}</strong>(100% gửi trực tiếp cho SV)
+            </div></div><div style="font-size:16px; font-weight:800; color:#059669;">${formatVND(c.guideTotal)}
+          </div></div><div class="checkout-controls-row"><div class="checkout-ctrl-group" style="flex:1; min-width:240px;"><span>Chọn HDV SV:</span><select id="billGuideSelect" class="eco-step-select" style="flex:1;">${c.guides.map(g =>`<option value="${g.id}" ${g.id === c.selectedGuide.id ? 'selected' : ''}>${g.name} (${g.price >0 ? formatVND(g.price) + '/' + g.unit : '0đ'})</option>`).join('')}
+            </select></div><div class="checkout-ctrl-group"><span>Số buổi/ngày thuê:</span><input type="number" id="billSessionsInput" class="checkout-ctrl-input" min="0" max="30" value="${c.sessions}" /></div><a href="huong-dan-vien.html" class="eco-step-link" style="margin-top:0;">Xem hồ sơ SV ↗</a></div></div><!-- KHOẢN 3: CÁC KHOẢN CÒN LẠI (KHÔNG TÍNH TIỀN - 0Đ) --><div class="checkout-bill-card excluded"><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;"><div style="font-size:12.2px; color:#1e3a2f; line-height:1.5;"><strong style="color:#047857; display:block;">CÁC KHOẢN CÒN LẠI TRONG LỊCH TRÌNH (KHÔNG TÍNH TIỀN VÀO HÓA ĐƠN):</strong>• Tư vấn &amp; thiết kế Bản đồ Voi dẫn đường cá nhân hóa: <strong>Miễn phí (0đ)</strong><br/>• Vé máy bay / Xe khách liên tỉnh, Ăn uống đặc sản, Thuê xe đi lại, Vé cổng tham quan: <strong>Không thu tiền trước (Du khách tự chi trả thực tế khi đi)</strong></div><div style="font-size:14px; font-weight:800; color:#047857; white-space:nowrap; background:#ecfdf5; border:1px solid #6ee7b7; padding:6px 12px; border-radius:10px;">0đ (Không tính)
+          </div></div></div><!-- TỔNG THANH TOÁN & NÚT CHỐT ĐƠN LIÊN KẾT 3 WEB --><div class="checkout-total-banner"><div><div style="font-size:12px; color:#047857; font-weight:700;">TỔNG CỘNG HÓA ĐƠN THANH TOÁN (PHÒNG LƯU TRÚ + HDV SINH VIÊN):</div><div style="font-size:24px; font-weight:900; color:#064e3b; margin-top:2px;">${formatVND(c.grandTotalPayable)}
+            <span style="font-size:12.5px; font-weight:700; color:#059669;">(Phòng: ${formatVND(c.roomTotal)} + HDV SV: ${formatVND(c.guideTotal)})</span></div></div><button type="button" class="btn-pay-now" id="btnConfirmUnifiedBooking">Xác Nhận Đặt Lịch Trình &amp; Thanh Toán 2 Phần Này
+        </button></div><div id="unifiedCheckoutReceipt" style="display:none; margin-top:12px; padding:15px 18px; border-radius:16px; background:#ecfdf5; border:1.5px solid #10b981; color:#064e3b; font-size:12.5px; line-height:1.6;"></div>`;
+
+    // Bind live controls inside the checkout bill
+    panel.querySelector('#billRoomSelect')?.addEventListener('change', (e) =>{
+      bookingCheckoutState.roomId = e.target.value;
+      bookingCheckoutState.roomUserLocked = true;
+      saveLinkedRoomToStorage();
+      renderTripCostPanel();
+    });
+    panel.querySelector('#billNightsInput')?.addEventListener('change', (e) =>{
+      bookingCheckoutState.nightsCount = Math.max(0, parseInt(e.target.value, 10) || 0);
+      bookingCheckoutState.nightsUserLocked = true;
+      saveLinkedRoomToStorage();
+      renderTripCostPanel();
+    });
+    panel.querySelector('#billRoomsInput')?.addEventListener('change', (e) =>{
+      bookingCheckoutState.roomsCount = Math.max(1, parseInt(e.target.value, 10) || 1);
+      bookingCheckoutState.roomsUserLocked = true;
+      saveLinkedRoomToStorage();
+      renderTripCostPanel();
+    });
+    panel.querySelector('#billGuideSelect')?.addEventListener('change', (e) =>{
+      bookingCheckoutState.guideId = e.target.value;
+      bookingCheckoutState.guideUserLocked = true;
+      saveLinkedGuideToStorage();
+      renderTripCostPanel();
+    });
+    panel.querySelector('#billSessionsInput')?.addEventListener('change', (e) =>{
+      bookingCheckoutState.guideSessions = Math.max(0, parseInt(e.target.value, 10) || 0);
+      bookingCheckoutState.sessionsUserLocked = true;
+      saveLinkedGuideToStorage();
+      renderTripCostPanel();
+    });
+
+    panel.querySelector('#btnConfirmUnifiedBooking')?.addEventListener('click', () =>{
+      const code = 'CDL-' + Math.floor(100000 + Math.random() * 900000);
+      const guestName = document.getElementById('fName')?.value.trim() || 'Bạn thương mến';
+      const guestPhone = document.getElementById('fPhone')?.value.trim() || 'Đang cập nhật';
+      const receiptEl = document.getElementById('unifiedCheckoutReceipt');
+      saveLinkedRoomToStorage();
+      saveLinkedGuideToStorage();
+      try {
+        localStorage.setItem('cdl_unified_booking', JSON.stringify({
+          code,
+          guestName,
+          guestPhone,
+          room: c.selectedRoom.name,
+          roomTotal: c.roomTotal,
+          guide: c.selectedGuide.name,
+          guideTotal: c.guideTotal,
+          grandTotal: c.grandTotalPayable,
+          createdAt: new Date().toISOString()
+        }));
+      } catch {}
+
+      if (receiptEl) {
+        receiptEl.style.display = 'block';
+        receiptEl.innerHTML = `
+          <div style="font-size:14px; font-weight:800; color:#047857; margin-bottom:4px;">ĐÃ CHỐT PHIẾU THANH TOÁN LIÊN KẾT 3 WEB • MÃ ĐƠN: <u>${code}</u></div>• <strong>Khách hàng:</strong>${guestName} (${guestPhone}) • <strong>Lịch trình:</strong>${c.daysLabel} (${c.peopleCount} người)<br/>• <strong>Khoản 1 – Phòng lưu trú (dat-phong.html):</strong>${c.selectedRoom.name} (${c.nights} đêm × ${c.roomsQty} phòng) = <strong>${formatVND(c.roomTotal)}</strong><br/>• <strong>Khoản 2 – HDV Sinh viên (huong-dan-vien.html):</strong>${c.selectedGuide.name} (${c.sessions} ${c.selectedGuide.unit}) = <strong>${formatVND(c.guideTotal)}</strong><br/>• <strong>Các khoản khác (Vé xe, ăn uống, vé tham quan...):</strong><strong>0đ (Không tính tiền)</strong><br/><strong>TỔNG SỐ TIỀN THANH TOÁN: <span style="color:#059669; font-size:15px;">${formatVND(c.grandTotalPayable)}</span></strong>`;
+      }
+      showToast(` Đã xác nhận đơn ${code}! Tổng thanh toán Phòng + HDV SV: ${formatVND(c.grandTotalPayable)}`);
+    });
+  }
+
+  // Generate concrete, actionable recommendations from the user's selected answers
+  function renderTailoredRecommendations(answeredCount) {
+    const gridEl = document.getElementById('tailoredCardsGrid');
+    const daysEl = document.getElementById('tailoredDaysList');
+    const badgeEl = document.getElementById('tailoredMatchBadge');
+    const subStatusEl = document.getElementById('tailoredSubStatus');
+    const daysTitleEl = document.getElementById('tailoredDaysTitle');
+    if (!gridEl || !daysEl) return;
+
+    badgeEl.textContent = answeredCount >0
+      ? ` GỢI Ý TỪ ${answeredCount}/11 ĐÁP ÁN CỦA BẠN`
+      : ` GỢI Ý MẪU DÀNH CHO BẠN (CHỌN ĐÁP ÁN ĐỂ CÁ NHÂN HÓA)`;
+
+    subStatusEl.textContent = answeredCount >0
+      ? `Đã lọc tự động theo gu "${convoState.companion || 'Khám phá'} • ${convoState.budget || 'Linh hoạt'} • ${convoState.pace || 'Cân bằng'}"`
+      : `Bấm vào các câu trả lời phía trên để tụi mình đổi gợi ý sát với bạn nhất nha!`;
+
+    // 1. GỢI Ý DI CHUYỂN & LỘ TRÌNH (Origin + Transport + Special)
+    const moveList = [];
+    if (convoState.origin.includes('Đắk Lắk')) {
+      moveList.push(` <strong>Người dân Đắk Lắk đi chill:</strong>Không tốn thời gian di chuyển liên tỉnh! Bạn có thể xuất phát lúc 7h30 sáng từ trung tâm BMT đi thẳng các điểm ngoại ô.`);
+    } else if (convoState.origin.includes('TP.HCM')) {
+      moveList.push(` <strong>Từ TP.HCM lên BMT:</strong>Nhanh nhất là bay Vietnam Airlines / Vietjet (~55 phút tới sân bay Buôn Ma Thuột). Hoặc đi <strong>xe giường nằm phòng đôi Tiến Oanh / Long Vân Limousine</strong>chuyến 22h tối (ngủ 1 giấc 6h sáng tới phố núi).`);
+    } else if (convoState.origin.includes('Hà Nội')) {
+      moveList.push(` <strong>Từ Hà Nội vào BMT:</strong>Bay thẳng tới Sân bay Buôn Ma Thuột (BMV – khoảng 1h45p). Từ sân bay về trung tâm Ngã Sáu chỉ 10km (~150k taxi).`);
+    } else if (convoState.origin === 'Từ tỉnh khác') {
+      const prov = document.getElementById('fOtherProvince')?.value.trim() || 'tỉnh của bạn';
+      moveList.push(` <strong>Từ ${prov} đến Đắk Lắk:</strong>Nếu có đường bay tới BMV (Đà Nẵng, Hải Phòng, Vinh) thì ưu tiên bay thẳng; hoặc đi xe Limousine dọc trục QL14 / QL26.`);
+    } else {
+      moveList.push(` <strong>Cách đến Đắk Lắk:</strong>Chọn nơi xuất phát ở Câu 2 để tụi mình gợi ý chuyến bay Buôn Ma Thuột hoặc hãng xe giường nằm êm nhất nhé.`);
+    }
+
+    if (convoState.transport === 'Xe máy tự lái') {
+      moveList.push(` <strong>Thuê xe máy tại BMT:</strong>Gợi ý thuê xe tay ga/xe số đời mới (120k–150k/ngày, giao tận khách sạn). Nhớ mang áo khoác gió và kiểm tra xăng trước khi đi Hồ Lắk (55km) hoặc Yok Đôn (40km).`);
+    } else if (convoState.transport === 'Ô tô tự lái') {
+      moveList.push(` <strong>Ô tô tự lái:</strong>Quốc lộ 14 đi cụm thác Dray Nur và QL27 đi Hồ Lắk mặt đường nhựa rộng, dễ lái, các điểm đều có bãi đỗ ô tô an toàn.`);
+    } else if (convoState.transport === 'Thuê xe có tài xế') {
+      moveList.push(` <strong>Thuê xe riêng có tài xế bản địa:</strong>Rất hợp khi đi nhóm/gia đình! Tài xế rành đường sẽ đưa đón trọn tuyến BMT – Buôn Đôn – Hồ Lắk mà bạn không lo mệt.`);
+    } else if (convoState.transport === 'Taxi, xe công nghệ') {
+      moveList.push(` <strong>Taxi &amp; Xe công nghệ:</strong>Trong nội thành BMT gọi Grab/Mai Linh/Xanh SM rất nhanh. Khi đi thác Dray Nur hay Hồ Lắk nên hợp đồng taxi 2 chiều để có xe chờ sẵn.`);
+    } else if (convoState.transport === 'Tour ghép đoàn') {
+      moveList.push(` <strong>Tour ghép đoàn trong ngày:</strong>Có xe đưa đón tại khách sạn BMT, bao gồm vé tham quan, ăn trưa đặc sản và HDV bản địa thuyết minh.`);
+    }
+
+    if (convoState.special.includes('Say xe')) {
+      moveList.push(` <strong>Chống say xe:</strong>Ưu tiên đi trục đường thẳng QL14 (Thác Dray Nur) và nội ô BMT, hạn chế cung đường đèo nhiều cua.`);
+    }
+
+    // 2. GỢI Ý LƯU TRÚ CHUẨN GU (Stay + Budget + Companion + Special)
+    const stayList = [];
+    const stays = convoState.stay;
+    const budget = convoState.budget;
+
+    if (stays.includes('Resort') || budget === 'Thoải mái' || budget === 'Không giới hạn') {
+      stayList.push(` <strong>Resort &amp; Nghỉ dưỡng cao cấp:</strong>Gợi ý <strong>Lak Tented Camp</strong>(nằm biệt lập bên mặt hồ Lắk thơ mộng) hoặc <strong>Mường Thanh Luxury / Hai Bà Trưng Hotel &amp; Spa</strong>(5 sao trung tâm BMT).`);
+    }
+    if (stays.includes('Homestay, nhà sàn') || stays.length === 0) {
+      stayList.push(` <strong>Homestay &amp; Nhà sàn bản địa:</strong>Gợi ý <strong>Lee's House BMT</strong>(view đồi xương rồng cực chill), <strong>Arul House</strong>(nhà dài gỗ Ê Đê truyền thống tại Buôn Ako Dhông) hoặc <strong>K'pan House</strong>.`);
+    }
+    if (stays.includes('Lều trại, glamping')) {
+      stayList.push(` <strong>Glamping săn mây &amp; bình minh:</strong>Gợi ý <strong>Lắk Tented Camp</strong>(lều glamping cao cấp ven hồ) hoặc khu cắm trại ven sông Sêrêpốk / Hồ Ea Kao.`);
+    }
+    if (stays.includes('Khách sạn trung tâm Buôn Ma Thuột')) {
+      stayList.push(` <strong>Khách sạn trung tâm tiện đi ăn tối:</strong>Gợi ý <strong>Sài Gòn – Ban Mê Hotel</strong>(ngay Ngã Sáu), <strong>Elephants Hotel</strong>hoặc <strong>SOJO Hotel Đắk Lắk</strong>.`);
+    }
+    if (stays.includes('Hostel') || budget === 'Tiết kiệm') {
+      stayList.push(` <strong>Lưu trú hạt dẻ, ấm cúng:</strong>Gợi ý <strong>Banme Hostel</strong>, <strong>Góc Nhà Mình Homestay</strong>hoặc <strong>The Highland House</strong>(~250k–450k/đêm, sạch đẹp, gần phố ẩm thực).`);
+    }
+    if (convoState.special.includes('Mang theo thú cưng')) {
+      stayList.push(` <strong>Lưu ý Pet-friendly:</strong>Ưu tiên các homestay sân vườn rộng như Lee's House hoặc khu glamping ngoài trời có bãi cỏ cho bé cưng chạy nhảy.`);
+    }
+    if (convoState.companion === 'Gia đình có người lớn tuổi' || convoState.special.includes('Ngại đi bộ nhiều') || convoState.special.includes('Có người đi xe lăn')) {
+      stayList.push(` <strong>Thuận tiện đi lại:</strong>Tụi mình ưu tiên đặt phòng tầng trệt hoặc khách sạn có thang máy êm, lối đi phẳng không bậc dốc.`);
+    }
+
+    // 3. GỢI Ý ẨM THỰC & QUÁN CÀ PHÊ (Experiences + Special + Gender/Companion)
+    const foodList = [];
+    const exps = convoState.experiences;
+
+    if (exps.includes('Cà phê (nhà máy, vườn, quán)') || exps.length === 0) {
+      foodList.push(` <strong>Hành trình Cà phê đặc sản:</strong>Ghé <strong>Bảo tàng Thế giới Cà phê</strong>(kiến trúc nhà dài biểu tượng), thưởng thức Fine Robusta tại <strong>SOUL Roastery</strong>và uống cà phê dưới tán cổ thụ <strong>Arul Coffee</strong>(Buôn Ako Dhông).`);
+    }
+    if (exps.includes('Ẩm thực địa phương') || exps.length === 0) {
+      foodList.push(` <strong>Đặc sản phải thử:</strong>Sáng ăn <strong>Bún chìa Cô Chua</strong>hoặc <strong>Bánh ướt chồng đĩa Lê Thánh Tông</strong>; Trưa thưởng thức <strong>Gà nướng – Cơm lam Bản Đôn</strong>chấm muối kiến vàng; Tối xì xụp <strong>Bún đỏ Phan Đình Giót</strong>&amp; <strong>Lẩu cá lăng Sêrêpốk</strong>.`);
+    }
+    if (convoState.special.includes('Ăn chay')) {
+      foodList.push(` <strong>Quán Chay thanh tịnh tại BMT:</strong>Gợi ý <strong>Buffet Chay Giác Đức</strong>(Nguyễn Công Trứ), <strong>Nhà hàng Chay Hoa Đăng</strong>và các món rau rừng, nấm mối, cơm lam đậu phộng bản địa.`);
+    }
+    if (convoState.special.includes('Dị ứng')) {
+      foodList.push(` <strong>An toàn thực phẩm:</strong>Khi gọi các món bản địa (như muối kiến vàng, cà đắng, măng rừng), tụi mình sẽ ghi chú rõ nguyên liệu để bạn kiểm tra trước.`);
+    }
+    if (convoState.special.includes('Dịp đặc biệt (kỷ niệm, trăng mật)') || convoState.companion === 'Cặp đôi') {
+      foodList.push(` <strong>Bữa tối lãng mạn:</strong>Đặt bàn ngắm hoàng hôn tại đồi <strong>Lee's House</strong>hoặc thưởng thức rượu cần &amp; BBQ ấm cúng giữa tiết trời se lạnh 18°C.`);
+    }
+
+    // 4. GỢI Ý TỌA ĐỘ, MÙA ĐẸP & MẸO RIÊNG (Season + Gender + Special + Areas)
+    const tipList = [];
+    if (convoState.gender === 'Nữ' || exps.includes('Check-in chụp ảnh')) {
+      tipList.push(` <strong>Góc lên hình xuất sắc &amp; Trang phục:</strong>Nên mang trang phục tông trắng, be, nâu đất hoặc đỏ gạch để nổi bật trên nền <strong>Bảo tàng Cà phê, Đá Voi Mẹ, Thác Dray Nur</strong>và đồi cỏ Hồ Lắk.`);
+    } else if (convoState.gender === 'Nam') {
+      tipList.push(` <strong>Trải nghiệm đậm chất khám phá:</strong>Chinh phục đỉnh <strong>Đá Voi Mẹ</strong>(tảng đá nguyên khối lớn nhất VN), vượt cầu treo Sêrêpốk và trải nghiệm rang xay cà phê thủ công.`);
+    }
+
+    if (convoState.season.includes('hoa cà phê')) {
+      tipList.push(` <strong>Mẹo săn mùa Hoa Cà Phê (Tháng 2–3):</strong>Hoa nở trắng xóa từng đợt sau cơn mưa đầu mùa ở Cư M'gar và ngoại ô BMT, hương thơm dịu ngọt khắp nẻo đường.`);
+    } else if (convoState.season.includes('hoa dã quỳ')) {
+      tipList.push(` <strong>Mẹo săn mùa Hoa Dã Quỳ (Tháng 11–12):</strong>Cung đường đi Hồ Lắk và đèo Hà Lan rực vàng sắc hoa dã quỳ dưới nắng hanh khô se lạnh.`);
+    } else if (convoState.season.includes('Mùa mưa')) {
+      tipList.push(` <strong>Đi mùa thác đổ (Tháng 5–10):</strong>Thác Dray Nur và Gia Long mùa này nước đổ hùng vĩ nhất! Nên đi tham quan ngoài trời vào buổi sáng (7h30–11h30) và dành buổi chiều ngồi quán cà phê/bảo tàng.`);
+    } else {
+      tipList.push(` <strong>Thời tiết đẹp nhất trong ngày:</strong>Sáng sớm (6h30–9h30) và chiều hoàng hôn (15h30–17h30) là khung giờ vàng để chụp ảnh và dạo chơi mát mẻ nhất.`);
+    }
+
+    if (convoState.experiences.includes('Voi, cưỡi voi thân thiện')) {
+      tipList.push(` <strong>Tour Voi thân thiện (Yok Đôn):</strong>Thay vì cưỡi voi, bạn sẽ đi bộ xuyên rừng khộp cùng hướng dẫn viên để ngắm những chú voi tự do kiếm ăn, tắm suối cực kỳ nhân văn.`);
+    }
+    if (convoState.special.includes('Muốn tránh chỗ đông')) {
+      tipList.push(` <strong>Khung giờ vắng bình yên:</strong>Ghé Bảo tàng Cà phê lúc 7h30 sáng ngay khi mở cửa, và ưu tiên đi <strong>Thác Gia Long</strong>hoặc <strong>Hồ Ea Kao</strong>để tận hưởng không gian tĩnh lặng.`);
+    }
+
+    gridEl.innerHTML = `
+      <div class="tailored-box"><div class="tailored-box-head"><span></span><span>1. Gợi ý Di chuyển &amp; Cung đường</span></div><ul class="tailored-box-list">${moveList.map(m =>`<li>${m}</li>`).join('')}</ul><a href="tin-tuc.html" class="tailored-box-link">Mở bảng dự toán chi phí di chuyển →</a></div><div class="tailored-box"><div class="tailored-box-head"><span></span><span>2. Gợi ý Lưu trú chuẩn gu</span></div><ul class="tailored-box-list">${stayList.map(s =>`<li>${s}</li>`).join('')}</ul><a href="dat-phong.html" class="tailored-box-link">Xem hình ảnh &amp; giá các phòng này →</a></div><div class="tailored-box"><div class="tailored-box-head"><span></span><span>3. Gợi ý Quán ngon &amp; Cà phê</span></div><ul class="tailored-box-list">${foodList.map(f =>`<li>${f}</li>`).join('')}</ul><a href="tin-tuc.html#am-thuc" class="tailored-box-link">Xem bản đồ Foodtour Buôn Ma Thuột →</a></div><div class="tailored-box"><div class="tailored-box-head"><span></span><span>4. Tọa độ &amp; Lưu ý riêng cho bạn</span></div><ul class="tailored-box-list">${tipList.map(t =>`<li>${t}</li>`).join('')}</ul><a href="dia-diem.html" class="tailored-box-link">Khám phá chi tiết 16 địa điểm →</a></div>`;
+
+    // 5. GỢI Ý LỊCH TRÌNH THEO TỪNG NGÀY (Duration + Areas + Experiences + Pace)
+    const dur = convoState.duration || '2-3 ngày';
+    const pace = convoState.pace || 'Cân bằng';
+    const areas = convoState.areas;
+    const isRelaxed = pace === 'Thong thả, ít điểm';
+    const isPacked = pace === 'Lịch dày';
+
+    daysTitleEl.textContent = `Phác thảo lịch trình gợi ý (${dur} • Nhịp độ: ${pace})`;
+
+    const days = [];
+
+    // Day 1: Always starts warmly in Buôn Ma Thuột + Coffee/Culture or Waterfall
+    days.push({
+      title: `Ngày 1: Chạm nhịp Buôn Ma Thuột – Thủ phủ Cà phê & Văn hóa Ê Đê`,
+      morning: ` <strong>Sáng:</strong>Thưởng thức Bún đỏ / Bún chìa nóng hổi → Tham quan & chụp ảnh tại <strong>Bảo tàng Thế giới Cà phê</strong>→ Ghé <strong>Buôn Ako Dhông</strong>ngắm nhà dài truyền thống và nhâm nhi cà phê dưới tán cây cổ thụ.`,
+      afternoon: isRelaxed
+        ? ` <strong>Chiều (Thong thả):</strong>Nghỉ trưa thư giãn tại homestay → Chiều mát dạo <strong>Hồ Ea Kao</strong>và đón hoàng hôn trên đồi <strong>Lee's House</strong>.`
+        : ` <strong>Chiều:</strong>Khám phá <strong>Thác Dray Nur</strong>hùng vĩ (cách BMT ~25km), đi cầu treo ngắm dòng sông Sêrêpốk chảy ngược${isPacked ? ' → Kết hợp ghé luôn <strong>Thác Gia Long</strong>cổ kính gần đó' : ''}.`,
+      evening: ` <strong>Tối:</strong>Ăn tối Lẩu cá lăng Sêrêpốk hoặc Bánh ướt thịt nướng → Dạo phố đêm Ngã Sáu & Đường sách Cà phê Buôn Ma Thuột.`
+    });
+
+    if (dur !== '1 ngày') {
+      // Determine Day 2 focus based on selected areas
+      const preferLakOnly = areas.includes('Hồ Lắk - Lăk') && !areas.includes('Buôn Đôn - Yok Đôn');
+      if (preferLakOnly) {
+        days.push({
+          title: `Ngày 2: Hành trình về Hồ Lắk (~55km hướng Đông Nam) – Đá Voi Mẹ & Thuyền độc mộc`,
+          morning: ` <strong>Sáng:</strong>Xuất phát theo QL27 → Dừng chân chinh phục <strong>Đá Voi Mẹ Yang Tao</strong>(tảng đá nguyên khối kỳ vĩ) → Đến <strong>Hồ Lắk</strong>chèo thuyền độc mộc trên mặt hồ phẳng lặng và thăm Buôn Jun của người M'Nông.`,
+          afternoon: ` <strong>Chiều:</strong>Thưởng thức Chả cá thác lác Hồ Lắk → Lên đồi <strong>Biệt điện Bảo Đại</strong>ngắm toàn cảnh hồ Lắk từ trên cao${isRelaxed ? ' → Thư giãn uống trà ngắm chiều tà bên hồ.' : ' → Ghé thăm Vườn Ca Cao / Cà phê bản địa trên đường về.'}`,
+          evening: ` <strong>Tối:</strong>${convoState.stay.includes('Lều trại, glamping') || convoState.stay.includes('Resort') ? 'Nghỉ đêm Glamping tại Lak Tented Camp, đốt lửa trại & ngắm sao trời.' : 'Trở về TP. Buôn Ma Thuột thưởng thức BBQ phố núi & giao lưu văn hóa Cồng chiêng.'}`
+        });
+      } else {
+        days.push({
+          title: `Ngày 2: Khám phá Buôn Đôn – Vườn Quốc Gia Yok Đôn (~40km hướng Tây Bắc)`,
+          morning: ` <strong>Sáng:</strong>Men theo cung đường Tây Bắc đến <strong>KDL Cầu Treo Buôn Đôn</strong>(trải nghiệm cầu treo bắt qua rặng si già trên dòng Sêrêpốk, thăm nhà sàn cổ hơn 100 năm của Vua săn voi Amakong).`,
+          afternoon: ` <strong>Chiều:</strong>Ăn trưa <strong>Gà nướng – Cơm lam Bản Đôn</strong>chấm muối kiến vàng → ${convoState.experiences.includes('Voi, cưỡi voi thân thiện') || convoState.experiences.includes('Rừng quốc gia, trekking') ? 'Trải nghiệm <strong>Tour ngắm voi thân thiện & đi bộ xuyên rừng khộp VQG Yok Đôn</strong>.' : 'Thư giãn ngắm cảnh sông Sêrêpốk và ghé <strong>Chùa Sắc Tứ Khải Đoan</strong>khi về lại BMT.'}`,
+          evening: ` <strong>Tối:</strong>Thưởng thức ẩm thực bản địa Ê Đê (canh cà đắng, bò một nắng) & thưởng thức cà phê rang xay tại <strong>SOUL Roastery</strong>.`
+        });
+      }
+
+      if (dur === '2-3 ngày' || dur === '4-5 ngày' || dur === 'Hơn 5 ngày') {
+        days.push({
+          title: preferLakOnly
+            ? `Ngày 3: Buôn Đôn / Thác Dray Nur – Mua quà đặc sản Tây Nguyên`
+            : `Ngày 3: Đá Voi Mẹ – Hồ Lắk (~55km) – Mua đặc sản làm quà`,
+          morning: preferLakOnly
+            ? ` <strong>Sáng:</strong>Tham quan cụm <strong>Thác Dray Nur</strong>hoặc <strong>Buôn Đôn</strong>(tách riêng ngày với Hồ Lắk để bạn không phải đi vòng 2 hướng xa trong 1 ngày).`
+            : ` <strong>Sáng:</strong>Đi hướng Đông Nam ghé check-in <strong>Đá Voi Mẹ</strong>& dạo thuyền độc mộc <strong>Hồ Lắk</strong>đón gió mát lành.`,
+          afternoon: ` <strong>Chiều:</strong>Về lại trung tâm Buôn Ma Thuột → Ghé mua quà đặc sản chính gốc (Cà phê Fine Robusta, Hạt điều rang củi, Ca cao nguyên chất, Mật ong hoa cà phê) → Tiễn bạn ra sân bay / bến xe.`,
+          evening: ` <strong>Lưu ý:</strong>Nếu bạn về chuyến tối, tụi mình sẽ gợi ý thêm quán cà phê sân vườn yên tĩnh để bạn nghỉ chân chờ giờ khởi hành.`
+        });
+      }
+
+      if (dur === '4-5 ngày' || dur === 'Hơn 5 ngày') {
+        days.push({
+          title: `Ngày 4 – 5+: Sống chậm giữa đại ngàn (Ea Súp / Krông Năng / Ea Kar & Trải nghiệm sâu)`,
+          morning: ` <strong>Trải nghiệm mở rộng:</strong>Khám phá <strong>Tháp Chăm Yang Prong (Ea Súp)</strong>giữa rừng nguyên sinh, hoặc đi <strong>KDL Sinh thái Troh Bư</strong>và các nông trại cà phê hữu cơ.`,
+          afternoon: ` <strong>Workshop bản địa:</strong>Tự tay học pha chế cà phê Specialty, học dệt thổ cẩm cùng nghệ nhân Ê Đê hoặc cắm trại câu cá thư giãn tại hồ thủy điện.`,
+          evening: ` <strong>Đêm đại ngàn:</strong>Đêm lửa trại cồng chiêng, uống rượu cần bên ánh lửa bập bùng cùng buôn làng.`
+        });
+      }
+    }
+
+    daysEl.innerHTML = days.map(d =>`
+      <div class="tailored-day-card"><div class="tailored-day-head">${d.title}</div><div class="tailored-day-steps"><div>${d.morning}</div><div>${d.afternoon}</div><div>${d.evening}</div></div></div>`).join('');
+  }
+
+  // Handle pill clicks
+  document.querySelectorAll('.reply-pills').forEach(group =>{
+    const type = group.getAttribute('data-type');
+    const field = group.getAttribute('data-field');
+
+    group.querySelectorAll('.reply-pill').forEach(btn =>{
+      btn.addEventListener('click', () =>{
+        const val = btn.getAttribute('data-val');
+        if (type === 'single') {
+          group.querySelectorAll('.reply-pill').forEach(b =>b.classList.remove('selected'));
+          btn.classList.add('selected');
+          convoState[field] = val;
+        } else {
+          btn.classList.toggle('selected');
+          const selectedVals = Array.from(group.querySelectorAll('.reply-pill.selected')).map(b =>b.getAttribute('data-val'));
+          convoState[field] = selectedVals;
+        }
+        updateWhisper(field);
+        if (convoState.budget && field !== 'budget') {
+          updateWhisper('budget');
+        }
+        updateProgressAndSummary();
+      });
+    });
+  });
+
+  // Handle quick money chips inside Question 5
+  document.querySelectorAll('#quickMoneyChips .money-chip').forEach(chip =>{
+    chip.addEventListener('click', () =>{
+      document.querySelectorAll('#quickMoneyChips .money-chip').forEach(c =>c.classList.remove('active'));
+      chip.classList.add('active');
+      const moneyVal = parseInt(chip.getAttribute('data-money'), 10);
+      const tier = chip.getAttribute('data-tier');
+      const inp = document.getElementById('fCustomBudget');
+      if (inp) inp.value = formatVND(moneyVal) + ' / người';
+      if (tier) {
+        convoState.budget = tier;
+        document.querySelectorAll('.reply-pills[data-field="budget"] .reply-pill').forEach(b =>{
+          b.classList.toggle('selected', b.getAttribute('data-val') === tier);
+        });
+      }
+      updateWhisper('budget');
+      updateProgressAndSummary();
+      showToast(` Đã chọn mức dự tính ~${formatVND(moneyVal)}/người!`);
+    });
+  });
+
+  document.getElementById('fCustomBudget')?.addEventListener('input', () =>{
+    if (!convoState.budget) {
+      convoState.budget = 'Vừa phải';
+      const btn = document.querySelector('.reply-pills[data-field="budget"] .reply-pill[data-val="Vừa phải"]');
+      if (btn) btn.classList.add('selected');
+    }
+    updateWhisper('budget');
+    updateProgressAndSummary();
+  });
+
+  document.getElementById('fPeopleCount')?.addEventListener('input', () =>{
+    if (convoState.budget) updateWhisper('budget');
+    updateProgressAndSummary();
+  });
+
+  // Handle season item click
+  document.querySelectorAll('#seasonQuickGrid .season-item').forEach(item =>{
+    item.addEventListener('click', () =>{
+      document.querySelectorAll('#seasonQuickGrid .season-item').forEach(i =>i.classList.remove('active-season'));
+      item.classList.add('active-season');
+      const s = item.getAttribute('data-season');
+      convoState.season = s;
+      const timeInp = document.getElementById('fTime');
+      if (timeInp && !timeInp.value.trim()) {
+        timeInp.value = s;
+      }
+      if (!convoState.duration) {
+        convoState.duration = '2-3 ngày';
+        const durBtn = document.querySelector('.reply-pills[data-field="duration"] .reply-pill[data-val="2-3 ngày"]');
+        if (durBtn) durBtn.classList.add('selected');
+      }
+      updateWhisper('duration');
+      updateProgressAndSummary();
+      showToast(` Đã ghi chú bạn thích đi vào ${s}!`);
+    });
+  });
+
+  document.getElementById('fTime')?.addEventListener('input', updateProgressAndSummary);
+  document.getElementById('fOtherProvince')?.addEventListener('input', updateProgressAndSummary);
+
+  // Mode Switcher: Full Conversation vs Step-by-Step Inquiry
+  let isStepMode = false;
+  let currentStep = 0;
+  const allCards = Array.from(document.querySelectorAll('.convo-card'));
+  const modeFullBtn = document.getElementById('modeFullBtn');
+  const modeStepBtn = document.getElementById('modeStepBtn');
+  const stepNavBar = document.getElementById('stepNavBar');
+  const prevStepBtn = document.getElementById('prevStepBtn');
+  const nextStepBtn = document.getElementById('nextStepBtn');
+  const stepCounterText = document.getElementById('stepCounterText');
+
+  function renderStepMode() {
+    if (!isStepMode) {
+      allCards.forEach(c =>c.classList.remove('step-hidden'));
+      stepNavBar.classList.remove('active');
+      modeFullBtn.classList.add('active');
+      modeStepBtn.classList.remove('active');
+    } else {
+      allCards.forEach((c, idx) =>{
+        c.classList.toggle('step-hidden', idx !== currentStep);
+      });
+      stepNavBar.classList.add('active');
+      modeFullBtn.classList.remove('active');
+      modeStepBtn.classList.add('active');
+      stepCounterText.textContent = `Lời hỏi thăm ${currentStep + 1} / ${allCards.length}`;
+      modeStepBtn.textContent = ` Hỏi thăm từng câu (${currentStep + 1}/${allCards.length})`;
+      prevStepBtn.style.visibility = currentStep === 0 ? 'hidden' : 'visible';
+      nextStepBtn.textContent = currentStep === allCards.length - 1 ? ' Nộp câu trả lời & Mở Bản Đồ Voi ↓' : 'Câu hỏi thăm tiếp theo →';
+    }
+  }
+
+  modeFullBtn.addEventListener('click', () =>{
+    isStepMode = false;
+    renderStepMode();
+  });
+  modeStepBtn.addEventListener('click', () =>{
+    isStepMode = true;
+    renderStepMode();
+  });
+  prevStepBtn.addEventListener('click', () =>{
+    if (currentStep >0) {
+      currentStep--;
+      renderStepMode();
+    }
+  });
+  nextStepBtn.addEventListener('click', () =>{
+    if (currentStep < allCards.length - 1) {
+      currentStep++;
+      renderStepMode();
+    } else {
+      revealElephantMapSection();
+      showToast(' Chú Voi Bản Đôn đang dẫn đường theo các câu trả lời của bạn!');
+    }
+  });
+
+  // Popular Trip Cards ->Pre-fill conversation answers warmly
+  document.querySelectorAll('.trip-card').forEach(card =>{
+    card.addEventListener('click', () =>{
+      const trip = card.getAttribute('data-trip');
+      const dur = card.getAttribute('data-dur');
+      const budget = card.getAttribute('data-budget');
+      const areas = (card.getAttribute('data-areas') || '').split(',').filter(Boolean);
+      const exps = (card.getAttribute('data-exp') || '').split(',').filter(Boolean);
+      const pace = card.getAttribute('data-pace');
+
+      // Select duration
+      if (dur) {
+        convoState.duration = dur;
+        document.querySelectorAll('.reply-pills[data-field="duration"] .reply-pill').forEach(b =>{
+          b.classList.toggle('selected', b.getAttribute('data-val') === dur);
+        });
+        updateWhisper('duration');
+      }
+      // Select budget
+      if (budget) {
+        convoState.budget = budget;
+        document.querySelectorAll('.reply-pills[data-field="budget"] .reply-pill').forEach(b =>{
+          b.classList.toggle('selected', b.getAttribute('data-val') === budget);
+        });
+        updateWhisper('budget');
+      }
+      // Select areas
+      if (areas.length) {
+        convoState.areas = areas;
+        document.querySelectorAll('.reply-pills[data-field="areas"] .reply-pill').forEach(b =>{
+          b.classList.toggle('selected', areas.includes(b.getAttribute('data-val')));
+        });
+        updateWhisper('areas');
+      }
+      // Select experiences
+      if (exps.length) {
+        convoState.experiences = exps;
+        document.querySelectorAll('.reply-pills[data-field="experiences"] .reply-pill').forEach(b =>{
+          b.classList.toggle('selected', exps.includes(b.getAttribute('data-val')));
+        });
+        updateWhisper('experiences');
+      }
+      // Select pace
+      if (pace) {
+        convoState.pace = pace;
+        document.querySelectorAll('.reply-pills[data-field="pace"] .reply-pill').forEach(b =>{
+          b.classList.toggle('selected', b.getAttribute('data-val') === pace);
+        });
+        updateWhisper('pace');
+      }
+
+      const noteEl = document.getElementById('fNote');
+      if (noteEl && !noteEl.value.includes(trip)) {
+        noteEl.value = `Mình rất thích gói gợi ý: ${trip}. ` + noteEl.value;
+      }
+
+      updateProgressAndSummary();
+      document.getElementById('bookingFormPanel').scrollIntoView({ behavior: 'smooth' });
+      showToast(` Đã điền sẵn gợi ý "${trip}" vào cuộc trò chuyện của bạn!`);
+    });
+  });
+
+  // =========================================================================
+  // MINI-MAP & WALKING ELEPHANT ENGINE (REVEALED ON SUBMIT)
+  // =========================================================================
+  let currentMapStops = [];
+  let currentStopIdx = 0;
+  let elephantWalkTimer = null;
+  let elephantAnimFrame = null;
+
+  function buildMapStopsFromAnswers() {
+    const stops = [];
+    const areas = convoState.areas;
+    const exps = convoState.experiences;
+    const dur = convoState.duration || '2-3 ngày';
+
+    // Stop 1: Arrival / Starting hub in Buôn Ma Thuột
+    let originIcon = '';
+    let originMethod = 'Đón bạn tại Sân bay Buôn Ma Thuột / Trung tâm Ngã Sáu';
+    if (convoState.origin.includes('Đắk Lắk')) {
+      originIcon = '';
+      originMethod = 'Xuất phát từ trung tâm TP. Buôn Ma Thuột đi đổi gió trong tỉnh';
+    } else if (convoState.origin.includes('TP.HCM')) {
+      originIcon = '';
+      originMethod = 'Bay 55p từ TP.HCM tới Sân bay BMV (hoặc xe Limousine giường đôi)';
+    } else if (convoState.origin === 'Từ tỉnh khác') {
+      originIcon = '';
+      originMethod = 'Đón bạn tại Bến xe / Sân bay Buôn Ma Thuột về trung tâm';
+    }
+
+    stops.push({
+      xPct: 47,
+      yPct: 52,
+      icon: '01',
+      name: 'Trung tâm TP. Buôn Ma Thuột',
+      dist: 'Điểm khởi hành',
+      bubble: 'Chặng 1: Đón bạn tại Buôn Ma Thuột',
+      desc: `${originMethod}. Ăn sáng <strong>Bún đỏ / Bún chìa Cô Chua</strong>và nhận phương tiện (<strong>${convoState.transport || 'Xe du lịch / Xe máy'}</strong>).`
+    });
+
+    // Stop 2: Coffee Museum & Buôn Ako Dhông
+    stops.push({
+      xPct: 47,
+      yPct: 18,
+      icon: '02',
+      name: 'Bảo tàng Cà Phê & Buôn Ako Dhông',
+      dist: 'Cách trung tâm ~3km',
+      bubble: 'Chặng 2: Thưởng thức Fine Robusta & thăm nhà dài Ê Đê',
+      desc: `Tham quan kiến trúc <strong>Bảo tàng Thế giới Cà phê</strong>, dạo bước dưới hàng cây cổ thụ tại <strong>Buôn Ako Dhông</strong>và thưởng thức cà phê đặc sản tại <strong>SOUL Roastery / Arul Coffee</strong>.`
+    });
+
+    // Stop 3: Dray Nur Waterfall (Southwest ~25km)
+    const includeWaterfall = exps.includes('Thác nước (Dray Nur, Dray Sáp, Gia Long...)') || exps.includes('Check-in chụp ảnh') || exps.length === 0 || dur !== '1 ngày';
+    if (includeWaterfall) {
+      stops.push({
+        xPct: 25,
+        yPct: 76,
+        icon: '03',
+        name: 'Cụm Thác Dray Nur – Gia Long',
+        dist: '~25km hướng Tây Nam',
+        bubble: 'Chặng 3: Ngắm thác Dray Nur hùng vĩ bên sông Sêrêpốk',
+        desc: `Chiêm ngưỡng ngọn thác hùng vĩ nhất Tây Nguyên bên dòng Sêrêpốk chảy ngược, đi cầu treo săn ảnh sương nước tung trắng xóa.`
+      });
+    }
+
+    // Stop 4: Buôn Đôn – VQG Yok Đôn (Northwest ~40km)
+    const includeYokDon = areas.includes('Buôn Đôn - Yok Đôn') || areas.includes('Chưa biết, gợi ý giúp') || exps.includes('Voi, cưỡi voi thân thiện') || exps.includes('Rừng quốc gia, trekking') || (areas.length === 0 && dur !== '1 ngày');
+    if (includeYokDon) {
+      stops.push({
+        xPct: 18,
+        yPct: 25,
+        icon: '0' + (stops.length + 1),
+        name: 'Buôn Đôn – VQG Yok Đôn',
+        dist: '~40km hướng Tây Bắc',
+        bubble: 'Chặng ' + (stops.length + 1) + ': Về Yok Đôn đi bộ cùng đàn Voi',
+        desc: `Trải nghiệm <strong>Tour ngắm voi thân thiện giữa rừng khộp Yok Đôn</strong>, thăm nhà cổ Vua săn voi Amakong và ăn trưa <strong>Gà nướng – Cơm lam Bản Đôn chấm muối kiến vàng</strong>.`
+      });
+    }
+
+    // Stop 5: Đá Voi Mẹ – Hồ Lắk (Southeast ~55km)
+    const includeLak = areas.includes('Hồ Lắk - Lăk') || areas.includes('Chưa biết, gợi ý giúp') || exps.includes('Chèo thuyền độc mộc, hồ') || exps.includes('Nghỉ dưỡng') || (areas.length === 0 && dur !== '1 ngày');
+    if (includeLak) {
+      stops.push({
+        xPct: 72,
+        yPct: 77,
+        icon: '0' + (stops.length + 1),
+        name: 'Đá Voi Mẹ – Hồ Lắk',
+        dist: '~55km hướng Đông Nam',
+        bubble: 'Chặng ' + (stops.length + 1) + ': Chèo thuyền độc mộc ngắm Hồ Lắk',
+        desc: `Chinh phục tảng <strong>Đá Voi Mẹ Yang Tao</strong>, chèo thuyền độc mộc trên mặt hồ Lắk yên ả và nghỉ dưỡng tại <strong>${convoState.stay.join(', ') || 'Lak Tented Camp / Homestay bản địa'}</strong>.`
+      });
+    }
+
+    // Stop 6: Extended Highland or Sunset Glamping / Gift hub
+    if (areas.includes('Ea Súp, Krông Năng, Ea Kar...') || dur === '4-5 ngày' || dur === 'Hơn 5 ngày' || stops.length < 4) {
+      stops.push({
+        xPct: 77,
+        yPct: 40,
+        icon: '0' + (stops.length + 1),
+        name: areas.includes('Ea Súp, Krông Năng, Ea Kar...') ? 'Ea Súp – Tháp Yang Prong & Đồi Hoàng Hôn' : 'Đồi Hoàng Hôn Lee\'s House & Cồng Chiêng',
+        dist: 'Trải nghiệm chiều & tối',
+        bubble: 'Chặng kết: Ngắm hoàng hôn, lửa trại & mua quà',
+        desc: `Ngắm hoàng hôn tím trên đồi <strong>Lee's House</strong>, thưởng thức đêm lửa trại cồng chiêng và mua đặc sản Cà phê, Ca cao, Hạt điều rang củi về làm quà.`
+      });
+    }
+
+    return stops;
+  }
+
+  function renderMiniMapAndStartElephant() {
+    currentMapStops = buildMapStopsFromAnswers();
+    const nodesLayer = document.getElementById('miniMapNodesLayer');
+    const bgPath = document.getElementById('mapRouteBgPath');
+    const activePath = document.getElementById('mapRouteActivePath');
+    const quickPills = document.getElementById('mapStopQuickPills');
+    const routeTitle = document.getElementById('miniMapRouteTitle');
+    if (!nodesLayer || !bgPath || !activePath) return;
+
+    const durLabel = convoState.duration || '2-3 ngày';
+    const paceLabel = convoState.pace || 'Cân bằng';
+    if (routeTitle) {
+      routeTitle.textContent = `Bản đồ Voi dẫn đường qua ${currentMapStops.length} chặng (${durLabel} • ${paceLabel})`;
+    }
+
+    // Build SVG smooth polyline/curve path in 800x390 coordinate space
+    const pts = currentMapStops.map(s =>({
+      x: Math.round((s.xPct / 100) * 800),
+      y: Math.round((s.yPct / 100) * 390)
+    }));
+
+    let dStr = '';
+    pts.forEach((p, i) =>{
+      if (i === 0) {
+        dStr += `M ${p.x} ${p.y}`;
+      } else {
+        const prev = pts[i - 1];
+        const cx = Math.round((prev.x + p.x) / 2);
+        const cy = Math.round((prev.y + p.y) / 2 - 18);
+        dStr += ` Q ${cx} ${cy}, ${p.x} ${p.y}`;
+      }
+    });
+    bgPath.setAttribute('d', dStr);
+    activePath.setAttribute('d', dStr);
+
+    // Prepare stroke-dasharray on activePath so it draws progressively with the elephant
+    const totalLen = activePath.getTotalLength ? activePath.getTotalLength() : 1000;
+    activePath.style.strokeDasharray = `${totalLen}`;
+    activePath.style.strokeDashoffset = `${totalLen}`;
+
+    // Render Checkpoint Pins on Map
+    nodesLayer.innerHTML = currentMapStops.map((s, idx) =>{
+      const edgeCls = s.xPct >70 ? 'pin-right' : (s.xPct < 26 ? 'pin-left' : '');
+      return `
+      <div class="map-node-pin ${idx === 0 ? 'visited current' : ''} ${edgeCls}"
+           data-idx="${idx}"
+           style="left: ${s.xPct}%; top: ${s.yPct}%;"><div class="map-node-circle"><span style="font-size:14px; font-weight:800; color:#a7f3d0;">0${idx + 1}</span><span class="map-node-step-num">${idx + 1}</span></div><div class="map-node-label">${s.name}
+          <span class="map-node-dist">${s.dist}</span></div></div>`;
+    }).join('');
+
+    // Render quick pills at bottom of map
+    if (quickPills) {
+      quickPills.innerHTML = currentMapStops.map((s, idx) =>`
+        <button type="button" class="map-stop-pill-btn ${idx === 0 ? 'active' : ''}" data-idx="${idx}">Chặng ${idx + 1}: ${s.name.split('–')[0].trim()}
+        </button>`).join('');
+    }
+
+    // Bind click on map pins & quick pills to jump/walk elephant to that stop
+    nodesLayer.querySelectorAll('.map-node-pin').forEach(pin =>{
+      pin.addEventListener('click', () =>{
+        const targetIdx = parseInt(pin.getAttribute('data-idx'), 10);
+        stopAutoTour();
+        animateElephantBetweenStops(currentStopIdx, targetIdx);
+      });
+    });
+    quickPills?.querySelectorAll('.map-stop-pill-btn').forEach(btn =>{
+      btn.addEventListener('click', () =>{
+        const targetIdx = parseInt(btn.getAttribute('data-idx'), 10);
+        stopAutoTour();
+        animateElephantBetweenStops(currentStopIdx, targetIdx);
+      });
+    });
+
+    // Start auto-walking tour from Stop 0 ->Stop N
+    startAutoElephantTour();
+  }
+
+  function stopAutoTour() {
+    if (elephantWalkTimer) {
+      clearTimeout(elephantWalkTimer);
+      elephantWalkTimer = null;
+    }
+    if (elephantAnimFrame) {
+      cancelAnimationFrame(elephantAnimFrame);
+      elephantAnimFrame = null;
+    }
+  }
+
+  function updateElephantEdgeClass(xPct) {
+    const elephantEl = document.getElementById('mapWalkingElephant');
+    if (!elephantEl) return;
+    elephantEl.classList.toggle('edge-right', xPct >68);
+    elephantEl.classList.toggle('edge-left', xPct < 26);
+  }
+
+  function highlightStopUI(idx) {
+    currentStopIdx = idx;
+    const stop = currentMapStops[idx];
+    if (!stop) return;
+
+    updateElephantEdgeClass(stop.xPct);
+
+    document.querySelectorAll('#miniMapNodesLayer .map-node-pin').forEach((pin, i) =>{
+      pin.classList.toggle('visited', i <= idx);
+      pin.classList.toggle('current', i === idx);
+    });
+    document.querySelectorAll('#mapStopQuickPills .map-stop-pill-btn').forEach((btn, i) =>{
+      btn.classList.toggle('active', i === idx);
+    });
+
+    const speechEl = document.getElementById('mapElephantSpeech');
+    if (speechEl) speechEl.textContent = stop.bubble;
+
+    const spotlightEl = document.getElementById('mapStopSpotlightInfo');
+    if (spotlightEl) {
+      spotlightEl.innerHTML = ` <strong>Chặng ${idx + 1}/${currentMapStops.length} – ${stop.name} (${stop.dist}):</strong>${stop.desc}`;
+    }
+  }
+
+  function animateElephantBetweenStops(fromIdx, toIdx, onComplete) {
+    const elephantEl = document.getElementById('mapWalkingElephant');
+    const activePath = document.getElementById('mapRouteActivePath');
+    const fromStop = currentMapStops[fromIdx];
+    const toStop = currentMapStops[toIdx];
+    if (!elephantEl || !fromStop || !toStop) return;
+
+    if (fromIdx === toIdx) {
+      elephantEl.style.left = `${toStop.xPct}%`;
+      elephantEl.style.top = `${toStop.yPct}%`;
+      highlightStopUI(toIdx);
+      if (onComplete) onComplete();
+      return;
+    }
+
+    // Face left if walking West, face right if walking East
+    if (toStop.xPct < fromStop.xPct) {
+      elephantEl.classList.add('facing-left');
+    } else {
+      elephantEl.classList.remove('facing-left');
+    }
+    elephantEl.classList.add('is-walking');
+
+    const speechEl = document.getElementById('mapElephantSpeech');
+    if (speechEl) {
+      speechEl.textContent = ` Đang đi tới ${toStop.name.split('–')[0].trim()}...`;
+    }
+
+    const totalLen = activePath && activePath.getTotalLength ? activePath.getTotalLength() : 1000;
+    const maxSegments = Math.max(1, currentMapStops.length - 1);
+    const startRatio = fromIdx / maxSegments;
+    const endRatio = toIdx / maxSegments;
+
+    const durationMs = 1550;
+    const startTime = performance.now();
+
+    function step(now) {
+      const t = Math.min(1, (now - startTime) / durationMs);
+      // Ease in-out quad
+      const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+
+      // Interpolate position with a gentle arc matching the SVG curve
+      const curX = fromStop.xPct + (toStop.xPct - fromStop.xPct) * ease;
+      const arcOffset = Math.sin(ease * Math.PI) * -2.2;
+      const curY = fromStop.yPct + (toStop.yPct - fromStop.yPct) * ease + arcOffset;
+
+      elephantEl.style.left = `${curX}%`;
+      elephantEl.style.top = `${curY}%`;
+      updateElephantEdgeClass(curX);
+
+      if (activePath) {
+        const curRatio = startRatio + (endRatio - startRatio) * ease;
+        activePath.style.strokeDashoffset = `${Math.max(0, totalLen * (1 - curRatio))}`;
+      }
+
+      if (t < 1) {
+        elephantAnimFrame = requestAnimationFrame(step);
+      } else {
+        highlightStopUI(toIdx);
+        if (onComplete) onComplete();
+      }
+    }
+
+    elephantAnimFrame = requestAnimationFrame(step);
+  }
+
+  function startAutoElephantTour() {
+    stopAutoTour();
+    if (!currentMapStops.length) return;
+
+    const elephantEl = document.getElementById('mapWalkingElephant');
+    const activePath = document.getElementById('mapRouteActivePath');
+    const totalLen = activePath && activePath.getTotalLength ? activePath.getTotalLength() : 1000;
+    if (activePath) activePath.style.strokeDashoffset = `${totalLen}`;
+
+    // Place elephant at Stop 0 first
+    elephantEl.style.left = `${currentMapStops[0].xPct}%`;
+    elephantEl.style.top = `${currentMapStops[0].yPct}%`;
+    elephantEl.classList.remove('facing-left');
+    highlightStopUI(0);
+
+    function walkNext(idx) {
+      if (idx >= currentMapStops.length - 1) {
+        // Finished full route
+        const speechEl = document.getElementById('mapElephantSpeech');
+        if (speechEl) {
+          speechEl.textContent = ` Đã đi trọn ${currentMapStops.length} chặng lịch trình của bạn!`;
+        }
+        return;
+      }
+      elephantWalkTimer = setTimeout(() =>{
+        animateElephantBetweenStops(idx, idx + 1, () =>{
+          walkNext(idx + 1);
+        });
+      }, 1150);
+    }
+
+    walkNext(0);
+  }
+
+  function revealElephantMapSection() {
+    updateProgressAndSummary();
+    const sec = document.getElementById('tailoredRecoSection');
+    const name = document.getElementById('fName')?.value.trim();
+    const headingEl = document.getElementById('tailoredRecoHeading');
+    if (headingEl) {
+      headingEl.innerHTML = name
+        ? ` Bản đồ Voi dẫn đường &amp; Gợi ý lịch trình riêng dành cho <u>${name}</u>`
+        : ` Bản đồ Voi Bản Đôn dẫn đường &amp; Gợi ý "đo ni đóng giày" từ đáp án của bạn`;
+    }
+    if (sec) {
+      sec.classList.add('revealed');
+      setTimeout(() =>{
+        renderMiniMapAndStartElephant();
+        sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 60);
+    }
+  }
+
+  document.getElementById('btnRevealMapQuick')?.addEventListener('click', () =>{
+    revealElephantMapSection();
+    showToast(' Chú Voi Bản Đôn đang bắt đầu dẫn đường theo đáp án của bạn!');
+  });
+
+  document.getElementById('btnReplayElephant')?.addEventListener('click', () =>{
+    startAutoElephantTour();
+    showToast(' Chú Voi đang đi lại lộ trình từ Chặng 1!');
+  });
+
+  document.getElementById('btnNextStopElephant')?.addEventListener('click', () =>{
+    stopAutoTour();
+    const nextIdx = (currentStopIdx + 1) % currentMapStops.length;
+    animateElephantBetweenStops(currentStopIdx, nextIdx);
+  });
+
+  // Initial render of progress & summary (map stays hidden until submit, unless redirected from dat-phong / huong-dan-vien for checkout)
+  updateProgressAndSummary();
+  if (window.location.hash === '#tripCostSummaryPanel' || window.location.search.includes('checkout=1')) {
+    setTimeout(() =>{
+      revealElephantMapSection();
+      document.getElementById('tripCostSummaryPanel')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 150);
+  }
+
+  // Submit form ->Reveal Hidden Mini-Map + Walking Elephant + Recommendations
+  document.getElementById('tripConsultForm').addEventListener('submit', (e) =>{
+    e.preventDefault();
+    const name = document.getElementById('fName').value.trim();
+    const phone = document.getElementById('fPhone').value.trim();
+    const dur = convoState.duration || document.getElementById('fTime').value.trim() || 'sắp tới';
+    revealElephantMapSection();
+    if (name || phone) {
+      showToast(` Cảm ơn ${name || 'bạn'}! Bản đồ Voi dẫn đường đã mở bên trên & tụi mình sẽ nhắn Zalo ${phone} nhé!`);
+    } else {
+      showToast(` Đã nộp câu trả lời! Hãy xem chú Voi đi theo lịch trình của bạn trên Bản đồ Mini nhé!`);
+    }
+  });
+
+  document.getElementById('quickSearchInput').addEventListener('keydown', (e) =>{
+    if (e.key === 'Enter' && e.target.value.trim()) {
+      window.location.href = 'dia-diem.html';
+    }
+  });
+
+  document.getElementById('heroSignBtn').addEventListener('click', () =>{
+    showToast(' Chạm đúng sở thích – Đi đúng hành trình cùng Chạm Đắk Lắk!');
+  });
+</script><script src="pixel-elephant.js"></script><script src="chatbox.js"></script>  <script src="apple-glass.js"></script>
+</body></html>

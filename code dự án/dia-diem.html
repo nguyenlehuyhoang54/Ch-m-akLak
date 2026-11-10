@@ -1,0 +1,1302 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Địa điểm Khám phá – Chạm Đắk Lắk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --forest-950: #081c11;
+      --forest-900: #0d2818;
+      --forest-800: #153d27;
+      --forest-700: #1e5638;
+      --forest-600: #287049;
+      --forest-200: #b7e4c7;
+      --sage-bg: #eef5f0;
+      --cream-bg: #f8f3ec;
+      --text-main: #14221a;
+      --text-body: #4a574f;
+      --text-muted: #728077;
+      --border-soft: rgba(21, 61, 39, 0.1);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --shadow-sm: 0 4px 16px rgba(12, 38, 24, 0.05);
+      --shadow-md: 0 12px 28px rgba(12, 38, 24, 0.1);
+      --container-max: 1180px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f8faf8;
+      color: var(--text-main);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    button, input, select, textarea { font-family: inherit; }
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 32px; }
+
+    /* ========================================================================
+       HEADER (Đồng bộ với Trang chủ)
+       ======================================================================== */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .header-inner {
+      max-width: var(--container-max); margin: 0 auto; padding: 0 32px;
+      height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .brand-logo { display: flex; align-items: center; gap: 11px; }
+    .brand-emblem {
+      width: 40px; height: 40px; border-radius: 11px;
+      background: linear-gradient(135deg, var(--forest-800), var(--forest-600));
+      display: flex; align-items: center; justify-content: center; color: #fff;
+    }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+    .brand-title { font-size: 17.5px; font-weight: 800; color: var(--forest-800); }
+    .brand-subtitle { font-size: 10px; font-weight: 500; color: var(--text-muted); margin-top: 2px; }
+
+    .main-nav { display: flex; align-items: center; gap: 24px; }
+    .nav-link {
+      position: relative; font-size: 13.5px; font-weight: 500; color: #2c3831; padding: 6px 0; transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--forest-800); }
+    .nav-link.active { font-weight: 700; }
+    .nav-link.active::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: -2px;
+      height: 2.5px; background: var(--forest-800); border-radius: 2px;
+    }
+
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .saved-pill-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: var(--radius-pill);
+      background: var(--sage-bg); color: var(--forest-800);
+      font-size: 12.5px; font-weight: 700; border: 1px solid rgba(21, 61, 39, 0.14);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .saved-pill-btn:hover { background: var(--forest-800); color: #fff; }
+    .saved-count-badge {
+      background: var(--forest-800); color: #fff; border-radius: 999px;
+      padding: 1px 7px; font-size: 11px; font-weight: 800;
+    }
+    .saved-pill-btn:hover .saved-count-badge { background: #fff; color: var(--forest-800); }
+
+    /* ========================================================================
+       COMPACT HERO
+       ======================================================================== */
+    .page-hero {
+      background: linear-gradient(128deg, #0f2e1d 0%, #184a2f 55%, #256b45 100%);
+      color: #ffffff;
+      padding: 40px 0 56px;
+    }
+    .hero-content {
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    }
+    .page-hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 12px; border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.14); color: var(--forest-200);
+      font-size: 11.5px; font-weight: 600; margin-bottom: 10px;
+    }
+    .page-hero h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .page-hero p { font-size: 14px; color: rgba(255, 255, 255, 0.84); max-width: 560px; }
+    .hero-quick-stats {
+      display: flex; gap: 16px; background: rgba(255, 255, 255, 0.1);
+      padding: 12px 18px; border-radius: 14px; backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.16); font-size: 12px;
+    }
+    .stat-item strong { display: block; font-size: 16px; font-weight: 800; color: #fde047; }
+
+    /* ========================================================================
+       UNIFIED TOOLBAR (Tìm kiếm + Lọc danh mục + Khu vực gọn trong 1 khung)
+       ======================================================================== */
+    .toolbar-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 18px 22px;
+      margin-top: -28px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-soft);
+      position: relative;
+      z-index: 10;
+    }
+    .toolbar-top {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      padding-bottom: 14px; border-bottom: 1px solid #edf2ee;
+    }
+    .search-box {
+      position: relative; flex: 1; min-width: 240px;
+    }
+    .search-box input {
+      width: 100%; height: 40px; border-radius: var(--radius-pill);
+      border: 1px solid #d5e0d8; background: #f9fbf9;
+      padding: 0 16px 0 38px; font-size: 13px; outline: none; transition: 0.2s;
+    }
+    .search-box input:focus { border-color: var(--forest-600); background: #fff; box-shadow: 0 0 0 3px rgba(40, 112, 73, 0.12); }
+    .search-box svg {
+      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      width: 15px; height: 15px; color: var(--text-muted);
+    }
+    .toolbar-selects { display: flex; gap: 10px; flex-wrap: wrap; }
+    .clean-select {
+      height: 40px; border-radius: var(--radius-pill); padding: 0 14px;
+      border: 1px solid #d5e0d8; background: #fff; font-size: 12.5px; font-weight: 600;
+      color: var(--text-main); outline: none; cursor: pointer;
+    }
+    .clean-select:focus { border-color: var(--forest-600); }
+
+    .toolbar-bottom {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      padding-top: 14px;
+    }
+    .filter-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chip {
+      padding: 7px 14px; border-radius: var(--radius-pill);
+      border: 1px solid #dce6df; background: #fff;
+      font-size: 12.5px; font-weight: 600; color: var(--text-body);
+      cursor: pointer; transition: all 0.18s;
+    }
+    .chip:hover { border-color: var(--forest-600); color: var(--forest-800); }
+    .chip.active { background: var(--forest-800); color: #fff; border-color: var(--forest-800); }
+    .result-count { font-size: 12.5px; color: var(--text-muted); font-weight: 600; }
+
+    /* ========================================================================
+       CLEAN 3-COLUMN DESTINATION GRID
+       ======================================================================== */
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .dest-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.24s ease, box-shadow 0.24s ease;
+    }
+    .dest-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Card Cover Photo */
+    .card-thumb {
+      position: relative;
+      height: 185px;
+      background: linear-gradient(135deg, #1b4d32, #0f2c1c);
+      overflow: hidden;
+    }
+    .card-thumb img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.45s ease;
+    }
+    .dest-card:hover .card-thumb img { transform: scale(1.05); }
+    .card-thumb-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(8,28,17,0.35) 0%, transparent 45%, rgba(8,28,17,0.65) 100%);
+      pointer-events: none;
+    }
+    .thumb-top-row {
+      position: absolute; top: 12px; left: 12px; right: 12px;
+      display: flex; justify-content: space-between; align-items: center; gap: 8px;
+    }
+    .zone-pill {
+      background: rgba(15, 42, 27, 0.82); backdrop-filter: blur(6px);
+      color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .level-pill {
+      background: rgba(255, 255, 255, 0.94); color: var(--forest-800);
+      font-size: 11px; font-weight: 800; padding: 4px 10px;
+      border-radius: var(--radius-pill); display: inline-flex; align-items: center; gap: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .level-pill .star { color: #d97706; }
+
+    .thumb-bottom-row {
+      position: absolute; bottom: 10px; left: 12px; right: 12px;
+      display: flex; justify-content: space-between; align-items: center;
+      color: #fff; font-size: 11.5px; font-weight: 600;
+    }
+    .ticket-badge {
+      background: rgba(255,255,255,0.2); backdrop-filter: blur(6px);
+      padding: 2px 9px; border-radius: var(--radius-pill); font-size: 11px;
+    }
+
+    /* Card Content */
+    .card-body {
+      padding: 18px 18px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-title-row {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;
+      margin-bottom: 6px;
+    }
+    .dest-title {
+      font-size: 16.5px; font-weight: 800; color: var(--text-main); line-height: 1.3;
+    }
+    .dest-loc {
+      font-size: 12px; color: var(--text-muted); margin-bottom: 8px;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .dest-desc {
+      font-size: 13px; color: var(--text-body); line-height: 1.5;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    /* Clean Footer inside Card */
+    .card-footer {
+      padding-top: 12px;
+      border-top: 1px solid #eef3ef;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .quick-links { display: flex; align-items: center; gap: 6px; }
+    .q-link {
+      padding: 5px 9px; border-radius: 8px; background: #f3f7f4;
+      color: var(--forest-800); font-size: 11.5px; font-weight: 600;
+      transition: all 0.18s; display: inline-flex; align-items: center; gap: 4px;
+    }
+    .q-link:hover { background: var(--forest-800); color: #fff; }
+
+    .card-actions { display: flex; align-items: center; gap: 6px; }
+    .rate-mini-btn {
+      padding: 5px 9px; border-radius: 8px; border: 1px solid #fde68a;
+      background: #fffbeb; color: #b45309; font-size: 11.5px; font-weight: 700;
+      cursor: pointer; transition: 0.18s;
+    }
+    .rate-mini-btn:hover { background: #f59e0b; color: #fff; border-color: #f59e0b; }
+
+    .save-pin-btn {
+      padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(21,61,39,0.18);
+      background: #fff; color: var(--forest-800); font-size: 11.5px; font-weight: 700;
+      cursor: pointer; transition: 0.18s;
+    }
+    .save-pin-btn:hover, .save-pin-btn.saved {
+      background: var(--forest-800); color: #fff; border-color: var(--forest-800);
+    }
+
+    /* ========================================================================
+       SAVED ROUTE BANNER
+       ======================================================================== */
+    .saved-route-banner {
+      background: var(--cream-bg);
+      border: 1px solid rgba(21, 61, 39, 0.1);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin-bottom: 48px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
+      border-radius: var(--radius-pill); background: var(--forest-800); color: #fff;
+      font-size: 13px; font-weight: 700; border: none; cursor: pointer; transition: 0.2s;
+    }
+    .btn-primary:hover { background: var(--forest-700); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px;
+      border-radius: var(--radius-pill); background: #fff; color: var(--text-body);
+      font-size: 12.5px; font-weight: 600; border: 1px solid #d5ded8; cursor: pointer;
+    }
+    .btn-outline:hover { border-color: var(--forest-800); color: var(--forest-800); }
+
+    /* ========================================================================
+       MODALS (Gọn gàng, dễ đọc)
+       ======================================================================== */
+    .backdrop {
+      position: fixed; inset: 0; background: rgba(10, 28, 18, 0.6); backdrop-filter: blur(4px);
+      z-index: 200; display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .backdrop.open { display: flex; }
+    .modal-box {
+      background: #fff; border-radius: 22px; max-width: 580px; width: 100%;
+      overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+      max-height: 90vh; overflow-y: auto;
+    }
+    .modal-cover {
+      position: relative; height: 220px; background: #102a1b;
+    }
+    .modal-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .modal-cover-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 40%, rgba(8,24,15,0.85) 100%);
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 20px 24px; color: #fff;
+    }
+    .modal-close {
+      position: absolute; top: 14px; right: 14px; width: 34px; height: 34px;
+      border-radius: 50%; border: none; background: rgba(0,0,0,0.45); color: #fff;
+      font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    }
+    .modal-close:hover { background: #ef4444; }
+    .modal-content { padding: 22px 24px; }
+    .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 14px; }
+    .info-pill {
+      background: var(--sage-bg); padding: 9px 12px; border-radius: 10px;
+      font-size: 12px; color: var(--forest-800); font-weight: 600;
+    }
+    .tip-box {
+      background: var(--cream-bg); padding: 12px 14px; border-radius: 12px;
+      font-size: 12.5px; color: var(--text-main); margin: 14px 0; border-left: 3.5px solid #d97706;
+    }
+    .modal-links-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .modal-ext-btn {
+      display: inline-flex; align-items: center; gap: 6px; padding: 7px 13px;
+      border-radius: var(--radius-pill); background: #f3f7f4; color: var(--forest-800);
+      font-size: 12px; font-weight: 700; border: 1px solid rgba(21,61,39,0.12);
+    }
+    .modal-ext-btn:hover { background: var(--forest-800); color: #fff; }
+
+    /* Rating Stars inside Rating Modal */
+    .interactive-stars-row { display: flex; justify-content: center; gap: 8px; margin: 10px 0; }
+    .star-btn {
+      background: none; border: none; font-size: 32px; color: #d1d5db;
+      cursor: pointer; transition: 0.15s; line-height: 1;
+    }
+    .star-btn.active, .star-btn:hover { color: #f59e0b; transform: scale(1.15); }
+
+    .site-footer {
+      background: var(--forest-950); color: rgba(255, 255, 255, 0.75);
+      padding: 32px 0; font-size: 13px;
+    }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+
+    .toast-box {
+      position: fixed; bottom: 24px; right: 24px; z-index: 300; background: var(--forest-800);
+      color: #fff; padding: 12px 20px; border-radius: 12px; font-size: 13px; font-weight: 600;
+      transform: translateY(80px); opacity: 0; transition: all 0.28s ease; pointer-events: none;
+    }
+    .toast-box.show { transform: translateY(0); opacity: 1; }
+
+    @media (max-width: 980px) {
+      .dest-grid { grid-template-columns: repeat(2, 1fr); }
+      .main-nav { display: none; }
+    }
+    @media (max-width: 640px) {
+      .container, .header-inner { padding: 0 18px; }
+      .dest-grid, .info-grid { grid-template-columns: 1fr; }
+      .page-hero h1 { font-size: 26px; }
+    }
+
+    /* ========================================================================
+       WHITE & FRESH MINT GREEN THEME OVERRIDES
+       ======================================================================== */
+    body {
+      background-color: #f4fcf8 !important;
+      background-image:
+        radial-gradient(circle at 52% 12%, rgba(52, 211, 153, 0.18) 0%, rgba(16, 185, 129, 0.08) 38%, transparent 70%),
+        radial-gradient(circle at 15% 65%, rgba(110, 231, 183, 0.16) 0%, transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, #f0fdf7 52%, #e6faef 100%) !important;
+      background-attachment: fixed !important;
+      background-size: cover !important;
+      background-position: center top !important;
+      color: #064e3b !important;
+    }
+    .site-header {
+      top: 14px !important;
+      background: transparent !important;
+      backdrop-filter: none !important;
+      border-bottom: none !important;
+      padding: 0 20px;
+    }
+    .header-inner {
+      max-width: 1220px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.94) !important;
+      backdrop-filter: blur(18px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(18px) saturate(180%) !important;
+      border: 1.5px solid #a7f3d0 !important;
+      box-shadow: 0 12px 32px rgba(16, 185, 129, 0.12) !important;
+      padding: 0 26px !important;
+    }
+    .brand-emblem {
+      background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+      border: 1px solid #6ee7b7;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+    }
+    .brand-title { color: #064e3b !important; text-transform: uppercase; letter-spacing: 0.03em; }
+    .brand-subtitle { color: #059669 !important; font-weight: 600; }
+    .nav-link { color: #1e3a2f !important; font-weight: 600; }
+    .nav-link:hover, .nav-link.active { color: #059669 !important; }
+    .nav-link.active::after { background: linear-gradient(90deg, #059669, #34d399) !important; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35); height: 3px !important; }
+    .saved-pill-btn {
+      background: linear-gradient(135deg, #059669, #10b981) !important;
+      color: #ffffff !important;
+      border: 1px solid #34d399 !important;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.28);
+    }
+    .saved-count-badge { background: rgba(255, 255, 255, 0.25) !important; color: #ffffff !important; }
+    .page-hero {
+      background: radial-gradient(circle at 52% 28%, rgba(52, 211, 153, 0.16) 0%, rgba(16, 185, 129, 0.08) 42%, transparent 70%), linear-gradient(135deg, #ffffff 0%, #ecfdf5 55%, #d1fae5 100%) !important;
+      border-bottom: 1.5px solid #a7f3d0;
+      color: #064e3b !important;
+    }
+    .page-hero-badge {
+      background: #ffffff !important;
+      border: 1px solid #6ee7b7 !important;
+      color: #047857 !important;
+    }
+    .page-hero h1 {
+      background: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .page-hero p { color: #1e3a2f !important; }
+    .hero-quick-stats {
+      background: #ffffff !important;
+      border: 1px solid #a7f3d0 !important;
+      color: #064e3b !important;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.10);
+    }
+    .stat-item strong { color: #059669 !important; }
+    .toolbar-card,
+    .dest-card,
+    .saved-route-banner {
+      background: #ffffff !important;
+      border: 1.5px solid #bbf7d0 !important;
+      border-radius: 26px !important;
+      box-shadow: 0 12px 32px rgba(16, 185, 129, 0.10) !important;
+      color: #064e3b !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+    }
+    .dest-card:hover {
+      transform: translateY(-10px) !important;
+      border-color: #10b981 !important;
+      box-shadow: 0 22px 44px rgba(16, 185, 129, 0.18) !important;
+    }
+    /* Bento Grid Spans cho danh sách 16 Địa điểm */
+    .dest-grid .dest-card:nth-child(1),
+    .dest-grid .dest-card:nth-child(6) {
+      grid-column: span 2;
+    }
+    @media (max-width: 980px) {
+      .dest-grid .dest-card:nth-child(1),
+      .dest-grid .dest-card:nth-child(6) {
+        grid-column: span 1;
+      }
+    }
+    .toolbar-top, .card-footer { border-color: #d1fae5 !important; }
+    .search-box input, .clean-select {
+      background: #f0fdf7 !important;
+      border: 1.5px solid #a7f3d0 !important;
+      color: #064e3b !important;
+    }
+    .clean-select option { background: #ffffff; color: #064e3b; }
+    .search-box input::placeholder { color: #52796f !important; }
+    .chip {
+      background: #f0fdf7 !important;
+      border: 1px solid #a7f3d0 !important;
+      color: #065f46 !important;
+    }
+    .chip.active, .chip:hover {
+      background: linear-gradient(135deg, #059669, #10b981) !important;
+      border-color: #10b981 !important;
+      color: #ffffff !important;
+    }
+    .result-count, .dest-loc, .dest-desc { color: #1e3a2f !important; }
+    .dest-title { color: #064e3b !important; }
+    .q-link, .save-pin-btn, .btn-outline, .modal-ext-btn {
+      background: #f0fdf7 !important;
+      border: 1px solid #a7f3d0 !important;
+      color: #047857 !important;
+    }
+    .q-link:hover, .save-pin-btn:hover, .save-pin-btn.saved, .btn-primary, .modal-ext-btn:hover {
+      background: linear-gradient(135deg, #059669, #10b981) !important;
+      border-color: #10b981 !important;
+      color: #ffffff !important;
+    }
+    .rate-mini-btn {
+      background: #ecfdf5 !important;
+      border-color: #6ee7b7 !important;
+      color: #047857 !important;
+    }
+    .modal-box {
+      background: #ffffff !important;
+      border: 1.5px solid #6ee7b7 !important;
+      color: #064e3b !important;
+    }
+    .info-pill, .tip-box {
+      background: #f0fdf7 !important;
+      border: 1px solid #a7f3d0 !important;
+      color: #047857 !important;
+    }
+    .site-footer {
+      background: #ecfdf5 !important;
+      border-top: 1.5px solid #a7f3d0;
+      color: #065f46 !important;
+    }
+    .site-footer a { color: #047857 !important; font-weight: 700; }
+  </style>
+  <link rel="stylesheet" href="chatbox.css" />
+  <link rel="stylesheet" href="apple-glass.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="chamdaklak.html" class="brand-logo">
+        <div class="brand-emblem"><img src="logo-badge.png" alt="Chạm Đắk Lắk Logo" class="brand-emblem-img" /></div>
+        <div class="brand-text">
+          <span class="brand-title">Chạm Đắk Lắk</span>
+          <span class="brand-subtitle">Khám phá – Trải nghiệm – Kết nối</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="chamdaklak.html" class="nav-link">Trang chủ</a>
+        <a href="dia-diem.html" class="nav-link active">Địa điểm</a>
+        <a href="dat-phong.html" class="nav-link">Đặt phòng</a>
+        <a href="Dat_lich_trinh.html" class="nav-link">Đặt lịch trình</a>
+        <a href="dac-san.html" class="nav-link">Đặc sản</a>
+        <a href="huong-dan-vien.html" class="nav-link">Hướng dẫn viên</a>
+        <a href="ve-chung-toi.html" class="nav-link">Về chúng tôi</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="saved-pill-btn" id="scrollToSavedBtn" title="Xem các địa điểm đã lưu">
+          <span> Lộ trình đã lưu</span>
+          <span class="saved-count-badge" id="savedCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- COMPACT HERO -->
+  <section class="page-hero">
+    <div class="container hero-content">
+      <div>
+        <span class="page-hero-badge"> CẨM NANG ĐIỂM ĐẾN ĐẮK LẮK</span>
+        <h1>Khám phá 16 Tọa độ Đại ngàn & Sống ảo</h1>
+        <p>Tổng hợp danh thắng thiên nhiên, văn hóa bản địa, khu Glamping và quán cà phê đẹp nhất tại Buôn Ma Thuột – Đắk Lắk.</p>
+      </div>
+      <div class="hero-quick-stats">
+        <div class="stat-item"><strong>16 tọa độ</strong>Chọn lọc kỹ</div>
+        <div style="width:1px; background:rgba(255,255,255,0.2);"></div>
+        <div class="stat-item"><strong>4 tuyến đường</strong>Không đi ngược hướng</div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- UNIFIED FILTER & SEARCH BAR -->
+    <div class="toolbar-card">
+      <div class="toolbar-top">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="filterInput" placeholder="Tìm nhanh tên địa điểm, thác, quán cà phê, glamping..." />
+        </div>
+        <div class="toolbar-selects">
+          <select id="zoneSelect" class="clean-select" aria-label="Lọc theo khu vực">
+            <option value="all"> Khu vực: Toàn tỉnh Đắk Lắk (16)</option>
+            <option value="trung-tam"> Nội đô TP. Buôn Ma Thuột</option>
+            <option value="ven-do"> Ven đô Cư Ê Bur – Hòa Khánh (7–9km)</option>
+            <option value="ngoai-thanh"> Tuyến Thác Dray Nur – Buôn Đôn – Hồ Lắk</option>
+          </select>
+          <select id="sortSelect" class="clean-select" aria-label="Sắp xếp địa điểm">
+            <option value="default"> Sắp xếp: Nổi bật nhất</option>
+            <option value="level"> Điểm đánh giá cao nhất</option>
+            <option value="distance"> Gần trung tâm BMT nhất</option>
+            <option value="free"> Ưu tiên vé miễn phí</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="toolbar-bottom">
+        <div class="filter-chips">
+          <button class="chip active" data-cat="all">Tất cả (16)</button>
+          <button class="chip" data-cat="thien-nhien"> Thác & Kỳ quan</button>
+          <button class="chip" data-cat="van-hoa"> Văn hóa & Bản địa</button>
+          <button class="chip" data-cat="glamping"> Glamping & Sinh thái</button>
+          <button class="chip" data-cat="cafe"> Quán Cafe Đẹp</button>
+        </div>
+        <span class="result-count" id="resultCountText">Hiển thị 16 địa điểm</span>
+      </div>
+    </div>
+
+    <!-- CLEAN 3-COLUMN CARDS GRID -->
+    <div class="dest-grid" id="destGrid"></div>
+
+    <!-- SAVED ROUTE BAR -->
+    <div class="saved-route-banner" id="savedBanner">
+      <div>
+        <h3 style="font-size:16.5px; font-weight:800; margin-bottom:4px;"> Lộ trình cá nhân của bạn (<span id="savedListCount">0</span> địa điểm)</h3>
+        <p id="savedListNames" style="font-size:13px; color:var(--text-body);">Bấm nút "+ Lưu" trên các thẻ địa điểm để ghép lộ trình khám phá Đắk Lắk của riêng bạn.</p>
+      </div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button type="button" class="btn-outline" id="clearSavedBtn">Xóa danh sách</button>
+        <a href="Dat_lich_trinh.html" class="btn-primary">Đặt lịch trình tư vấn →</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <span>© 2026 Chạm Đắk Lắk – Khám phá • Trải nghiệm • Kết nối.</span>
+      <div style="display:flex; gap:20px;">
+        <a href="dac-san.html">Đặc sản Tây Nguyên</a>
+        <a href="Dat_lich_trinh.html">Đặt lịch trình</a>
+        <a href="chamdaklak.html" style="color:#fff; font-weight:700;">← Quay về Trang chủ</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DETAIL MODAL -->
+  <div class="backdrop" id="destModal">
+    <div class="modal-box">
+      <div class="modal-cover">
+        <img id="mImg" src="" alt="" referrerpolicy="no-referrer" />
+        <button class="modal-close" id="closeModal" aria-label="Đóng">×</button>
+        <div class="modal-cover-overlay">
+          <div id="mLoc" style="font-size:12px; opacity:0.9; margin-bottom:2px;"></div>
+          <h3 id="mTitle" style="font-size:22px; font-weight:800;"></h3>
+        </div>
+      </div>
+      <div class="modal-content">
+        <div class="info-grid">
+          <div class="info-pill" id="mTicket"></div>
+          <div class="info-pill" id="mHours"></div>
+        </div>
+        <p id="mDesc" style="font-size:13.5px; color:var(--text-body); line-height:1.6;"></p>
+        <div class="tip-box">
+          <strong> Kinh nghiệm thực tế:</strong> <span id="mTip"></span>
+        </div>
+        <div style="font-size:11.5px; font-weight:700; color:var(--text-muted); margin-bottom:8px; text-transform:uppercase;">Liên kết & Chỉ đường:</div>
+        <div class="modal-links-bar" id="mSocialLinks"></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:14px; border-top:1px solid #edf2ee;">
+          <button type="button" class="rate-mini-btn" id="mRateBtn" style="padding:8px 14px; font-size:12.5px;"> Chấm điểm địa điểm này</button>
+          <button type="button" class="btn-primary" id="modalSaveBtn">+ Lưu vào lộ trình</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPACT RATING MODAL -->
+  <div class="backdrop" id="ratingModal">
+    <div class="modal-box" style="max-width:440px;">
+      <div style="background:linear-gradient(135deg, var(--forest-800), var(--forest-600)); color:#fff; padding:18px 22px; position:relative;">
+        <button class="modal-close" id="closeRatingModal" type="button" style="top:12px; right:12px;">×</button>
+        <div style="font-size:11px; opacity:0.85; font-weight:600;">ĐÁNH GIÁ ĐỊA ĐIỂM DU LỊCH</div>
+        <h3 id="rateItemTitle" style="font-size:18px; font-weight:800; margin-top:4px;">Tên địa điểm</h3>
+      </div>
+      <div class="modal-content">
+        <div style="text-align:center; margin-bottom:14px;">
+          <div style="font-size:12.5px; font-weight:600; color:var(--text-body);">Chọn số sao trải nghiệm của bạn:</div>
+          <div class="interactive-stars-row" id="interactiveStars">
+            <button type="button" class="star-btn active" data-val="1">&#9733;</button>
+            <button type="button" class="star-btn active" data-val="2">&#9733;</button>
+            <button type="button" class="star-btn active" data-val="3">&#9733;</button>
+            <button type="button" class="star-btn active" data-val="4">&#9733;</button>
+            <button type="button" class="star-btn active" data-val="5">&#9733;</button>
+          </div>
+          <div id="starHintText" style="font-size:12.5px; font-weight:700; color:var(--forest-700);">Level 5: Điểm đến tuyệt vời (5.0)</div>
+        </div>
+        <div style="display:grid; gap:10px; margin-bottom:16px;">
+          <input type="text" id="raterName" placeholder="Tên của bạn (không bắt buộc)" style="width:100%; height:38px; border-radius:10px; border:1px solid #d5e0d8; padding:0 12px; font-size:12.5px; outline:none;" />
+          <textarea id="raterComment" rows="2" placeholder="Chia sẻ ngắn trải nghiệm của bạn..." style="width:100%; border-radius:10px; border:1px solid #d5e0d8; padding:8px 12px; font-size:12.5px; outline:none; resize:none;"></textarea>
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:10px;">
+          <button type="button" class="btn-outline" id="cancelRatingBtn">Hủy</button>
+          <button type="button" class="btn-primary" id="submitRatingBtn">Gửi đánh giá</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-box" id="toastBox"></div>
+
+  <script>
+    const PLACES = [
+      {
+        title: "Bảo tàng Thế giới Cà phê",
+        cat: "van-hoa",
+        zone: "trung-tam",
+        zoneLabel: " Nội đô BMT",
+        dist: 2,
+        free: 0,
+        level: 5,
+        rating: 4.9,
+        reviews: "2.8k",
+        loc: "Nguyễn Đình Chiểu, TP. Buôn Ma Thuột",
+        ticket: "75.000đ – 150.000đ",
+        hours: "07:00 – 17:00",
+        img: "anh dia danh/01_bao_tang_ca_phe.jpg",
+        desc: "Tuyệt tác kiến trúc nhà dài Tây Nguyên cách điệu uốn lượn, trưng bày hơn 10.000 hiện vật cà phê thế giới.",
+        tip: "Góc cầu thang xoắn và mái vòm đá bazan bên ngoài lên ảnh cực đẹp. Nên mặc trang phục tông trắng, be hoặc nâu đất.",
+        fb: "https://www.facebook.com/baotangthegioicaphe",
+        tiktok: "https://www.tiktok.com/search?q=B%E1%BA%A3o%20t%C3%A0ng%20Th%E1%BA%BF%20gi%E1%BB%9Bi%20C%C3%A0%20ph%C3%AA%20BMT",
+        map: "https://www.google.com/maps/search/?api=1&query=Bảo+tàng+Thế+giới+Cà+phê+Buôn+Ma+Thuột"
+      },
+      {
+        title: "Cụm Thác Dray Nur – Gia Long",
+        cat: "thien-nhien",
+        zone: "ngoai-thanh",
+        zoneLabel: " Tuyến Sêrêpốk (26km)",
+        dist: 26,
+        free: 0,
+        level: 5,
+        rating: 5.0,
+        reviews: "3.5k",
+        loc: "Krông Ana / Buôn Đôn, Đắk Lắk",
+        ticket: "40.000đ/người",
+        hours: "07:00 – 17:30",
+        img: "anh dia danh/02_thac_dray_nur.jpg",
+        desc: "Ngọn thác hùng vĩ bậc nhất Tây Nguyên dài hơn 250m với dòng nước trắng xóa đổ xuống vực sâu giữa rừng nguyên sinh.",
+        tip: "Đi khung giờ 08:30 – 10:00 sáng dễ bắt gặp cầu vồng ngay chân thác và trải nghiệm đi cầu treo băng sông.",
+        fb: "https://www.facebook.com/search/top?q=Th%C3%A1c%20Dray%20Nur%20%C4%90%E1%BA%AFk%20L%E1%BA%AFk",
+        tiktok: "https://www.tiktok.com/search?q=Th%C3%A1c%20Dray%20Nur",
+        map: "https://www.google.com/maps/search/?api=1&query=Thác+Dray+Nur+Đắk+Lắk"
+      },
+      {
+        title: "Khu du lịch Cầu Treo Buôn Đôn",
+        cat: "van-hoa",
+        zone: "ngoai-thanh",
+        zoneLabel: " Buôn Đôn (36km)",
+        dist: 36,
+        free: 0,
+        level: 5,
+        rating: 4.8,
+        reviews: "3.1k",
+        loc: "Xã Krông Na, Huyện Buôn Đôn",
+        ticket: "60.000đ/người",
+        hours: "07:30 – 17:00",
+        img: "anh dia danh/03_cau_treo_buon_don.jpg",
+        desc: "Trải nghiệm bước qua hệ thống cầu treo tre bắc trên rễ cây si cổ thụ trăm tuổi giữa dòng sông Sêrêpốk.",
+        tip: "Ghé thăm nhà sàn cổ vua săn voi và thưởng thức cơm lam gà nướng bên bờ sông Sêrêpốk.",
+        fb: "https://www.facebook.com/search/top?q=Khu%20du%20l%E1%BB%8Bch%20Bu%C3%B4n%20%C4%90%C3%B4n",
+        tiktok: "https://www.tiktok.com/search?q=Khu%20du%20l%E1%BB%8Bch%20Bu%C3%B4n%20%C4%90%C3%B4n",
+        map: "https://www.google.com/maps/search/?api=1&query=Khu+du+lịch+Cầu+Treo+Buôn+Đôn"
+      },
+      {
+        title: "Hồ Lắk & Lắk Tented Camp",
+        cat: "glamping",
+        zone: "ngoai-thanh",
+        zoneLabel: " Huyện Lắk (48km)",
+        dist: 48,
+        free: 0,
+        level: 5,
+        rating: 5.0,
+        reviews: "2.2k",
+        loc: "Thị trấn Liên Sơn, Huyện Lắk",
+        ticket: "Tham quan / Lưu trú",
+        hours: "Mở cửa cả ngày",
+        img: "anh dia danh/04_ho_lak.jpg",
+        desc: "Hồ nước ngọt tự nhiên lớn nhất Tây Nguyên kết hợp khu Glamping biệt lập trên ngọn đồi giữa lòng hồ.",
+        tip: "Đi thuyền qua mặt hồ phẳng lặng lúc bình minh 05:45 để ngắm làn sương sớm giăng kín mặt nước.",
+        fb: "https://www.facebook.com/laktentedcamp",
+        tiktok: "https://www.tiktok.com/search?q=L%E1%BA%AFk%20Tented%20Camp",
+        map: "https://www.google.com/maps/search/?api=1&query=Lắk+Tented+Camp+Đắk+Lắk"
+      },
+      {
+        title: "Đá Voi Mẹ Yang Tao",
+        cat: "thien-nhien",
+        zone: "ngoai-thanh",
+        zoneLabel: " Huyện Lắk (35km)",
+        dist: 35,
+        free: 1,
+        level: 5,
+        rating: 4.8,
+        reviews: "2.4k",
+        loc: "Xã Yang Tao, Huyện Lắk",
+        ticket: "Miễn phí",
+        hours: "06:00 – 18:00",
+        img: "anh dia danh/05_da_voi_me.jpg",
+        desc: "Tảng đá nguyên khối lớn nhất Việt Nam vươn mình sừng sững giữa cánh đồng lúa và núi rừng Chư Yang Sin.",
+        tip: "Nằm ngay trên trục đường đi Hồ Lắk; chỉ mất 15 phút leo lên đỉnh đá để ngắm toàn cảnh thung lũng.",
+        fb: "https://www.facebook.com/search/top?q=%C4%90%C3%A1%20Voi%20M%E1%BA%B9%20Yang%20Tao",
+        tiktok: "https://www.tiktok.com/search?q=%C4%90%C3%A1%20Voi%20M%E1%BA%B9%20%C4%90%E1%BA%AFk%20L%E1%BA%AFk",
+        map: "https://www.google.com/maps/search/?api=1&query=Đá+Voi+Mẹ+Yang+Tao+Đắk+Lắk"
+      },
+      {
+        title: "Vườn Quốc gia Yok Đôn",
+        cat: "thien-nhien",
+        zone: "ngoai-thanh",
+        zoneLabel: " Buôn Đôn (40km)",
+        dist: 40,
+        free: 0,
+        level: 5,
+        rating: 5.0,
+        reviews: "2.7k",
+        loc: "Xã Krông Na, Huyện Buôn Đôn",
+        ticket: "Vé cổng: 60.000đ",
+        hours: "07:00 – 17:00",
+        img: "anh dia danh/06_yok_don.jpg",
+        desc: "Hệ sinh thái rừng khộp đặc trưng duy nhất tại Việt Nam cùng tour đi bộ ngắm voi tự nhiên chuẩn quốc tế.",
+        tip: "Tháng 4–5 hằng năm là mùa hàng triệu cánh bướm rừng bay rợp lối mòn trong rừng khộp Yok Đôn.",
+        fb: "https://www.facebook.com/yokdontour",
+        tiktok: "https://www.tiktok.com/search?q=V%C6%B0%E1%BB%9Dn%20qu%E1%BB%91c%20gia%20Yok%20%C4%90%C3%B4n",
+        map: "https://www.google.com/maps/search/?api=1&query=Vườn+Quốc+gia+Yok+Đôn+Đắk+Lắk"
+      },
+      {
+        title: "Buôn Cổ Ako Dhông",
+        cat: "van-hoa",
+        zone: "trung-tam",
+        zoneLabel: " Nội đô BMT (2.5km)",
+        dist: 2.5,
+        free: 1,
+        level: 5,
+        rating: 4.9,
+        reviews: "2.5k",
+        loc: "Cuối đường Trần Nhật Duật, TP. BMT",
+        ticket: "Miễn phí",
+        hours: "06:30 – 21:00",
+        img: "anh dia danh/07_buon_ako_dhong.jpg",
+        desc: "Buôn làng người Ê Đê giàu đẹp và thanh bình ngay trong lòng phố núi với hơn 30 ngôi nhà dài truyền thống.",
+        tip: "Dạo bộ dưới hàng cây xanh mát cuối đường Trần Nhật Duật và ghé thưởng thức cà phê nhà sàn.",
+        fb: "https://www.facebook.com/search/top?q=Bu%C3%B4n%20Ako%20Dh%C3%B4ng%20Bu%C3%B4n%20Ma%20Thu%E1%BB%99t",
+        tiktok: "https://www.tiktok.com/search?q=Bu%C3%B4n%20Ako%20Dh%C3%B4ng",
+        map: "https://www.google.com/maps/search/?api=1&query=Buôn+Ako+Dhông+Buôn+Ma+Thuột"
+      },
+      {
+        title: "Lee’s House (Tiểu Bali BMT)",
+        cat: "glamping",
+        zone: "ven-do",
+        zoneLabel: " Ven đô Cư Ê Bur (7km)",
+        dist: 7,
+        free: 0,
+        level: 5,
+        rating: 4.9,
+        reviews: "1.9k",
+        loc: "Thôn 8, Xã Cư Ê Bur, TP. BMT",
+        ticket: "Tham quan / Homestay",
+        hours: "07:30 – 21:00",
+        img: "anh dia danh/08_lees_house.jpg",
+        desc: "Khu nghỉ dưỡng & cafe phong cách Bali giữa đại ngàn với hồ bơi vô cực nhìn thẳng xuống thung lũng xanh.",
+        tip: "Thời điểm chụp ảnh đẹp nhất tại hồ bơi vô cực và lưới võng săn mây là 15:30 – 17:30 chiều.",
+        fb: "https://www.facebook.com/search/top?q=Lee's%20House%20Bu%C3%B4n%20Ma%20Thu%E1%BB%99t",
+        tiktok: "https://www.tiktok.com/search?q=Lee%27s%20House%20Bu%C3%B4n%20Ma%20Thu%E1%BB%99t",
+        map: "https://www.google.com/maps/search/?api=1&query=Lee's+House+Cư+Ê+Bur+Buôn+Ma+Thuột"
+      },
+      {
+        title: "SOUL Roastery BMT",
+        cat: "cafe",
+        zone: "trung-tam",
+        zoneLabel: " Nội đô BMT (1.5km)",
+        dist: 1.5,
+        free: 1,
+        level: 5,
+        rating: 4.9,
+        reviews: "1.4k",
+        loc: "87 Nguyễn Khuyến, P. Tân Lợi, TP. BMT",
+        ticket: "Đồ uống: 35k – 65k",
+        hours: "06:30 – 22:00",
+        img: "anh dia danh/09_soul_roastery.jpg",
+        desc: "Không gian Specialty Coffee phong cách Industrial tông trầm ấn tượng, nổi tiếng với nghệ thuật rang xay Fine Robusta.",
+        tip: "Đừng quên thử dòng cà phê Cold Brew hoặc Fine Robusta Pour-over đặc trưng của quán.",
+        fb: "https://www.facebook.com/soulfinerobusta",
+        tiktok: "https://www.tiktok.com/search?q=SOUL%20Roastery%20BMT",
+        map: "https://www.google.com/maps/search/?api=1&query=SOUL+Roastery+87+Nguyễn+Khuyến+Buôn+Ma+Thuột"
+      },
+      {
+        title: "Cốm Camp & Glamping",
+        cat: "glamping",
+        zone: "ven-do",
+        zoneLabel: " Xã Hòa Khánh (8km)",
+        dist: 8,
+        free: 0,
+        level: 4,
+        rating: 4.8,
+        reviews: "890",
+        loc: "Thôn 13, Xã Hòa Khánh, TP. BMT",
+        ticket: "Cafe suối / BBQ tối",
+        hours: "07:00 – 22:00",
+        img: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=800&q=80",
+        desc: "Tổ hợp cắm trại ven suối mát lành cách trung tâm 8km, nổi bật với lều Mông Cổ và tiệc nướng BBQ đêm.",
+        tip: "Buổi tối lên đèn vàng lung linh bên tiếng suối chảy; nên đặt bàn BBQ trước nếu đi dịp cuối tuần.",
+        fb: "https://www.facebook.com/search/top?q=C%E1%BB%91m%20Camp%20Glamping%20Bu%C3%B4n%20Ma%20Thu%E1%BB%99t",
+        tiktok: "https://www.tiktok.com/search?q=C%E1%BB%91m%20Glamping%20BMT",
+        map: "https://www.google.com/maps/search/?api=1&query=Cốm+Camp+Glamping+Hòa+Khánh+Buôn+Ma+Thuột"
+      },
+      {
+        title: "Arul Coffee – Nhà Dài Cổ",
+        cat: "cafe",
+        zone: "trung-tam",
+        zoneLabel: " Buôn Ako Dhông (3km)",
+        dist: 3,
+        free: 1,
+        level: 5,
+        rating: 4.9,
+        reviews: "1.6k",
+        loc: "17–19 Trần Nhật Duật, TP. BMT",
+        ticket: "Đồ uống: 30k – 55k",
+        hours: "06:30 – 21:30",
+        img: "anh dia danh/11_arul_coffee.jpg",
+        desc: "Thưởng thức cà phê phin đậm đà ngay trong không gian nhà sàn dài cổ truyền nguyên bản của người Ê Đê.",
+        tip: "Ngồi bên hiên nhà gỗ ngắm vườn cây cổ thụ và tìm hiểu các hiện vật văn hóa mẫu hệ Ê Đê.",
+        fb: "https://www.facebook.com/search/top?q=Arul%20Coffee%20Bu%C3%B4n%20Ma%20Thu%E1%BB%99t",
+        tiktok: "https://www.tiktok.com/search?q=Arul%20Coffee%20BMT",
+        map: "https://www.google.com/maps/search/?api=1&query=Arul+Coffee+17+Trần+Nhật+Duật+Buôn+Ma+Thuột"
+      },
+      {
+        title: "Chùa Sắc Tứ Khải Đoan",
+        cat: "van-hoa",
+        zone: "trung-tam",
+        zoneLabel: " Trung tâm BMT (1km)",
+        dist: 1,
+        free: 1,
+        level: 5,
+        rating: 4.9,
+        reviews: "1.7k",
+        loc: "117 Phan Bội Châu, TP. BMT",
+        ticket: "Miễn phí",
+        hours: "06:00 – 20:00",
+        img: "anh dia danh/12_chua_khai_doan.jpg",
+        desc: "Ngôi chùa lớn và cổ kính nhất Đắk Lắk với kiến trúc giao thoa độc đáo giữa nhà rường Huế và nhà dài Tây Nguyên.",
+        tip: "Tông màu gỗ trầm mặc uy nghiêm, lưu ý mặc trang phục lịch sự khi vào lễ Phật và tham quan.",
+        fb: "https://www.facebook.com/search/top?q=Ch%C3%B9a%20S%E1%BA%AFc%20T%E1%BB%A9%20Kh%E1%BA%A3i%20%C4%90oan",
+        tiktok: "https://www.tiktok.com/search?q=Ch%C3%B9a%20S%E1%BA%AFc%20T%E1%BB%A9%20Kh%E1%BA%A3i%20%C4%90oan%20BMT",
+        map: "https://www.google.com/maps/search/?api=1&query=Chùa+Sắc+Tứ+Khải+Đoan+Buôn+Ma+Thuột"
+      },
+      {
+        title: "The Circle Coffee Roasters",
+        cat: "cafe",
+        zone: "trung-tam",
+        zoneLabel: " Nội đô BMT (2km)",
+        dist: 2,
+        free: 1,
+        level: 4,
+        rating: 4.8,
+        reviews: "1.1k",
+        loc: "291 Hà Huy Tập, P. Tân Lợi, TP. BMT",
+        ticket: "Đồ uống: 35k – 60k",
+        hours: "07:00 – 22:00",
+        img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80",
+        desc: "Quán cà phê phong cách Minimalism trắng – đen hiện đại cùng khu vực tầng thượng (Rooftop) ngắm hoàng hôn phố núi.",
+        tip: "Ghé khu vực sân thượng lúc 16:45 – 17:45 để bắt trọn khoảnh khắc hoàng hôn buông xuống thành phố.",
+        fb: "https://www.facebook.com/search/top?q=The%20Circle%20Coffee%20Roasters%20291%20H%C3%A0%20Huy%20T%E1%BA%ADp",
+        tiktok: "https://www.tiktok.com/search?q=The%20Circle%20Coffee%20BMT",
+        map: "https://www.google.com/maps/search/?api=1&query=The+Circle+Coffee+Roasters+291+Hà+Huy+Tập+Buôn+Ma+Thuột"
+      },
+      {
+        title: "House Of Lens Coffee",
+        cat: "cafe",
+        zone: "trung-tam",
+        zoneLabel: " Nội đô BMT (2.5km)",
+        dist: 2.5,
+        free: 1,
+        level: 4,
+        rating: 4.7,
+        reviews: "750",
+        loc: "14/19 Cù Chính Lan, P. Tự An, TP. BMT",
+        ticket: "Đồ uống: 25k – 50k",
+        hours: "07:00 – 21:30",
+        img: "anh dia danh/14_house_of_lens.jpg",
+        desc: "Ngôi nhà gỗ tam giác cổ tích ẩn mình trong con hẻm nhỏ yên tĩnh với góc chụp xích đu bay giữa khoảng xanh.",
+        tip: "Buổi sáng nắng chiếu xiên qua mái nhà gỗ tam giác tạo hiệu ứng ánh sáng rất thơ mộng.",
+        fb: "https://www.facebook.com/search/top?q=House%20Of%20Lens%20Coffee%20Bu%C3%B4n%20Ma%20Thu%E1%BB%99t",
+        tiktok: "https://www.tiktok.com/search?q=House%20Of%20Lens%20BMT",
+        map: "https://www.google.com/maps/search/?api=1&query=House+Of+Lens+14/19+Cù+Chính+Lan+Buôn+Ma+Thuột"
+      },
+      {
+        title: "Shinin’ Coffee BMT",
+        cat: "cafe",
+        zone: "trung-tam",
+        zoneLabel: " Nội đô BMT (1.8km)",
+        dist: 1.8,
+        free: 1,
+        level: 4,
+        rating: 4.7,
+        reviews: "620",
+        loc: "146 Ngô Quyền, P. Tân An, TP. BMT",
+        ticket: "Đồ uống: 30k – 55k",
+        hours: "07:00 – 22:00",
+        img: "anh dia danh/15_shinin_coffee.jpg",
+        desc: "Không gian tối giản phong cách Nhật Bản (Japandi) tinh khôi, ngập tràn ánh sáng tự nhiên giữa lòng phố núi.",
+        tip: "Khung cửa kính lớn đón nắng ban mai rất hợp làm việc nhẹ nhàng hoặc chụp ảnh tối giản.",
+        fb: "https://www.facebook.com/search/top?q=Shinin%20Coffee%20146%20Ng%C3%B4%20Quy%E1%BB%81n%20BMT",
+        tiktok: "https://www.tiktok.com/search?q=Shinin%20Coffee%20BMT",
+        map: "https://www.google.com/maps/search/?api=1&query=Shinin+Coffee+146+Ngô+Quyền+Buôn+Ma+Thuột"
+      },
+      {
+        title: "KDL Sinh thái Cộng đồng KoTam",
+        cat: "glamping",
+        zone: "ven-do",
+        zoneLabel: " Ven đô QL26 (9km)",
+        dist: 9,
+        free: 0,
+        level: 4,
+        rating: 4.7,
+        reviews: "1.8k",
+        loc: "Km9 Quốc lộ 26, P. Tân Hòa, TP. BMT",
+        ticket: "Vé cổng: 30k – 50k",
+        hours: "07:00 – 20:00",
+        img: "anh dia danh/16_kdl_kotam.jpg",
+        desc: "Quần thể sinh thái nhà dài, đồi hoa theo mùa, bến nước cổ và khu ẩm thực bản địa rộng lớn cho gia đình.",
+        tip: "Rất phù hợp cho đoàn gia đình vừa tham quan chụp ảnh vườn hoa vừa dùng bữa trưa gà nướng cơm lam.",
+        fb: "https://www.facebook.com/search/top?q=Khu%20du%20l%E1%BB%8Bch%20KoTam%20Bu%C3%B4n%20Ma%20Thu%E1%BB%99t",
+        tiktok: "https://www.tiktok.com/search?q=Khu%20du%20l%E1%BB%8Bch%20KoTam%20BMT",
+        map: "https://www.google.com/maps/search/?api=1&query=Khu+du+lịch+KoTam+Buôn+Ma+Thuột"
+      }
+    ];
+
+    let currentCat = 'all';
+    let currentZone = 'all';
+    let currentSort = 'default';
+    let activePlace = null;
+    let selectedStars = 5;
+
+    // Load saved user ratings from localStorage
+    try {
+      const savedRatings = JSON.parse(localStorage.getItem('cdl_level_ratings')) || {};
+      PLACES.forEach(p => {
+        if (savedRatings[p.title]) {
+          p.rating = parseFloat(savedRatings[p.title].score) || p.rating;
+          p.level = savedRatings[p.title].level || p.level;
+        }
+      });
+    } catch (e) {}
+
+    function getSavedList() {
+      try { return JSON.parse(localStorage.getItem('cdl_saved_places')) || []; } catch { return []; }
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toastBox');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2600);
+    }
+
+    function renderGrid() {
+      const q = document.getElementById('filterInput').value.trim().toLowerCase();
+      const savedList = getSavedList();
+      const grid = document.getElementById('destGrid');
+
+      let filtered = PLACES.filter(p => {
+        const matchCat = currentCat === 'all' || p.cat === currentCat;
+        const matchZone = currentZone === 'all' || p.zone === currentZone;
+        const matchText = !q || p.title.toLowerCase().includes(q) || p.loc.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
+        return matchCat && matchZone && matchText;
+      });
+
+      if (currentSort === 'level') {
+        filtered.sort((a, b) => b.rating - a.rating);
+      } else if (currentSort === 'distance') {
+        filtered.sort((a, b) => a.dist - b.dist);
+      } else if (currentSort === 'free') {
+        filtered.sort((a, b) => b.free - a.free);
+      }
+
+      document.getElementById('resultCountText').textContent = `Hiển thị ${filtered.length} địa điểm`;
+
+      grid.innerHTML = filtered.map((p, idx) => {
+        const isSaved = savedList.includes(p.title);
+        return `
+          <article class="dest-card" data-title="${p.title}">
+            <div class="card-thumb">
+              <img src="${p.img}" alt="${p.title}" loading="lazy" referrerpolicy="no-referrer" />
+              <div class="card-thumb-overlay"></div>
+              <div class="thumb-top-row">
+                <span class="zone-pill">${p.zoneLabel}</span>
+                <span class="level-pill"><span class="star"></span> <strong>${p.rating.toFixed(1)}</strong> <span style="color:#6b7280; font-weight:600;">(${p.reviews})</span></span>
+              </div>
+              <div class="thumb-bottom-row">
+                <span>LV.${p.level} Đắk Lắk</span>
+                <span class="ticket-badge"> ${p.ticket}</span>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div>
+                <div class="card-title-row">
+                  <h3 class="dest-title">${p.title}</h3>
+                </div>
+                <div class="dest-loc"> ${p.loc}</div>
+                <p class="dest-desc">${p.desc}</p>
+              </div>
+
+              <div class="card-footer">
+                <div class="quick-links">
+                  <a href="${p.map}" target="_blank" rel="noopener" class="q-link" title="Chỉ đường Google Maps" onclick="event.stopPropagation()"> Bản đồ</a>
+                  <a href="${p.fb}" target="_blank" rel="noopener" class="q-link" title="Mở Fanpage" onclick="event.stopPropagation()"> Page</a>
+                  <a href="${p.tiktok}" target="_blank" rel="noopener" class="q-link" title="Xem Review TikTok" onclick="event.stopPropagation()"> TikTok</a>
+                </div>
+                <div class="card-actions">
+                  <button type="button" class="rate-mini-btn" onclick="event.stopPropagation(); openRatingModal('${p.title.replace(/'/g, "\\'")}')" title="Chấm điểm"> Chấm</button>
+                  <button type="button" class="save-pin-btn ${isSaved ? 'saved' : ''}" onclick="event.stopPropagation(); toggleSave('${p.title.replace(/'/g, "\\'")}')">
+                    ${isSaved ? ' Đã lưu' : '+ Lưu'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      grid.querySelectorAll('.dest-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const title = card.getAttribute('data-title');
+          const place = PLACES.find(x => x.title === title);
+          if (place) openDetailModal(place);
+        });
+      });
+    }
+
+    function toggleSave(name) {
+      let list = getSavedList();
+      if (list.includes(name)) {
+        list = list.filter(i => i !== name);
+        showToast(`Đã bỏ "${name}" khỏi lộ trình.`);
+      } else {
+        list.push(name);
+        showToast(` Đã lưu "${name}" vào lộ trình cá nhân!`);
+      }
+      localStorage.setItem('cdl_saved_places', JSON.stringify(list));
+      renderSavedBanner();
+      renderGrid();
+    }
+
+    function renderSavedBanner() {
+      const list = getSavedList();
+      document.getElementById('savedCount').textContent = list.length;
+      document.getElementById('savedListCount').textContent = list.length;
+      document.getElementById('savedListNames').textContent = list.length
+        ? 'Thứ tự gợi ý: ' + list.join(' → ')
+        : 'Bấm nút "+ Lưu" trên các thẻ địa điểm để ghép lộ trình khám phá Đắk Lắk của riêng bạn.';
+    }
+
+    document.getElementById('clearSavedBtn').addEventListener('click', () => {
+      localStorage.removeItem('cdl_saved_places');
+      renderSavedBanner();
+      renderGrid();
+      showToast('Đã làm mới danh sách lộ trình.');
+    });
+
+    document.getElementById('scrollToSavedBtn').addEventListener('click', () => {
+      document.getElementById('savedBanner').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Filter listeners
+    document.getElementById('filterInput').addEventListener('input', renderGrid);
+    document.getElementById('zoneSelect').addEventListener('change', (e) => {
+      currentZone = e.target.value;
+      renderGrid();
+    });
+    document.getElementById('sortSelect').addEventListener('change', (e) => {
+      currentSort = e.target.value;
+      renderGrid();
+    });
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        currentCat = chip.getAttribute('data-cat');
+        renderGrid();
+      });
+    });
+
+    // Detail Modal
+    const destModal = document.getElementById('destModal');
+    function openDetailModal(p) {
+      activePlace = p;
+      document.getElementById('mImg').src = p.img;
+      document.getElementById('mLoc').textContent = ` ${p.loc} • Cách trung tâm BMT ${p.dist}km`;
+      document.getElementById('mTitle').textContent = p.title;
+      document.getElementById('mTicket').textContent = ` Chi phí: ${p.ticket}`;
+      document.getElementById('mHours').textContent = ` Giờ mở cửa: ${p.hours}`;
+      document.getElementById('mDesc').textContent = p.desc;
+      document.getElementById('mTip').textContent = p.tip;
+      document.getElementById('mSocialLinks').innerHTML = `
+        <a href="${p.map}" target="_blank" rel="noopener" class="modal-ext-btn"> Chỉ đường Google Maps</a>
+        <a href="${p.fb}" target="_blank" rel="noopener" class="modal-ext-btn"> Mở Fanpage Facebook</a>
+        <a href="${p.tiktok}" target="_blank" rel="noopener" class="modal-ext-btn"> Xem Video TikTok</a>
+      `;
+      destModal.classList.add('open');
+    }
+
+    document.getElementById('closeModal').addEventListener('click', () => destModal.classList.remove('open'));
+    destModal.addEventListener('click', (e) => { if (e.target === destModal) destModal.classList.remove('open'); });
+
+    document.getElementById('modalSaveBtn').addEventListener('click', () => {
+      if (activePlace) toggleSave(activePlace.title);
+      destModal.classList.remove('open');
+    });
+
+    document.getElementById('mRateBtn').addEventListener('click', () => {
+      destModal.classList.remove('open');
+      if (activePlace) openRatingModal(activePlace.title);
+    });
+
+    // Rating Modal
+    const ratingModal = document.getElementById('ratingModal');
+    let ratingTargetTitle = '';
+    const HINTS = {
+      1: 'Level 1: Cần cải thiện (1.0)',
+      2: 'Level 2: Tạm ổn (2.0)',
+      3: 'Level 3: Tiêu chuẩn (3.0)',
+      4: 'Level 4: Rất xuất sắc (4.0)',
+      5: 'Level 5: Điểm đến tuyệt vời (5.0)'
+    };
+
+    function openRatingModal(title) {
+      ratingTargetTitle = title;
+      document.getElementById('rateItemTitle').textContent = title;
+      selectedStars = 5;
+      updateStarsUI(5);
+      ratingModal.classList.add('open');
+    }
+
+    function updateStarsUI(val) {
+      document.querySelectorAll('#interactiveStars .star-btn').forEach(btn => {
+        btn.classList.toggle('active', Number(btn.getAttribute('data-val')) <= val);
+      });
+      document.getElementById('starHintText').textContent = HINTS[val] || HINTS[5];
+    }
+
+    document.querySelectorAll('#interactiveStars .star-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedStars = Number(btn.getAttribute('data-val'));
+        updateStarsUI(selectedStars);
+      });
+    });
+
+    document.getElementById('closeRatingModal').addEventListener('click', () => ratingModal.classList.remove('open'));
+    document.getElementById('cancelRatingBtn').addEventListener('click', () => ratingModal.classList.remove('open'));
+    ratingModal.addEventListener('click', (e) => { if (e.target === ratingModal) ratingModal.classList.remove('open'); });
+
+    document.getElementById('submitRatingBtn').addEventListener('click', () => {
+      const p = PLACES.find(x => x.title === ratingTargetTitle);
+      if (p) {
+        p.rating = selectedStars;
+        p.level = selectedStars;
+        try {
+          const stored = JSON.parse(localStorage.getItem('cdl_level_ratings')) || {};
+          stored[ratingTargetTitle] = { score: selectedStars, level: selectedStars };
+          localStorage.setItem('cdl_level_ratings', JSON.stringify(stored));
+        } catch (e) {}
+        renderGrid();
+      }
+      ratingModal.classList.remove('open');
+      showToast(` Cảm ơn bạn đã đánh giá ${selectedStars} cho "${ratingTargetTitle}"!`);
+    });
+
+    renderSavedBanner();
+    renderGrid();
+  </script>
+  <script src="pixel-elephant.js"></script>
+  <script src="chatbox.js"></script>
+  <script src="apple-glass.js"></script>
+</body>
+</html>

@@ -1,0 +1,2117 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dịch Vụ Đặt Phòng Homestay, Khách Sạn & Glamping Đắk Lắk – Chạm Đắk Lắk</title>
+  <meta name="description" content="Tổng hợp homestay mới nổi, glamping ven suối, nhà sàn bản địa và khách sạn 3-5 sao Buôn Ma Thuột, Đắk Lắk. Giá ưu đãi niêm yết minh bạch, liên kết trực tiếp Lịch Trình." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="chatbox.css" />
+  <style>
+    /* ==========================================================================
+       WHITE & FRESH MINT GREEN THEME – DỊCH VỤ ĐẶT PHÒNG
+       Đồng bộ 100% với Trang chủ (chamdaklak.html), Địa điểm & HDV Sinh viên
+       ========================================================================== */
+    :root {
+      --bazan-gradient: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%);
+      --crimson-btn: linear-gradient(135deg, #059669 0%, #10b981 100%);
+      --amber-btn: linear-gradient(135deg, #047857 0%, #059669 100%);
+      --glass-surface: #ffffff;
+      --glass-surface-strong: #ffffff;
+      --glass-border: #bbf7d0;
+      --glass-bubble-shadow: 0 12px 32px rgba(16, 185, 129, 0.10);
+      --glass-hover-shadow: 0 22px 44px rgba(16, 185, 129, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f4fcf8 !important;
+      background-image:
+        radial-gradient(circle at 52% 12%, rgba(52, 211, 153, 0.18) 0%, rgba(16, 185, 129, 0.08) 38%, transparent 70%),
+        radial-gradient(circle at 15% 65%, rgba(110, 231, 183, 0.16) 0%, transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, #f0fdf7 52%, #e6faef 100%) !important;
+      background-attachment: fixed !important;
+      background-size: cover !important;
+      background-position: center top !important;
+      color: #064e3b !important;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ==========================================================================
+       HEADER (FLOATING WHITE & MINT PILL)
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 14px !important;
+      z-index: 100;
+      background: transparent !important;
+      backdrop-filter: none !important;
+      border-bottom: none !important;
+      padding: 0 20px;
+    }
+
+    .header-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+      height: 68px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.94) !important;
+      backdrop-filter: blur(18px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(18px) saturate(180%) !important;
+      border: 1.5px solid #a7f3d0 !important;
+      box-shadow: 0 12px 32px rgba(16, 185, 129, 0.12) !important;
+      padding: 0 26px !important;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .brand-emblem {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+      border: 1px solid #6ee7b7;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #064e3b !important;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      line-height: 1.15;
+    }
+
+    .brand-subtitle {
+      font-size: 10px;
+      font-weight: 600;
+      color: #059669 !important;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-link {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #1e3a2f !important;
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #059669 !important;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 3px !important;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #059669, #34d399) !important;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .header-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--crimson-btn) !important;
+      color: #ffffff !important;
+      border: 1px solid #34d399 !important;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.28);
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .header-pill-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       PAGE HERO & QUICK SEARCH WIDGET
+       ========================================================================== */
+    .booking-hero {
+      background: radial-gradient(circle at 52% 28%, rgba(52, 211, 153, 0.16) 0%, rgba(16, 185, 129, 0.08) 42%, transparent 70%), linear-gradient(135deg, #ffffff 0%, #ecfdf5 55%, #d1fae5 100%) !important;
+      border-bottom: 1.5px solid #a7f3d0;
+      padding: 44px 0 38px;
+      margin-top: 12px;
+    }
+
+    .hero-top-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #047857;
+      border: 1px solid #6ee7b7;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+      box-shadow: 0 4px 10px rgba(16, 185, 129, 0.10);
+    }
+
+    .booking-hero h1 {
+      font-size: 33px;
+      font-weight: 900;
+      line-height: 1.22;
+      margin-bottom: 10px;
+      max-width: 780px;
+      letter-spacing: -0.02em;
+      background: var(--bazan-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .booking-hero p {
+      font-size: 14.5px;
+      color: #1e3a2f;
+      max-width: 720px;
+      line-height: 1.6;
+    }
+
+    .trust-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .trust-badge-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #064e3b;
+      background: #ffffff;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid #a7f3d0;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.08);
+    }
+
+    .trust-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 6px #10b981;
+    }
+
+    /* Search Widget Box */
+    .search-widget-box {
+      background: #ffffff !important;
+      border: 1.5px solid #a7f3d0 !important;
+      border-radius: 24px !important;
+      box-shadow: var(--glass-bubble-shadow) !important;
+      padding: 20px 24px;
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr 1fr auto;
+      gap: 14px;
+      align-items: flex-end;
+    }
+
+    .search-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .search-field-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #047857;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .search-input-wrap input,
+    .search-input-wrap select {
+      width: 100%;
+      height: 44px;
+      border-radius: 12px;
+      border: 1.5px solid #a7f3d0;
+      padding: 0 14px;
+      font-size: 13.5px;
+      font-weight: 600;
+      font-family: inherit;
+      color: #064e3b;
+      background: #f0fdf7;
+      outline: none;
+      color-scheme: light;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .search-input-wrap select option {
+      background: #ffffff;
+      color: #064e3b;
+    }
+
+    .search-input-wrap input:focus,
+    .search-input-wrap select:focus {
+      border-color: #10b981;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.16);
+    }
+
+    .btn-search-hotels {
+      height: 44px;
+      padding: 0 24px;
+      background: var(--crimson-btn);
+      color: #ffffff;
+      border: 1px solid #34d399;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 13.5px;
+      font-family: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.28);
+      white-space: nowrap;
+    }
+
+    .btn-search-hotels:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(16, 185, 129, 0.38);
+    }
+
+    /* ==========================================================================
+       3-WEB ECOSYSTEM BANNER & FILTER TOOLBAR
+       ========================================================================== */
+    .eco-room-banner {
+      margin: 24px 0 18px;
+      padding: 18px 24px;
+      border-radius: 24px;
+      background: #ffffff;
+      border: 1.5px solid #a7f3d0;
+      box-shadow: var(--glass-bubble-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .eco-room-tag {
+      display: inline-block;
+      padding: 3px 11px;
+      border-radius: 999px;
+      background: #ecfdf5;
+      border: 1px solid #6ee7b7;
+      color: #047857;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .eco-room-status {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #064e3b;
+      margin-top: 6px;
+    }
+
+    .eco-room-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-eco-secondary {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #ecfdf5;
+      border: 1.5px solid #6ee7b7;
+      color: #047857;
+      font-size: 12.5px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .btn-eco-secondary:hover {
+      background: #d1fae5;
+      border-color: #10b981;
+    }
+
+    .btn-eco-primary {
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #059669, #10b981);
+      border: 1px solid #34d399;
+      color: #ffffff;
+      font-size: 12.5px;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.28);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-eco-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Filter Toolbar Card */
+    .booking-controls-card {
+      background: #ffffff;
+      border: 1.5px solid #bbf7d0;
+      border-radius: 24px;
+      box-shadow: var(--glass-bubble-shadow);
+      padding: 18px 22px;
+      margin-bottom: 24px;
+    }
+
+    .filter-tabs-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #d1fae5;
+    }
+
+    .filter-tab-pill {
+      background: #f0fdf7;
+      border: 1px solid #a7f3d0;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 700;
+      font-family: inherit;
+      color: #065f46;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-tab-pill:hover,
+    .filter-tab-pill.active {
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: #ffffff;
+      border-color: #10b981;
+      box-shadow: 0 6px 16px rgba(16, 185, 129, 0.28);
+    }
+
+    .secondary-filter-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .results-count-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e3a2f;
+    }
+
+    .results-count-text strong {
+      color: #059669;
+      font-weight: 800;
+    }
+
+    .filter-dropdowns {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .keyword-filter-input {
+      height: 38px;
+      padding: 0 14px;
+      border-radius: 10px;
+      border: 1.5px solid #a7f3d0;
+      background: #f0fdf7;
+      color: #064e3b;
+      font-size: 12.5px;
+      font-family: inherit;
+      min-width: 210px;
+      outline: none;
+    }
+
+    .keyword-filter-input::placeholder {
+      color: #52796f;
+    }
+
+    .styled-select {
+      height: 38px;
+      padding: 0 14px;
+      border-radius: 10px;
+      border: 1.5px solid #a7f3d0;
+      background: #f0fdf7;
+      font-size: 12.5px;
+      font-weight: 600;
+      font-family: inherit;
+      color: #064e3b;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .styled-select option {
+      background: #ffffff;
+      color: #064e3b;
+    }
+
+    /* ==========================================================================
+       HOTELS & HOMESTAYS GRID (WHITE & MINT CARDS)
+       ========================================================================== */
+    .hotels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      padding: 4px 0 48px;
+    }
+
+    .hotel-card {
+      background: #ffffff !important;
+      border: 1.5px solid #bbf7d0 !important;
+      border-radius: 24px !important;
+      box-shadow: var(--glass-bubble-shadow) !important;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .hotel-card:hover {
+      transform: translateY(-8px);
+      border-color: #10b981 !important;
+      box-shadow: var(--glass-hover-shadow) !important;
+    }
+
+    .hotel-card.selected-in-itinerary {
+      border: 2.5px solid #059669 !important;
+      box-shadow: 0 20px 44px rgba(16, 185, 129, 0.25) !important;
+    }
+
+    /* Card Image Header */
+    .hotel-thumb-wrap {
+      position: relative;
+      height: 215px;
+      overflow: hidden;
+      background: #e6faef;
+    }
+
+    .hotel-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+
+    .hotel-card:hover .hotel-thumb-img {
+      transform: scale(1.06);
+    }
+
+    .badge-top-left {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      color: #047857;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 5px 11px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      border: 1px solid #6ee7b7;
+    }
+
+    .badge-top-left.trending {
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: #ffffff;
+      border-color: #34d399;
+    }
+
+    .badge-top-left.luxury {
+      background: linear-gradient(135deg, #047857, #059669);
+      color: #ffffff;
+      border-color: #6ee7b7;
+    }
+
+    .traveloka-verified-tag {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      color: #047857;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 8px;
+      border: 1px solid #6ee7b7;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .traveloka-verified-tag svg {
+      width: 12px;
+      height: 12px;
+      fill: #059669;
+    }
+
+    .rate-floating-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border: 1px solid #6ee7b7;
+      border-radius: 10px;
+      padding: 4px 9px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .rate-floating-badge .score {
+      font-size: 12px;
+      font-weight: 800;
+      color: #ffffff;
+      background: #059669;
+      padding: 1px 6px;
+      border-radius: 5px;
+    }
+
+    .rate-floating-badge .label {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #064e3b;
+    }
+
+    /* Card Body */
+    .hotel-card-body {
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .hotel-cat-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 5px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #059669;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .selected-pill-tag {
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #ecfdf5;
+      border: 1px solid #10b981;
+      color: #047857;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .hotel-name {
+      font-size: 17.5px;
+      font-weight: 800;
+      color: #064e3b;
+      line-height: 1.32;
+      margin-bottom: 6px;
+    }
+
+    .hotel-loc-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #52796f;
+      margin-bottom: 10px;
+    }
+
+    .hotel-loc-row svg {
+      flex-shrink: 0;
+      color: #059669;
+    }
+
+    .hotel-desc {
+      font-size: 12.5px;
+      color: #1e3a2f;
+      line-height: 1.55;
+      margin-bottom: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .amenities-tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .amenity-pill {
+      font-size: 11px;
+      font-weight: 600;
+      color: #047857;
+      background: #ecfdf5;
+      padding: 3.5px 9px;
+      border-radius: 999px;
+      border: 1px solid #a7f3d0;
+    }
+
+    /* Card Footer (Price + Clean 2-Row Action Layout) */
+    .hotel-price-footer {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px dashed #a7f3d0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .price-top-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .price-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-original {
+      font-size: 11.5px;
+      color: #6b9080;
+      text-decoration: line-through;
+    }
+
+    .price-main-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .price-main-num {
+      font-size: 20px;
+      font-weight: 900;
+      background: var(--bazan-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .price-unit {
+      font-size: 11.5px;
+      color: #52796f;
+      font-weight: 600;
+    }
+
+    .btn-detail-quick {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid #a7f3d0;
+      background: #f0fdf7;
+      color: #047857;
+      font-size: 11px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .btn-detail-quick:hover {
+      background: #d1fae5;
+      border-color: #10b981;
+    }
+
+    .hotel-actions-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .btn-pair-itinerary {
+      height: 38px;
+      border-radius: 11px;
+      background: #ecfdf5;
+      color: #047857;
+      border: 1.5px solid #6ee7b7;
+      font-size: 12px;
+      font-weight: 800;
+      font-family: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-pair-itinerary:hover {
+      background: #d1fae5;
+      border-color: #10b981;
+      transform: translateY(-1px);
+    }
+
+    .btn-book-card {
+      height: 38px;
+      border-radius: 11px;
+      background: var(--crimson-btn);
+      color: #ffffff;
+      border: 1px solid #34d399;
+      font-size: 12px;
+      font-weight: 800;
+      font-family: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      box-shadow: 0 6px 16px rgba(16, 185, 129, 0.28);
+      transition: all 0.2s ease;
+    }
+
+    .btn-book-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(16, 185, 129, 0.38);
+    }
+
+    /* ==========================================================================
+       BOOKING TIPS & FAQ SECTION
+       ========================================================================== */
+    .traveloka-tips-section {
+      background: #ffffff;
+      border: 1.5px solid #bbf7d0;
+      border-radius: 26px;
+      padding: 32px;
+      margin: 8px 0 56px;
+      box-shadow: var(--glass-bubble-shadow);
+    }
+
+    .tips-section-title {
+      font-size: 23px;
+      font-weight: 900;
+      margin-top: 4px;
+      background: var(--bazan-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .tip-card {
+      background: #f0fdf7;
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid #a7f3d0;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .tip-card:hover {
+      transform: translateY(-4px);
+      border-color: #10b981;
+    }
+
+    .tip-num-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      border: 1px solid #6ee7b7;
+    }
+
+    .tip-card h4 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #064e3b;
+      margin-bottom: 8px;
+    }
+
+    .tip-card p {
+      font-size: 12.8px;
+      color: #1e3a2f;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       BOOKING MODAL (WHITE & MINT GREEN)
+       ========================================================================== */
+    .booking-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 78, 59, 0.45);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .booking-modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .booking-modal-window {
+      background: #ffffff;
+      width: 100%;
+      max-width: 660px;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 26px;
+      box-shadow: 0 28px 64px rgba(6, 78, 59, 0.24);
+      border: 1.5px solid #6ee7b7;
+      color: #064e3b;
+      transform: translateY(16px) scale(0.97);
+      transition: transform 0.25s ease;
+    }
+
+    .booking-modal-overlay.open .booking-modal-window {
+      transform: translateY(0) scale(1);
+    }
+
+    .booking-modal-header {
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: #ffffff;
+      padding: 22px 26px;
+      border-bottom: 1px solid #6ee7b7;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .modal-hotel-preview-title {
+      font-size: 19px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      color: #ffffff;
+    }
+
+    .modal-hotel-preview-sub {
+      font-size: 12.5px;
+      color: #ecfdf5;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .btn-close-modal {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      color: #ffffff;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .booking-modal-body {
+      padding: 22px 26px 26px;
+    }
+
+    .modal-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .full-width {
+      grid-column: span 2;
+    }
+
+    .modal-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .modal-form-group label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #047857;
+    }
+
+    .modal-form-group input,
+    .modal-form-group select,
+    .modal-form-group textarea {
+      width: 100%;
+      border-radius: 11px;
+      border: 1.5px solid #a7f3d0;
+      padding: 10px 13px;
+      font-size: 13px;
+      font-family: inherit;
+      color: #064e3b;
+      background: #f0fdf7;
+      outline: none;
+      color-scheme: light;
+    }
+
+    .modal-form-group select option {
+      background: #ffffff;
+      color: #064e3b;
+    }
+
+    .modal-form-group input:focus,
+    .modal-form-group select:focus,
+    .modal-form-group textarea:focus {
+      border-color: #10b981;
+      background: #ffffff;
+    }
+
+    .billing-summary-box {
+      background: #f0fdf7;
+      border: 1.5px solid #6ee7b7;
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-bottom: 20px;
+    }
+
+    .billing-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #1e3a2f;
+      margin-bottom: 6px;
+    }
+
+    .billing-row.total-row {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed #6ee7b7;
+      font-size: 15.5px;
+      font-weight: 800;
+      color: #064e3b;
+    }
+
+    .billing-row.total-row .total-price-num {
+      color: #059669;
+      font-size: 19px;
+    }
+
+    .btn-submit-booking {
+      width: 100%;
+      height: 46px;
+      background: var(--crimson-btn);
+      color: #ffffff;
+      border: 1px solid #34d399;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 800;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 8px 22px rgba(16, 185, 129, 0.30);
+    }
+
+    /* Modal Success State */
+    .modal-success-state {
+      display: none;
+      text-align: center;
+      padding: 18px 8px 8px;
+    }
+
+    .modal-success-icon {
+      width: 60px;
+      height: 60px;
+      background: #ecfdf5;
+      border: 1.5px solid #10b981;
+      color: #059669;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .booking-code-chip {
+      display: inline-block;
+      background: #ecfdf5;
+      border: 1.5px dashed #10b981;
+      padding: 6px 16px;
+      border-radius: 8px;
+      font-weight: 800;
+      color: #047857;
+      font-size: 15px;
+      letter-spacing: 0.05em;
+      margin: 10px 0 18px;
+    }
+
+    .modal-success-details {
+      background: #f0fdf7;
+      border: 1px solid #a7f3d0;
+      border-radius: 14px;
+      padding: 16px 18px;
+      text-align: left;
+      font-size: 13px;
+      color: #1e3a2f;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    /* ==========================================================================
+       FOOTER & TOAST
+       ========================================================================== */
+    .site-footer {
+      background: #ecfdf5 !important;
+      border-top: 1.5px solid #a7f3d0;
+      color: #065f46;
+      padding: 28px 0;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      font-weight: 700;
+      color: #047857;
+    }
+
+    .toast-box {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      background: #ffffff;
+      border: 1.5px solid #10b981;
+      color: #064e3b;
+      padding: 12px 20px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 14px 32px rgba(16, 185, 129, 0.22);
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.28s ease;
+      pointer-events: none;
+    }
+
+    .toast-box.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hotels-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .search-widget-box {
+        grid-template-columns: 1fr 1fr;
+      }
+      .btn-search-hotels {
+        grid-column: span 2;
+      }
+      .tips-grid {
+        grid-template-columns: 1fr;
+      }
+      .main-nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 18px;
+      }
+      .hotels-grid,
+      .search-widget-box,
+      .modal-form-grid {
+        grid-template-columns: 1fr;
+      }
+      .btn-search-hotels,
+      .full-width {
+        grid-column: span 1;
+      }
+      .booking-hero h1 {
+        font-size: 25px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="apple-glass.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER (FLOATING GLASS PILL – ĐỒNG BỘ TRANG CHỦ)
+       ========================================================================== -->
+  <header class="site-header" id="topHeader">
+    <div class="header-inner">
+      <a href="chamdaklak.html" class="brand-logo" title="Trang chủ Chạm Đắk Lắk">
+        <div class="brand-emblem"><img src="logo-badge.png" alt="Chạm Đắk Lắk Logo" class="brand-emblem-img" /></div>
+        <div class="brand-text">
+          <span class="brand-title">Chạm Đắk Lắk</span>
+          <span class="brand-subtitle">Khám phá – Trải nghiệm – Kết nối</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="chamdaklak.html" class="nav-link">Trang chủ</a>
+        <a href="dia-diem.html" class="nav-link">Địa điểm</a>
+        <a href="dat-phong.html" class="nav-link active">Đặt phòng</a>
+        <a href="dac-san.html" class="nav-link">Đặc sản</a>
+        <a href="Dat_lich_trinh.html" class="nav-link">Đặt lịch trình</a>
+        <a href="tin-tuc.html" class="nav-link">Tin tức</a>
+        <a href="huong-dan-vien.html" class="nav-link">HDV Sinh viên</a>
+        <a href="ve-chung-toi.html" class="nav-link">Về chúng tôi</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="Dat_lich_trinh.html#tripCostSummaryPanel" class="header-pill-btn" title="Xem bảng quyết toán trên trang Đặt Lịch Trình">
+          <span>Bảng Thanh Toán Lịch Trình →</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO & SEARCH WIDGET
+       ========================================================================== -->
+  <section class="booking-hero">
+    <div class="container">
+      <div class="hero-top-grid">
+        <div>
+          <div class="hero-badge-pill">DỊCH VỤ ĐẶT PHÒNG BẢN ĐỊA • GIÁ NIÊM YẾT MINH BẠCH</div>
+          <h1>Lưu Trú Đắk Lắk: Homestay View Đồi, Glamping Ven Suối & Khách Sạn Trung Tâm</h1>
+          <p>Bảng giá niêm yết minh bạch, cập nhật trực tiếp từ hệ thống lưu trú uy tín. Không phụ thu ẩn, liên kết trực tiếp với Bảng Thanh Toán trên trang Đặt Lịch Trình.</p>
+          <div class="trust-badges-row">
+            <div class="trust-badge-item"><span class="trust-badge-dot"></span><span>Cam kết giá chuẩn niêm yết</span></div>
+            <div class="trust-badge-item"><span class="trust-badge-dot"></span><span>100% Địa điểm xác thực bản địa</span></div>
+            <div class="trust-badge-item"><span class="trust-badge-dot"></span><span>Đồng bộ chi phí sang Lịch Trình</span></div>
+            <div class="trust-badge-item"><span class="trust-badge-dot"></span><span>Hỗ trợ giữ phòng & đổi ngày 24/7</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Search Widget -->
+      <div class="search-widget-box">
+        <div class="search-field-group">
+          <label class="search-field-label" for="heroAreaSelect">Điểm đến / Khu vực</label>
+          <div class="search-input-wrap">
+            <select id="heroAreaSelect">
+              <option value="all">Toàn bộ Đắk Lắk (10 cơ sở)</option>
+              <option value="trung-tam">Nội đô TP. Buôn Ma Thuột</option>
+              <option value="ngoai-o">Ven đô & Đồi Cư ÊBur – Hòa Khánh</option>
+              <option value="ho-lak">Khu vực Hồ Lắk & Buôn Đôn</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="search-field-group">
+          <label class="search-field-label" for="heroCheckIn">Nhận phòng (Check-in)</label>
+          <div class="search-input-wrap">
+            <input type="date" id="heroCheckIn" />
+          </div>
+        </div>
+
+        <div class="search-field-group">
+          <label class="search-field-label" for="heroCheckOut">Trả phòng (Check-out)</label>
+          <div class="search-input-wrap">
+            <input type="date" id="heroCheckOut" />
+          </div>
+        </div>
+
+        <div class="search-field-group">
+          <label class="search-field-label" for="heroGuestsSelect">Quy mô khách</label>
+          <div class="search-input-wrap">
+            <select id="heroGuestsSelect">
+              <option value="2">2 Khách (1 Phòng)</option>
+              <option value="1">1 Khách (Đi lẻ)</option>
+              <option value="4">4 Khách (Gia đình)</option>
+              <option value="group">Nhóm đoàn (Trên 6 khách)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="button" class="btn-search-hotels" id="heroSearchBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Tìm Phòng Trống</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MAIN CONTENT: 3-WEB ECOSYSTEM BANNER, FILTER BAR & HOTEL GRID
+       ========================================================================== -->
+  <main class="container">
+    <!-- SCIENTIFIC 3-WEB ECOSYSTEM BAR -->
+    <div class="eco-room-banner" id="linkedEcoBannerRoom">
+      <div>
+        <span class="eco-room-tag">LIÊN KẾT HỆ THỐNG 3 TRANG KHOA HỌC (BƯỚC 2/3: CHỌN PHÒNG LƯU TRÚ)</span>
+        <div class="eco-room-status" id="ecoRoomBannerStatus">
+          Phòng bạn chọn tại đây sẽ tự động chuyển sang Bảng Thanh Toán bên trang Đặt Lịch Trình!
+        </div>
+      </div>
+      <div class="eco-room-actions">
+        <a href="huong-dan-vien.html" class="btn-eco-secondary">Bước 3: Chọn HDV Sinh Viên →</a>
+        <a href="Dat_lich_trinh.html#tripCostSummaryPanel" class="btn-eco-primary">Sang Đặt Lịch Trình &amp; Xem Bảng Thanh Toán →</a>
+      </div>
+    </div>
+
+    <!-- FILTER & SORT CARD -->
+    <div class="booking-controls-card">
+      <div class="filter-tabs-bar">
+        <button type="button" class="filter-tab-pill active" data-cat="all">Tất Cả (10 Tọa Độ)</button>
+        <button type="button" class="filter-tab-pill" data-cat="homestay">Homestay &amp; Nhà Sàn Cổ</button>
+        <button type="button" class="filter-tab-pill" data-cat="glamping">Glamping Ven Hồ &amp; Suối</button>
+        <button type="button" class="filter-tab-pill" data-cat="khach-san-sang">Khách Sạn 4–5 Sao Cao Cấp</button>
+        <button type="button" class="filter-tab-pill" data-cat="nha-nghi">Khách Sạn &amp; Nhà Nghỉ Tiết Kiệm</button>
+      </div>
+
+      <div class="secondary-filter-row">
+        <span class="results-count-text">Đang hiển thị <strong id="resultCount">10</strong> cơ sở lưu trú xác thực</span>
+        <div class="filter-dropdowns">
+          <input type="text" class="keyword-filter-input" id="keywordFilter" placeholder="Tìm nhanh tên phòng, khu vực..." />
+          <select class="styled-select" id="priceFilter" aria-label="Lọc theo khoảng giá">
+            <option value="all">Khoảng giá: Tất cả</option>
+            <option value="under500">Dưới 500.000đ / đêm</option>
+            <option value="500to1000">500.000đ – 1.000.000đ / đêm</option>
+            <option value="over1000">Trên 1.000.000đ / đêm</option>
+          </select>
+          <select class="styled-select" id="sortFilter" aria-label="Sắp xếp kết quả">
+            <option value="popular">Sắp xếp: Phổ biến nhất</option>
+            <option value="price-asc">Giá: Thấp đến Cao</option>
+            <option value="price-desc">Giá: Cao đến Thấp</option>
+            <option value="rating-desc">Đánh giá cao nhất</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOTELS & HOMESTAYS GRID -->
+    <div class="hotels-grid" id="hotelsGrid"></div>
+
+    <!-- BOOKING TIPS & FAQS -->
+    <section class="traveloka-tips-section">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <div>
+          <span style="font-size:11.5px; font-weight:800; color:#047857; text-transform:uppercase; letter-spacing:0.04em;">KINH NGHIỆM LƯU TRÚ ĐẮK LẮK</span>
+          <h2 class="tips-section-title">Bí Quyết Săn Phòng Giá Tốt &amp; Tối Ưu Cung Đường Di Chuyển</h2>
+        </div>
+        <span style="font-size:12.5px; color:#52796f; font-weight:600;">Cập nhật theo dữ liệu thực tế mùa du lịch 2026</span>
+      </div>
+
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-num-badge">01</div>
+          <h4>Mùa hoa Cà phê &amp; Lễ hội (Tháng 2 – 4)</h4>
+          <p>Mùa cao điểm đẹp nhất năm khi hoa cà phê nở trắng đồi và diễn ra Lễ hội Cà phê Buôn Ma Thuột. Các homestay view đồi như <strong>Lee's House</strong> và <strong>Lak Tented Camp</strong> thường kín chỗ trước 2–3 tuần, du khách nên giữ phòng sớm.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num-badge">02</div>
+          <h4>Trải nghiệm Glamping &amp; Nhà sàn Ê Đê</h4>
+          <p>Nếu muốn gần gũi thiên nhiên, hãy chọn <strong>Cốm Camp</strong> (ven suối Hòa Khánh) hoặc <strong>Arul Homestay</strong> (buôn Ako Dhông). Không khí ban đêm tại cao nguyên se lạnh (18–20°C), tổ chức BBQ cực kỳ lý tưởng.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num-badge">03</div>
+          <h4>Đồng bộ tự động với Bảng Thanh Toán</h4>
+          <p>Khi bấm <strong>Ghép vào Lịch Trình</strong> hoặc xác nhận giữ phòng, đơn giá và số đêm sẽ tự động chuyển sang Bảng Thanh Toán trên trang Đặt Lịch Trình (chỉ tính tiền Phòng và HDV Sinh viên).</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       BOOKING MODAL (INTERACTIVE)
+       ========================================================================== -->
+  <div class="booking-modal-overlay" id="bookingModalOverlay">
+    <div class="booking-modal-window">
+      <div class="booking-modal-header">
+        <div>
+          <h3 class="modal-hotel-preview-title" id="modalHotelName">Lee's House Homestay</h3>
+          <div class="modal-hotel-preview-sub">
+            <span id="modalHotelLoc">Xã Cư ÊBur, Buôn Ma Thuột</span>
+            <span>•</span>
+            <span id="modalHotelPrice">820.000đ / đêm</span>
+          </div>
+        </div>
+        <button type="button" class="btn-close-modal" id="btnCloseModal" title="Đóng">&times;</button>
+      </div>
+
+      <div class="booking-modal-body">
+        <!-- Input Form State -->
+        <form id="hotelBookingForm">
+          <div class="modal-form-grid">
+            <div class="modal-form-group">
+              <label for="mCheckIn">Ngày nhận phòng (Check-in)</label>
+              <input type="date" id="mCheckIn" required />
+            </div>
+            <div class="modal-form-group">
+              <label for="mCheckOut">Ngày trả phòng (Check-out)</label>
+              <input type="date" id="mCheckOut" required />
+            </div>
+            <div class="modal-form-group">
+              <label for="mRoomType">Hạng phòng lựa chọn</label>
+              <select id="mRoomType">
+                <option value="std" selected>Phòng Tiêu Chuẩn (Giá niêm yết chuẩn)</option>
+                <option value="dlx">Phòng Deluxe View Đồi / Hồ Bơi (+15%)</option>
+                <option value="vip">Bungalow / Lều Glamping VIP (+40%)</option>
+                <option value="fam">Phòng Gia Đình / Nhà Sàn Nguyên Căn (+60%)</option>
+              </select>
+            </div>
+            <div class="modal-form-group">
+              <label for="mRoomCount">Số lượng phòng &amp; Khách</label>
+              <select id="mRoomCount">
+                <option value="1">1 Phòng (1–2 Khách)</option>
+                <option value="2">2 Phòng (3–4 Khách)</option>
+                <option value="3">3 Phòng (5–6 Khách)</option>
+                <option value="4">4 Phòng (Đoàn đông)</option>
+              </select>
+            </div>
+            <div class="modal-form-group full-width">
+              <label for="mGuestName">Họ và tên người đặt phòng</label>
+              <input type="text" id="mGuestName" placeholder="Ví dụ: Nguyễn Văn An" required />
+            </div>
+            <div class="modal-form-group">
+              <label for="mGuestPhone">Số điện thoại Zalo nhận xác nhận</label>
+              <input type="tel" id="mGuestPhone" placeholder="Ví dụ: 0987 654 321" required />
+            </div>
+            <div class="modal-form-group">
+              <label for="mGuestEmail">Email nhận vé phòng &amp; hóa đơn</label>
+              <input type="email" id="mGuestEmail" placeholder="emailcuaban@gmail.com" />
+            </div>
+            <div class="modal-form-group full-width">
+              <label for="mNotes">Ghi chú yêu cầu thêm (Tùy chọn)</label>
+              <textarea id="mNotes" rows="2" placeholder="Ví dụ: Phòng tầng cao ngắm cảnh, set tiệc nướng BBQ tối, đón tại sân bay..."></textarea>
+            </div>
+          </div>
+
+          <!-- Billing Summary -->
+          <div class="billing-summary-box">
+            <div class="billing-row">
+              <span>Đơn giá phòng đã chọn:</span>
+              <span id="billBasePrice">820.000đ / đêm</span>
+            </div>
+            <div class="billing-row">
+              <span>Thời gian &amp; Số lượng phòng:</span>
+              <span id="billNights">1 Đêm (1 Phòng)</span>
+            </div>
+            <div class="billing-row" style="color:#047857; font-weight:700;">
+              <span>Quyền lợi liên kết Lịch Trình:</span>
+              <span>Đồng bộ sang Bảng Quyết Toán 3 Web</span>
+            </div>
+            <div class="billing-row total-row">
+              <span>Tổng tiền phòng lưu trú:</span>
+              <span class="total-price-num" id="billTotalPrice">820.000đ</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit-booking">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span>Xác Nhận Giữ Phòng &amp; Lưu Vào Lịch Trình →</span>
+          </button>
+        </form>
+
+        <!-- Success Result State -->
+        <div class="modal-success-state" id="modalSuccessState">
+          <div class="modal-success-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h3 style="font-size:21px; font-weight:800; color:#064e3b;">Đã Lưu Giữ Phòng &amp; Đồng Bộ Lịch Trình!</h3>
+          <p style="font-size:13px; color:#52796f; margin-top:4px;">Mã giữ phòng của bạn trên hệ thống Chạm Đắk Lắk:</p>
+          <div class="booking-code-chip" id="successBookingCode">CDL-BMT-8921</div>
+
+          <div class="modal-success-details">
+            <p>• <strong>Cơ sở lưu trú:</strong> <span id="succHotel">Lee's House Homestay</span></p>
+            <p>• <strong>Thời gian lưu trú:</strong> <span id="succDates">03/11/2026 → 04/11/2026 (1 Đêm)</span></p>
+            <p>• <strong>Khách nhận phòng:</strong> <span id="succName">Nguyễn Văn An</span> (<span id="succPhone">0987654321</span>)</p>
+            <p>• <strong>Tổng tiền phòng:</strong> <strong style="color:#059669;" id="succTotal">820.000đ</strong></p>
+            <hr style="border:none; border-top:1px dashed #a7f3d0; margin:10px 0;" />
+            <p style="color:#047857; font-weight:700;">Khoản tiền phòng này đã được cập nhật trực tiếp vào Bảng Thanh Toán trên trang Đặt Lịch Trình!</p>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <button type="button" class="btn-pair-itinerary" id="btnDoneSuccess" style="height:44px;">Đóng &amp; Xem Tiếp</button>
+            <a href="Dat_lich_trinh.html#tripCostSummaryPanel" class="btn-submit-booking" style="height:44px; text-decoration:none;">Mở Bảng Thanh Toán →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div style="display:flex; flex-direction:column; gap:4px;">
+        <span style="font-size:14px; font-weight:800; color:#064e3b;">© 2026 Chạm Đắk Lắk – Dịch Vụ Đặt Phòng Bản Địa</span>
+        <span style="font-size:12px; color:#52796f;">Hệ thống dữ liệu lưu trú trực tiếp tại Đắk Lắk</span>
+      </div>
+      <div class="footer-links">
+        <a href="chamdaklak.html">Trang chủ</a>
+        <a href="dia-diem.html">Địa điểm</a>
+        <a href="huong-dan-vien.html">HDV Sinh viên</a>
+        <a href="Dat_lich_trinh.html">Đặt lịch trình</a>
+        <a href="ve-chung-toi.html">Về chúng tôi</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-box" id="toastBox"></div>
+
+  <script src="shared.js"></script>
+  <script>
+    /* ==========================================================================
+       HOTEL & HOMESTAY DATA (REAL DAK LAK DESTINATIONS)
+       ========================================================================== */
+    const HOTELS_DATA = [
+      {
+        id: "lees-house",
+        name: "Lee's House Homestay BMT",
+        cat: "homestay",
+        catLabel: "Homestay View Đồi",
+        zone: "ngoai-o",
+        zoneLabel: "Xã Cư ÊBur (Cách trung tâm 7km)",
+        badge: "Mới Nổi • Tiểu Bali Tây Nguyên",
+        badgeType: "trending",
+        rating: 9.3,
+        reviews: "540+ đánh giá",
+        reviewLabel: "Xuất sắc",
+        origPrice: 1050000,
+        price: 820000,
+        img: "anh dia danh/08_lees_house.jpg",
+        desc: "Được ví như 'tiểu Bali' giữa lòng Buôn Ma Thuột với những căn nhà gỗ mộc trải dài trên sườn đồi xanh mướt, hồ bơi vô cực ngắm hoàng hôn.",
+        amenities: ["Hồ bơi vô cực", "View đồi hoàng hôn", "Tiệc nướng BBQ", "Bữa sáng miễn phí", "Cho thuê xe máy"],
+        travelokaUrl: "https://www.traveloka.com/vi-vn/hotel/vietnam/lees-house-3000020015948"
+      },
+      {
+        id: "lak-tented-camp",
+        name: "Lak Tented Camp Resort",
+        cat: "glamping",
+        catLabel: "Glamping Sinh Thái Hồ",
+        zone: "ho-lak",
+        zoneLabel: "Thị trấn Liên Sơn (Ven Hồ Lắk)",
+        badge: "Khu Nghỉ Dưỡng Sinh Thái Biệt Lập",
+        badgeType: "luxury",
+        rating: 9.4,
+        reviews: "320+ đánh giá",
+        reviewLabel: "Tuyệt hảo",
+        origPrice: 2300000,
+        price: 1850000,
+        img: "anh dia danh/04_ho_lak.jpg",
+        desc: "Khu nghỉ dưỡng glamping sang trọng nằm biệt lập trên bán đảo Hồ Lắk, di chuyển bằng thuyền riêng, ngắm bình minh trên mặt hồ thơ mộng.",
+        amenities: ["Thuyền đưa đón riêng", "Lều Safari cao cấp", "Chèo thuyền Kayak", "Gốm M'Nông Yang Tao", "Nhà hàng ven hồ"],
+        travelokaUrl: "https://www.traveloka.com/vi-vn/hotel/vietnam/lak-tented-camp-1000000572778"
+      },
+      {
+        id: "com-glamping",
+        name: "Cốm Camp & Glamping Buôn Ma Thuột",
+        cat: "glamping",
+        catLabel: "Glamping Ven Suối",
+        zone: "ngoai-o",
+        zoneLabel: "Xã Hòa Khánh (Cách trung tâm 8km)",
+        badge: "Trending Giới Trẻ • Cắm Trại Ven Suối",
+        badgeType: "trending",
+        rating: 8.9,
+        reviews: "410+ đánh giá",
+        reviewLabel: "Rất tốt",
+        origPrice: 680000,
+        price: 520000,
+        img: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=800&q=80",
+        desc: "Tọa độ glamping ven suối nước mát lạnh. Ban ngày ngâm chân dưới suối, ban đêm thưởng thức BBQ nướng và quây quần bên lửa trại.",
+        amenities: ["Suối tự nhiên mát lành", "Lều Mông Cổ cao cấp", "Set BBQ than hồng", "Đốt lửa trại tối", "Quán cafe ven suối"],
+        travelokaUrl: "https://www.traveloka.com/vi-vn/hotel/vietnam/search?spec=02-11-2026.03-11-2026.1.1.HOTEL_GEO.105260.Com%20Camp"
+      },
+      {
+        id: "arul-homestay",
+        name: "Arul Homestay – Nhà Dài Cổ Ê Đê",
+        cat: "homestay",
+        catLabel: "Nhà Sàn Bản Địa",
+        zone: "trung-tam",
+        zoneLabel: "Buôn Ako Dhông, P. Tân Lợi (Nội đô)",
+        badge: "Di Sản Văn Hóa Bản Địa",
+        badgeType: "luxury",
+        rating: 9.1,
+        reviews: "290+ đánh giá",
+        reviewLabel: "Tuyệt vời",
+        origPrice: 550000,
+        price: 430000,
+        img: "anh dia danh/07_buon_ako_dhong.jpg",
+        desc: "Trải nghiệm lưu trú trong căn nhà dài truyền thống của người Ê Đê giữa buôn Ako Dhông thanh bình, thưởng thức rượu cần và nghe cồng chiêng đại ngàn.",
+        amenities: ["Nhà sàn gỗ nguyên bản", "Không gian buôn cổ", "Văn hóa Cồng chiêng", "Cà phê Arul trứ danh", "Ẩm thực cơm lam"],
+        travelokaUrl: "https://www.traveloka.com/vi-vn/hotel/vietnam/search?spec=02-11-2026.03-11-2026.1.1.HOTEL_GEO.105260.Arul+Homestay"
+      },
+      {
+        id: "muong-thanh-bmt",
+        name: "Khách Sạn Mường Thanh Luxury Buôn Ma Thuột",
+        cat: "khach-san-sang",
+        catLabel: "Khách Sạn 5 Sao",
+        zone: "trung-tam",
+        zoneLabel: "81 Nguyễn Tất Thành, P. Tân An (Trung tâm)",
+        badge: "5 Sao Sang Trọng Bậc Nhất",
+        badgeType: "luxury",
+        rating: 9.0,
+        reviews: "1.850+ đánh giá",
+        reviewLabel: "Tuyệt vời",
+        origPrice: 1650000,
+        price: 1180000,
+        img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
+        desc: "Khách sạn 5 sao quy mô và hiện đại hàng đầu Đắk Lắk. Phòng ốc sang trọng với view ngắm toàn cảnh thành phố, đầy đủ hồ bơi, spa và buffet sáng.",
+        amenities: ["Hồ bơi ngoài trời", "Buffet sáng 5 sao", "Phòng Gym & Spa", "Sky Bar trên cao", "Bãi đỗ xe rộng"],
+        travelokaUrl: "https://www.traveloka.com/vi-vn/hotel/vietnam/muong-thanh-luxury-buon-ma-thuot-hotel-1000000570776"
+      },
+      {
+        id: "saigon-ban-me",
+        name: "Khách Sạn Sài Gòn Ban Mê (4 Sao)",
+        cat: "khach-san-sang",
+        catLabel: "Khách Sạn 4 Sao",
+        zone: "trung-tam",
+        zoneLabel: "Ngã 6 Trung tâm BMT (Đường Thống Nhất)",
+        badge: "Vị Trí Vàng Ngay Ngã 6",
+        badgeType: "luxury",
+        rating: 8.8,
+        reviews: "1.200+ đánh giá",
+        reviewLabel: "Rất tốt",
+        origPrice: 980000,
+        price: 790000,
+        img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80",
+        desc: "Nằm ngay vị trí trung tâm Ngã 6 Buôn Ma Thuột. Bước chân xuống khách sạn là phố ẩm thực, hoa viên và trung tâm mua sắm sầm uất bậc nhất.",
+        amenities: ["Hồ bơi tầng 4", "Ngay Ngã 6 trung tâm", "Buffet sáng tự chọn", "Phòng họp VIP", "Đưa đón sân bay"],
+        travelokaUrl: "https://www.traveloka.com/vi-vn/hotel/vietnam/saigon-ban-me-hotel-1000000216709"
+      },
+      {
+        id: "elephants-hotel",
+        name: "Elephants Hotel Buôn Ma Thuột (4 Sao)",
+        cat: "khach-san-sang",
+        catLabel: "Khách Sạn 4 Sao",
+        zone: "trung-tam",
+        zoneLabel: "142 Phan Chu Trinh, P. Thắng Lợi",
+        badge: "Cảm Hứng Voi Đại Ngàn",
+        badgeType: "trending",
+        rating: 8.9,
+        reviews: "890+ đánh giá",
+        reviewLabel: "Rất tốt",
+        origPrice: 890000,
+        price: 720000,
+        img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80",
+        desc: "Khách sạn mang hình tượng chú voi Tây Nguyên ấm cúng, nội thất gỗ tự nhiên cao cấp, nhân viên cực kỳ niềm nở và chu đáo.",
+        amenities: ["Hồ bơi tầng lửng", "Nhà hàng món bản địa", "Ăn sáng đa dạng", "Phòng ốc rộng rãi", "Vị trí thuận tiện"],
+        travelokaUrl: "https://www.traveloka.com/vi-vn/hotel/vietnam/elephants-hotel-buon-ma-thuot-9000000494192"
+      },
+      {
+        id: "vuon-phap-bmt",
+        name: "Homestay Vườn Pháp BMT (La Maison)",
+        cat: "homestay",
+        catLabel: "Homestay Nghỉ Dưỡng",
+        zone: "ngoai-o",
+        zoneLabel: "Thôn 3, Xã Cư ÊBur (Cách BMT 6km)",
+        badge: "Không Gian Biệt Thự Vườn Pháp",
+        badgeType: "trending",
+        rating: 9.2,
+        reviews: "340+ đánh giá",
+        reviewLabel: "Tuyệt vời",
+        origPrice: 650000,
+        price: 490000,
+        img: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=800&q=80",
+        desc: "Không gian đồng quê Pháp yên ả giữa đại ngàn. Khuôn viên rộng đầy hoa thơm, có hồ bơi sân vườn xanh trong và góc bếp tự nấu nướng ấm cúng.",
+        amenities: ["Hồ bơi sân vườn", "Khuôn viên biệt thự Pháp", "Bếp chung tự nấu", "Sân cỏ tiệc ngoài trời", "Cho thuê xe đạp"],
+        travelokaUrl: "https://www.traveloka.com/vi-vn/hotel/vietnam/search?spec=02-11-2026.03-11-2026.1.1.HOTEL_GEO.105260.Vuon+Phap"
+      },
+      {
+        id: "doi-sao-homestay",
+        name: "Đồi Sao Homestay & Chill Out BMT",
+        cat: "homestay",
+        catLabel: "Homestay Ngắm Cảnh",
+        zone: "ngoai-o",
+        zoneLabel: "Hẻm Y Wang, Ea Kao, Buôn Ma Thuột",
+        badge: "View Hoàng Hôn Đồi Lộng Gió",
+        badgeType: "trending",
+        rating: 9.0,
+        reviews: "280+ đánh giá",
+        reviewLabel: "Tuyệt vời",
+        origPrice: 550000,
+        price: 420000,
+        img: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80",
+        desc: "Nằm trên triền đồi Ea Kao lộng gió, Đồi Sao Homestay là chốn lý tưởng để ngắm hoàng hôn buông xuống nương cà phê và bầu trời đêm.",
+        amenities: ["Ban công ngắm đồi", "Đốt lửa sưởi ấm đêm", "Cafe ngắm hoàng hôn", "Thân thiện thú cưng", "Không khí trong lành"],
+        travelokaUrl: "https://www.traveloka.com/vi-vn/hotel/vietnam/search?spec=02-11-2026.03-11-2026.1.1.HOTEL_GEO.105260.Doi+Sao"
+      },
+      {
+        id: "nice-hotel-bmt",
+        name: "Nice Hotel Buôn Ma Thuột (Nhà Nghỉ & KS Giá Rẻ)",
+        cat: "nha-nghi",
+        catLabel: "Khách Sạn & Nhà Nghỉ Tiết Kiệm",
+        zone: "trung-tam",
+        zoneLabel: "60 Đặng Thái Thân, P. Tân Thành (Gần chợ đêm)",
+        badge: "Siêu Tiết Kiệm • Sạch Sẽ An Ninh",
+        badgeType: "trending",
+        rating: 8.7,
+        reviews: "620+ đánh giá",
+        reviewLabel: "Tốt",
+        origPrice: 350000,
+        price: 270000,
+        img: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80",
+        desc: "Khách sạn bình dân sạch sẽ, an ninh 24/24 ngay trung tâm phố núi. Rất thích hợp cho phượt thủ, sinh viên hoặc khách cần chỗ nghỉ tiết kiệm.",
+        amenities: ["Máy lạnh & Nước nóng", "Wifi tốc độ cao", "Gần chợ đêm BMT", "Giữ hành lý miễn phí", "Thuê xe máy 100k/ngày"],
+        travelokaUrl: "https://www.traveloka.com/vi-vn/hotel/vietnam/search?spec=02-11-2026.03-11-2026.1.1.HOTEL_GEO.105260.Nice+Hotel"
+      }
+    ];
+
+    /* ==========================================================================
+       STATE, FILTER & RENDER LOGIC
+       ========================================================================== */
+    let currentCategory = "all";
+    let currentPriceFilter = "all";
+    let currentSort = "popular";
+    let currentArea = "all";
+    let currentKeyword = "";
+    let currentSelectedHotel = HOTELS_DATA[0];
+
+    const hotelsGrid = document.getElementById('hotelsGrid');
+    const resultCountEl = document.getElementById('resultCount');
+
+    function formatVND(num) {
+      return Number(num || 0).toLocaleString('vi-VN') + 'đ';
+    }
+
+    function getSavedItineraryRoomId() {
+      try {
+        const saved = JSON.parse(localStorage.getItem('cdl_selected_room'));
+        return saved && saved.id ? saved.id : null;
+      } catch {
+        return null;
+      }
+    }
+
+    function renderHotels() {
+      let list = [...HOTELS_DATA];
+      const savedRoomId = getSavedItineraryRoomId();
+
+      if (currentCategory !== 'all') {
+        list = list.filter(h => h.cat === currentCategory);
+      }
+      if (currentArea !== 'all') {
+        list = list.filter(h => h.zone === currentArea);
+      }
+      if (currentKeyword.trim() !== '') {
+        const kw = currentKeyword.toLowerCase().trim();
+        list = list.filter(h =>
+          h.name.toLowerCase().includes(kw) ||
+          h.zoneLabel.toLowerCase().includes(kw) ||
+          h.desc.toLowerCase().includes(kw) ||
+          h.amenities.some(a => a.toLowerCase().includes(kw))
+        );
+      }
+      if (currentPriceFilter === 'under500') {
+        list = list.filter(h => h.price < 500000);
+      } else if (currentPriceFilter === '500to1000') {
+        list = list.filter(h => h.price >= 500000 && h.price <= 1000000);
+      } else if (currentPriceFilter === 'over1000') {
+        list = list.filter(h => h.price > 1000000);
+      }
+
+      if (currentSort === 'price-asc') {
+        list.sort((a, b) => a.price - b.price);
+      } else if (currentSort === 'price-desc') {
+        list.sort((a, b) => b.price - a.price);
+      } else if (currentSort === 'rating-desc') {
+        list.sort((a, b) => b.rating - a.rating);
+      }
+
+      resultCountEl.textContent = list.length;
+
+      if (list.length === 0) {
+        hotelsGrid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 48px 20px; background: #ffffff; border: 1.5px solid #a7f3d0; border-radius: 24px;">
+            <h4 style="font-size: 17px; font-weight: 800; color: #047857;">Không tìm thấy cơ sở lưu trú phù hợp</h4>
+            <p style="font-size: 13.5px; color: #52796f; margin-top: 6px;">Hãy thử chọn lại bộ lọc khu vực, mức giá hoặc từ khóa khác nhé!</p>
+          </div>`;
+        return;
+      }
+
+      hotelsGrid.innerHTML = list.map(h => {
+        const isSelected = savedRoomId === h.id;
+        return `
+          <article class="hotel-card ${isSelected ? 'selected-in-itinerary' : ''}" data-id="${h.id}">
+            <div class="hotel-thumb-wrap">
+              <img src="${h.img}" alt="${h.name}" class="hotel-thumb-img" loading="lazy" onerror="this.src='anh dia danh/08_lees_house.jpg'" />
+              <div class="badge-top-left ${h.badgeType}">${h.badge}</div>
+              <div class="traveloka-verified-tag">
+                <svg viewBox="0 0 24 24"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"></path></svg>
+                <span>Đã xác thực</span>
+              </div>
+              <div class="rate-floating-badge">
+                <span class="score">${h.rating}</span>
+                <span class="label">${h.reviewLabel}</span>
+              </div>
+            </div>
+
+            <div class="hotel-card-body">
+              <div class="hotel-cat-row">
+                <span>${h.catLabel}</span>
+                ${isSelected ? '<span class="selected-pill-tag">ĐÃ GHÉP LỊCH TRÌNH</span>' : ''}
+              </div>
+              <h3 class="hotel-name">${h.name}</h3>
+              <div class="hotel-loc-row">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 21s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 7.2c0 7.3-8 11.8-8 11.8z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>${h.zoneLabel}</span>
+              </div>
+              <p class="hotel-desc">${h.desc}</p>
+              <div class="amenities-tag-list">
+                ${h.amenities.slice(0, 3).map(a => `<span class="amenity-pill">${a}</span>`).join('')}
+              </div>
+
+              <div class="hotel-price-footer">
+                <div class="price-top-row">
+                  <div class="price-box">
+                    <span class="price-original">${formatVND(h.origPrice)}</span>
+                    <div class="price-main-wrap">
+                      <span class="price-main-num">${formatVND(h.price)}</span>
+                      <span class="price-unit">/ đêm</span>
+                    </div>
+                  </div>
+                  <a href="${h.travelokaUrl}" target="_blank" rel="noopener noreferrer" class="btn-detail-quick" title="Xem chi tiết phòng">
+                    <span>Chi tiết</span>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+
+                <div class="hotel-actions-group">
+                  <button type="button" class="btn-pair-itinerary" onclick="selectRoomForItinerary('${h.id}')">
+                    ${isSelected ? 'Đã Ghép Lịch Trình' : '+ Ghép Lịch Trình'}
+                  </button>
+                  <button type="button" class="btn-book-card" onclick="openBookingModal('${h.id}')">
+                    Đặt Giữ Phòng →
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Category Tabs
+    document.querySelectorAll('.filter-tab-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tab-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategory = btn.getAttribute('data-cat');
+        renderHotels();
+      });
+    });
+
+    // Keyword, Price & Sort Filters
+    document.getElementById('keywordFilter').addEventListener('input', (e) => {
+      currentKeyword = e.target.value;
+      renderHotels();
+    });
+
+    document.getElementById('priceFilter').addEventListener('change', (e) => {
+      currentPriceFilter = e.target.value;
+      renderHotels();
+    });
+
+    document.getElementById('sortFilter').addEventListener('change', (e) => {
+      currentSort = e.target.value;
+      renderHotels();
+    });
+
+    // Hero Search Button
+    document.getElementById('heroSearchBtn').addEventListener('click', () => {
+      currentArea = document.getElementById('heroAreaSelect').value;
+      const guests = document.getElementById('heroGuestsSelect').value;
+      renderHotels();
+      hotelsGrid.scrollIntoView({ behavior: 'smooth' });
+      showToast(`Đang hiển thị phòng trống phù hợp cho ${guests === 'group' ? 'nhóm đoàn' : guests + ' khách'}!`);
+    });
+
+    /* ==========================================================================
+       MODAL BOOKING & 3-WEB SYNCHRONIZATION
+       ========================================================================== */
+    const modalOverlay = document.getElementById('bookingModalOverlay');
+    const modalForm = document.getElementById('hotelBookingForm');
+    const modalSuccess = document.getElementById('modalSuccessState');
+
+    const today = new Date();
+    const tmr = new Date(today);
+    tmr.setDate(tmr.getDate() + 1);
+    const dayAfter = new Date(today);
+    dayAfter.setDate(dayAfter.getDate() + 3);
+
+    const fmtDateInput = (d) => d.toISOString().split('T')[0];
+    document.getElementById('heroCheckIn').value = fmtDateInput(tmr);
+    document.getElementById('heroCheckOut').value = fmtDateInput(dayAfter);
+    document.getElementById('mCheckIn').value = fmtDateInput(tmr);
+    document.getElementById('mCheckOut').value = fmtDateInput(dayAfter);
+
+    window.openBookingModal = function(hotelId) {
+      const hotel = HOTELS_DATA.find(h => h.id === hotelId) || HOTELS_DATA[0];
+      currentSelectedHotel = hotel;
+
+      document.getElementById('modalHotelName').textContent = hotel.name;
+      document.getElementById('modalHotelLoc').textContent = hotel.zoneLabel;
+      document.getElementById('modalHotelPrice').textContent = `${formatVND(hotel.price)} / đêm`;
+      document.getElementById('billBasePrice').textContent = `${formatVND(hotel.price)} / đêm`;
+
+      modalForm.style.display = 'block';
+      modalSuccess.style.display = 'none';
+
+      calculateModalBilling();
+
+      modalOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+
+    function closeBookingModal() {
+      modalOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('btnCloseModal').addEventListener('click', closeBookingModal);
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeBookingModal();
+    });
+
+    function calculateModalBilling() {
+      const inDate = new Date(document.getElementById('mCheckIn').value);
+      const outDate = new Date(document.getElementById('mCheckOut').value);
+      const roomCount = parseInt(document.getElementById('mRoomCount').value, 10) || 1;
+      const roomType = document.getElementById('mRoomType').value;
+
+      let diffDays = Math.ceil((outDate - inDate) / (1000 * 60 * 60 * 24));
+      if (isNaN(diffDays) || diffDays <= 0) diffDays = 1;
+
+      let mult = 1.0;
+      if (roomType === 'dlx') mult = 1.15;
+      if (roomType === 'vip') mult = 1.4;
+      if (roomType === 'fam') mult = 1.6;
+
+      const pricePerNight = Math.round(currentSelectedHotel.price * mult);
+      const total = pricePerNight * diffDays * roomCount;
+
+      document.getElementById('billNights').textContent = `${diffDays} Đêm (${roomCount} Phòng)`;
+      document.getElementById('billBasePrice').textContent = `${formatVND(pricePerNight)} / đêm`;
+      document.getElementById('billTotalPrice').textContent = formatVND(total);
+
+      return { diffDays, roomCount, pricePerNight, total };
+    }
+
+    ['mCheckIn', 'mCheckOut', 'mRoomCount', 'mRoomType'].forEach(id => {
+      document.getElementById(id).addEventListener('change', calculateModalBilling);
+    });
+
+    function syncRoomBannerFromStorage() {
+      const statusEl = document.getElementById('ecoRoomBannerStatus');
+      if (!statusEl) return;
+      try {
+        const saved = JSON.parse(localStorage.getItem('cdl_selected_room'));
+        if (saved && saved.name && saved.id !== 'none') {
+          const nights = saved.nights || 2;
+          const roomsQty = saved.roomsQty || 1;
+          const subTotal = (saved.price || 0) * nights * roomsQty;
+          statusEl.innerHTML = `Đã chọn vào Lịch Trình: <u style="color:#059669;">${saved.name}</u> (${formatVND(saved.price)}/đêm × ${nights} đêm × ${roomsQty} phòng = <strong style="color:#059669;">${formatVND(subTotal)}</strong>)`;
+        }
+      } catch {}
+    }
+
+    window.selectRoomForItinerary = function(hotelId) {
+      const hotel = HOTELS_DATA.find(h => h.id === hotelId) || HOTELS_DATA[0];
+      const inDate = new Date(document.getElementById('heroCheckIn').value);
+      const outDate = new Date(document.getElementById('heroCheckOut').value);
+      let nights = Math.ceil((outDate - inDate) / (1000 * 60 * 60 * 24));
+      if (isNaN(nights) || nights <= 0) nights = 2;
+
+      try {
+        localStorage.setItem('cdl_selected_room', JSON.stringify({
+          id: hotel.id,
+          name: hotel.name,
+          price: hotel.price,
+          area: hotel.zoneLabel,
+          nights: nights,
+          roomsQty: 1,
+          updatedAt: new Date().toISOString()
+        }));
+      } catch {}
+      syncRoomBannerFromStorage();
+      renderHotels();
+      showToast(`Đã ghép "${hotel.name}" (${nights} đêm) vào Bảng Thanh Toán bên trang Đặt Lịch Trình!`);
+    };
+
+    modalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const billing = calculateModalBilling();
+      const name = document.getElementById('mGuestName').value.trim();
+      const phone = document.getElementById('mGuestPhone').value.trim();
+      const randomCode = 'CDL-BMT-' + Math.floor(1000 + Math.random() * 9000);
+
+      try {
+        localStorage.setItem('cdl_selected_room', JSON.stringify({
+          id: currentSelectedHotel.id,
+          name: currentSelectedHotel.name,
+          price: billing.pricePerNight,
+          area: currentSelectedHotel.zoneLabel,
+          nights: billing.diffDays,
+          roomsQty: billing.roomCount,
+          updatedAt: new Date().toISOString()
+        }));
+      } catch {}
+      syncRoomBannerFromStorage();
+      renderHotels();
+
+      document.getElementById('successBookingCode').textContent = randomCode;
+      document.getElementById('succHotel').textContent = currentSelectedHotel.name;
+      document.getElementById('succDates').textContent = `${document.getElementById('mCheckIn').value} → ${document.getElementById('mCheckOut').value} (${billing.diffDays} Đêm • ${billing.roomCount} Phòng)`;
+      document.getElementById('succName').textContent = name;
+      document.getElementById('succPhone').textContent = phone;
+      document.getElementById('succTotal').textContent = formatVND(billing.total);
+
+      modalForm.style.display = 'none';
+      modalSuccess.style.display = 'block';
+
+      showToast(`Đã lưu mã giữ phòng ${randomCode} vào Bảng Thanh Toán Lịch Trình!`);
+    });
+
+    document.getElementById('btnDoneSuccess').addEventListener('click', closeBookingModal);
+
+    // Initial Render
+    syncRoomBannerFromStorage();
+    renderHotels();
+  </script>
+  <script src="pixel-elephant.js"></script>
+  <script src="chatbox.js"></script>
+  <script src="apple-glass.js"></script>
+</body>
+</html>

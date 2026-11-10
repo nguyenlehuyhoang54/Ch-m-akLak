@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Hướng dẫn viên Sinh viên Bản địa – Chạm Đắk Lắk</title><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="shared.css" /><style>.impact-box {
+      background: rgba(255,255,255,0.11); backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(255,255,255,0.22); border-radius: 20px; padding: 22px 24px;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    }
+    .impact-stat h3 { font-size: 26px; font-weight: 800; color: var(--forest-200); line-height: 1.1; }
+    .impact-stat p { font-size: 11.5px; color: rgba(255,255,255,0.85); margin: 4px 0 0; }
+    .filter-panel {
+      background: #fff; border-radius: 20px; padding: 22px 26px; margin-top: 18px;
+      box-shadow: var(--shadow-card); border: 1px solid rgba(21,61,39,0.08); position: relative; z-index: 10;
+    }
+    .filter-grid { display: grid; grid-template-columns: 1.1fr 1fr 0.9fr 1.1fr; gap: 14px; margin-top: 12px; }
+    .filter-field label { display: block; font-size: 11.5px; font-weight: 700; color: var(--text-body); margin-bottom: 5px; }
+    .filter-field select, .filter-field input {
+      width: 100%; height: 40px; border-radius: 10px; border: 1px solid rgba(21,61,39,0.18);
+      padding: 0 12px; font-size: 12.5px; font-weight: 600; outline: none; background: #fff;
+    }
+    .guides-section { padding: 36px 0 28px; }
+    .guides-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 20px; }
+    .guide-card {
+      background: #fff; border-radius: 20px; border: 1px solid rgba(21,61,39,0.09);
+      box-shadow: var(--shadow-soft); padding: 22px; display: flex; flex-direction: column;
+      justify-content: space-between; transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .guide-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-card); }
+    .guide-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+    .guide-avatar {
+      width: 56px; height: 56px; border-radius: 16px;
+      background: linear-gradient(135deg, #059669, #10b981);
+      border: 1px solid #6ee7b7;
+      color: #fff; font-size: 16px; font-weight: 800; letter-spacing: 0.04em;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .guide-name-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .guide-name { font-size: 16.5px; font-weight: 800; color: var(--text-main); }
+    .verified-badge {
+      background: var(--sage-bg); color: var(--forest-800); font-size: 10.5px; font-weight: 700;
+      padding: 2px 8px; border-radius: var(--radius-pill);
+    }
+    .guide-uni { font-size: 12px; font-weight: 700; color: var(--forest-700); margin-top: 3px; }
+    .guide-major { font-size: 11.5px; color: var(--text-muted); }
+    .criteria-list {
+      background: var(--bar-bg); border-radius: 14px; padding: 12px 14px; margin-bottom: 14px;
+      display: flex; flex-direction: column; gap: 8px; font-size: 12px;
+    }
+    .criteria-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+    .criteria-label { color: var(--text-muted); font-weight: 600; flex-shrink: 0; }
+    .criteria-val { font-weight: 700; color: var(--text-main); text-align: right; }
+    .lang-pill {
+      display: inline-block; padding: 2px 8px; border-radius: 999px;
+      background: var(--sage-icon); color: var(--forest-800); font-size: 11px; font-weight: 700; margin-left: 3px;
+    }
+    .checkin-box { margin-bottom: 16px; }
+    .checkin-title {
+      font-size: 11.5px; font-weight: 800; color: var(--forest-800); margin-bottom: 7px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .checkin-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .checkin-tag {
+      font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: var(--radius-pill);
+      background: var(--sage-bg); color: var(--forest-800); border: 1px solid rgba(21,61,39,0.1);
+    }
+    .guide-bio { font-size: 12.5px; color: var(--text-body); margin-bottom: 14px; line-height: 1.5; }
+    .guide-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 14px; border-top: 1px dashed rgba(21,61,39,0.14);
+    }
+    .guide-rate { font-size: 15px; font-weight: 800; color: var(--forest-800); }
+    .guide-rate span { font-size: 11px; font-weight: 500; color: var(--text-muted); }
+    .btn-book-guide {
+      padding: 8px 16px; border-radius: var(--radius-pill); border: none;
+      background: var(--forest-800); color: #fff; font-size: 12px; font-weight: 700; cursor: pointer;
+    }
+    .btn-book-guide:hover { background: var(--forest-700); }
+    .crowd-banner {
+      background: linear-gradient(135deg, #ecf4ef 0%, #f8efe6 100%);
+      border-radius: 22px; padding: 28px; border: 1px solid rgba(21,61,39,0.1);
+    }
+    .crowd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
+    .crowd-item {
+      background: #fff; border-radius: 14px; padding: 16px;
+      border-left: 4px solid var(--forest-800); box-shadow: var(--shadow-soft);
+    }
+    .register-card {
+      background: #fff; border-radius: 22px; padding: 32px;
+      border: 1.5px solid rgba(21,61,39,0.14); box-shadow: var(--shadow-card);
+    }
+    .form-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 14px; }
+    .form-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 12.5px; font-weight: 700; margin-bottom: 6px; color: var(--text-main); }
+    .form-control {
+      width: 100%; height: 42px; border-radius: 10px; border: 1px solid rgba(21,61,39,0.2);
+      padding: 0 14px; font-size: 13px; outline: none;
+    }
+    textarea.form-control { height: auto; padding: 10px 14px; }
+    .checkbox-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+    .check-pill {
+      display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px;
+      border-radius: var(--radius-pill); background: var(--bar-bg);
+      border: 1px solid rgba(21,61,39,0.15); font-size: 12px; font-weight: 600; cursor: pointer;
+    }
+    .check-pill input { accent-color: var(--forest-800); }
+    @media (max-width: 960px) {
+      .hero-split, .filter-grid, .guides-grid, .crowd-grid, .form-grid-2, .form-grid-3 { grid-template-columns: 1fr; }
+    }
+    /* White & Fresh Mint Green Overrides */
+    .filter-panel, .guide-card, .crowd-banner, .crowd-item, .register-card, .impact-box {
+      background: #ffffff !important;
+      border: 1.5px solid #bbf7d0 !important;
+      box-shadow: 0 12px 32px rgba(16, 185, 129, 0.10) !important;
+      border-radius: 26px !important;
+      color: #064e3b !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+    }
+    .guide-card:hover, .crowd-item:hover {
+      transform: translateY(-10px) !important;
+      border-color: #10b981 !important;
+      box-shadow: 0 22px 44px rgba(16, 185, 129, 0.18) !important;
+    }
+    @media (min-width: 961px) {
+      .guides-grid .guide-card:first-child {
+        grid-column: span 2;
+      }
+    }
+    .guide-name, .criteria-val, .form-group label, h1, h2, h3 { color: #064e3b !important; }
+    .guide-bio, .guide-major, .criteria-label, .filter-field label, .impact-stat p { color: #1e3a2f !important; }
+    .guide-uni, .checkin-title, .guide-rate, .impact-stat h3 {
+      background: linear-gradient(135deg, #047857 0%, #059669 52%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .criteria-list, .check-pill {
+      background: #f0fdf7 !important;
+      border: 1px solid #a7f3d0 !important;
+      color: #064e3b !important;
+    }
+    .verified-badge, .lang-pill, .checkin-tag {
+      background: #ecfdf5 !important;
+      color: #047857 !important;
+      border: 1px solid #6ee7b7 !important;
+    }
+    .filter-field select, .filter-field input, .form-control {
+      background: #f0fdf7 !important;
+      border: 1.5px solid #a7f3d0 !important;
+      color: #064e3b !important;
+    }
+    .btn-book-guide {
+      background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.28) !important;
+    }
+  </style>  <link rel="stylesheet" href="apple-glass.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+</head><body><header class="site-header" id="topHeader"><div class="header-inner"><a href="chamdaklak.html" class="brand-logo"><div class="brand-emblem"><img src="logo-badge.png" alt="Chạm Đắk Lắk Logo" class="brand-emblem-img" /></div><div class="brand-text"><span class="brand-title">Chạm Đắk Lắk</span><span class="brand-subtitle">Khám phá – Trải nghiệm – Kết nối</span></div></a><nav class="main-nav"><a href="chamdaklak.html" class="nav-link">Trang chủ</a><a href="dia-diem.html" class="nav-link">Địa điểm</a><a href="dat-phong.html" class="nav-link">Đặt phòng</a><a href="dac-san.html" class="nav-link">Đặc sản</a><a href="Dat_lich_trinh.html" class="nav-link">Đặt lịch trình</a><a href="tin-tuc.html" class="nav-link">Tin tức</a><a href="huong-dan-vien.html" class="nav-link active">HDV Sinh viên</a><a href="ve-chung-toi.html" class="nav-link">Về chúng tôi</a></nav><a href="#dang-ky-hdv" class="btn-cta-nav">Sinh viên nhận việc</a></div></header><section class="page-hero"><div class="container hero-split" style="display:grid;grid-template-columns:1.25fr 0.75fr;gap:32px;align-items:center;"><div><span class="page-hero-badge">KẾT NỐI SINH VIÊN DU LỊCH & NGOẠI NGỮ TẠI ĐẮK LẮK</span><h1>Đồng hành cùng Hướng dẫn viên Sinh viên Bản địa</h1><p>Giúp du khách có người bạn thổ địa am hiểu đường đi, thông thạo ngoại ngữ, chụp ảnh đẹp; đồng thời tạo việc làm thêm uy tín cho sinh viên các trường Đại học – Cao đẳng tại Đắk Lắk.</p><div class="hero-btns" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;"><a href="#danh-sach-hdv" class="btn-white">Tìm Sinh viên đồng hành</a><a href="#dang-ky-hdv" class="btn-outline-light">Đăng ký Hồ sơ Sinh viên & Check-in</a></div></div><div class="impact-box"><div class="impact-stat"><h3 id="statGuidesCount">68+</h3><p>HDV Sinh viên đã xác thực thẻ sinh viên & ngoại ngữ</p></div><div class="impact-stat"><h3>6 Trường</h3><p>ĐH Tây Nguyên, ĐH Buôn Ma Thuột, CĐ VHNT, ĐH Luật...</p></div><div class="impact-stat"><h3 id="statCheckinsCount">420+</h3><p>Lượt check-in & đóng góp tọa độ mới từ sinh viên</p></div><div class="impact-stat"><h3>100%</h3><p>Thu nhập chuyển trực tiếp cho sinh viên bản địa</p></div></div></div></section><main class="container"><!-- SCIENTIFIC 3-WEB ECOSYSTEM BAR --><div id="linkedEcoBannerGuide" style="margin: 22px 0 6px; padding: 18px 22px; border-radius: 24px; background: #ffffff; border: 1.5px solid #a7f3d0; color: #064e3b; box-shadow: 0 12px 32px rgba(16, 185, 129, 0.10); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;"><div><span style="display:inline-block; padding:3px 10px; border-radius:999px; background:#ecfdf5; border:1px solid #6ee7b7; color:#047857; font-size:11px; font-weight:800;">LIÊN KẾT HỆ THỐNG 3 TRANG KHOA HỌC (BƯỚC 3/3: THUÊ HDV SINH VIÊN)
+        </span><div style="font-size:15px; font-weight:800; margin-top:5px;" id="ecoGuideBannerStatus">Chọn bạn Sinh viên đồng hành tại đây để tự động ghép vào Bảng Thanh Toán bên trang Đặt Lịch Trình!
+        </div></div><div style="display:flex; gap:10px; flex-wrap:wrap;"><a href="dat-phong.html" style="padding:10px 16px; border-radius:999px; background:#ecfdf5; border:1.5px solid #6ee7b7; color:#047857; font-size:12.5px; font-weight:700; text-decoration:none;">Bước 2: Xem &amp; Chọn Phòng Lưu Trú
+        </a><a href="Dat_lich_trinh.html#tripCostSummaryPanel" style="padding:10px 18px; border-radius:999px; background:linear-gradient(135deg, #059669, #10b981); border:1px solid #34d399; color:#fff; font-size:12.5px; font-weight:800; text-decoration:none; box-shadow:0 8px 20px rgba(16,185,129,0.28);">Sang Đặt Lịch Trình &amp; Xem Bảng Thanh Toán →
+        </a></div></div><!-- FILTER BAR --><div class="filter-panel" id="danh-sach-hdv"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;"><h3 style="font-size:16px;font-weight:800;">Lọc Hướng dẫn viên Sinh viên theo 4 Tiêu chí Chuẩn:</h3><span style="font-size:12px;color:#059669;font-weight:700;">Đã xác thực Thẻ Sinh viên &amp; Bằng Ngoại ngữ</span></div><div class="filter-grid"><div class="filter-field"><label>1. Trường đang theo học</label><select id="filterUni"><option value="all">Tất cả trường ĐH / CĐ tại Đắk Lắk</option><option value="Đại học Tây Nguyên (TNU)">Đại học Tây Nguyên (TNU)</option><option value="Đại học Buôn Ma Thuột (BMU)">Đại học Buôn Ma Thuột (BMU)</option><option value="Cao đẳng Văn hóa Nghệ thuật Đắk Lắk">CĐ Văn hóa Nghệ thuật Đắk Lắk</option><option value="Phân hiệu ĐH Luật Hà Nội tại Đắk Lắk">Phân hiệu ĐH Luật Hà Nội (BMT)</option><option value="Cao đẳng Bách khoa Tây Nguyên">Cao đẳng Bách khoa Tây Nguyên</option></select></div><div class="filter-field"><label>2. Bằng cấp / Chứng chỉ Ngoại ngữ</label><select id="filterCert"><option value="all">Tất cả bằng ngoại ngữ</option><option value="IELTS">Tiếng Anh (IELTS / TOEIC)</option><option value="HSK">Tiếng Trung (HSK 4 – 5)</option><option value="TOPIK">Tiếng Hàn (TOPIK II)</option><option value="DELF">Tiếng Pháp (DELF B1/B2)</option><option value="Ê Đê">Tiếng Ê Đê / M'nông bản địa</option></select></div><div class="filter-field"><label>3. Số ngôn ngữ thông thạo</label><select id="filterLangCount"><option value="0">Tất cả (Từ 2 ngôn ngữ trở lên)</option><option value="2">Thông thạo từ 2 ngôn ngữ</option><option value="3">Thông thạo từ 3 ngôn ngữ trở lên</option></select></div><div class="filter-field"><label>4. Địa điểm sinh viên đã Check-in ở Đắk Lắk</label><select id="filterCheckin"><option value="all">Tất cả địa điểm tại Đắk Lắk</option><option value="Bảo tàng Thế giới Cà phê">Bảo tàng Thế giới Cà phê</option><option value="Thác Dray Nur">Thác Dray Nur – Sêrêpốk</option><option value="Hồ Lắk">Hồ Lắk & Đá Voi Mẹ Yang Tao</option><option value="Buôn Ako Dhông">Buôn Ako Dhông & Nhà dài</option><option value="VQG Yok Đôn">VQG Yok Đôn & Buôn Đôn</option><option value="Lee's House">Lee's House & Cốm Glamping</option></select></div></div></div><!-- STUDENT GUIDES LIST --><section class="guides-section"><div class="guides-grid" id="guidesGrid"></div></section><!-- CROWDSOURCED DATA --><section style="padding:24px 0 40px;"><div class="crowd-banner"><div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;"><div><span style="font-size:11.5px;font-weight:800;color:#059669;text-transform:uppercase;">DỮ LIỆU THỰC TẾ THU THẬP TỪ SINH VIÊN BẢN ĐỊA</span><h2 style="font-size:22px;font-weight:800;margin-top:4px;">Kho dữ liệu Check-in &amp; Mẹo thổ địa do Sinh viên đóng góp</h2><p style="font-size:13px;color:#1e3a2f;">Mỗi khi sinh viên cập nhật hồ sơ các địa điểm đã check-in, dữ liệu thực tế sẽ tự động bổ sung vào bản đồ Chạm Đắk Lắk:</p></div><a href="#dang-ky-hdv" class="btn-cta-nav">+ Đóng góp thêm dữ liệu Check-in</a></div><div class="crowd-grid" id="crowdDataGrid"></div></div></section><!-- REGISTRATION FORM --><section style="padding:16px 0 56px;" id="dang-ky-hdv"><div class="register-card"><div style="margin-bottom:22px;"><span style="background:#ecfdf5;border:1px solid #6ee7b7;color:#047857;padding:4px 12px;border-radius:999px;font-size:11.5px;font-weight:800;">DÀNH CHO SINH VIÊN ĐẮK LẮK NHẬN VIỆC &amp; ĐÓNG GÓP DỮ LIỆU</span><h2 style="font-size:24px;font-weight:800;margin-top:8px;">Đăng ký Hồ sơ Hướng dẫn viên Sinh viên</h2><p style="font-size:13.5px;color:#1e3a2f;">Điền thông tin trường đang học, bằng ngoại ngữ, số ngôn ngữ thông thạo và các địa điểm bạn đã check-in tại Đắk Lắk để hiển thị hồ sơ nhận việc ngay trên trang!</p></div><form id="studentRegForm"><div class="form-grid-3"><div class="form-group"><label>Họ và tên Sinh viên *</label><input type="text" id="stName" class="form-control" placeholder="VD: H'Hen Niê / Nguyễn Minh Khôi" required /></div><div class="form-group"><label>Trường đang theo học *</label><select id="stUni" class="form-control" required><option value="Đại học Tây Nguyên (TNU)">Đại học Tây Nguyên (TNU)</option><option value="Đại học Buôn Ma Thuột (BMU)">Đại học Buôn Ma Thuột (BMU)</option><option value="Cao đẳng Văn hóa Nghệ thuật Đắk Lắk">CĐ Văn hóa Nghệ thuật Đắk Lắk</option><option value="Phân hiệu ĐH Luật Hà Nội tại Đắk Lắk">Phân hiệu ĐH Luật Hà Nội tại Đắk Lắk</option><option value="Cao đẳng Bách khoa Tây Nguyên">Cao đẳng Bách khoa Tây Nguyên</option></select></div><div class="form-group"><label>Chuyên ngành & Năm học *</label><input type="text" id="stMajor" class="form-control" placeholder="VD: Quản trị Du lịch & Lữ hành – Năm 3" required /></div></div><div class="form-grid-3"><div class="form-group"><label>Bằng cấp / Chứng chỉ Ngoại ngữ *</label><input type="text" id="stCert" class="form-control" placeholder="VD: IELTS 7.0 / HSK 5 / TOPIK II Cấp 4" required /></div><div class="form-group"><label>Số ngôn ngữ thông thạo *</label><select id="stLangCount" class="form-control" required><option value="2">2 ngôn ngữ</option><option value="3" selected>3 ngôn ngữ</option><option value="4">4 ngôn ngữ trở lên</option></select></div><div class="form-group"><label>Liệt kê các ngôn ngữ thông thạo *</label><input type="text" id="stLangs" class="form-control" placeholder="VD: Việt, Anh, Ê Đê (hoặc Trung, Hàn)" required /></div></div><div class="form-group" style="margin-bottom:16px;"><label>Các địa điểm tại Đắk Lắk bạn đã Check-in thực tế & tự tin dẫn khách (Chọn ít nhất 1 điểm) *</label><div class="checkbox-pills" id="checkinPills"><label class="check-pill"><input type="checkbox" value="Bảo tàng Thế giới Cà phê" checked />Bảo tàng Thế giới Cà phê</label><label class="check-pill"><input type="checkbox" value="Thác Dray Nur" checked />Thác Dray Nur – Gia Long</label><label class="check-pill"><input type="checkbox" value="Buôn Ako Dhông" checked />Buôn Ako Dhông & Arul Coffee</label><label class="check-pill"><input type="checkbox" value="Hồ Lắk" />Hồ Lắk & Đá Voi Mẹ Yang Tao</label><label class="check-pill"><input type="checkbox" value="VQG Yok Đôn" />VQG Yok Đôn & Cầu treo Buôn Đôn</label><label class="check-pill"><input type="checkbox" value="Lee's House" />Lee's House & Cốm Glamping</label><label class="check-pill"><input type="checkbox" value="Foodtour BMT" />Foodtour Ăn Sập BMT</label></div></div><div class="form-grid-2"><div class="form-group"><label>Đóng góp 1 Tọa độ mới / Bí kíp bản địa vừa Check-in *</label><textarea id="stContribution" rows="2" class="form-control" placeholder="VD: Đồi thông Cư Dliê M'nông săn mây lúc 5h30 sáng cực đẹp..." required></textarea></div><div class="form-group"><label>Thù lao dự kiến & Liên hệ (Zalo/SĐT) *</label><input type="text" id="stPrice" class="form-control" placeholder="VD: 350.000đ/buổi (4 tiếng) – Có xe máy & chụp ảnh" required style="margin-bottom:8px;" /><input type="text" id="stPhone" class="form-control" placeholder="Số Zalo nhận việc (VD: 09xx.xxx.xxx)" required /></div></div><button type="submit" class="btn-cta-nav" style="padding:12px 28px;font-size:14px;">Đăng hồ sơ Nhận việc & Đóng góp Dữ liệu Check-in</button></form></div></section></main><footer class="site-footer"><div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;"><span>© 2026 Chạm Đắk Lắk – Nền tảng kết nối Hướng dẫn viên Sinh viên & Du lịch Bền vững</span><a href="chamdaklak.html">← Quay về Trang chủ</a></div></footer><!-- BOOKING MODAL --><div class="backdrop" id="bookModal"><div class="modal-box"><div class="modal-head"><button class="modal-close" id="closeBookModal">×</button><div style="font-size:12px;opacity:0.9;">KẾT NỐI ĐỒNG HÀNH CÙNG SINH VIÊN BẢN ĐỊA</div><h3 id="bookGuideName" style="font-size:21px;font-weight:800;margin-top:4px;color:#fff !important;"></h3></div><div class="modal-content"><p id="bookGuideSummary" style="font-size:13px;color:#059669;font-weight:700;margin-bottom:14px;"></p><form id="bookGuideForm"><input type="text" class="form-control" placeholder="Họ tên của bạn (Du khách)" required style="margin-bottom:10px;" /><input type="text" class="form-control" placeholder="Số điện thoại Zalo của bạn" required style="margin-bottom:10px;" /><input type="text" class="form-control" placeholder="Ngày dự kiến đi & Các địa điểm muốn ghé tại Đắk Lắk" required style="margin-bottom:14px;" /><button type="submit" class="btn-cta-nav" style="width:100%;padding:11px;">Gửi yêu cầu đặt lịch cho Sinh viên →</button></form></div></div></div><div class="toast-box" id="toastBox"></div><script src="shared.js"></script><script>const INITIAL_GUIDES = [
+      { id:"guide-hmien", name:"H'Miên Êban", avatar:"HM", uni:"Đại học Tây Nguyên (TNU)", major:"Sư phạm Tiếng Anh & Văn hóa Tây Nguyên – Năm 4", cert:"IELTS 7.0 & Chứng chỉ Thuyết minh viên", langCount:3, langs:["Việt","Anh (IELTS 7.0)","Ê Đê bản địa"], checkins:["Bảo tàng Thế giới Cà phê","Buôn Ako Dhông","Thác Dray Nur","VQG Yok Đôn","Arul Coffee"], checkinTotal:38, contribution:"Tại Buôn Ako Dhông, nếu muốn nghe nghệ nhân đánh chiêng tre (Knah) miễn phí, hãy ghé nhà sàn số 19 vào 15h30 chiều thứ Bảy.", rate:"400.000đ", rateNum:400000, unit:"/ buổi (4h)", bio:"Sinh ra tại buôn Ako Dhông, am hiểu sâu sắc văn hóa mẫu hệ Ê Đê, kiến trúc nhà dài và chụp ảnh phim cực có gu." },
+      { id:"guide-phuc", name:"Nguyễn Hoàng Phúc", avatar:"HP", uni:"Đại học Buôn Ma Thuột (BMU)", major:"Ngôn ngữ Anh & Truyền thông – Năm 3", cert:"TOEIC 865 + Giao tiếp Tiếng Trung HSK 4", langCount:3, langs:["Việt","Anh (TOEIC 865)","Trung (HSK 4)"], checkins:["Lee's House","Cốm Camp & Glamping","SOUL Roastery BMT","Thác Dray Nur","Foodtour BMT"], checkinTotal:45, contribution:"Đường xuống cụm thác Gia Long – Dray Nur vừa làm lại đoạn đèo dốc, góc chụp cây cầu treo màu cam lúc 9h sáng nắng xuyên qua sương cực đẹp.", rate:"350.000đ", rateNum:350000, unit:"/ buổi (Kèm máy ảnh Sony)", bio:"Photographer tự do & Reviewer TikTok BMT. Thuộc lòng toàn bộ quán cà phê Specialty và các góc quay biến hình triệu view." },
+      { id:"guide-ykong", name:"Y Kông M'nông", avatar:"YK", uni:"Cao đẳng Văn hóa Nghệ thuật Đắk Lắk", major:"Hướng dẫn Du lịch & Văn hóa Dân tộc – Năm cuối", cert:"Chứng chỉ Anh văn B2 + Tiếng Pháp DELF B1", langCount:3, langs:["Việt","Anh (B2)","Pháp (DELF B1)","M'nông"], checkins:["Hồ Lắk","Đá Voi Mẹ Yang Tao","VQG Yok Đôn","Cầu Treo Buôn Đôn"], checkinTotal:52, contribution:"Đi Đá Voi Mẹ Yang Tao lúc 16h30 chiều gió mát, trên đường về ghé buôn Lê (Hồ Lắk) ngắm hoàng hôn buông xuống thuyền độc mộc là đẹp nhất.", rate:"450.000đ", rateNum:450000, unit:"/ ngày (8h)", bio:"Người con của vùng Hồ Lắk, thông thạo địa hình rừng khộp Yok Đôn và các câu chuyện sử thi M'nông." },
+      { id:"guide-baongoc", name:"Trần Lê Bảo Ngọc", avatar:"BN", uni:"Phân hiệu ĐH Luật Hà Nội tại Đắk Lắk", major:"Luật Kinh tế & CLB Đối ngoại – Năm 3", cert:"TOPIK II Cấp 4 (Tiếng Hàn) + IELTS 6.5", langCount:3, langs:["Việt","Hàn (TOPIK 4)","Anh (IELTS 6.5)"], checkins:["Bảo tàng Thế giới Cà phê","The Circle Roasters","Lee's House","Foodtour BMT"], checkinTotal:31, contribution:"Quán Bò nhúng me Cà Te đã dời về 57 Nguyễn Khuyến, đi tầm 17h45 là có bàn ngay không phải xếp hàng chờ.", rate:"380.000đ", rateNum:380000, unit:"/ buổi (4h)", bio:"Chuyên dẫn du khách Hàn Quốc & gia đình trẻ khám phá Foodtour Ăn Sập BMT và mua đặc sản chuẩn giá." },
+      { id:"guide-quoctuan", name:"Lê Quốc Tuấn", avatar:"QT", uni:"Cao đẳng Bách khoa Tây Nguyên", major:"Quản trị Dịch vụ Du lịch & Lữ hành – Năm 2", cert:"TOEIC 780 & Kỹ năng Dẫn tour Sinh thái", langCount:2, langs:["Việt","Anh (TOEIC 780)"], checkins:["Thác Dray Nur","Hồ Lắk","Lee's House","KDL Sinh thái KoTam"], checkinTotal:29, contribution:"Khu suối đá tại Cốm Camp (Hòa Khánh) nước trong nhất vào buổi sáng từ 8h–11h, rất hợp cho gia đình có trẻ nhỏ dã ngoại.", rate:"300.000đ", rateNum:300000, unit:"/ buổi (4h)", bio:"Nhiệt tình, rành mọi cung đường phượt thác và hỗ trợ quay clip TikTok, Flycam góc rộng cho nhóm bạn." },
+      { id:"guide-thaovy", name:"Phạm Mai Thảo Vy", avatar:"TV", uni:"Đại học Tây Nguyên (TNU)", major:"Ngôn ngữ Anh – Năm 4", cert:"IELTS 7.5 + Tiếng Trung HSK 5", langCount:3, langs:["Việt","Anh (IELTS 7.5)","Trung (HSK 5)"], checkins:["Bảo tàng Thế giới Cà phê","Buôn Ako Dhông","VQG Yok Đôn","Hồ Lắk"], checkinTotal:41, contribution:"Workshop tự tay rang cà phê Fine Robusta tại nông trại Cư Kuin chỉ mất 15km từ trung tâm nhưng trải nghiệm hái hạt chín cực kỳ đáng giá.", rate:"450.000đ", rateNum:450000, unit:"/ buổi (Chuyên khách Quốc tế)", bio:"Kinh nghiệm dẫn hơn 40 đoàn khách quốc tế tìm hiểu quy trình trồng – chế biến cà phê Fine Robusta và bảo tồn voi Yok Đôn." }
+    ];
+
+    function resolveGuideId(g, idx) {
+      if (g.id) return g.id;
+      if (g.name.includes("Miên")) return "guide-hmien";
+      if (g.name.includes("Phúc")) return "guide-phuc";
+      if (g.name.includes("Kông")) return "guide-ykong";
+      if (g.name.includes("Ngọc")) return "guide-baongoc";
+      if (g.name.includes("Tuấn")) return "guide-quoctuan";
+      if (g.name.includes("Vy")) return "guide-thaovy";
+      return "custom-guide-" + idx;
+    }
+
+    function getGuides() {
+      try {
+        const s = JSON.parse(localStorage.getItem('cdl_student_guides'));
+        if (s && s.length) {
+          return s.map((item, i) =>({
+            ...item,
+            avatar: (item.avatar && /^[A-Z0-9]{1,3}$/i.test(item.avatar)) ? item.avatar : (INITIAL_GUIDES[i]?.avatar || 'SV')
+          }));
+        }
+        return INITIAL_GUIDES;
+      } catch {
+        return INITIAL_GUIDES;
+      }
+    }
+    function saveGuides(list) { localStorage.setItem('cdl_student_guides', JSON.stringify(list)); }
+
+    function syncGuideBannerFromStorage() {
+      const statusEl = document.getElementById('ecoGuideBannerStatus');
+      if (!statusEl) return;
+      try {
+        const saved = JSON.parse(localStorage.getItem('cdl_selected_guide'));
+        if (saved && saved.name && saved.id !== 'none') {
+          statusEl.innerHTML = `Đã chọn vào Lịch Trình: <u style="color:#059669;">${saved.name}</u>(${(saved.price || 350000).toLocaleString('vi-VN')}đ/${saved.unit || 'buổi'} • ${saved.sessions || 2} buổi)`;
+        }
+      } catch {}
+    }
+
+    window.selectGuideForItinerary = function(idx) {
+      const g = getGuides()[idx];
+      if (!g) return;
+      const gId = resolveGuideId(g, idx);
+      const priceNum = g.rateNum || parseInt(String(g.rate).replace(/\D/g, ''), 10) || 350000;
+      try {
+        localStorage.setItem('cdl_selected_guide', JSON.stringify({
+          id: gId,
+          name: `${g.name} – ${g.uni}`,
+          price: priceNum,
+          unit: g.unit ? g.unit.replace('/', '').trim() : 'buổi (4h)',
+          sessions: 2,
+          updatedAt: new Date().toISOString()
+        }));
+      } catch {}
+      syncGuideBannerFromStorage();
+      showToast(`Đã ghép SV "${g.name}" vào Bảng Thanh Toán bên trang Đặt Lịch Trình!`);
+    };
+
+    function renderGuides() {
+      const uni = document.getElementById('filterUni').value;
+      const cert = document.getElementById('filterCert').value.toLowerCase();
+      const minLang = Number(document.getElementById('filterLangCount').value);
+      const checkin = document.getElementById('filterCheckin').value.toLowerCase();
+      const all = getGuides();
+      const filtered = all.filter(g =>{
+        const matchUni = uni === 'all' || g.uni.includes(uni);
+        const matchCert = cert === 'all' || g.cert.toLowerCase().includes(cert) || g.langs.join(' ').toLowerCase().includes(cert);
+        const matchLang = g.langCount >= minLang;
+        const matchCheckin = checkin === 'all' || g.checkins.some(c =>c.toLowerCase().includes(checkin));
+        return matchUni && matchCert && matchLang && matchCheckin;
+      });
+      document.getElementById('guidesGrid').innerHTML = filtered.map((g, idx) =>`
+        <article class="guide-card"><div><div class="guide-header"><div class="guide-avatar">${g.avatar || 'SV'}</div><div><div class="guide-name-row"><h3 class="guide-name">${g.name}</h3><span class="verified-badge">Đã xác thực SV</span></div><div class="guide-uni">${g.uni}</div><div class="guide-major">${g.major}</div></div></div><div class="criteria-list"><div class="criteria-row"><span class="criteria-label">Bằng ngoại ngữ:</span><span class="criteria-val">${g.cert}</span></div><div class="criteria-row"><span class="criteria-label">Số ngôn ngữ (${g.langCount}):</span><span class="criteria-val">${g.langs.map(l =>`<span class="lang-pill">${l}</span>`).join('')}</span></div></div><div class="checkin-box"><div class="checkin-title"><span>Đã Check-in thực tế ở Đắk Lắk:</span><span>${g.checkinTotal || g.checkins.length * 6} lần dẫn khách</span></div><div class="checkin-tags">${g.checkins.map(c =>`<span class="checkin-tag">${c}</span>`).join('')}</div></div><p class="guide-bio">${g.bio}</p></div><div class="guide-footer" style="flex-wrap:wrap; gap:8px;"><div class="guide-rate">${g.rate} <span>${g.unit}</span></div><div style="display:flex; gap:6px; flex-wrap:wrap;"><button class="btn-book-guide" onclick="selectGuideForItinerary(${idx})">+ Ghép vào Lịch Trình</button><button class="btn-book-guide" onclick="openBookModal(${idx})">Đặt lịch đồng hành →</button></div></div></article>`).join('');
+      document.getElementById('crowdDataGrid').innerHTML = all.slice(0, 6).map(g =>`
+        <div class="crowd-item"><div style="font-size:11.5px;font-weight:800;color:#059669;margin-bottom:4px;">Đóng góp bởi SV ${g.name} (${g.uni})</div><p style="font-size:12.5px;color:#1e3a2f;">"${g.contribution}"</p></div>`).join('');
+    }
+
+    ['filterUni','filterCert','filterLangCount','filterCheckin'].forEach(id =>{
+      document.getElementById(id).addEventListener('change', renderGuides);
+    });
+
+    let activeModalGuideIdx = 0;
+    const bookModal = document.getElementById('bookModal');
+    window.openBookModal = function(idx) {
+      const g = getGuides()[idx];
+      if (!g) return;
+      activeModalGuideIdx = idx;
+      document.getElementById('bookGuideName').textContent = `Đặt lịch cùng SV ${g.name}`;
+      document.getElementById('bookGuideSummary').textContent = `${g.uni} • ${g.langCount} ngôn ngữ (${g.langs.join(', ')}) • ${g.rate}${g.unit}`;
+      bookModal.classList.add('open');
+    };
+    document.getElementById('closeBookModal').addEventListener('click', () =>bookModal.classList.remove('open'));
+    document.getElementById('bookGuideForm').addEventListener('submit', e =>{
+      e.preventDefault();
+      window.selectGuideForItinerary(activeModalGuideIdx);
+      bookModal.classList.remove('open');
+      e.target.reset();
+      showToast('Đã lưu HDV Sinh viên vào Bảng Thanh Toán Lịch Trình & gửi yêu cầu Zalo!');
+    });
+    syncGuideBannerFromStorage();
+    document.getElementById('studentRegForm').addEventListener('submit', e =>{
+      e.preventDefault();
+      const checkedPlaces = Array.from(document.querySelectorAll('#checkinPills input:checked')).map(i =>i.value);
+      if (!checkedPlaces.length) { showToast('Vui lòng tích chọn ít nhất 1 địa điểm bạn đã check-in!'); return; }
+      const newGuide = {
+        name: document.getElementById('stName').value.trim(), avatar: "SV",
+        uni: document.getElementById('stUni').value,
+        major: document.getElementById('stMajor').value.trim(),
+        cert: document.getElementById('stCert').value.trim(),
+        langCount: Number(document.getElementById('stLangCount').value),
+        langs: document.getElementById('stLangs').value.split(',').map(s =>s.trim()).filter(Boolean),
+        checkins: checkedPlaces, checkinTotal: checkedPlaces.length * 4,
+        contribution: document.getElementById('stContribution').value.trim(),
+        rate: document.getElementById('stPrice').value.trim(), unit: "",
+        bio: `Sinh viên ${document.getElementById('stUni').value} năng động, sẵn sàng hỗ trợ du khách khám phá Đắk Lắk.`
+      };
+      const list = getGuides();
+      list.unshift(newGuide);
+      saveGuides(list);
+      renderGuides();
+      e.target.reset();
+      document.getElementById('danh-sach-hdv').scrollIntoView({ behavior: 'smooth' });
+      showToast(`Đã tạo hồ sơ HDV cho "${newGuide.name}" và bổ sung dữ liệu check-in mới!`);
+    });
+    renderGuides();
+  </script><script src="pixel-elephant.js"></script>  <script src="apple-glass.js"></script>
+</body></html>
